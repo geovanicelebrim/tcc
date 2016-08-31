@@ -1,0 +1,475 @@
+T1	URLFonte 31 144	http://www.gazetadopovo.com.br/vida-e-cidadania/especiais/pracinhas-na-segunda-guerra/a-cobra-realmente-fumou.jpp
+T2	AutorReporter 181 196	Diego Antonelli
+T3	Pesquisador 208 223	Diego Antonelli
+T4	Pesquisador 226 244	Leandro dos Santos
+T5	TempoFonte 255 275	10 de agosto de 2015
+T6	Local 393 408	norte da Itália
+T7	Local 472 485	Monte Castelo
+T8	Data 526 530	1944
+T9	Organizacao 561 592	Força Expedicionária Brasileira
+T10	Organizacao 594 597	FEB
+T11	Data 691 714	19 de fevereiro de 1945
+T12	Quantidade 895 915	400 mortos e feridos
+T13	Data 929 935	dia 20
+T14	Data 795 803	novembro
+T15	Pessoa 1042 1062	Nery do Carmo Corrêa
+T16	AutorReporter 1215 1230	Jonathan Campos
+T17	Fonte 1231 1245	Gazeta do Povo
+T18	Local 1256 1269	Monte Castelo
+T19	Organizacao 1300 1303	FEB
+T20	Local 1315 1329	Monte Castello
+T21	Local 1440 1445	Silla
+T22	Local 1447 1452	Riola
+T23	Local 1455 1469	Gaggio Montano
+T24	Fonte 1478 1540	"A FEB pelo seu comandante", do Marechal Mascarenhas de Moraes
+T25	Fonte 1555 1569	Gazeta do Povo
+T26	Data 1584 1590	dia 21
+T27	Organizacao 1624 1627	FEB
+T28	Pessoa 1937 1962	Emílio Rodrigues Franklin
+T29	Local 1985 1992	Castelo
+T30	Evento 2061 2079	2.ª Guerra Mundial
+T31	Pessoa 2163 2167	Nery
+T32	Evento 2381 2391	2.ª Guerra
+T33	Evento 2413 2426	Monte Castelo
+T34	Pessoa 2490 2494	Nery
+T35	Organizacao 2535 2538	FEB
+T36	Pessoa 2562 2574	Flávio Costa
+T37	Local 2839 2845	Itália
+T38	Pessoa 2936 2956	Nery Corrêa do Prado
+T39	Organizacao 2989 2992	FEB
+T40	Local 3066 3072	Europa
+T41	Local 3096 3109	Monte Castelo
+T42	Pessoa 3111 3115	Nery
+T43	Local 3174 3179	Monte
+T44	AutorReporter 3251 3266	Jonathan Campos
+T45	Fonte 3267 3281	Gazeta do Povo
+T46	Pessoa 3303 3309	Flávio
+T47	Pessoa 3546 3552	Flávio
+T48	AutorReporter 3618 3629	Hugo Harada
+T49	Fonte 3630 3644	Gazeta do Povo
+T50	Pessoa 3647 3654	Modesto
+T51	Local 3845 3851	Itália
+T52	Pessoa 3854 3861	Modesto
+T53	AutorReporter 3993 4004	Hugo Harada
+T54	Fonte 4005 4019	Gazeta do Povo
+T55	Pessoa 4045 4059	Giovanni Corso
+T56	Data 4223 4233	século XIX
+T57	AutorReporter 4333 4350	Daniel Castellano
+T58	Fonte 4351 4365	Gazeta do Povo
+T59	Organizacao 4392 4395	FEB
+T60	Pessoa 4397 4415	Reynaldo Pontaroll
+T61	Local 4500 4513	Monte Castelo
+T62	Local 4518 4524	Itália
+T63	Data 4533 4556	19 de fevereiro de 1945
+T64	Local 4589 4594	Monte
+T65	Data 4632 4638	dia 21
+R1	Relacao Arg1:T59 Arg2:T63	
+#1	AnnotatorNotes R1	Nessa data
+R2	Causou Arg1:T59 Arg2:T61	
+#2	AnnotatorNotes R2	Bombardeou
+R3	Relacao Arg1:T61 Arg2:T62	
+#3	AnnotatorNotes R3	Pertence
+T66	Local 4715 4722	Montese
+T67	Pessoa 4729 4737	Reynaldo
+T68	AutorReporter 4824 4841	Aniele Nascimento
+T69	Fonte 4842 4856	Gazeta do Povo
+T70	Pessoa 4859 4872	Ari Schnaibel
+T71	Evento 4934 4944	2.ª Guerra
+T72	Data 5020 5024	1944
+T73	Local 5140 5148	Alemanha
+T74	Pessoa 5215 5221	Hitler
+T75	AutorReporter 5371 5386	Jonathan Campos
+T76	Fonte 5387 5401	Gazeta do Povo
+T77	Pessoa 5451 5464	Eronides Cruz
+T78	Organizacao 5481 5484	FAB
+T79	Evento 5495 5505	2.ª Guerra
+T80	AutorReporter 5835 5850	Jonathan Campos
+T81	Fonte 5851 5865	Gazeta do Povo
+T82	Local 5890 5903	Monte Castelo
+T83	Data 5955 5973	5 de março de 1945
+T84	Local 5988 5999	Castelnuovo
+T85	Evento 6061 6079	Batalha de Montese
+T86	Pessoa 6234 6253	Reynaldo Pontarolli
+T87	Quantidade 6426 6462	Das 1.120 casas que haviam na cidade
+T88	Quantidade 6464 6492	mais de 800 foram destruídas
+T89	Local 6503 6510	Montese
+T90	Local 6544 6551	Montese
+T91	Local 6646 6660	Vale do Rio Pó
+T92	Pessoa 6798 6807	Max Wolff
+T93	Local 6823 6832	Rio Negro
+T94	Fonte 6919 6981	"A FEB pelo seu comandante", do Marechal Mascarenhas de Moraes
+T95	Fonte 6995 7009	Gazeta do Povo
+T96	Quantidade 7011 7030	15 mil prisioneiros
+T97	Organizacao 7103 7130	148.ª Divisão de Infantaria
+T98	Quantidade 7146 7165	15 mil prisioneiros
+T99	Organizacao 7231 7234	FEB
+T100	Local 7258 7264	Itália
+T101	Pessoa 7341 7354	Joaquim Mayer
+T102	Organizacao 7387 7406	Polícia do Exército
+T103	Data 7469 7488	29 de abril de 1945
+T104	Evento 7796 7822	1.ª e 2.ª guerras mundiais
+T105	Data 7824 7828	1914
+T106	Data 7829 7833	1945
+R4	Relacao Arg1:T105 Arg2:T106	
+#4	AnnotatorNotes R4	Duração da guerra
+T107	Pesquisador 7850 7866	Marcelo Scarrone
+T108	Organizacao 7883 7925	Revista de História da Biblioteca Nacional
+R5	Relacao Arg1:T107 Arg2:T108	
+#5	AnnotatorNotes R5	Pesquisador
+T109	Local 8033 8041	Alemanha
+T110	Local 8043 8049	Itália
+T111	Local 8060 8070	Inglaterra
+T112	Local 8051 8057	França
+T113	Evento 8141 8151	1.ª Guerra
+T114	Local 8157 8165	Alemanha
+T115	Evento 8205 8215	1.ª Guerra
+T116	Data 8220 8224	1919
+T117	Evento 8281 8301	Tratado de Versalhes
+#6	AnnotatorNotes T117	Não sei se é bem um evento
+R6	Relacao Arg1:T116 Arg2:T117	
+T118	Pesquisador 8496 8504	Scarrone
+T119	Quantidade 8562 8576	100 mil homens
+T120	Quantidade 8638 8655	100 mil toneladas
+T121	Local 8671 8679	Alemanha
+T122	Local 8737 8745	Alemanha
+T123	Local 8819 8827	Alemanha
+R7	Relacao Arg1:T80 Arg2:T81	
+T124	Evento 8854 8872	1.ª Guerra Mundial
+R8	Relacao Arg1:T70 Arg2:T71	
+T125	Local 9078 9093	Montes Apeninos
+R9	Relacao Arg1:T70 Arg2:T72	
+R10	Relacao Arg1:T75 Arg2:T76	
+T126	Fonte 9215 9237	Defense Mapping Agency
+R11	Relacao Arg1:T77 Arg2:T78	
+T127	Fonte 9251 9265	Gazeta do povo
+R12	Relacao Arg1:T78 Arg2:T79	
+R13	Relacao Arg1:T68 Arg2:T69	
+T128	Evento 9293 9313	Tratado de Versalhes
+R14	Relacao Arg1:T67 Arg2:T66	
+T129	Local 9397 9405	Alemanha
+T130	Organizacao 9420 9435	Partido Nazista
+T131	Pessoa 9439 9451	Adolf Hitler
+T132	Local 9538 9546	Alemanha
+T133	Pessoa 9548 9554	Hitler
+T134	Evento 9575 9595	Tratado de Versalhes
+T135	Local 9608 9615	Polônia
+T136	Data 9623 9646	1.º de setembro de 1939
+T137	Evento 9683 9701	2.ª Guerra Mundial
+R15	Relacao Arg1:T57 Arg2:T58	
+T138	Local 9728 9734	França
+R16	Relacao Arg1:T53 Arg2:T54	
+T139	Local 9740 9750	Inglaterra
+R17	Relacao Arg1:T48 Arg2:T49	
+T140	Pesquisador 9759 9767	Scarrone
+T141	Local 9771 9786	União Soviética
+R18	Relacao Arg1:T52 Arg2:T51	
+T142	Local 9813 9829	Leste da Polônia
+R19	Relacao Arg1:T9 Arg2:T10	
+T143	Local 9850 9856	Itália
+R20	Relacao Arg1:T3 Arg2:T4	
+T144	Pessoa 9869 9885	Benito Mussolini
+T145	Local 9915 9928	Sul da França
+R21	Relacao Arg1:T16 Arg2:T17	
+T146	Local 9946 9961	Oceano Pacífico
+T147	Local 9991 9996	Japão
+T148	Local 10105 10113	Alemanha
+T149	Local 10119 10125	Itália
+T150	Local 10175 10187	Pearl Harbor
+T151	Data 10191 10195	1941
+T152	Local 10239 10253	Estados Unidos
+R22	Relacao Arg1:T21 Arg2:T22	
+R23	Relacao Arg1:T22 Arg2:T23	
+R24	Relacao Arg1:T24 Arg2:T25	
+R26	Relacao Arg1:T34 Arg2:T35	
+R27	Relacao Arg1:T36 Arg2:T35	
+R28	Relacao Arg1:T33 Arg2:T32	
+R29	Relacao Arg1:T38 Arg2:T39	
+T153	Local 10269 10283	Rio de Janeiro
+T154	Local 10364 10370	Itália
+R30	Relacao Arg1:T150 Arg2:T151	
+R31	Relacao Arg1:T42 Arg2:T41	
+R32	Relacao Arg1:T44 Arg2:T45	
+R33	Relacao Arg1:T87 Arg2:T88	
+R34	Relacao Arg1:T92 Arg2:T93	
+R35	Relacao Arg1:T90 Arg2:T91	
+R36	Relacao Arg1:T94 Arg2:T95	
+R37	Relacao Arg1:T97 Arg2:T98	
+R38	Relacao Arg1:T99 Arg2:T100	
+R39	Relacao Arg1:T101 Arg2:T102	
+R40	Relacao Arg1:T109 Arg2:T110	
+R41	Relacao Arg1:T110 Arg2:T112	
+R42	Relacao Arg1:T112 Arg2:T111	
+R43	Relacao Arg1:T114 Arg2:T115	
+R44	Relacao Arg1:T114 Arg2:T117	
+R45	Relacao Arg1:T117 Arg2:T119	
+R46	Relacao Arg1:T117 Arg2:T120	
+R47	Relacao Arg1:T123 Arg2:T124	
+R48	Relacao Arg1:T126 Arg2:T127	
+R49	Relacao Arg1:T129 Arg2:T130	
+R50	Relacao Arg1:T130 Arg2:T131	
+R51	Relacao Arg1:T128 Arg2:T129	
+R52	Relacao Arg1:T132 Arg2:T133	
+R53	Relacao Arg1:T133 Arg2:T134	
+R54	Relacao Arg1:T133 Arg2:T135	
+R55	Relacao Arg1:T135 Arg2:T136	
+R56	Relacao Arg1:T83 Arg2:T84	
+R57	Relacao Arg1:T138 Arg2:T139	
+R58	Relacao Arg1:T144 Arg2:T145	
+R59	Relacao Arg1:T144 Arg2:T143	
+R60	Relacao Arg1:T148 Arg2:T149	
+R61	Relacao Arg1:T19 Arg2:T20	
+R62	Relacao Arg1:T141 Arg2:T142	
+R63	Relacao Arg1:T146 Arg2:T147	
+T155	Fonte 10437 10467	acervo Museu do Expedicionário
+T156	AutorReporter 10480 10491	Hugo Harada
+T157	Fonte 10492 10494	GP
+R64	Relacao Arg1:T156 Arg2:T157	
+T158	Organizacao 10499 10502	FEB
+T159	Local 10514 10520	Itália
+T160	Local 10541 10548	Nápoles
+R65	Relacao Arg1:T160 Arg2:T159	
+#7	AnnotatorNotes R65	Pertence
+R66	Relacao Arg1:T158 Arg2:T160	
+T161	Local 10592 10599	Livorno
+R67	Relacao Arg1:T161 Arg2:T159	
+#8	AnnotatorNotes R67	Pertence
+T162	Fonte 10719 10749	acervo Museu do Expedicionário
+T163	AutorReporter 10762 10773	Hugo Harada
+T164	Fonte 10774 10776	GP
+T165	Organizacao 10874 10877	FEB
+T166	Local 10912 10920	Stafolli
+T167	Fonte 10981 11011	acervo Museu do Expedicionário
+T168	AutorReporter 11024 11041	Aniele Nascimento
+T169	Fonte 11042 11044	GP
+T170	Fonte 11247 11277	acervo Museu do Expedicionário
+T171	AutorReporter 11290 11307	Aniele Nascimento
+T172	Fonte 11308 11310	GP
+T173	Local 11485 11493	Apeninos
+T174	Fonte 11502 11523	álbum família Regnier
+T175	AutorReporter 11536 11550	Brunno Covello
+T176	Fonte 11551 11553	GP
+T177	Fonte 11743 11773	acervo Museu do Expedicionário
+T178	AutorReporter 11786 11797	Hugo Harada
+T179	Fonte 11798 11800	GP
+T180	Local 11852 11860	La Pieve
+T181	Data 11864 11880	dezembro de 1944
+T182	Fonte 11961 11991	acervo Museu do Expedicionário
+R68	Relacao Arg1:T163 Arg2:T164	
+R69	Relacao Arg1:T168 Arg2:T169	
+R70	Relacao Arg1:T171 Arg2:T172	
+R71	Relacao Arg1:T175 Arg2:T176	
+R72	Relacao Arg1:T178 Arg2:T179	
+T183	AutorReporter 12004 12015	Hugo Harada
+T184	Fonte 12016 12018	GP
+T185	Organizacao 12059 12062	FEB
+T186	Fonte 12211 12241	acervo Museu do Expedicionário
+T187	AutorReporter 12254 12265	Hugo Harada
+T188	Fonte 12266 12268	GP
+R73	Relacao Arg1:T183 Arg2:T184	
+R74	Relacao Arg1:T187 Arg2:T188	
+T189	Fonte 12498 12528	acervo Museu do Expedicionário
+T190	AutorReporter 12541 12558	Aniele Nascimento
+T191	Fonte 12559 12561	GP
+T192	Fonte 12786 12816	acervo Museu do Expedicionário
+T193	AutorReporter 12829 12846	Aniele Nascimento
+T194	Fonte 12847 12849	GP
+R75	Relacao Arg1:T190 Arg2:T191	
+R76	Relacao Arg1:T193 Arg2:T194	
+T195	Local 12895 12909	Monte Castello
+T196	Fonte 13102 13132	acervo Museu do Expedicionário
+T197	AutorReporter 13145 13162	Aniele Nascimento
+T198	Fonte 13163 13165	GP
+T199	Organizacao 13376 13379	FEB
+T200	Fonte 13388 13418	acervo Museu do Expedicionário
+T201	AutorReporter 13431 13446	Jonathan Campos
+T202	Fonte 13447 13449	GP
+T203	Fonte 13611 13641	acervo Museu do Expedicionário
+T204	AutorReporter 13654 13665	Hugo Harada
+T205	Fonte 13666 13668	GP
+R77	Relacao Arg1:T197 Arg2:T198	
+R78	Relacao Arg1:T201 Arg2:T202	
+R79	Relacao Arg1:T204 Arg2:T205	
+T206	Organizacao 13690 13706	Serviço de Saúde
+T207	Local 13797 13818	32º Hospital de Campo
+T208	Local 13823 13832	Valdibura
+R80	Relacao Arg1:T207 Arg2:T208	
+T209	Quantidade 13852 13861	25 leitos
+R81	Relacao Arg1:T207 Arg2:T209	
+T210	Fonte 13870 13900	acervo Museu do Expedicionário
+T211	AutorReporter 13913 13924	Hugo Harada
+T212	Fonte 13925 13927	GP
+R82	Relacao Arg1:T211 Arg2:T212	
+T213	Local 13969 13989	Cemitério de Pistóia
+T214	Data 14057 14061	1960
+T215	Fonte 14131 14161	acervo Museu do Expedicionário
+T216	AutorReporter 14174 14189	Jonathan Campos
+T217	Fonte 14190 14192	GP
+R83	Relacao Arg1:T216 Arg2:T217	
+T218	Organizacao 14210 14232	Força Aérea Brasileira
+T219	Organizacao 14234 14237	FAB
+R84	Relacao Arg1:T218 Arg2:T219	
+T220	Local 14268 14274	Panamá
+T221	Local 14281 14295	Estados Unidos
+R85	Relacao Arg1:T219 Arg2:T220	
+R86	Relacao Arg1:T219 Arg2:T221	
+#9	AnnotatorNotes R85	Passou por treinamento em
+#10	AnnotatorNotes R86	Passou por treinamento em
+T222	Local 14372 14378	Itália
+T223	Local 14435 14444	Nova York
+T224	Local 14471 14509	esquina da Park Avenue com a 49 Street
+T225	Local 14446 14465	The Waldorf Astoria
+R87	Relacao Arg1:T225 Arg2:T224	
+R88	Relacao Arg1:T224 Arg2:T223	
+#11	AnnotatorNotes R87	Fica em
+#12	AnnotatorNotes R88	Fica em
+T226	Fonte 14518 14548	acervo Museu do Expedicionário
+T227	AutorReporter 14561 14578	Aniele Nascimento
+T228	Fonte 14579 14581	GP
+R89	Relacao Arg1:T227 Arg2:T228	
+T229	Pessoa 14609 14622	Eronides Cruz
+T230	Fonte 14772 14785	Eronides Cruz
+T231	AutorReporter 14798 14813	Jonathan Campos
+T232	Fonte 14814 14816	GP
+T233	Organizacao 14884 14906	Força Aérea Brasileira
+T234	Organizacao 14908 14911	FAB
+R90	Relacao Arg1:T233 Arg2:T234	
+T235	Local 14923 14929	Itália
+T236	Local 14944 14951	Livorno
+R91	Relacao Arg1:T236 Arg2:T235	
+R92	Relacao Arg1:T234 Arg2:T236	
+#13	AnnotatorNotes R91	Fica em
+T237	Local 15005 15014	Tarquínia
+R93	Relacao Arg1:T237 Arg2:T235	
+#14	AnnotatorNotes R93	Fica em
+T238	Fonte 15023 15053	acervo Museu do Expedicionário
+T239	AutorReporter 15066 15083	Aniele Nascimento
+T240	Fonte 15084 15086	GP
+R94	Relacao Arg1:T239 Arg2:T240	
+T241	Pessoa 15118 15139	Lauro Correia Regnier
+T242	Local 15219 15227	Florença
+T243	Data 15328 15332	1944
+T244	Data 15333 15337	1945
+T245	Organizacao 15365 15368	FEB
+T246	Fonte 15409 15424	família Regnier
+T247	AutorReporter 15437 15451	Brunno Covello
+T248	Fonte 15452 15454	GP
+R95	Relacao Arg1:T247 Arg2:T248	
+T249	Fonte 15470 15500	acervo Museu do Expedicionário
+T250	AutorReporter 15513 15528	Jonathan Campos
+T251	Fonte 15529 15531	GP
+R96	Relacao Arg1:T250 Arg2:T251	
+T252	Local 15552 15558	Paraná
+T253	Evento 15651 15669	2.ª Guerra Mundial
+T254	Quantidade 15687 15707	55 milhões de mortos
+R97	Causou Arg1:T253 Arg2:T254	
+T255	Local 15711 15717	Europa
+T256	Local 15723 15727	Ásia
+R98	Relacao Arg1:T254 Arg2:T255	
+R99	Relacao Arg1:T254 Arg2:T256	
+T257	Local 15824 15830	Paraná
+T258	Local 15896 15903	Ton Jao
+T259	Local 15919 15927	Curitiba
+R100	Relacao Arg1:T258 Arg2:T259	
+R101	Relacao Arg1:T259 Arg2:T257	
+#15	AnnotatorNotes R100	Fica em
+#16	AnnotatorNotes R101	Fica em
+T260	Data 16085 16098	março de 1942
+T261	Local 16130 16150	Praça General Osório
+T262	Local 16330 16336	Brasil
+T263	Organizacao 16575 16612	Delegacias de Ordem Política e Social
+T264	Organizacao 16614 16618	Dops
+R102	Relacao Arg1:T263 Arg2:T264	
+T265	Local 16900 16908	Curitiba
+T266	Organizacao 17036 17051	Clube Concórdia
+T267	Organizacao 17067 17080	Cruz Vermelha
+T268	Organizacao 17084 17100	Clube Rio Branco
+T269	Organizacao 17105 17126	Tiro de Guerra n.º 19
+R103	Relacao Arg1:T266 Arg2:T267	
+R104	Relacao Arg1:T268 Arg2:T269	
+R105	Relacao Arg1:T266 Arg2:T265	
+R106	Relacao Arg1:T268 Arg2:T265	
+T270	Organizacao 17294 17313	Sociedade Garibaldi
+T272	Data 17373 17377	1938
+T273	Data 17395 17399	1942
+T271	Organizacao 17317 17335	consulado do Japão
+R107	Relacao Arg1:T271 Arg2:T272	
+#17	AnnotatorNotes R107	Inaugurado em
+R108	Relacao Arg1:T271 Arg2:T273	
+#18	AnnotatorNotes R108	Fechado em
+T274	Organizacao 17431 17446	Clube Concórdia
+T275	Quantidade 17481 17511	2.893 livros foram apreendidos
+T276	Data 17516 17520	1945
+R109	Relacao Arg1:T274 Arg2:T275	
+R110	Relacao Arg1:T275 Arg2:T276	
+T277	Grupo 437 446	pracinhas
+R111	Relacao Arg1:T277 Arg2:T7	
+T278	Grupo 506 514	nazistas
+R112	Relacao Arg1:T7 Arg2:T278	
+R113	Relacao Arg1:T8 Arg2:T9	
+R114	Relacao Arg1:T11 Arg2:T12	
+R115	Relacao Arg1:T13 Arg2:T11	
+R116	Relacao Arg1:T15 Arg2:T13	
+R117	Relacao Arg1:T26 Arg2:T27	
+R118	Relacao Arg1:T28 Arg2:T27	
+T279	Grupo 2048 2057	pracinhas
+R119	Relacao Arg1:T28 Arg2:T279	
+R120	Relacao Arg1:T279 Arg2:T30	
+R25	Relacao Arg1:T31 Arg2:T279	
+T280	Grupo 2361 2370	pracinhas
+R121	Relacao Arg1:T280 Arg2:T32	
+T281	Grupo 2896 2903	aliadas
+T282	Grupo 2925 2933	nazistas
+R122	Relacao Arg1:T281 Arg2:T37	
+R123	Relacao Arg1:T282 Arg2:T37	
+T283	Grupo 3026 3035	pracinhas
+R124	Relacao Arg1:T283 Arg2:T39	
+T284	Artefato 3007 3013	canhão
+R125	Relacao Arg1:T284 Arg2:T283	
+R126	Relacao Arg1:T284 Arg2:T40	
+T285	Grupo 3445 3453	pracinha
+R127	Relacao Arg1:T46 Arg2:T285	
+T286	Grupo 3810 3819	pracinhas
+R128	Relacao Arg1:T50 Arg2:T286	
+R129	Relacao Arg1:T60 Arg2:T59	
+R130	Relacao Arg1:T61 Arg2:T63	
+T287	Grupo 4615 4623	nazistas
+R131	Relacao Arg1:T287 Arg2:T64	
+R132	Relacao Arg1:T65 Arg2:T64	
+T288	Grupo 4916 4923	nazista
+R133	Relacao Arg1:T70 Arg2:T288	
+R134	Relacao Arg1:T288 Arg2:T71	
+R135	Relacao Arg1:T74 Arg2:T73	
+T289	Grupo 6157 6166	pracinhas
+R136	Relacao Arg1:T86 Arg2:T289	
+R137	Sofreu Arg1:T87 Arg2:T85	
+T290	Grupo 6586 6593	aliados
+R138	Relacao Arg1:T90 Arg2:T290	
+T291	Grupo 6701 6710	pracinhas
+R139	Relacao Arg1:T92 Arg2:T291	
+T292	Grupo 7048 7057	pracinhas
+R140	Relacao Arg1:T292 Arg2:T97	
+R141	Relacao Arg1:T292 Arg2:T98	
+R142	Relacao Arg1:T101 Arg2:T103	
+R143	Relacao Arg1:T104 Arg2:T105	
+R144	Relacao Arg1:T104 Arg2:T106	
+T293	Grupo 10665 10675	paracinhas
+R145	Relacao Arg1:T293 Arg2:T161	
+R146	Relacao Arg1:T165 Arg2:T166	
+T294	Grupo 11355 11364	pracinhas
+R147	Relacao Arg1:T294 Arg2:T173	
+R148	Relacao Arg1:T180 Arg2:T181	
+T295	Duvida 13170 13182	Linha Gótica
+R149	Relacao Arg1:T206 Arg2:T207	
+T296	Grupo 13930 13939	Pracinhas
+R150	Relacao Arg1:T296 Arg2:T213	
+R151	Relacao Arg1:T296 Arg2:T214	
+T297	Duvida 14649 14665	P-47 Thunderbolt
+R152	Relacao Arg1:T243 Arg2:T244	
+R153	Relacao Arg1:T244 Arg2:T245	
+R154	Relacao Arg1:T245 Arg2:T243	
+T298	Grupo 15384 15391	nazista
+R155	Relacao Arg1:T245 Arg2:T298	
+R156	Relacao Arg1:T260 Arg2:T261	
+T299	Grupo 16356 16360	Eixo
+R157	Relacao Arg1:T262 Arg2:T299	
+T300	Grupo 17176 17180	Eixo

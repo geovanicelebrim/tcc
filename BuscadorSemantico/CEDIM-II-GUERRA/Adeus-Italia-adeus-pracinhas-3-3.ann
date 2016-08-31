@@ -1,0 +1,392 @@
+T1	AutorReporter 198 213	Diego Antonelli
+T2	Local 321 327	Brasil
+T3	Organizacao 498 529	Força Expedicionária Brasileira
+T4	Organizacao 531 534	FEB
+R1	Relacao Arg1:T3 Arg2:T4	
+T5	Organizacao 795 802	governo
+T6	Local 1144 1158	Rio de Janeiro
+T7	Local 1191 1206	Capital Federal
+T8	Organizacao 1289 1297	Exército
+T9	Organizacao 1349 1352	FEB
+T10	Organizacao 1398 1413	governo federal
+T11	Pesquisador 1440 1453	Carmen Rigoni
+T12	Organizacao 1626 1629	FEB
+T13	Evento 1881 1899	2.ª Guerra Mundial
+T14	Pessoa 1969 1982	Eronides Cruz
+T15	Organizacao 2000 2003	FAB
+R2	Relacao Arg1:T14 Arg2:T15	
+T16	Evento 2014 2024	2.ª Guerra
+T17	Local 2043 2049	Brasil
+T18	Data 2057 2067	6 de julho
+R3	Relacao Arg1:T17 Arg2:T18	
+R4	Relacao Arg1:T16 Arg2:T17	
+R5	Relacao Arg1:T16 Arg2:T18	
+T19	Organizacao 2130 2148	governo brasileiro
+T20	Local 2321 2335	Rio de Janeiro
+T21	Local 2338 2346	Curitiba
+T22	Fonte 2439 2453	Gazeta do Povo
+T23	URLFonte 37 155	http://www.gazetadopovo.com.br/vida-e-cidadania/especiais/pracinhas-na-segunda-guerra/adeus-italia-adeus-pracinhas.jpp
+T24	Pessoa 2456 2469	Ari Schnaibel
+T25	Organizacao 2497 2520	Exército alemão nazista
+T26	Evento 2531 2541	2.ª Guerra
+R6	Relacao Arg1:T25 Arg2:T26	
+R7	Relacao Arg1:T24 Arg2:T25	
+T27	Organizacao 2586 2601	forças inglesas
+T28	Data 2805 2809	1948
+T29	Pessoa 2811 2814	Ari
+T30	Local 2835 2841	Brasil
+R9	Relacao Arg1:T29 Arg2:T30	
+T31	Local 2929 2937	Curitiba
+T32	Pessoa 2939 2954	Modesto Mariano
+T33	Organizacao 3203 3218	Polícia Militar
+T34	Fonte 2893 2907	Gazeta do Povo
+T35	Fonte 3258 3272	Gazeta do Povo
+T36	Fonte 4023 4037	Gazeta do Povo
+T37	Pessoa 3275 3289	Raquel Regnier
+T38	Pessoa 3324 3345	Lauro Correia Regnier
+R10	Relacao Arg1:T37 Arg2:T38	
+T39	Local 3463 3471	Curitiba
+T40	Evento 3610 3627	2º Guerra Mundial
+T41	Pessoa 3668 3674	Flávio
+T42	Local 3703 3720	Baía de Guanabara
+T43	Local 3830 3845	Cristo Redentor
+T44	Local 3990 4002	vila militar
+T45	Pessoa 3973 3979	Flávio
+T46	Pessoa 4040 4053	Dionéia Lessi
+T47	Pessoa 4100 4105	Paulo
+R11	Relacao Arg1:T46 Arg2:T47	
+T48	Evento 4122 4132	2.ª Guerra
+R12	Relacao Arg1:T47 Arg2:T48	
+T49	Pessoa 4316 4336	Nery Corrêa do Prado
+T50	Organizacao 4355 4372	artilharia da FEB
+R13	Relacao Arg1:T49 Arg2:T50	
+T51	Local 4486 4494	Alemanha
+T52	AutorReporter 2423 2438	Jonathan Campos
+R14	Relacao Arg1:T52 Arg2:T22	
+T53	AutorReporter 2877 2892	Jonathan Campos
+R15	Relacao Arg1:T53 Arg2:T34	
+T54	AutorReporter 3246 3257	Hugo Harada
+R16	Relacao Arg1:T54 Arg2:T35	
+T55	AutorReporter 3636 3650	Brunno Covello
+T56	Fonte 3651 3665	Gazeta do Povo
+R17	Relacao Arg1:T55 Arg2:T56	
+T57	AutorReporter 4011 4022	Hugo Harada
+R18	Relacao Arg1:T57 Arg2:T36	
+T58	AutorReporter 4287 4298	Bruno Matos
+T59	Fonte 4299 4313	Gazeta do Povo
+R19	Relacao Arg1:T58 Arg2:T59	
+T60	AutorReporter 4700 4715	Jonathan Campos
+T61	Fonte 4716 4730	Gazeta do Povo
+R20	Relacao Arg1:T60 Arg2:T61	
+T62	Data 4745 4749	1947
+T63	Pessoa 4750 4758	Giovanni
+R21	Relacao Arg1:T62 Arg2:T63	
+T64	Local 4799 4806	Bélgica
+T65	Pessoa 4834 4841	Lorenzo
+R22	Relacao Arg1:T63 Arg2:T65	
+R23	Relacao Arg1:T63 Arg2:T64	
+T66	Local 4854 4860	Brasil
+R24	Relacao Arg1:T65 Arg2:T66	
+T67	Data 4927 4942	janeiro de 1951
+T68	Pessoa 4981 4988	Lorenzo
+T69	Local 4964 4974	Caçador-SC
+T70	Local 5055 5063	Curitiba
+T71	AutorReporter 5072 5089	Daniel Castellano
+T72	Fonte 5090 5104	Gazeta do Povo
+T73	Pessoa 5107 5126	Reynaldo Pontarolli
+T74	Evento 5142 5160	2.ª Guerra Mundial
+T75	Organizacao 5164 5181	artilharia da FEB
+R25	Relacao Arg1:T73 Arg2:T74	
+R26	Relacao Arg1:T73 Arg2:T75	
+T76	Local 5236 5242	Europa
+T77	AutorReporter 5366 5383	Aniele Nascimento
+T78	Fonte 5384 5398	Gazeta do Povo
+R27	Relacao Arg1:T77 Arg2:T78	
+R28	Relacao Arg1:T71 Arg2:T72	
+T79	Pessoa 5412 5425	Chagas Borges
+T80	Pessoa 5451 5475	Alberto Weinhardt Borges
+R29	Relacao Arg1:T79 Arg2:T80	
+T81	Evento 5508 5526	2.ª Guerra Mundial
+R30	Relacao Arg1:T80 Arg2:T81	
+T82	Local 5573 5579	Brasil
+T83	Local 5600 5608	Portugal
+T85	AutorReporter 5706 5721	Jonathan Campos
+T86	Fonte 5722 5736	Gazeta do Povo
+R31	Relacao Arg1:T85 Arg2:T86	
+T87	Organizacao 5753 5756	FEB
+T88	Data 5760 5764	1945
+R32	Relacao Arg1:T87 Arg2:T88	
+T89	Pessoa 5859 5878	Reynaldo Pontarolli
+T90	Data 5899 5903	1943
+R33	Relacao Arg1:T89 Arg2:T90	
+T91	Organizacao 5919 5960	artilharia das forças militares do Brasil
+T92	Local 6004 6010	Brasil
+T93	Local 6032 6046	Rio de Janeiro
+T94	Organizacao 6106 6114	Exército
+T95	Evento 6233 6243	2.ª Guerra
+T96	Pessoa 6300 6321	Eronides João da Cruz
+T97	Local 6361 6367	Itália
+T98	Organizacao 6373 6395	Força Aérea Brasileira
+T99	Organizacao 6397 6400	FAB
+R34	Relacao Arg1:T98 Arg2:T99	
+R35	Relacao Arg1:T96 Arg2:T97	
+R36	Relacao Arg1:T96 Arg2:T98	
+T100	Pessoa 6404 6408	Cruz
+T101	Pessoa 6557 6563	Vargas
+T102	Organizacao 6585 6593	Exército
+T103	Organizacao 6546 6553	governo
+R37	Relacao Arg1:T103 Arg2:T101	
+T104	Pesquisador 6645 6653	Eronides
+T105	Pesquisador 6670 6683	Carmen Rigoni
+T106	Organizacao 6709 6716	governo
+T107	Organizacao 6763 6766	FEB
+T108	Pessoa 6823 6829	Vargas
+T109	Evento 6802 6819	regime ditatorial
+R38	Causou Arg1:T108 Arg2:T109	
+T110	Pessoa 6882 6890	caudilho
+T111	Organizacao 6900 6921	presidência do Brasil
+T112	Data 6958 6962	1950
+T113	Organizacao 6984 6992	Exército
+T114	Organizacao 7088 7096	Exército
+T115	Pesquisador 7161 7167	Carmen
+T116	Local 7241 7247	Itália
+T117	Pesquisador 7255 7263	Eronides
+T118	Local 7309 7315	Brasil
+T119	Evento 7267 7273	guerra
+T120	Local 7416 7422	Santos
+T121	Local 7780 7796	Litoral Paulista
+T122	Data 7902 7916	agosto de 1945
+T123	Organizacao 7940 7967	11º Regimento de Infantaria
+T124	Local 7976 7989	Pão-de-Açúcar
+T125	Pessoa 8025 8038	General Meigs
+T126	AutorReporter 8118 8135	Aniele Nascimento
+T127	Organizacao 8174 8199	9º Batalhão de Engenharia
+T128	Organizacao 8203 8206	FEB
+R39	Relacao Arg1:T127 Arg2:T128	
+T129	AutorReporter 8258 8269	Hugo Harada
+T130	Pesquisador 225 240	Diego Antonelli
+T131	Pesquisador 243 261	Leandro dos Santos
+T132	TempoFonte 272 292	11 de agosto de 2015
+T133	Data 619 634	outubro de 1945
+T134	Organizacao 8295 8330	148ª Regimento de Infantaria Alemão
+T135	Pessoa 8379 8397	Otto Fretter Picco
+T136	Pessoa 8435 8453	Olímpio Falconieri
+R41	Relacao Arg1:T135 Arg2:T136	
+T137	Organizacao 8473 8476	FEB
+R42	Relacao Arg1:T136 Arg2:T137	
+T138	Pessoa 8528 8539	Hugo Harada
+T139	Organizacao 8557 8592	148º Regimento de Infantaria Alemão
+T140	Organizacao 8626 8629	FEB
+T141	AutorReporter 8681 8692	Hugo Harada
+T142	Organizacao 8824 8827	FEB
+T143	AutorReporter 8909 8920	Hugo Harada
+T144	Local 8969 8985	porto de Nápoles
+T145	Local 9017 9023	Brasil
+T146	AutorReporter 9075 9092	Aniele Nascimento
+T147	Local 9151 9167	porto de Nápoles
+T148	Local 9176 9182	Brasil
+T149	AutorReporter 9310 9327	Aniele Nascimento
+T150	Pessoa 9394 9400	Brasil
+T151	Data 9433 9447	agosto de 1945
+T152	Local 162 168	Itália
+T153	Local 6 12	Itália
+T154	Data 5492 5496	2004
+T155	AutorReporter 9456 9469	Darci Simwkys
+T156	AutorReporter 9513 9530	Aniele Nascimento
+T157	Pessoa 9536 9557	Lauro Correia Regnier
+T158	Local 9584 9590	Brasil
+T159	AutorReporter 9661 9675	Brunno Covello
+T160	Local 9718 9732	Rio de Janeiro
+T161	Local 9758 9766	Curitiba
+T162	AutorReporter 9870 9887	Aniele Nascimento
+T163	Local 9930 9949	Barão do Rio Branco
+T164	Local 9994 10002	Curitiba
+T165	AutorReporter 10133 10150	Aniele Nascimento
+T166	Data 10159 10178	9 de agosto de 1945
+T167	Organizacao 10195 10198	FEB
+T168	Local 10208 10214	Itália
+T169	Local 10229 10241	Praça Osório
+T170	Local 10255 10263	Curitiba
+R43	Relacao Arg1:T169 Arg2:T170	
+T171	AutorReporter 10315 10330	Jonathan Campos
+T172	Data 10373 10377	1980
+T173	Data 10380 10384	1990
+R44	Relacao Arg1:T172 Arg2:T173	
+T174	Evento 10467 10485	2.ª Guerra Mundial
+T175	Pessoa 10739 10755	Eronides da Cruz
+T176	Local 10889 10895	Europa
+T177	Evento 10879 10885	guerra
+R45	Relacao Arg1:T177 Arg2:T176	
+T178	Data 10923 10932	8 de maio
+R46	Relacao Arg1:T177 Arg2:T178	
+T179	Pessoa 10949 10969	Nery Corrêa do Prado
+T180	Local 11019 11025	Itália
+T181	Evento 11276 11282	guerra
+T182	Local 11331 11337	Europa
+T183	Data 11355 11370	outubro de 1945
+T184	Organizacao 11393 11396	FEB
+T185	Local 11420 11426	Brasil
+T186	Evento 11473 11481	batalhas
+T187	Local 11485 11491	Europa
+T188	Data 11504 11508	maio
+R47	Relacao Arg1:T186 Arg2:T187	
+R48	Relacao Arg1:T186 Arg2:T188	
+T189	Local 11702 11708	Europa
+T190	Local 11735 11739	Roma
+T191	Local 11743 11751	Vaticano
+T192	Local 11753 11757	Pisa
+T193	Local 11759 11766	Pompeia
+T194	Pessoa 12022 12042	Nery Corrêa do Prado
+T195	Evento 12045 12051	Guerra
+T196	Local 12065 12073	Pacífico
+R49	Relacao Arg1:T195 Arg2:T196	
+T197	Data 12078 12095	8 de maio de 1945
+T198	Pessoa 12104 12116	Adolf Hitler
+T199	Local 12197 12212	União Soviética
+T200	Local 12214 12228	Estados Unidos
+T201	Local 12230 12236	França
+T202	Local 12239 12250	Reino Unido
+T203	Evento 12258 12263	morte
+T204	Pessoa 12267 12273	Hitler
+R50	Sofreu Arg1:T204 Arg2:T203	
+T205	Data 12282 12293	30 de abril
+R51	Relacao Arg1:T203 Arg2:T205	
+T206	Pessoa 12364 12375	Karl Dönitz
+T207	Evento 12457 12471	Segunda Guerra
+T208	Local 12475 12481	Europa
+R52	Relacao Arg1:T207 Arg2:T208	
+T209	Local 12614 12619	Japão
+T210	Local 12622 12628	Itália
+T211	Local 12681 12695	Estados Unidos
+T212	Local 12697 12708	Reino Unido
+T213	Local 12710 12725	União Soviética
+T214	Local 12743 12749	Brasil
+T215	Data 12769 12792	6 e 9 de agosto de 1945
+T216	Evento 12800 12818	bombardeio atômico
+T217	Local 12827 12832	Japão
+R56	Sofreu Arg1:T217 Arg2:T216	
+T218	Organizacao 12846 12861	governo japonês
+T219	Data 12889 12902	2 de setembro
+T220	Evento 13010 13020	2.ª Guerra
+T221	Pesquisador 13057 13073	Marcelo Scarrone
+T222	Evento 13161 13172	Guerra Fria
+T223	Local 13192 13206	Estados Unidos
+T224	Local 13209 13224	União Soviética
+R57	Causou Arg1:T223 Arg2:T222	
+R58	Causou Arg1:T224 Arg2:T222	
+T225	Evento 13296 13306	2.ª Guerra
+T226	Organizacao 13327 13356	Organização das Nações Unidas
+T227	Data 13361 13365	1948
+R59	Relacao Arg1:T226 Arg2:T227	
+T228	Organizacao 13556 13559	FEB
+T229	Pesquisador 13646 13666	Dennison de Oliveira
+T230	Local 13737 13743	Brasil
+T231	Evento 13747 13769	Segunda Guerra Mundial
+R60	Relacao Arg1:T230 Arg2:T231	
+T232	Organizacao 13810 13813	FEB
+T233	Local 13830 13844	Estados Unidos
+T234	Organizacao 13879 13898	Exército Brasileiro
+T235	Local 13962 13968	Brasil
+T236	Organizacao 13995 14019	Exército norte-americano
+T237	Pessoa 14077 14085	Oliveira
+T238	Local 14147 14153	Brasil
+T239	Local 14159 14162	EUA
+T240	Organizacao 14218 14229	Aeronáutica
+T241	Pessoa 14231 14244	Salgado Filho
+R61	Relacao Arg1:T241 Arg2:T240	
+T242	Local 14310 14324	Estados Unidos
+T243	Local 14426 14432	Brasil
+T244	Local 14523 14537	Estados Unidos
+T245	Local 14579 14585	Brasil
+T246	Pessoa 14587 14600	Salgado Filho
+T247	Local 14678 14684	Europa
+R40	Relacao Arg1:T6 Arg2:T7	
+T248	Quantidade 549 562	25 mil homens
+T84	Local 5646 5651	Porto
+R63	Relacao Arg1:T110 Arg2:T111	
+T249	Fonte 8075 8104	acervo Museu do Expedicionári
+T250	Fonte 8136 8138	GP
+R64	Relacao Arg1:T126 Arg2:T250	
+T251	Fonte 8270 8272	GP
+R65	Relacao Arg1:T129 Arg2:T251	
+T252	Fonte 8540 8542	GP
+R66	Relacao Arg1:T138 Arg2:T252	
+T253	Fonte 8693 8695	GP
+T254	Fonte 8638 8668	acervo Museu do Expedicionário
+T255	Fonte 8866 8896	acervo Museu do Expedicionário
+T256	Fonte 8921 8923	GP
+T257	Fonte 9032 9062	acervo Museu do Expedicionário
+T258	Fonte 9093 9095	GP
+R67	Relacao Arg1:T146 Arg2:T258	
+T259	Fonte 9328 9330	GP
+R68	Relacao Arg1:T149 Arg2:T259	
+T260	Fonte 9267 9297	acervo Museu do Expedicionário
+T261	Fonte 9470 9500	acervo Museu do Expedicionário
+R69	Relacao Arg1:T155 Arg2:T261	
+T262	Fonte 9531 9533	GP
+R70	Relacao Arg1:T156 Arg2:T262	
+T263	Fonte 9627 9648	álbum família Regnier
+T264	Fonte 9827 9857	acervo Museu do Expedicionário
+T265	Fonte 9676 9678	GP
+R71	Relacao Arg1:T159 Arg2:T265	
+T266	Fonte 9888 9890	GP
+R72	Relacao Arg1:T162 Arg2:T266	
+T267	Fonte 10151 10153	GP
+T268	Fonte 10090 10120	acervo Museu do Expedicionário
+R73	Relacao Arg1:T165 Arg2:T267	
+T269	Fonte 10272 10302	acervo Museu do Expedicionário
+T270	Fonte 10331 10333	GP
+R74	Relacao Arg1:T171 Arg2:T270	
+T271	Artefato 13264 13277	bomba atômica
+R75	Relacao Arg1:T238 Arg2:T239	
+T272	Quantidade 14549 14564	12 mil técnicos
+R76	Relacao Arg1:T130 Arg2:T131	
+T273	Grupo 308 317	pracinhas
+T274	Duvida 1257 1276	veteranos de guerra
+T275	Duvida 386 404	tropas brasileiras
+T276	Grupo 2100 2109	pracinhas
+T277	Grupo 20 29	pracinhas
+T278	Grupo 176 185	pracinhas
+R8	Relacao Arg1:T29 Arg2:T28	
+T279	Grupo 3776 3785	pracinhas
+T280	Duvida 4417 4422	tropa
+R62	Relacao Arg1:T84 Arg2:T83	
+#1	AnnotatorNotes R62	fica em
+#2	AnnotatorNotes R33	foi convocado em
+#3	AnnotatorNotes R29	esposa de
+#4	AnnotatorNotes R30	lutou na
+R77	Relacao Arg1:T80 Arg2:T154	
+#5	AnnotatorNotes R77	morreu em
+T281	Duvida 6199 6215	forças militares
+T282	Duvida 6972 6980	oficiais
+T283	Duvida 7448 7463	orças militares
+T284	Duvida 7921 7936	expedicionários
+T285	Duvida 8334 8352	tropas brasileiras
+T286	Grupo 8613 8622	pracinhas
+T287	Grupo 9098 9107	Pracinhas
+T288	Duvida 9684 9699	expedicionários
+T289	Grupo 9809 9818	pracinhas
+T290	Duvida 9905 9920	expedicionários
+T291	Duvida 10448 10462	ex-combatentes
+T292	Grupo 10990 11015	tropa de alemães nazistas
+T293	Grupo 11189 11198	pracinhas
+T294	Grupo 11517 11526	pracinhas
+T295	Grupo 11921 11930	pracinhas
+T296	Grupo 12665 12679	tropas aliadas
+T297	Local 12549 12557	Alemanha
+R78	Relacao Arg1:T297 Arg2:T209	
+R79	Relacao Arg1:T297 Arg2:T210	
+#6	AnnotatorNotes R78	aliada a
+#7	AnnotatorNotes R79	aliada a
+R80	Relacao Arg1:T296 Arg2:T211	
+R81	Relacao Arg1:T296 Arg2:T212	
+R82	Relacao Arg1:T296 Arg2:T213	
+R53	Relacao Arg1:T296 Arg2:T214	
+T298	Grupo 13368 13377	Pracinhas
+T299	Duvida 13800 13813	tropas da FEB
+#8	AnnotatorNotes R61	ministro da
+#9	AnnotatorNotes R75	aliado a
+#10	AnnotatorNotes R60	participou da
+R54	Sofreu Arg1:T292 Arg2:T179	
+#11	AnnotatorNotes R54	perseguicao
+R55	Relacao Arg1:T292 Arg2:T180	

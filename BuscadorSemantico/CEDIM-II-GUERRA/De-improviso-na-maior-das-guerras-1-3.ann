@@ -1,0 +1,407 @@
+T1	Evento 16 30	Segunda Guerra
+T2	AutorReporter 197 212	Diego Antonelli
+T3	Pesquisador 224 239	Diego Antonelli
+T4	Pesquisador 242 260	Leandro dos Santos
+T5	Local 294 300	Brasil
+T6	TempoFonte 271 290	9 de agosto de 2015
+T7	Evento 311 317	guerra
+T8	Evento 391 409	2.ª Guerra Mundial
+T9	Local 650 656	Itália
+T10	Evento 688 694	guerra
+T11	Evento 1119 1129	2.ª Guerra
+T14	Pessoa 1037 1056	Reynaldo Pontarolli
+T17	Local 1391 1399	Nagasaki
+T18	Local 1491 1497	Europa
+T19	Local 1280 1294	Estados Unidos
+T20	Local 1317 1326	Hiroshima
+T21	Evento 1582 1592	2.ª Guerra
+T22	Data 1545 1561	setembro de 1939
+T23	Data 1564 1578	agosto de 1945
+T24	Data 1187 1206	6 de agosto de 1945
+T26	Local 1478 1486	Pacífico
+T27	Pessoa 1662 1672	Pontarolli
+T28	Local 1726 1740	norte italiano
+T29	Data 1656 1660	1943
+T30	Local 1924 1930	Brasil
+T31	Local 1979 1985	Paraná
+T32	Local 2193 2207	Estados Unidos
+T33	Pessoa 2210 2228	Reynaldo Pontaroll
+T34	Evento 2261 2279	2.ª Guerra Mundial
+T35	Data 2283 2287	1943
+T36	Local 2376 2390	Rio de Janeiro
+T37	Data 2479 2501	23 de novembro de 1944
+T15	Pesquisador 2082 2095	Carmen Rigoni
+T38	Local 2465 2471	Itália
+T39	AutorReporter 2510 2527	Aniele Nascimento
+T40	Data 2548 2552	1944
+T41	Pessoa 2562 2574	Flávio Costa
+T42	Local 2587 2596	Rio Negro
+T43	Local 2644 2650	Itália
+T44	Pessoa 2684 2690	Flávio
+T45	AutorReporter 2873 2884	Hugo Harada
+T46	Pessoa 2902 2915	Dionéia Lessi
+T47	Pessoa 2962 2967	Paulo
+T48	Evento 2984 2994	2.ª Guerra
+T49	Local 3092 3109	Rio Grande do Sul
+T50	Pessoa 3115 3122	Dionéia
+T51	Pessoa 3141 3146	Paulo
+T52	AutorReporter 3239 3250	Bruno Matos
+T53	Pessoa 3268 3288	Nery Corrêa do Prado
+T54	Local 3346 3352	Itália
+T55	Local 3387 3393	Itália
+T56	Local 3438 3445	Nápoles
+T57	Pessoa 3447 3451	Nery
+T58	AutorReporter 3590 3605	Jonathan Campos
+T59	Pessoa 3623 3647	Senhorinha Chagas Borges
+T60	Pessoa 3673 3697	Alberto Weinhardt Borges
+T61	Data 3714 3718	2004
+T62	Evento 3730 3748	2.ª Guerra Mundial
+T63	Pessoa 3827 3834	Alberto
+T64	AutorReporter 3945 3960	Jonathan Campos
+T65	Pessoa 3978 3991	Eronides Cruz
+T66	Local 4123 4129	Panamá
+T67	AutorReporter 4303 4318	Jonathan Campos
+T68	Pessoa 4336 4357	Modesto Mariano Brito
+T69	Local 4437 4454	Rio Branco do Sul
+T70	AutorReporter 4668 4679	Hugo Harada
+T71	Pessoa 4697 4711	Raquel Regnier
+T72	Pessoa 4746 4767	Lauro Correia Regnier
+T73	Pessoa 4837 4843	Raquel
+T74	AutorReporter 5097 5111	Brunno Covello
+T75	Pessoa 5129 5142	Joaquim Mayer
+T76	Evento 5242 5260	2.ª Guerra Mundial
+T77	AutorReporter 5401 5412	Bruno Matos
+T78	Data 5470 5484	agosto de 1942
+T80	Local 5537 5543	Itália
+T81	Data 5561 5579	2 de julho de 1944
+T79	Data 5663 5676	julho de 1943
+T82	Local 6103 6109	Itália
+T83	Fonte 33 47	Gazeta do Povo
+T84	URLFonte 55 150	http://www.gazetadopovo.com.br/vida-e-cidadania/especiais/pracinhas-na-segunda-guerra/index.jpp
+T12	Artefato 1244 1257	bomba atômica
+T13	Artefato 1352 1377	bomba atômica – a Fat Man
+T85	Organizacao 3335 3338	FEB
+T86	Fonte 3606 3620	Gazeta do Povo
+T87	Organizacao 4421 4424	FEB
+T89	Organizacao 4074 4077	FAB
+T90	Fonte 4319 4333	Gazeta do Povo
+T91	Fonte 4680 4694	Gazeta do Povo
+T92	Fonte 5112 5126	Gazeta do Povo
+T93	Fonte 5413 5427	Gazeta do Povo
+T94	Fonte 8191 8221	acervo Museu do Expedicionário
+T95	AutorReporter 8234 8251	Aniele Nascimento
+T96	Evento 1914 1920	guerra
+T97	Quantidade 1940 1950	443 mortos
+T98	Quantidade 1962 1975	3 mil feridos
+T99	Quantidade 1619 1640	55 milhões de pessoas
+T100	Fonte 2528 2542	Gazeta do Povo
+T101	Quantidade 2001 2018	1.542 combatentes
+R1	Sofreu Arg1:T20 Arg2:T12	
+R2	Causou Arg1:T19 Arg2:T12	
+R3	Sofreu Arg1:T17 Arg2:T13	
+#1	AnnotatorNotes R2	Arremessou
+#2	AnnotatorNotes R1	Foi atingida
+#3	AnnotatorNotes R3	Foi atingida
+T102	Organizacao 5432 5450	governo brasileiro
+R4	Relacao Arg1:T102 Arg2:T78	
+#4	AnnotatorNotes R4	Declarou guerra
+T103	Local 6160 6166	Europa
+T104	Pesquisador 6203 6209	Carmen
+T105	Local 6255 6269	América do Sul
+T106	Local 6300 6308	Alemanha
+T107	Local 6436 6450	Rio de Janeiro
+T108	Pessoa 6526 6539	Joaquim Mayer
+T109	Local 6570 6578	Curitiba
+T110	Local 6706 6723	Rio Grande do Sul
+T111	Pessoa 6725 6730	Mayer
+T112	Local 6743 6749	Brasil
+T113	Local 6840 6846	Itália
+T114	Local 7015 7031	Velho Continente
+T115	Local 7354 7360	Brasil
+T116	Evento 7369 7379	1.ª Guerra
+T117	Local 7400 7406	Itália
+T118	Pessoa 7558 7578	Nery Corrêa do Prado
+T119	Local 7612 7619	Nápoles
+T120	Pessoa 7645 7649	Nery
+T121	Local 8016 8022	Itália
+T122	Quantidade 2030 2041	28 morreram
+T123	Quantidade 8339 8357	25 mil combatentes
+T124	Organizacao 8361 8392	Força Expedicionária Brasileira
+T125	Organizacao 8394 8397	FEB
+T126	Fonte 8407 8437	acervo Museu do Expedicionário
+T127	AutorReporter 8450 8467	Aniele Nascimento
+T128	Local 8501 8515	Rio de Janeiro
+T129	Local 8546 8552	Brasil
+T130	Local 8615 8621	Itália
+T131	Fonte 8630 8660	acervo Museu do Expedicionário
+T132	Local 8734 8748	Rio de Janeiro
+T133	Fonte 8800 8830	acervo Museu do Expedicionário
+T134	AutorReporter 8843 8860	Aniele Nascimento
+T135	Local 8914 8928	Rio de Janeiro
+T136	Local 8950 8963	Pão-de-Açúcar
+T137	Organizacao 9020 9023	FEB
+T138	Fonte 9032 9062	acervo Museu do Expedicionário
+T139	AutorReporter 9075 9086	Hugo Harada
+T140	Organizacao 9108 9139	Força Expedicionária Brasileira
+T141	Fonte 9200 9230	acervo Museu do Expedicionário
+T142	AutorReporter 9243 9254	Hugo Harada
+T143	Fonte 9428 9458	acervo Museu do Expedicionário
+T144	AutorReporter 9471 9482	Hugo Harada
+T145	Pessoa 9522 9543	Lauro Correia Regnier
+T146	Fonte 9653 9674	álbum família Regnier
+T147	AutorReporter 9687 9701	Brunno Covello
+T148	Organizacao 9719 9750	Força Expedicionária Brasileira
+T149	Local 9777 9784	Nápoles
+T150	Local 9788 9794	Itália
+R5	Relacao Arg1:T149 Arg2:T150	
+#5	AnnotatorNotes R5	Pertence
+T151	Fonte 9803 9833	acervo Museu do Expedicionário
+T152	AutorReporter 9846 9863	Aniele Nascimento
+T153	Organizacao 9907 9910	FEB
+T154	Local 9914 9920	Itália
+T155	Local 9997 10003	Brasil
+T156	Fonte 10012 10042	acervo Museu do Expedicionário
+T157	AutorReporter 10055 10066	Hugo Harada
+T158	Local 10085 10091	Brasil
+T159	Local 10111 10117	Brasil
+T160	Local 10157 10165	Alemanha
+T161	Local 10167 10173	Itália
+T162	Local 10176 10181	Japão
+T163	Pessoa 10281 10295	Getúlio Vargas
+T164	Local 10338 10346	Alemanha
+T165	Local 10458 10464	França
+T166	Local 10466 10476	Inglaterra
+T167	Local 10479 10494	União Soviética
+T168	Data 10501 10505	1941
+T169	Data 10510 10514	1943
+T170	Quantidade 10516 10547	33 navios brasileiros afundaram
+T171	Local 10627 10641	Rio de Janeiro
+T172	Pessoa 10672 10678	Vargas
+T173	Quantidade 10694 10718	971 brasileiros morreram
+T174	Local 10822 10836	Estados Unidos
+T175	Local 10910 10915	Norte
+T176	Local 10916 10924	Nordeste
+T177	Data 10985 10989	1941
+T178	Data 10994 10998	1943
+T179	Quantidade 11000 11031	33 navios brasileiros afundaram
+T180	Pessoa 11104 11110	Vargas
+T181	Local 11137 11151	Estados Unidos
+T182	Organizacao 11186 11212	Forças Armadas brasileiras
+T183	Organizacao 11264 11294	Companhia Siderúrgica Nacional
+T184	Local 11299 11312	Volta Redonda
+T185	Pesquisador 11346 11359	Carmen Rigoni
+T186	Organizacao 11363 11366	FEB
+T187	Pessoa 11391 11397	Vargas
+T188	Data 11435 11439	1942
+R6	Relacao Arg1:T187 Arg2:T188	
+#6	AnnotatorNotes R6	Declarou guerra
+T189	Data 11455 11468	março de 1943
+T190	Pessoa 11470 11476	Vargas
+T191	Pessoa 11525 11544	Eurico Gaspar Dutra
+T192	Organizacao 11622 11625	FEB
+T193	Pesquisador 11815 11835	Dennison de Oliveira
+T194	Organizacao 11840 11844	UFPR
+T195	Local 11919 11933	Estados Unidos
+T196	Local 12005 12019	Estados Unidos
+T197	Local 12035 12043	Américas
+T198	Local 12101 12107	Europa
+T199	Data 12112 12125	junho de 1944
+T200	Local 12143 12159	Velho Continente
+T201	Local 12197 12205	Alemanha
+T202	Local 12207 12213	Itália
+T203	Local 12216 12221	Japão
+T204	Local 12258 12272	Estados Unidos
+T205	Local 12274 12280	França
+T206	Local 12283 12293	Inglaterra
+T207	Local 12322 12328	Itália
+T208	Local 12345 12351	França
+T209	Organizacao 12431 12453	Força Aérea Brasileira
+T210	Organizacao 12455 12458	FAB
+T211	Local 12471 12477	Itália
+T212	Organizacao 12549 12580	Força Expedicionária Brasileira
+T213	Organizacao 12674 12698	Escola de Táticas Aéreas
+T214	Local 12703 12710	Orlando
+T215	Local 12716 12730	Estados Unidos
+R7	Relacao Arg1:T214 Arg2:T215	
+#7	AnnotatorNotes R7	Pertence
+T216	Local 12850 12864	Halbrook Field
+T217	Local 12869 12875	Panamá
+R8	Relacao Arg1:T216 Arg2:T217	
+#8	AnnotatorNotes R8	Pertence
+T218	Local 12932 12938	Panamá
+R9	Relacao Arg1:T190 Arg2:T191	
+R10	Relacao Arg1:T180 Arg2:T181	
+R11	Relacao Arg1:T59 Arg2:T60	
+R13	Relacao Arg1:T53 Arg2:T85	
+R14	Relacao Arg1:T50 Arg2:T51	
+R15	Relacao Arg1:T46 Arg2:T47	
+R16	Relacao Arg1:T47 Arg2:T48	
+T219	Organizacao 2619 2622	FEB
+R17	Relacao Arg1:T5 Arg2:T7	
+R18	Relacao Arg1:T3 Arg2:T4	
+R19	Relacao Arg1:T14 Arg2:T11	
+R21	Relacao Arg1:T30 Arg2:T97	
+R22	Relacao Arg1:T30 Arg2:T98	
+R23	Relacao Arg1:T31 Arg2:T101	
+R24	Relacao Arg1:T31 Arg2:T122	
+R25	Relacao Arg1:T33 Arg2:T34	
+R26	Relacao Arg1:T39 Arg2:T100	
+T220	Fonte 2885 2899	Gazeta do Povo
+R27	Relacao Arg1:T45 Arg2:T220	
+T221	Fonte 3251 3265	Gazeta do Povo
+R28	Relacao Arg1:T52 Arg2:T221	
+R29	Relacao Arg1:T58 Arg2:T86	
+T222	Fonte 3961 3975	Gazeta do Povo
+R30	Relacao Arg1:T64 Arg2:T222	
+R31	Relacao Arg1:T67 Arg2:T90	
+R32	Relacao Arg1:T70 Arg2:T91	
+R33	Relacao Arg1:T74 Arg2:T92	
+R34	Relacao Arg1:T77 Arg2:T93	
+R35	Relacao Arg1:T94 Arg2:T95	
+R36	Relacao Arg1:T126 Arg2:T127	
+R37	Relacao Arg1:T133 Arg2:T134	
+R38	Relacao Arg1:T138 Arg2:T139	
+R39	Relacao Arg1:T141 Arg2:T142	
+R40	Relacao Arg1:T143 Arg2:T144	
+R41	Relacao Arg1:T146 Arg2:T147	
+R42	Relacao Arg1:T151 Arg2:T152	
+R43	Relacao Arg1:T156 Arg2:T157	
+R44	Relacao Arg1:T148 Arg2:T149	
+R45	Relacao Arg1:T153 Arg2:T154	
+R46	Relacao Arg1:T160 Arg2:T161	
+R47	Relacao Arg1:T161 Arg2:T162	
+R48	Relacao Arg1:T165 Arg2:T166	
+R49	Relacao Arg1:T166 Arg2:T167	
+R50	Relacao Arg1:T174 Arg2:T175	
+R51	Relacao Arg1:T174 Arg2:T176	
+R52	Relacao Arg1:T204 Arg2:T205	
+R53	Relacao Arg1:T205 Arg2:T206	
+R54	Relacao Arg1:T201 Arg2:T202	
+R55	Relacao Arg1:T202 Arg2:T203	
+R56	Relacao Arg1:T71 Arg2:T72	
+R57	Relacao Arg1:T75 Arg2:T76	
+R58	Relacao Arg1:T68 Arg2:T87	
+R59	Relacao Arg1:T68 Arg2:T69	
+R60	Relacao Arg1:T120 Arg2:T119	
+R61	Relacao Arg1:T123 Arg2:T124	
+R62	Relacao Arg1:T108 Arg2:T109	
+R63	Relacao Arg1:T111 Arg2:T110	
+R64	Relacao Arg1:T118 Arg2:T117	
+R65	Relacao Arg1:T209 Arg2:T210	
+R66	Relacao Arg1:T210 Arg2:T211	
+R68	Relacao Arg1:T213 Arg2:T214	
+R69	Relacao Arg1:T193 Arg2:T194	
+R70	Relacao Arg1:T183 Arg2:T184	
+R71	Relacao Arg1:T57 Arg2:T56	
+R72	Relacao Arg1:T85 Arg2:T54	
+T223	Grupo 3 12	Pracinhas
+R73	Relacao Arg1:T223 Arg2:T1	
+R74	Relacao Arg1:T84 Arg2:T83	
+R75	Relacao Arg1:T5 Arg2:T8	
+T224	Grupo 611 620	pracinhas
+R76	Relacao Arg1:T224 Arg2:T9	
+T225	Grupo 752 760	nazistas
+R77	Relacao Arg1:T24 Arg2:T14	
+R78	Relacao Arg1:T12 Arg2:T24	
+R20	Relacao Arg1:T22 Arg2:T23	
+R79	Relacao Arg1:T22 Arg2:T21	
+R80	Relacao Arg1:T23 Arg2:T21	
+#9	AnnotatorNotes R20	periodo
+R81	Causou Arg1:T21 Arg2:T99	
+R82	Relacao Arg1:T29 Arg2:T27	
+#10	AnnotatorNotes R82	Foi convocado
+T16	Quantidade 1802 1808	25 mil
+T25	Grupo 1809 1818	pracinhas
+R83	Relacao Arg1:T16 Arg2:T25	
+T226	Grupo 1871 1879	nazistas
+R84	Relacao Arg1:T27 Arg2:T28	
+R85	Relacao Arg1:T27 Arg2:T25	
+#11	AnnotatorNotes R85	fazia parte dos
+R86	Relacao Arg1:T25 Arg2:T226	
+#12	AnnotatorNotes R86	enfrentaram
+R87	Causou Arg1:T96 Arg2:T97	
+R88	Causou Arg1:T96 Arg2:T98	
+R89	Relacao Arg1:T31 Arg2:T30	
+R90	Relacao Arg1:T33 Arg2:T35	
+R91	Relacao Arg1:T34 Arg2:T35	
+R92	Relacao Arg1:T33 Arg2:T36	
+T227	Evento 2440 2446	guerra
+R93	Relacao Arg1:T33 Arg2:T38	
+R94	Relacao Arg1:T38 Arg2:T37	
+R95	Relacao Arg1:T33 Arg2:T37	
+R96	Relacao Arg1:T41 Arg2:T40	
+R97	Relacao Arg1:T41 Arg2:T42	
+R98	Relacao Arg1:T41 Arg2:T219	
+#13	AnnotatorNotes R98	foi convocado
+R99	Relacao Arg1:T44 Arg2:T43	
+#14	AnnotatorNotes R15	irmãos
+#15	AnnotatorNotes R16	embarcou
+R100	Relacao Arg1:T50 Arg2:T46	
+R101	Relacao Arg1:T56 Arg2:T55	
+#16	AnnotatorNotes R101	fica em
+R102	Relacao Arg1:T60 Arg2:T61	
+#17	AnnotatorNotes R102	faleceu em
+R103	Relacao Arg1:T60 Arg2:T62	
+T88	Organizacao 4016 4038	Força Aérea Brasileira
+T228	Organizacao 4040 4043	FAB
+R12	Relacao Arg1:T65 Arg2:T88	
+R104	Relacao Arg1:T88 Arg2:T228	
+R105	Relacao Arg1:T89 Arg2:T66	
+R106	Relacao Arg1:T80 Arg2:T81	
+R107	Relacao Arg1:T82 Arg2:T103	
+R108	Relacao Arg1:T105 Arg2:T106	
+T229	Grupo 6493 6501	pracinha
+R109	Relacao Arg1:T229 Arg2:T108	
+T230	Grupo 7183 7192	pracinhas
+T231	Grupo 7662 7671	pracinhas
+R110	Relacao Arg1:T231 Arg2:T119	
+R111	Relacao Arg1:T124 Arg2:T125	
+T232	Grupo 8476 8485	pracinhas
+R112	Relacao Arg1:T232 Arg2:T128	
+R113	Relacao Arg1:T128 Arg2:T129	
+T233	Grupo 8710 8718	Exército
+T234	Duvida 8890 8903	General Meigs
+T235	Grupo 10151 10155	Eixo
+R114	Relacao Arg1:T160 Arg2:T235	
+R115	Relacao Arg1:T161 Arg2:T235	
+R116	Relacao Arg1:T162 Arg2:T235	
+R117	Relacao Arg1:T159 Arg2:T235	
+R118	Relacao Arg1:T163 Arg2:T159	
+R119	Relacao Arg1:T163 Arg2:T164	
+T236	Grupo 10445 10452	Aliados
+R120	Relacao Arg1:T165 Arg2:T236	
+R121	Relacao Arg1:T166 Arg2:T236	
+R122	Relacao Arg1:T167 Arg2:T236	
+R123	Relacao Arg1:T168 Arg2:T169	
+#18	AnnotatorNotes R123	periodo
+R124	Relacao Arg1:T170 Arg2:T168	
+R125	Relacao Arg1:T169 Arg2:T170	
+T237	Grupo 10585 10589	Eixo
+R126	Causou Arg1:T237 Arg2:T170	
+R127	Relacao Arg1:T171 Arg2:T172	
+T238	Organizacao 10776 10794	governo brasileiro
+R128	Relacao Arg1:T238 Arg2:T174	
+R129	Relacao Arg1:T177 Arg2:T178	
+#19	AnnotatorNotes R129	periodo
+R130	Relacao Arg1:T179 Arg2:T177	
+R131	Relacao Arg1:T178 Arg2:T179	
+T239	Grupo 11069 11073	Eixo
+R132	Causou Arg1:T239 Arg2:T179	
+R133	Relacao Arg1:T181 Arg2:T182	
+R134	Relacao Arg1:T181 Arg2:T183	
+R135	Relacao Arg1:T189 Arg2:T190	
+R136	Relacao Arg1:T196 Arg2:T197	
+R137	Relacao Arg1:T198 Arg2:T199	
+T240	Grupo 12191 12195	Eixo
+R138	Relacao Arg1:T201 Arg2:T240	
+R139	Relacao Arg1:T202 Arg2:T240	
+R140	Relacao Arg1:T203 Arg2:T240	
+T241	Grupo 12249 12256	Aliadas
+R141	Relacao Arg1:T204 Arg2:T241	
+R142	Relacao Arg1:T205 Arg2:T241	
+R143	Relacao Arg1:T206 Arg2:T241	
+R67	Relacao Arg1:T241 Arg2:T207	
+R144	Relacao Arg1:T199 Arg2:T241	
+T242	Grupo 12384 12392	nazistas
+R145	Relacao Arg1:T208 Arg2:T242	
+R146	Relacao Arg1:T199 Arg2:T208	
