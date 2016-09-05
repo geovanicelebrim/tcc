@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import org.neo4j.driver.v1.Record;
 import org.neo4j.driver.v1.StatementResult;
 
+import util.DadosDocumentos;
+import util.TratamentoDeDados;
 import DAO.Documentos;
 import DAO.Neo4j;
 import entidade.Posicao;
 import entidade.ResultadoCypher;
 import entidade.ResultadoDocumento;
-import excessao.QueryInvalidaException;
+import entidade.ResultadoGrafo;
 
 public class BuscaSemantica {
 
@@ -27,7 +29,8 @@ public class BuscaSemantica {
 
 		String resultado;
 		try {
-			resultado = statementToString(cypherQuery, retorno);
+			resultado = TratamentoDeDados.statementToString(cypherQuery,
+					retorno);
 		} catch (Exception e) {
 			throw e;
 		}
@@ -56,72 +59,31 @@ public class BuscaSemantica {
 				Record record = retorno.next();
 				String p1[] = record.get("posicao1").asString().split("; ");
 
-				for (int i = 0; i < p1.length; i++) {
-					posicao1.add(new Posicao(p1[i].split(", ")[0], p1[i]
-							.split(", ")[1]));
-				}
+				for (int i = 0; i < p1.length; i++) {posicao1.add(new Posicao(p1[i].split(", ")[0], p1[i].split(", ")[1]));}
 
 				String p2[] = record.get("posicao2").asString().split("; ");
 
-				for (int i = 0; i < p2.length; i++) {
-					posicao2.add(new Posicao(p2[i].split(", ")[0], p2[i]
-							.split(", ")[1]));
-				}
+				for (int i = 0; i < p2.length; i++) {posicao2.add(new Posicao(p2[i].split(", ")[0], p2[i].split(", ")[1]));}
 
-				ArrayList<Posicao> dadosCruzados = cruzarDados(posicao1,
-						posicao2);
+				ArrayList<Posicao> dadosCruzados = TratamentoDeDados.cruzarDados(posicao1, posicao2);
 
-				String nomeDocumento = record.get("nome").asString();
+				String caminhoDocumento = record.get("caminho").asString();
 
 				for (int i = 0; i < dadosCruzados.size(); i++) {
-					String texto = Documentos.lerArquivo(nomeDocumento);
+
+					String texto = Documentos.lerArquivo(caminhoDocumento);
 					int inicio, fim;
 
-					if (dadosCruzados.get(i).getInicio() < dadosCruzados.get(i)
-							.getFim()) {
+					inicio = DadosDocumentos.aproximarIndiceInicial(texto, dadosCruzados.get(i).getInicio());
+					fim = DadosDocumentos.indiceFinal(texto, inicio + 250);
 
-						if (dadosCruzados.get(i).getInicio() < 200) {
-							inicio = 0;
-						} else {
-							inicio = dadosCruzados.get(i).getInicio() - 200;
-						}
+					ResultadoDocumento resultadoDocumento = new ResultadoDocumento(
+							caminhoDocumento, dadosCruzados.get(i),
+							texto.substring(inicio, fim), DadosDocumentos.buscarAutorEFonte(
+									caminhoDocumento).getAutor(),
+									DadosDocumentos.buscarAutorEFonte(caminhoDocumento).getFonte());
 
-						if ((texto.length() - dadosCruzados.get(i).getFim()) < 200) {
-							fim = texto.length();
-						} else {
-							fim = dadosCruzados.get(i).getFim() + 200;
-						}
-						// TODO Inserir parametros (autor e fonte) na instância
-						// do novo objeto
-						ResultadoDocumento resultadoDocumento = new ResultadoDocumento(
-								nomeDocumento, dadosCruzados.get(i),
-								texto.substring(inicio, fim),
-								buscarAutorEFonte(nomeDocumento).getAutor(),
-								buscarAutorEFonte(nomeDocumento).getFonte());
-						
-						resultadosDocumentos.add(resultadoDocumento);
-					} else {
-
-						if (dadosCruzados.get(i).getFim() < 200) {
-							inicio = 0;
-						} else {
-							inicio = dadosCruzados.get(i).getFim() - 200;
-						}
-
-						if ((texto.length() - dadosCruzados.get(i).getInicio()) < 200) {
-							fim = texto.length();
-						} else {
-							fim = dadosCruzados.get(i).getInicio() + 200;
-						}
-
-						ResultadoDocumento resultadoDocumento = new ResultadoDocumento(
-								nomeDocumento, dadosCruzados.get(i),
-								texto.substring(inicio, fim),
-								buscarAutorEFonte(nomeDocumento).getAutor(),
-								buscarAutorEFonte(nomeDocumento).getFonte());
-
-						resultadosDocumentos.add(resultadoDocumento);
-					}
+					resultadosDocumentos.add(resultadoDocumento);
 				}
 
 				posicao1.clear();
@@ -136,86 +98,14 @@ public class BuscaSemantica {
 		return resultadosDocumentos;
 	}
 
-	private static ResultadoDocumento buscarAutorEFonte(String nomeDocumento) {
+	// Busca que obtém o grafo do banco
+	public static ArrayList<ResultadoGrafo> buscaGrafo(String cypherQuery) {
+		// TODO Criar uma maneira de recuperar um json do banco.
+		/*match (d:Documento)-[r1]-(p:Pessoa)-[r2]-(e:Evento)-[r3]-(d:Documento) where e.trecho =~ "(?i).*guerra.*" return ID(startNode(r1)), ID(endNode(r1)), ID(startNode(r2)), ID(endNode(r2)), ID(startNode(r3)), ID(endNode(r3))
+		 * */
 
-		Neo4j neo4j = new Neo4j();
-		String cypherQuery = "match (d:Documento) where d.nome = \""
-				+ nomeDocumento + "\" return d.autor as autor, d.fonte as fonte";
-
-		StatementResult retorno = neo4j.getSession().run(cypherQuery);
-
-		ResultadoDocumento resultadoDocumento = null;
-
-		while (retorno.hasNext()) {
-
-			Record record = retorno.next();
-
-			resultadoDocumento = new ResultadoDocumento(record.get("autor")
-					.asString(), record.get("fonte").asString());
-
-		}
-
-		neo4j.desconectar();
-		return resultadoDocumento;
-	}
-
-	private static ArrayList<Posicao> cruzarDados(ArrayList<Posicao> posicao1,
-			ArrayList<Posicao> posicao2) {
-		// TODO pensar em poder cruzar mais parametros para uma pesquisa mais
-		// completa
-		ArrayList<Posicao> dadosCruzados = new ArrayList<>();
-
-		for (int i = 0; i < posicao1.size(); i++) {
-			for (int j = 0; j < posicao2.size(); j++) {
-
-				if (Math.abs(posicao1.get(i).getInicio()
-						- posicao2.get(j).getFim()) < 500) {
-
-					boolean repetido = false;
-
-					for (int k = 0; k < dadosCruzados.size(); k++) {
-						if (Math.abs(dadosCruzados.get(k).getInicio()
-								- posicao2.get(j).getFim()) < 500) {
-							repetido = true;
-							break;
-						}
-					}
-					if (!repetido) {
-						dadosCruzados.add(new Posicao(posicao1.get(i)
-								.getInicio(), posicao2.get(j).getFim()));
-					}
-				}
-			}
-		}
-
-		return dadosCruzados;
-	}
-
-	private static String statementToString(String cypherQuery,
-			StatementResult resultado) throws QueryInvalidaException {
-
-		String parametros[] = cypherQuery.split("return")[1].split(",");
-
-		String retorno = "";
-
-		while (resultado.hasNext()) {
-
-			Record record = resultado.next();
-
-			for (int i = 0; i < parametros.length; i++) {
-				try {
-					if (parametros[i].split("as ")[0].contains("trecho")) {
-						retorno += record.get(parametros[i].split("as ")[1])
-								+ " ";
-					}
-				} catch (Exception e) {
-					throw new QueryInvalidaException();
-				}
-			}
-
-			retorno += "\n";
-		}
-
-		return retorno;
+		ArrayList<ResultadoGrafo> nos = new ArrayList<>();
+		
+		return nos;
 	}
 }

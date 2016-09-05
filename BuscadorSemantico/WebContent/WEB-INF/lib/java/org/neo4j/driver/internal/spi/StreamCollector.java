@@ -146,7 +146,7 @@ public interface StreamCollector
         }
     }
 
-    // TODO: This should be modified to simply have head/record/tail methods
+    
 
     void keys( String[] names );
 

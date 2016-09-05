@@ -126,7 +126,6 @@ public class InternalTransaction implements Transaction
     }
 
     @Override
-    @SuppressWarnings( "unchecked" )
     public StatementResult run( String statementText, Value statementParameters )
     {
         return run( new Statement( statementText, statementParameters ) );

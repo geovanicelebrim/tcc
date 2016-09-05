@@ -8,14 +8,12 @@ import java.io.FileReader;
 import excessao.ErroArquivoException;
 
 public class Documentos {
-	// TODO Adicionar um atributo caminho e outro nome do arquivo no banco
-	private static String caminhoPrefixo = "/home/geovani/cedim-data/";
+	private static String caminhoPrefixo = "/home/geovani/cedim-data";
 	private static final String pasta = "/CEDIM-II-GUERRA";
 //	private String caminhoPrefixo = "/home/geovani/Brat/brat-v1.3_Crunchy_Frog/data/";
 	
-	public static String lerArquivo(String nome) throws ErroArquivoException {
-		nome += ".txt";
-		String nomeArquivo = caminhoPrefixo + nome.substring(2);
+	public static String lerArquivo(String caminho) throws ErroArquivoException {
+		String nomeArquivo = caminhoPrefixo + caminho;
 		String texto = "";
 		try {
 			FileReader arq = new FileReader(nomeArquivo);

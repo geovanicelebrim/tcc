@@ -70,7 +70,6 @@ public class StringValue extends ScalarValueAdapter
         return InternalTypeSystem.TYPE_SYSTEM.STRING();
     }
 
-    @SuppressWarnings("StringEquality")
     @Override
     public boolean equals( Object o )
     {

@@ -28,6 +28,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+
 import javax.net.ssl.X509TrustManager;
 
 import org.neo4j.driver.internal.net.BoltServerAddress;
@@ -71,7 +72,8 @@ public class TrustOnFirstUseTrustManager implements X509TrustManager
      *
      * @throws IOException
      */
-    private void load() throws IOException
+    @SuppressWarnings("resource")
+	private void load() throws IOException
     {
         if ( !knownHosts.exists() )
         {

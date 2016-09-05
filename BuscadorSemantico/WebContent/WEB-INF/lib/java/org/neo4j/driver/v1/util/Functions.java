@@ -30,7 +30,8 @@ public class Functions
         return IDENTITY;
     }
 
-    private static final Function IDENTITY = new Function()
+    @SuppressWarnings("rawtypes")
+	private static final Function IDENTITY = new Function()
     {
         @Override
         public Object apply( Object o )

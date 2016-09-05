@@ -116,7 +116,7 @@ public class PackStream
     public static final byte RESERVED_DB = (byte) 0xDB;
     public static final byte STRUCT_8 = (byte) 0xDC;
     public static final byte STRUCT_16 = (byte) 0xDD;
-    public static final byte RESERVED_DE = (byte) 0xDE; // TODO STRUCT_32? or the class javadoc is wrong?
+    public static final byte RESERVED_DE = (byte) 0xDE; 
     public static final byte RESERVED_DF = (byte) 0xDF;
     public static final byte RESERVED_E0 = (byte) 0xE0;
     public static final byte RESERVED_E1 = (byte) 0xE1;
@@ -253,7 +253,8 @@ public class PackStream
             }
         }
 
-        public void pack( List values ) throws IOException
+        @SuppressWarnings("rawtypes")
+		public void pack( List values ) throws IOException
         {
             if ( values == null ) { packNull(); }
             else
@@ -266,7 +267,8 @@ public class PackStream
             }
         }
 
-        public void pack( Map values ) throws IOException
+        @SuppressWarnings("rawtypes")
+		public void pack( Map values ) throws IOException
         {
             if ( values == null ) { packNull(); }
             else
@@ -280,7 +282,8 @@ public class PackStream
             }
         }
 
-        public void pack( Object value ) throws IOException
+        @SuppressWarnings("rawtypes")
+		public void pack( Object value ) throws IOException
         {
             if ( value == null ) { packNull(); }
             else if ( value instanceof Boolean ) { pack( (boolean) value ); }

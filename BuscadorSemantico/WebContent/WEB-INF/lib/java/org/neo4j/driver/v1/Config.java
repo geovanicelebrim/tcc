@@ -43,6 +43,7 @@ import static org.neo4j.driver.v1.Config.TrustStrategy.*;
  * </pre>
  * @since 1.0
  */
+@SuppressWarnings("unused")
 @Immutable
 public class Config
 {

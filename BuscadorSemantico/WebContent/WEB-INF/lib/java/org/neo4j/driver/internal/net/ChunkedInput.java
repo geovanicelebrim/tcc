@@ -61,9 +61,7 @@ public class ChunkedInput implements PackInput
     public boolean hasMoreData() throws IOException
     {
         return hasMoreDataUnreadInCurrentChunk();
-        // TODO change the reading mode to non-blocking so that we could also detect
-        // if there are more chunks in the channel?
-        // this method currently is only valid if we are in the middle of a chunk
+        
     }
 
     @Override

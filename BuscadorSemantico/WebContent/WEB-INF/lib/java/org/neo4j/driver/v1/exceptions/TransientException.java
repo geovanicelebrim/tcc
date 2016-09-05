@@ -23,6 +23,7 @@ package org.neo4j.driver.v1.exceptions;
  * The error code provided can be used to determine further detail for the problem.
  * @since 1.0
  */
+@SuppressWarnings("serial")
 public class TransientException extends Neo4jException
 {
     public TransientException( String code, String message )

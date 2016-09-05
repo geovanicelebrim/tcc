@@ -78,7 +78,6 @@ public abstract class BooleanValue extends ScalarValueAdapter
             return false;
         }
 
-        @SuppressWarnings("EqualsWhichDoesntCheckParameterClass")
         @Override
         public boolean equals( Object obj )
         {
@@ -118,7 +117,6 @@ public abstract class BooleanValue extends ScalarValueAdapter
             return true;
         }
 
-        @SuppressWarnings("EqualsWhichDoesntCheckParameterClass")
         @Override
         public boolean equals( Object obj )
         {

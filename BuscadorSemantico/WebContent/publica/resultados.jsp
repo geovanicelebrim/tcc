@@ -362,9 +362,8 @@ table td:first-child {
 					</label>
 					<div id="div<%out.print(i);%>">
 						<%
-							out.println("[...] "
-											+ resultadoDocumento.get(i).getTrecho() + " [...]");
-									out.println("<br><br>");
+							out.println(resultadoDocumento.get(i).getTrecho() + " [...]");
+							out.println("<br><br>");
 						%>
 					</div> <%
  	}

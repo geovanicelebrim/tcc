@@ -23,6 +23,7 @@ package org.neo4j.driver.v1.exceptions;
  * The error code provided can be used to determine further detail for the problem.
  * @since 1.0
  */
+@SuppressWarnings("serial")
 public class ClientException extends Neo4jException
 {
     public ClientException( String message )

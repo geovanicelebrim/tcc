@@ -83,7 +83,8 @@ public class InternalPlan<T extends Plan> implements Plan
         );
     }
 
-    @Override
+    @SuppressWarnings("rawtypes")
+	@Override
     public boolean equals( Object o )
     {
         if ( this == o )

@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.ByteChannel;
 import java.security.GeneralSecurityException;
+
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLEngine;
@@ -109,7 +110,8 @@ public class TLSSocketChannel implements ByteChannel
      *
      * @throws IOException
      */
-    private void runHandshake() throws IOException
+    @SuppressWarnings("incomplete-switch")
+	private void runHandshake() throws IOException
     {
         logger.debug( "~~ [OPENING SECURE CHANNEL]" );
         sslEngine.beginHandshake();
@@ -289,7 +291,7 @@ public class TLSSocketChannel implements ByteChannel
             int netSize = sslEngine.getSession().getPacketBufferSize();
             if ( curNetSize >= netSize || buffer.capacity() > netSize )
             {
-                // TODO
+                
                 throw new ClientException(
                         String.format( "Failed to enlarge network buffer from %s to %s. This is either because the " +
                                        "new size is however less than the old size, or because the application " +
@@ -412,7 +414,8 @@ public class TLSSocketChannel implements ByteChannel
         return channel.isOpen();
     }
 
-    @Override
+    @SuppressWarnings("unused")
+	@Override
     public void close() throws IOException
     {
         try

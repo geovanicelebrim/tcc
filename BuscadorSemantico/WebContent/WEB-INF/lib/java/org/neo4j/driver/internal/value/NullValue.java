@@ -54,7 +54,6 @@ public final class NullValue extends ScalarValueAdapter
         return InternalTypeSystem.TYPE_SYSTEM.NULL();
     }
 
-    @SuppressWarnings("EqualsWhichDoesntCheckParameterClass")
     @Override
     public boolean equals( Object obj )
     {

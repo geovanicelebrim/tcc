@@ -54,7 +54,8 @@ public class InternalStatementResult implements StatementResult
     private List<String> keys = null;
     private ResultSummary summary = null;
 
-    private long position = -1;
+    @SuppressWarnings("unused")
+	private long position = -1;
     private boolean done = false;
 
     public InternalStatementResult( Connection connection, Statement statement )

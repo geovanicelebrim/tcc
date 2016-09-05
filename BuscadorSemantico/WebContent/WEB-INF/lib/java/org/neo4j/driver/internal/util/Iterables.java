@@ -30,7 +30,8 @@ import org.neo4j.driver.v1.util.Function;
 
 public class Iterables
 {
-    public static int count( Iterable<?> it )
+    @SuppressWarnings({ "rawtypes", "unused" })
+	public static int count( Iterable<?> it )
     {
         if ( it instanceof Collection ) { return ((Collection) it).size(); }
         int size = 0;
