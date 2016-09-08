@@ -1,4 +1,4 @@
-package entidade;
+package entidade.resultados;
 
 public class ResultadoCypher {
 	

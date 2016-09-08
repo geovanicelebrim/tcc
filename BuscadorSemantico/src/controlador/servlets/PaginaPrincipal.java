@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controlador.BuscaSemantica;
-import entidade.ResultadoCypher;
-import entidade.ResultadoDocumento;
+import entidade.resultados.ResultadoCypher;
+import entidade.resultados.ResultadoDocumento;
 
 @WebServlet("/PaginaPrincipal")
 public class PaginaPrincipal extends HttpServlet {

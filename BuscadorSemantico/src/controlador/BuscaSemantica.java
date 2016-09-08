@@ -10,9 +10,9 @@ import util.TratamentoDeDados;
 import DAO.Documentos;
 import DAO.Neo4j;
 import entidade.Posicao;
-import entidade.ResultadoCypher;
-import entidade.ResultadoDocumento;
-import entidade.ResultadoGrafo;
+import entidade.resultados.ResultadoCypher;
+import entidade.resultados.ResultadoDocumento;
+import entidade.resultados.ResultadoGrafo;
 
 public class BuscaSemantica {
 

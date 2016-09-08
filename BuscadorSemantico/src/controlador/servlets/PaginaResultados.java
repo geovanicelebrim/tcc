@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import DAO.Documentos;
 import controlador.BuscaSemantica;
-import entidade.ResultadoCypher;
-import entidade.ResultadoDocumento;
+import entidade.resultados.ResultadoCypher;
+import entidade.resultados.ResultadoDocumento;
 
 @WebServlet("/PaginaResultados")
 public class PaginaResultados extends HttpServlet {

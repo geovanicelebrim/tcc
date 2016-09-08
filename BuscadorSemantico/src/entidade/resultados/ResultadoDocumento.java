@@ -1,4 +1,6 @@
-package entidade;
+package entidade.resultados;
+
+import entidade.Posicao;
 
 public class ResultadoDocumento {
 	private String nomeDocumento;

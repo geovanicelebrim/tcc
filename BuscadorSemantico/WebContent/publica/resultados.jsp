@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<%@page import="entidade.ResultadoCypher"%>
-<%@page import="entidade.ResultadoDocumento"%>
+<%@page import="entidade.resultados.ResultadoCypher"%>
+<%@page import="entidade.resultados.ResultadoDocumento"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

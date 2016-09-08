@@ -9,7 +9,7 @@ import org.neo4j.driver.v1.StatementResult;
 import DAO.Documentos;
 import DAO.Neo4j;
 import entidade.Documento;
-import entidade.ResultadoSimples;
+import entidade.resultados.ResultadoSimples;
 import excessao.ErroArquivoException;
 
 public class BuscaSimples {
@@ -27,7 +27,7 @@ public class BuscaSimples {
 
 			documentos.add(new Documento(nomesDocumentos[i].getName(),
 					Documentos.lerArquivo("./CEDIM-II-GUERRA/"
-							+ nomesDocumentos[i].getName().split(".txt")[0])));
+							+ nomesDocumentos[i].getName())));
 		}
 
 		for (int i = 0; i < documentos.size(); i++) {

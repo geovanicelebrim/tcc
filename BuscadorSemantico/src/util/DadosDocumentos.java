@@ -4,7 +4,7 @@ import org.neo4j.driver.v1.Record;
 import org.neo4j.driver.v1.StatementResult;
 
 import DAO.Neo4j;
-import entidade.ResultadoDocumento;
+import entidade.resultados.ResultadoDocumento;
 
 public class DadosDocumentos {
 	public static ResultadoDocumento buscarAutorEFonte(String caminhoDocumento) {
