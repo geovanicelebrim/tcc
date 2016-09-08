@@ -25,24 +25,29 @@ public class PaginaPrincipal extends HttpServlet {
 	private void processarRequisicao(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException {
 
-		String busca = null;
+		String query = null;
+		String tipoBusca = null;
 		
 		try {
-			busca = java.net.URLDecoder.decode(request.getQueryString().substring(11,
-					request.getQueryString().length()), "UTF-8");
+			String queryString = java.net.URLDecoder.decode(request.getQueryString(), "UTF-8");
+			
+			query = queryString.split("&search-mode=")[0].split("query=")[1];
+			
+			tipoBusca = queryString.split("&search-mode=")[1];
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		if (busca != null) {
+		if (query != null) {
 			
-			request.setAttribute("valor", busca);
+			request.setAttribute("valor", query);
 			
 			ResultadoCypher resultadoCypher = null;
 			ArrayList<ResultadoDocumento> resultadoDocumento = new ArrayList<>();
 			try {
-				resultadoCypher = BuscaSemantica.buscaCypher(busca);
-				resultadoDocumento = BuscaSemantica.buscaDocumento(busca);
+				resultadoCypher = BuscaSemantica.buscaCypher(query);
+				resultadoDocumento = BuscaSemantica.buscaDocumento(query);
 			} catch (Exception e) {
 				if(!e.getMessage().equals("1")) {
 					request.setAttribute("mensagemErro", e.getMessage());
