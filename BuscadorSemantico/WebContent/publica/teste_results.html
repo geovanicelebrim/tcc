@@ -61,12 +61,16 @@
         <script type="text/javascript">
           window.onload = function() {
               scroll();
+
+              $(".scroll_to_tab").click(function () {
+              	scroll();
+              });
           }
         </script>
 
         <script type="text/javascript">
           function scroll () {
-            $('html, body').animate({ scrollTop:325 }, 1500);
+            $('html, body').animate({ scrollTop:325 }, 1000);
           }
         </script>
 
@@ -245,9 +249,9 @@
           <div>
 
             <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active"><a href="#simple_results" aria-controls="simple_results" role="tab" data-toggle="tab" onclick="setTimeout(hide_graph, 1000); scroll();">Simple Results</a></li>
-              <li role="presentation"><a href="#db_results" aria-controls="db_results" role="tab" data-toggle="tab" onclick="setTimeout(hide_graph, 1000); scroll();">Data Base Results</a></li>
-              <li role="presentation"><a href="#graph_results" aria-controls="graph_results" role="tab" data-toggle="tab" onclick="show_graph(); scroll(); draw();">Graph Results</a></li>
+              <li role="presentation" class="active"><a href="#simple_results" aria-controls="simple_results" role="tab" data-toggle="tab" onclick="setTimeout(hide_graph, 1000); scroll();" class="scroll_to_tab">Simple Results</a></li>
+              <li role="presentation"><a href="#db_results" aria-controls="db_results" role="tab" data-toggle="tab" onclick="setTimeout(hide_graph, 1000); scroll();" class="scroll_to_tab">Data Base Results</a></li>
+              <li role="presentation"><a href="#graph_results" aria-controls="graph_results" role="tab" data-toggle="tab" onclick="show_graph(); scroll(); draw();" class="scroll_to_tab">Graph Results</a></li>
             </ul>
 
             <!-- Tab panes -->
