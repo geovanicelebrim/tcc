@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controlador.BuscaSemantica;
+import entidade.Grafo;
 import entidade.resultados.ResultadoCypher;
 import entidade.resultados.ResultadoDocumento;
 
@@ -40,6 +41,7 @@ public class PaginaPrincipal extends HttpServlet {
 		}
 		
 		if (tipoBusca != null) {
+			
 			switch (tipoBusca) {
 			case "normal":
 				//TODO implementar busca simples
@@ -55,23 +57,35 @@ public class PaginaPrincipal extends HttpServlet {
 				
 			case "semantic":
 				
+				
 				if (query != null) {
 					
 					request.setAttribute("query", query);
 					
 					ArrayList<ResultadoCypher> resultadoCypher = null;
 					ArrayList<ResultadoDocumento> resultadoDocumento = new ArrayList<>();
+					Grafo grafo = null;
 					try {
-						resultadoCypher = BuscaSemantica.buscaCypher(query);
+						resultadoCypher = BuscaSemantica.buscaCypherBolt(query);
 						resultadoDocumento = BuscaSemantica.buscaDocumento(query);
+						grafo = BuscaSemantica.buscaCypherRest(query);
 					} catch (Exception e) {
 						if(!e.getMessage().equals("1")) {
 							request.setAttribute("error_message", e.getMessage());
 						}
 					}
-					
+
+//					for (int i = 0; i < grafo.getVertices().size(); i++) {
+//						System.out.println(grafo.getVertices().get(i));
+//					}
+//					
+//					for (int i = 0; i < grafo.getArestas().size(); i++) {
+//						System.out.println(grafo.getArestas().get(i));
+//					}
+
 					request.setAttribute("resultadoCypher", resultadoCypher);
 					request.setAttribute("resultadoDocumento", resultadoDocumento);
+					request.setAttribute("grafo", grafo);
 					
 					irParaResultados(request, response);
 				}
@@ -100,6 +114,7 @@ public class PaginaPrincipal extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		processarRequisicao(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request,

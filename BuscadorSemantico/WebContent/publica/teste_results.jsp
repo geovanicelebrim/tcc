@@ -1,4 +1,5 @@
 <!doctype html>
+<%@page import="entidade.Grafo"%>
 <%@page import="entidade.resultados.ResultadoCypher"%>
 <%@page import="entidade.resultados.ResultadoDocumento"%>
 <%@page import="java.util.ArrayList"%>
@@ -38,7 +39,7 @@
 	            <script src="publica/js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
 	        <![endif]-->
 	
-	<style>
+<style>
 	.container {
 		margin-right: auto;
 		margin-left: auto;
@@ -82,7 +83,7 @@
 	p {
 		max-width: 700px;
 	}
-	</style>
+</style>
 	
 	<script type="text/javascript">
 	          window.onload = function() {
@@ -97,110 +98,197 @@
 
 	<script type="text/javascript">
 	          function draw() {
-	
-	            // create an array with edges
-	            var edges = [{
-	              from: 1,
-	              to: 3,
-	              label: '',
-	              font: {align: 'bottom'}
-	            }, {
-	              from: 2,
-	              to: 4
-	            }, {
-	              from: 3,
-	              to: 5
-	            }, {
-	              from: 4,
-	              to: 5
-	            }, {
-	              from: 6,
-	              to: 4
-	            }, {
-	              from: 7,
-	              to: 3
-	            }];
-	
-	            /*
-	             * Example for Ionicons
-	             */
-	            var optionsIO = {
-	              interaction: {tooltipDelay: 400},
-	              physics: {
-	                          maxVelocity: 16,
-	                          // solver: 'forceAtlas2Based',
-	                          timestep: 0.35,
-	                          stabilization: {
-	                              enabled:false,
-	                              iterations:2000,
-	                              updateInterval:25
-	                          }
-	                        },
-	                      
-	              groups: {
-	                usergroups: {
-	                  shape: 'icon',
-	                  icon: {
-	                    face: 'Ionicons',
-	                    code: '\uf47c',
-	                    size: 50,
-	                    color: '#57169a'
-	                  }
-	                },
-	                users: {
-	                  shape: 'icon',
-	                  icon: {
-	                    face: 'Ionicons',
-	                    code: '\uf47e',
-	                    size: 50,
-	                    color: '#aa00ff'
-	                  }
-	                },
-	                Organisation: {
-	                  shape: 'icon',
-	                  icon: {
-	                    face: 'Ionicons',
-	                    code: '\uf276',
-	                    size: 50,
-	                    color: '#f0a30a'
-	                  }
-	                }
-	              }
-	            };
-	
-	            // create an array with nodes
-	            var nodesIO = [{
-	              id: 1,
-	              title: 'Esse ÃÂ© um menu pop-up que mostra uma mensagem',
-	              label: 'Geovani',
-	              group: 'users'
-	            }, {
-	              id: 2,
-	              label: 'Leandro',
-	              group: 'users'
-	            }, {
-	              id: 3,
-	              label: 'Alunos',
-	              group: 'usergroups'
-	            }, {
-	              id: 4,
-	              label: 'Professores',
-	              group: 'usergroups'
-	            }, {
-	              id: 5,
-	              label: 'UFRRJ',
-	              group: 'Organisation'
-	            }, {
-	              id: 6,
-	              label: 'Luis',
-	              group: 'users'
-	            }, {
-	              id: 7,
-	              label: 'Ricardo',
-	              group: 'users'
-	            }];
-	
-	
+				//Create graph in java web
+				<%
+					Grafo grafo = (Grafo) request.getAttribute("grafo");
+					/*
+					for (int i = 0; i < grafo.getVertices().size(); i++) {
+						System.out.println(grafo.getVertices().get(i));
+					}
+					
+					for (int i = 0; i < grafo.getArestas().size(); i++) {
+						System.out.println(grafo.getArestas().get(i));
+					}*/
+				%>
+				
+				var edges = [{
+					<%
+						for (int i = 0; i < grafo.getArestas().size(); i++) {
+							out.println("from: " + grafo.getArestas().get(i).getFrom() + ",");
+							out.println("to: " + grafo.getArestas().get(i).getTo());
+							
+							if( i + 1 != grafo.getArestas().size() )
+								out.println("}, {");
+						}
+					%>
+				}];
+				//http://glyphsearch.com/?library=ionicons&copy=unicode-hexadecimal				
+				var optionsIO = {
+					interaction: {tooltipDelay: 400},
+					physics: {
+						maxVelocity: 16,
+						solver: 'forceAtlas2Based',
+						timestep: 0.35,
+						stabilization: {
+							enabled:false,
+							iterations:2000,
+							updateInterval:25
+						}
+					},
+					groups: {
+						Grupo: {
+							shape: 'icon',
+							icon: {
+								face: 'Ionicons',
+								code: '\uf47c',
+								size: 50,
+								color: '#57169a'
+							}
+						},
+						Pessoa: {
+							shape: 'icon',
+							icon: {
+								face: 'Ionicons',
+								code: '\uf47e',
+								size: 50,
+								color: '#aa00ff'
+							}
+						},
+						Organizacao: {
+							shape: 'icon',
+							icon: {
+								face: 'Ionicons',
+								code: '\uf276',
+								size: 50,
+								color: '#f0a30a'
+							}
+						},//----------
+						Data: {
+							shape: 'icon',
+							icon: {
+								face: 'Ionicons',
+								code: '\uf2d1',
+								size: 50,
+								color: '#f0a30a'
+							}
+						},
+						Duvida: {
+							shape: 'icon',
+							icon: {
+								face: 'Ionicons',
+								code: '\uf445',
+								size: 50,
+								color: '#f0a30a'
+							}
+						},
+						Local: {
+							shape: 'icon',
+							icon: {
+								face: 'Ionicons',
+								code: '\uf455',
+								size: 50,
+								color: '#f0a30a'
+							}
+						},
+						Documento: {
+							shape: 'icon',
+							icon: {
+								face: 'Ionicons',
+								code: '\uf471',
+								size: 50,
+								color: '#f0a30a'
+							}
+						},
+						URLFonte: {
+							shape: 'icon',
+							icon: {
+								face: 'Ionicons',
+								code: '\uf347',
+								size: 50,
+								color: '#f0a30a'
+							}
+						},
+						TempoFonte: {
+							shape: 'icon',
+							icon: {
+								face: 'Ionicons',
+								code: '\uf2d1',
+								size: 50,
+								color: '#f0a30a'
+							}
+						},
+						Fonte: {
+							shape: 'icon',
+							icon: {
+								face: 'Ionicons',
+								code: '\uf12e',
+								size: 50,
+								color: '#f0a30a'
+							}
+						},
+						Evento: {
+							shape: 'icon',
+							icon: {
+								face: 'Ionicons',
+								code: '\uf3ae',
+								size: 50,
+								color: '#f0a30a'
+							}
+						},
+						Quantidade: {
+							shape: 'icon',
+							icon: {
+								face: 'Ionicons',
+								code: '\uf262',
+								size: 50,
+								color: '#f0a30a'
+							}
+						},
+						Artefato: {
+							shape: 'icon',
+							icon: {
+								face: 'Ionicons',
+								code: '\uf371',
+								size: 50,
+								color: '#f0a30a'
+							}
+						},
+						AutorReporter: {
+							shape: 'icon',
+							icon: {
+								face: 'Ionicons',
+								code: '\uf37e',
+								size: 50,
+								color: '#f0a30a'
+							}
+						},
+						Pesquisador: {
+							shape: 'icon',
+							icon: {
+								face: 'Ionicons',
+								code: '\uf21f',
+								size: 50,
+								color: '#f0a30a'
+							}
+						}
+	            	}
+				};
+				
+				//create nodes in java web
+				var nodesIO = [{
+					<%
+						for (int i = 0; i < grafo.getVertices().size(); i++) {
+							out.println("id: " + grafo.getVertices().get(i).getID() + ",");
+							//out.println("title: " + grafo.getVertices().get(i).title() + ",");
+							out.println("label: '" + grafo.getVertices().get(i).getTrecho() + "',");
+							out.println("group: '" + grafo.getVertices().get(i).getLabel() + "',");
+							
+							if ( i + 1 != grafo.getVertices().size() )
+								out.println("}, {");
+						}
+					%>
+				}];
+
 	            // create a network
 	           var containerIO = document.getElementById('mynetwork');
 	           var dataIO = {
@@ -280,15 +368,15 @@
 					<li role="presentation" class="active"><a
 						href="#simple_results" aria-controls="simple_results" role="tab"
 						data-toggle="tab"
-						onclick="setTimeout(hide_graph, 1000); scroll();"
+						onclick="setTimeout(hide_graph, 300); scroll();"
 						class="scroll_to_tab">Simple Results</a></li>
 					<li role="presentation"><a href="#db_results"
 						aria-controls="db_results" role="tab" data-toggle="tab"
-						onclick="setTimeout(hide_graph, 1000); scroll();"
+						onclick="setTimeout(hide_graph, 300); scroll();"
 						class="scroll_to_tab">Data Base Results</a></li>
 					<li role="presentation"><a href="#graph_results"
 						aria-controls="graph_results" role="tab" data-toggle="tab"
-						onclick="show_graph(); scroll(); draw();" class="scroll_to_tab">Graph
+						onclick="setTimeout(show_graph, 150); scroll(); setTimeout(draw, 200);" class="scroll_to_tab">Graph
 							Results</a></li>
 				</ul>
 
@@ -357,6 +445,10 @@
 								<% 	}
 								} %>
 						</div>
+						
+						<br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+						<br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+						<br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
 					</div>
 
@@ -405,8 +497,7 @@
 						<br> <br> <br> <br> <br> <br> <br>
 						<br> <br> <br> <br> <br> <br> <br>
 						<br> <br> <br> <br> <br> <br> <br>
-						<br> <br> <br> <br> <br> <br> <br>
-						<br> <br> <br> <br> <br>
+						
 
 					</div>
 

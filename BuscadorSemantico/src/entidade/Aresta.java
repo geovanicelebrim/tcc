@@ -1,18 +1,13 @@
 package entidade;
 
 public class Aresta {
-	private String note;
+
 	private String from;
 	private String to;
 	
-	public Aresta(String note, String from, String to) {
-		this.note = note;
+	public Aresta(String from, String to) {
 		this.from = from;
 		this.to = to;
-	}
-	
-	public String getNote() {
-		return this.note;
 	}
 	
 	public String getFrom() {
@@ -25,6 +20,6 @@ public class Aresta {
 	
 	@Override
 	public String toString() {
-		return this.note + ", " + this.from + ", " + this.to;
+		return this.from + ", " + this.to;
 	}
 }

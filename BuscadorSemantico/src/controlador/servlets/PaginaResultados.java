@@ -51,7 +51,7 @@ public class PaginaResultados extends HttpServlet {
 				ArrayList<ResultadoCypher> resultado = null;
 				ArrayList<ResultadoDocumento> resultadoDocumento = new ArrayList<>();
 				try {
-					resultado = BuscaSemantica.buscaCypher(busca);
+					resultado = BuscaSemantica.buscaCypherBolt(busca);
 					resultadoDocumento = BuscaSemantica.buscaDocumento(busca);
 				} catch (Exception e) {
 					if(!e.getMessage().equals("1")) {

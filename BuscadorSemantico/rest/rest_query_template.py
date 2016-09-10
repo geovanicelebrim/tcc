@@ -27,9 +27,15 @@ for r in results.graph:
 			idNodes[n["id"]]
 			pass
 		except Exception, e:
-			node = "label: " + n["labels"][0] + ", id: " + n["id"] + ", trecho: " + n["properties"]["trecho"]
-			nodes.append(node)
-			idNodes[n["id"]] = n["id"]
+			if n["labels"][0] != "Documento":
+				node = "label: " + n["labels"][0] + ", id: " + n["id"] + ", trecho: " + n["properties"]["trecho"]
+				nodes.append(node)
+				idNodes[n["id"]] = n["id"]
+			else:
+				node = "label: " + n["labels"][0] + ", id: " + n["id"] + ", trecho: " + n["properties"]["nome"]
+				nodes.append(node)
+				idNodes[n["id"]] = n["id"]
+
 			pass
 		pass
 	pass
@@ -42,7 +48,7 @@ for r in results.graph:
 			idEdges[n["id"]]
 			pass
 		except Exception, e:
-			edge = "note: " + n["properties"]["nota"] + ", from: " + n["startNode"] + ", to: " + n["endNode"]
+			edge = "from: " + n["startNode"] + ", to: " + n["endNode"]
 			edges.append(edge)
 			idEdges[n["id"]] = n["id"]
 			pass

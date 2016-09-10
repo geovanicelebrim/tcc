@@ -1,5 +1,6 @@
 package controlador;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.neo4j.driver.v1.Record;
@@ -9,30 +10,34 @@ import util.DadosDocumentos;
 import util.TratamentoDeDados;
 import DAO.Documentos;
 import DAO.Neo4j;
+import DAO.Neo4j_Rest;
+import entidade.Grafo;
 import entidade.Posicao;
 import entidade.resultados.ResultadoCypher;
 import entidade.resultados.ResultadoDocumento;
 import entidade.resultados.ResultadoGrafo;
+import excessao.ErroArquivoException;
 
 public class BuscaSemantica {
 
 	// Busca que mostra apenas o retorno do banco
-	public static ArrayList<ResultadoCypher> buscaCypher(String cypherQuery)
+	public static ArrayList<ResultadoCypher> buscaCypherBolt(String cypherQuery)
 			throws Exception {
+		//Conexão BOLT
 		Neo4j neo4j = new Neo4j();
 
 		// TODO buscar uma maneira eficiente de obter o tempo de execução da
 		// query
-		Long tempoInicio = System.currentTimeMillis();
+		// TODO verificar necessidade do tempo da busca, visto que ocorre 
+		// mais de uma busca na verdade.
+//		Long tempoInicio = System.currentTimeMillis();
 		StatementResult retorno = neo4j.getSession().run(cypherQuery);
-		Long tempoTotal = System.currentTimeMillis() - tempoInicio;
+//		Long tempoTotal = System.currentTimeMillis() - tempoInicio;
 
-//		String resultado = "";
 		ArrayList<ResultadoCypher> res = null;
 		try {
 			res = TratamentoDeDados.statementToCypher(cypherQuery, retorno);
 			
-//			resultado = TratamentoDeDados.statementToString(cypherQuery, retorno);
 			
 		} catch (Exception e) {
 			throw e;
@@ -40,8 +45,30 @@ public class BuscaSemantica {
 
 		neo4j.desconectar();
 
-//		return new ResultadoCypher(resultado, tempoTotal);
 		return res;
+	}
+	
+	public static Grafo buscaCypherRest(String query) {
+		
+		//Conexão REST
+		String q = (query.split("return")[0] + "return " + query.split("return")[0].
+				replaceAll("(\" \")*match(\" \")*", "").replaceAll("(\" \")*where(.)*", "")
+				.replaceAll("[^A-z+0-9*\":\"A-z+0-9*]+", "")
+				.replaceAll("\\[", ",").replaceAll("\\]", ",")
+				.replaceAll(":[A-z]*", ""));
+		
+		Grafo grafo = null;
+		
+		try {
+			grafo = Neo4j_Rest.getGrafo(q);
+
+		} catch (ErroArquivoException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return grafo;
 	}
 
 	// Busca que cruza os dados do banco para obter o trecho onde a informação
