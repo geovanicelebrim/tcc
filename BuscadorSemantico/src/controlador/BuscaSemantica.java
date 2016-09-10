@@ -17,7 +17,7 @@ import entidade.resultados.ResultadoGrafo;
 public class BuscaSemantica {
 
 	// Busca que mostra apenas o retorno do banco
-	public static ResultadoCypher buscaCypher(String cypherQuery)
+	public static ArrayList<ResultadoCypher> buscaCypher(String cypherQuery)
 			throws Exception {
 		Neo4j neo4j = new Neo4j();
 
@@ -27,17 +27,21 @@ public class BuscaSemantica {
 		StatementResult retorno = neo4j.getSession().run(cypherQuery);
 		Long tempoTotal = System.currentTimeMillis() - tempoInicio;
 
-		String resultado;
+//		String resultado = "";
+		ArrayList<ResultadoCypher> res = null;
 		try {
-			resultado = TratamentoDeDados.statementToString(cypherQuery,
-					retorno);
+			res = TratamentoDeDados.statementToCypher(cypherQuery, retorno);
+			
+//			resultado = TratamentoDeDados.statementToString(cypherQuery, retorno);
+			
 		} catch (Exception e) {
 			throw e;
 		}
 
 		neo4j.desconectar();
 
-		return new ResultadoCypher(resultado, tempoTotal);
+//		return new ResultadoCypher(resultado, tempoTotal);
+		return res;
 	}
 
 	// Busca que cruza os dados do banco para obter o trecho onde a informação

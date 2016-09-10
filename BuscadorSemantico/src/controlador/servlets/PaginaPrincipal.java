@@ -39,25 +39,47 @@ public class PaginaPrincipal extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		if (query != null) {
-			
-			request.setAttribute("valor", query);
-			
-			ResultadoCypher resultadoCypher = null;
-			ArrayList<ResultadoDocumento> resultadoDocumento = new ArrayList<>();
-			try {
-				resultadoCypher = BuscaSemantica.buscaCypher(query);
-				resultadoDocumento = BuscaSemantica.buscaDocumento(query);
-			} catch (Exception e) {
-				if(!e.getMessage().equals("1")) {
-					request.setAttribute("mensagemErro", e.getMessage());
+		if (tipoBusca != null) {
+			switch (tipoBusca) {
+			case "normal":
+				//TODO implementar busca simples
+				RequestDispatcher rd = null;
+				rd = request.getRequestDispatcher("publica/index.jsp");
+
+				try {
+					rd.forward(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
+				break;
+				
+			case "semantic":
+				
+				if (query != null) {
+					
+					request.setAttribute("query", query);
+					
+					ArrayList<ResultadoCypher> resultadoCypher = null;
+					ArrayList<ResultadoDocumento> resultadoDocumento = new ArrayList<>();
+					try {
+						resultadoCypher = BuscaSemantica.buscaCypher(query);
+						resultadoDocumento = BuscaSemantica.buscaDocumento(query);
+					} catch (Exception e) {
+						if(!e.getMessage().equals("1")) {
+							request.setAttribute("error_message", e.getMessage());
+						}
+					}
+					
+					request.setAttribute("resultadoCypher", resultadoCypher);
+					request.setAttribute("resultadoDocumento", resultadoDocumento);
+					
+					irParaResultados(request, response);
+				}
+				break;
+	
+			default:
+				break;
 			}
-			
-			request.setAttribute("resultadoCypher", resultadoCypher);
-			request.setAttribute("resultadoDocumento", resultadoDocumento);
-			
-			irParaResultados(request, response);
 		}
 	}
 
@@ -65,7 +87,8 @@ public class PaginaPrincipal extends HttpServlet {
 			HttpServletResponse response) {
 
 		RequestDispatcher rd = null;
-		rd = request.getRequestDispatcher("publica/resultados.jsp");
+//		rd = request.getRequestDispatcher("publica/resultados.jsp");
+		rd = request.getRequestDispatcher("publica/teste_results.jsp");
 
 		try {
 			rd.forward(request, response);

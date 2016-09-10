@@ -48,7 +48,7 @@ public class PaginaResultados extends HttpServlet {
 			if (busca != null) {
 				request.setAttribute("valor", busca);
 				
-				ResultadoCypher resultado = null;
+				ArrayList<ResultadoCypher> resultado = null;
 				ArrayList<ResultadoDocumento> resultadoDocumento = new ArrayList<>();
 				try {
 					resultado = BuscaSemantica.buscaCypher(busca);
