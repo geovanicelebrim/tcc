@@ -342,7 +342,8 @@
 								placeholder="Type your query"
 								<%	
 									String query = (String) request.getAttribute("query");
-									out.println("value=\"" + query.replace("\"", "&quot;") + "\"");
+									if (query != null)
+										out.println("value=\"" + query.replace("\"", "&quot;") + "\"");
 								%>>
 
 							<div class="input-group-btn">

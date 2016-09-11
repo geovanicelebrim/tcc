@@ -24,17 +24,15 @@ public class BuscaSimples {
 		ArrayList<ResultadoSimples> resultados = new ArrayList<>();
 
 		for (int i = 0; i < nomesDocumentos.length; i++) {
-
 			documentos.add(new Documento(nomesDocumentos[i].getName(),
-					Documentos.lerArquivo("./CEDIM-II-GUERRA/"
-							+ nomesDocumentos[i].getName())));
+					Documentos.lerArquivo("/CEDIM-II-GUERRA/" + nomesDocumentos[i].getName())));
 		}
 
 		for (int i = 0; i < documentos.size(); i++) {
 
 			if (documentos.get(i).getTexto().toLowerCase().contains(palavrasChave.toLowerCase())) {
 				resultados.add(new ResultadoSimples(
-						documentos.get(i).getNome(), documentos.get(i)
+						"/CEDIM-II-GUERRA/" + documentos.get(i).getNome(), documentos.get(i)
 								.getTexto().substring(0, 500),
 						buscarAutor(documentos.get(i).getNome()),
 						buscarFonte(documentos.get(i).getNome())));

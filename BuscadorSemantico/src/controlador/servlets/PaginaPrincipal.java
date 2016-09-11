@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controlador.BuscaSemantica;
+import controlador.BuscaSimples;
 import entidade.Grafo;
 import entidade.resultados.ResultadoCypher;
 import entidade.resultados.ResultadoDocumento;
+import entidade.resultados.ResultadoSimples;
 
 @WebServlet("/PaginaPrincipal")
 public class PaginaPrincipal extends HttpServlet {
@@ -44,14 +46,24 @@ public class PaginaPrincipal extends HttpServlet {
 			
 			switch (tipoBusca) {
 			case "normal":
-				//TODO implementar busca simples
-				RequestDispatcher rd = null;
-				rd = request.getRequestDispatcher("publica/index.jsp");
-
-				try {
-					rd.forward(request, response);
-				} catch (Exception e) {
-					e.printStackTrace();
+				if (query != null) {
+					
+					request.setAttribute("query", query);
+					
+					ArrayList<ResultadoSimples> resultadoSimples = null;
+					
+					try {
+						resultadoSimples = BuscaSimples.buscaSimples(query);
+					
+					} catch (Exception e) {
+					
+						if(!e.getMessage().equals("1")) {
+							request.setAttribute("error_message", e.getMessage());
+						}
+					}
+					request.setAttribute("resultadoSimples", resultadoSimples);
+					
+					irParaResultadosSimples(request, response);
 				}
 				break;
 				
@@ -79,7 +91,7 @@ public class PaginaPrincipal extends HttpServlet {
 					request.setAttribute("resultadoDocumento", resultadoDocumento);
 					request.setAttribute("grafo", grafo);
 					
-					irParaResultados(request, response);
+					irParaResultadosSemanticos(request, response);
 				}
 				break;
 	
@@ -89,12 +101,26 @@ public class PaginaPrincipal extends HttpServlet {
 		}
 	}
 
-	private void irParaResultados(HttpServletRequest request,
+	private void irParaResultadosSemanticos(HttpServletRequest request,
 			HttpServletResponse response) {
 
 		RequestDispatcher rd = null;
 //		rd = request.getRequestDispatcher("publica/resultados.jsp");
 		rd = request.getRequestDispatcher("publica/semantic_results.jsp");
+
+		try {
+			rd.forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void irParaResultadosSimples(HttpServletRequest request,
+			HttpServletResponse response) {
+
+		RequestDispatcher rd = null;
+//		rd = request.getRequestDispatcher("publica/resultados.jsp");
+		rd = request.getRequestDispatcher("publica/normal_results.jsp");
 
 		try {
 			rd.forward(request, response);
