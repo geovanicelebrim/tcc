@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import DAO.Documentos;
 import controlador.BuscaSemantica;
+import entidade.Grafo;
 import entidade.resultados.ResultadoCypher;
 import entidade.resultados.ResultadoDocumento;
 
@@ -26,78 +27,110 @@ public class PaginaResultados extends HttpServlet {
 	private void processarRequisicao(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException {
 
-		String busca = null;
+		String query = null;
 		String tipoBusca = null;
 		
 		try {
-			tipoBusca = java.net.URLDecoder.decode(request.getQueryString(), "UTF-8").split("=")[0];
+			
+			String queryString = java.net.URLDecoder.decode(request.getQueryString(), "UTF-8");
+
+			if(queryString.split("viewDoc=").length > 1) {
+				String texto = null, nome = null, trecho = null;
+				try {
+					if(request.getQueryString().contains("&trecho=")){
+						nome = java.net.URLDecoder.decode(request.getQueryString().split("&trecho=")[0].substring(8,
+							request.getQueryString().split("&trecho=")[0].length()), "UTF-8");
+					
+					
+						trecho = java.net.URLDecoder.decode(request.getQueryString().split("&trecho=")[1].substring(0,
+							request.getQueryString().split("&trecho=")[1].length()), "UTF-8");
+					} else {
+						nome = java.net.URLDecoder.decode(request.getQueryString().substring(8,
+								request.getQueryString().length()), "UTF-8");
+					}
+					
+					texto = Documentos.lerArquivo(nome);
+					request.setAttribute("nome", nome);
+					request.setAttribute("texto", texto);
+					request.setAttribute("trecho", trecho);
+				} catch (Exception e) {
+					System.out.println(e);
+					request.setAttribute("mensagemErro", e.getMessage());
+				}
+				
+				irParaDocumento(request, response);
+				return;
+			} else {
+				throw new Exception();
+			}
+			
 		} catch (Exception e) {
-			e.printStackTrace();
-			return;
+			
 		}
 		
-		if(tipoBusca.equals("campoBusca")) {
+		try {
+			String queryString = java.net.URLDecoder.decode(request.getQueryString(), "UTF-8");
 			
-			try {
-				busca = java.net.URLDecoder.decode(request.getQueryString().substring(11,
-						request.getQueryString().length()), "UTF-8");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			query = queryString.split("&search-mode=")[0].split("query=")[1];
 			
-			if (busca != null) {
-				request.setAttribute("valor", busca);
-				
-				ArrayList<ResultadoCypher> resultado = null;
-				ArrayList<ResultadoDocumento> resultadoDocumento = new ArrayList<>();
-				try {
-					resultado = BuscaSemantica.buscaCypherBolt(busca);
-					resultadoDocumento = BuscaSemantica.buscaDocumento(busca);
-				} catch (Exception e) {
-					if(!e.getMessage().equals("1")) {
-						request.setAttribute("mensagemErro", e.getMessage());
+			tipoBusca = queryString.split("&search-mode=")[1];
+			
+		} catch (Exception e) {
+			
+		}
+		
+		if(tipoBusca != null) {
+
+			switch (tipoBusca) {
+				case "normal":
+					//TODO implementar busca simples
+					RequestDispatcher rd = null;
+					rd = request.getRequestDispatcher("publica/index.jsp");
+	
+					try {
+						rd.forward(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
 					}
-				}
-				
-				request.setAttribute("resultadoCypher", resultado);
-				request.setAttribute("resultadoDocumento", resultadoDocumento);
-				
-				irParaResultados(request, response);
+					break;
+					
+				case "semantic":
+					
+					if (query != null) {
+						
+						request.setAttribute("query", query);
+						
+						ArrayList<ResultadoCypher> resultadoCypher = null;
+						ArrayList<ResultadoDocumento> resultadoDocumento = new ArrayList<>();
+						Grafo grafo = null;
+						try {
+							resultadoCypher = BuscaSemantica.buscaCypherBolt(query);
+							resultadoDocumento = BuscaSemantica.buscaDocumento(query);
+							grafo = BuscaSemantica.buscaCypherRest(query);
+						} catch (Exception e) {
+							if(!e.getMessage().equals("1")) {
+								request.setAttribute("error_message", e.getMessage());
+							}
+						}
+
+						request.setAttribute("resultadoCypher", resultadoCypher);
+						request.setAttribute("resultadoDocumento", resultadoDocumento);
+						request.setAttribute("grafo", grafo);
+						
+						irParaResultados(request, response);
+					}
+					break;
 			}
 			
-		} else if (tipoBusca.equals("documento")) {
-			String texto = null, nome = null, trecho = null;
-			try {
-				if(request.getQueryString().contains("&trecho=")){
-					nome = java.net.URLDecoder.decode(request.getQueryString().split("&trecho=")[0].substring(10,
-						request.getQueryString().split("&trecho=")[0].length()), "UTF-8");
-				
-				
-					trecho = java.net.URLDecoder.decode(request.getQueryString().split("&trecho=")[1].substring(0,
-						request.getQueryString().split("&trecho=")[1].length()), "UTF-8");
-				} else {
-					nome = java.net.URLDecoder.decode(request.getQueryString().substring(10,
-							request.getQueryString().length()), "UTF-8");
-				}
-				
-				texto = Documentos.lerArquivo(nome);
-				request.setAttribute("nome", nome);
-				request.setAttribute("texto", texto);
-				request.setAttribute("trecho", trecho);
-			} catch (Exception e) {
-				System.out.println(e);
-				request.setAttribute("mensagemErro", e.getMessage());
-			}
-			
-			irParaDocumento(request, response);
-		}		
+		}
 	}
 
 	private void irParaResultados(HttpServletRequest request,
 			HttpServletResponse response) {
 
 		RequestDispatcher rd = null;
-		rd = request.getRequestDispatcher("publica/resultados.jsp");
+//		rd = request.getRequestDispatcher("publica/resultados.jsp");
+		rd = request.getRequestDispatcher("publica/semantic_results.jsp");
 
 		try {
 			rd.forward(request, response);

@@ -101,32 +101,27 @@
 				//Create graph in java web
 				<%
 					Grafo grafo = (Grafo) request.getAttribute("grafo");
-					/*
-					for (int i = 0; i < grafo.getVertices().size(); i++) {
-						System.out.println(grafo.getVertices().get(i));
-					}
-					
-					for (int i = 0; i < grafo.getArestas().size(); i++) {
-						System.out.println(grafo.getArestas().get(i));
-					}*/
 				%>
 				
 				var edges = [{
 					<%
-						for (int i = 0; i < grafo.getArestas().size(); i++) {
-							out.println("from: " + grafo.getArestas().get(i).getFrom() + ",");
-							out.println("to: " + grafo.getArestas().get(i).getTo());
-							
-							if( i + 1 != grafo.getArestas().size() )
-								out.println("}, {");
-						}
+						if(grafo != null)
+							for (int i = 0; i < grafo.getArestas().size(); i++) {
+								out.println("from: " + grafo.getArestas().get(i).getFrom() + ",");
+								out.println("to: " + grafo.getArestas().get(i).getTo());
+								
+								if( i + 1 != grafo.getArestas().size() )
+									out.println("}, {");
+							}
 					%>
 				}];
 				//http://glyphsearch.com/?library=ionicons&copy=unicode-hexadecimal				
 				var optionsIO = {
 					interaction: {tooltipDelay: 400},
 					physics: {
+						interaction:{hover:true},
 						maxVelocity: 16,
+						//TODO verificar necessidade.
 						solver: 'forceAtlas2Based',
 						timestep: 0.35,
 						stabilization: {
@@ -277,15 +272,16 @@
 				//create nodes in java web
 				var nodesIO = [{
 					<%
-						for (int i = 0; i < grafo.getVertices().size(); i++) {
-							out.println("id: " + grafo.getVertices().get(i).getID() + ",");
-							//out.println("title: " + grafo.getVertices().get(i).title() + ",");
-							out.println("label: '" + grafo.getVertices().get(i).getTrecho() + "',");
-							out.println("group: '" + grafo.getVertices().get(i).getLabel() + "',");
-							
-							if ( i + 1 != grafo.getVertices().size() )
-								out.println("}, {");
-						}
+						if( grafo != null)
+							for (int i = 0; i < grafo.getVertices().size(); i++) {
+								out.println("id: " + grafo.getVertices().get(i).getID() + ",");
+								//out.println("title: " + grafo.getVertices().get(i).title() + ",");
+								out.println("label: '" + grafo.getVertices().get(i).getTrecho() + "',");
+								out.println("group: '" + grafo.getVertices().get(i).getLabel() + "',");
+								
+								if ( i + 1 != grafo.getVertices().size() )
+									out.println("}, {");
+							}
 					%>
 				}];
 
@@ -295,8 +291,20 @@
 	              nodes: nodesIO,
 	              edges: edges
 	            };
-	
-	           var networkIO = new vis.Network(containerIO, dataIO, optionsIO);
+				
+	           <%
+	           		if( grafo != null) { %>
+	           			var networkIO = new vis.Network(containerIO, dataIO, optionsIO);
+	           		<%}%>
+	           /*//Dispara uma ação quando clica em um nó
+	           networkIO.on("click", function (params) {
+					params.event = "[original event]";
+					//document.getElementById('eventSpan').innerHTML = '<h2>Click event:</h2>' + JSON.stringify(params, null, 4);
+					var text = JSON.stringify(params, null, 4);
+					obj = JSON.parse(text);
+					document.getElementById('eventSpan').innerHTML = '<h2>Click event:</h2>' + nodesIO.obj.nodes[0];
+					
+	           });*/
 	          }
 	        </script>
 
@@ -305,7 +313,6 @@
 	<!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-	
 	
 	<%
 		String error_message = (String) request.getAttribute("error_message");
@@ -318,7 +325,6 @@
 		}
 
 	%>
-	
 	
 	<div class="container">
 		<div class="row">
@@ -399,7 +405,7 @@
 										<form id="<%out.print(i);%>"
 											action="PaginaResultados?action=<% out.println(resultadoDocumento.get(i).getNomeDocumento());%>"
 											method="get">
-											<input type="hidden" name="documento"
+											<input type="hidden" name="viewDoc"
 												value="<%out.print(resultadoDocumento.get(i).getNomeDocumento());%>" />
 											<input type="hidden" name="trecho"
 												value="<%out.print(resultadoDocumento.get(i).getTrecho()
@@ -502,7 +508,7 @@
 					</div>
 
 					<div role="tabpanel" class="tab-pane fade" id="graph_results">
-
+						<!-- ID para informações futuras <pre id="eventSpan"></pre> -->
 					</div>
 
 				</div>

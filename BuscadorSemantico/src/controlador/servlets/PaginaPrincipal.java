@@ -75,14 +75,6 @@ public class PaginaPrincipal extends HttpServlet {
 						}
 					}
 
-//					for (int i = 0; i < grafo.getVertices().size(); i++) {
-//						System.out.println(grafo.getVertices().get(i));
-//					}
-//					
-//					for (int i = 0; i < grafo.getArestas().size(); i++) {
-//						System.out.println(grafo.getArestas().get(i));
-//					}
-
 					request.setAttribute("resultadoCypher", resultadoCypher);
 					request.setAttribute("resultadoDocumento", resultadoDocumento);
 					request.setAttribute("grafo", grafo);
@@ -102,7 +94,7 @@ public class PaginaPrincipal extends HttpServlet {
 
 		RequestDispatcher rd = null;
 //		rd = request.getRequestDispatcher("publica/resultados.jsp");
-		rd = request.getRequestDispatcher("publica/teste_results.jsp");
+		rd = request.getRequestDispatcher("publica/semantic_results.jsp");
 
 		try {
 			rd.forward(request, response);
