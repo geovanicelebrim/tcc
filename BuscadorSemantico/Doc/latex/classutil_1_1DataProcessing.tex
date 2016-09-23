@@ -1,0 +1,81 @@
+\hypertarget{classutil_1_1DataProcessing}{}\section{util.\+Data\+Processing Class Reference}
+\label{classutil_1_1DataProcessing}\index{util.\+Data\+Processing@{util.\+Data\+Processing}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Array\+List$<$ \hyperlink{classentidade_1_1Position}{Position} $>$ \hyperlink{classutil_1_1DataProcessing_a0551eb49141e5ccab05dfc9fe40c57d7}{cross\+Data} (Array\+List$<$ \hyperlink{classentidade_1_1Position}{Position} $>$ position1, Array\+List$<$ \hyperlink{classentidade_1_1Position}{Position} $>$ position2)
+\item 
+static String \hyperlink{classutil_1_1DataProcessing_ae56c5b29df8fc14baf4abac4bd225fd8}{statement\+To\+String} (String cypher\+Query, Statement\+Result resultado)  throws Query\+Invalida\+Exception 
+\item 
+static Array\+List$<$ \hyperlink{classentidade_1_1resultados_1_1cypherResults}{cypher\+Results} $>$ \hyperlink{classutil_1_1DataProcessing_a9929ea41acdba832995351f10610135a}{statement\+To\+Cypher} (String cypher\+Query, Statement\+Result resultado)  throws Query\+Invalida\+Exception 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Possui alguns métodos de processamento de dados úteis para o projeto.
+
+\begin{DoxyAuthor}{Author}
+Geovani Celebrim 
+\end{DoxyAuthor}
+
+
+Definition at line 17 of file Data\+Processing.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classutil_1_1DataProcessing_a0551eb49141e5ccab05dfc9fe40c57d7}{}\label{classutil_1_1DataProcessing_a0551eb49141e5ccab05dfc9fe40c57d7} 
+\index{util\+::\+Data\+Processing@{util\+::\+Data\+Processing}!cross\+Data@{cross\+Data}}
+\index{cross\+Data@{cross\+Data}!util\+::\+Data\+Processing@{util\+::\+Data\+Processing}}
+\subsubsection{\texorpdfstring{cross\+Data()}{crossData()}}
+{\footnotesize\ttfamily static Array\+List$<$\hyperlink{classentidade_1_1Position}{Position}$>$ util.\+Data\+Processing.\+cross\+Data (\begin{DoxyParamCaption}\item[{Array\+List$<$ \hyperlink{classentidade_1_1Position}{Position} $>$}]{position1,  }\item[{Array\+List$<$ \hyperlink{classentidade_1_1Position}{Position} $>$}]{position2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Dados dois \hyperlink{}{Array\+List}s de \hyperlink{}{Position} s, esse método faz um cruzamento desses dados afim de determinar as entidades as quais essas posições pertencem estão em um mesmo contexto. É considerado que as entidades estão no mesmo contexto se elas possuem uma distância menor ou irual a 500 caracteres.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position1} & é um \hyperlink{}{Array\+List} de \hyperlink{}{Position} de uma entidade. \\
+\hline
+{\em position2} & é um \hyperlink{}{Array\+List} de \hyperlink{}{Position} de uma entidade. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\bfseries Array\+List} de \hyperlink{}{Position} com as posições correlacionadas. 
+\end{DoxyReturn}
+
+
+Definition at line 33 of file Data\+Processing.\+java.
+
+
+
+Referenced by controlador.\+Semantics\+Search.\+document\+Search().
+
+\hypertarget{classutil_1_1DataProcessing_a9929ea41acdba832995351f10610135a}{}\label{classutil_1_1DataProcessing_a9929ea41acdba832995351f10610135a} 
+\index{util\+::\+Data\+Processing@{util\+::\+Data\+Processing}!statement\+To\+Cypher@{statement\+To\+Cypher}}
+\index{statement\+To\+Cypher@{statement\+To\+Cypher}!util\+::\+Data\+Processing@{util\+::\+Data\+Processing}}
+\subsubsection{\texorpdfstring{statement\+To\+Cypher()}{statementToCypher()}}
+{\footnotesize\ttfamily static Array\+List$<$\hyperlink{classentidade_1_1resultados_1_1cypherResults}{cypher\+Results}$>$ util.\+Data\+Processing.\+statement\+To\+Cypher (\begin{DoxyParamCaption}\item[{String}]{cypher\+Query,  }\item[{Statement\+Result}]{resultado }\end{DoxyParamCaption}) throws \hyperlink{classexcessao_1_1QueryInvalidaException}{Query\+Invalida\+Exception}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 92 of file Data\+Processing.\+java.
+
+
+
+Referenced by controlador.\+Semantics\+Search.\+cypher\+Search\+Bolt().
+
+\hypertarget{classutil_1_1DataProcessing_ae56c5b29df8fc14baf4abac4bd225fd8}{}\label{classutil_1_1DataProcessing_ae56c5b29df8fc14baf4abac4bd225fd8} 
+\index{util\+::\+Data\+Processing@{util\+::\+Data\+Processing}!statement\+To\+String@{statement\+To\+String}}
+\index{statement\+To\+String@{statement\+To\+String}!util\+::\+Data\+Processing@{util\+::\+Data\+Processing}}
+\subsubsection{\texorpdfstring{statement\+To\+String()}{statementToString()}}
+{\footnotesize\ttfamily static String util.\+Data\+Processing.\+statement\+To\+String (\begin{DoxyParamCaption}\item[{String}]{cypher\+Query,  }\item[{Statement\+Result}]{resultado }\end{DoxyParamCaption}) throws \hyperlink{classexcessao_1_1QueryInvalidaException}{Query\+Invalida\+Exception}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 64 of file Data\+Processing.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+util/\hyperlink{DataProcessing_8java}{Data\+Processing.\+java}\end{DoxyCompactItemize}

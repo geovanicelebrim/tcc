@@ -29,7 +29,7 @@
         <div class="row vertical-center">
           <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 
-            <form action="PaginaPrincipal?action=buscar" method="get">
+            <form action="MainPage?action=search" method="get">
               <div class="form-group text-center">
               	<img class="img-responsive center-block" src="./publica/images/cedim.jpg" for="search-query" style="width:70%;height:70%;">
                 

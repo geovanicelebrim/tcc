@@ -122,9 +122,9 @@
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>
-	<% String nome = (String)request.getAttribute("nome");
-					if (nome != null) {
-						out.println(nome.split("/")[2]);
+	<% String name = (String)request.getAttribute("name");
+					if (name != null) {
+						out.println(name.split("/")[2]);
 					}
 %>
 </title>
@@ -167,17 +167,17 @@
 	</div>
 	<h1 align="center">
 		<%
-		String mensagemErro = (String) request.getAttribute("mensagemErro");
-		if (mensagemErro != null) {
+		String errorMessage = (String) request.getAttribute("errorMessage");
+		if (errorMessage != null) {
 			out.println("<script LANGUAGE=\"JavaScript\" type=\"text/javascript\">");
 			out.println("alert(\""
-					+ mensagemErro.replace("\"", "\\\"").replace("\n",
+					+ errorMessage.replace("\"", "\\\"").replace("\n",
 							"\\n") + "\");");
 			out.println("</script>");
 		}
 		
-		if (nome != null) {
-			out.println(nome.split("/")[2]);
+		if (name != null) {
+			out.println(name.split("/")[2]);
 		}
 	
 		%>
@@ -186,13 +186,13 @@
 	
 	</h1>
 
-	<%	String texto = (String) request.getAttribute("texto");
-		if (texto != null) {
-			out.println(texto.replace("\n", "<br>"));
+	<%	String text = (String) request.getAttribute("text");
+		if (text != null) {
+			out.println(text.replace("\n", "<br>"));
 		}
 	%>
 	<input type="hidden" id="findInput"
-		value="<% 	String trecho = (String) request.getAttribute("trecho");
+		value="<% 	String trecho = (String) request.getAttribute("slice");
 													if (trecho != null) {
 														out.print(trecho.replace("\"", "&quot;"));
 													}

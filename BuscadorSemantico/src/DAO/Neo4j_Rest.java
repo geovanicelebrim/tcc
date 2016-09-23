@@ -2,84 +2,88 @@ package DAO;
 
 import java.io.IOException;
 
-import util.Arquivo;
-import util.Sistema;
-import entidade.Aresta;
-import entidade.Grafo;
-import entidade.Vertice;
-import excessao.ErroArquivoException;
-
+import util.Sys;
+import entity.Edge;
+import entity.Graph;
+import entity.Vertex;
+import exception.ErrorFileException;
+/**
+ * Responsável por realizar as conexções com o banco usando <i>REST</i>.
+ * 
+ * @author Geovani Celebrim
+ * 
+ */
 public class Neo4j_Rest {
-	
-	private static final String path = "/home/geovani/git/tcc/BuscadorSemantico/rest/";
-
-	public static String rest_query(String query) throws ErroArquivoException,
+	/**
+	 * Sobrescreve um template em Python e realiza uma conexão com o banco para obter o <i>JSON.</i>
+	 * @param query que é a consulta em Cypher a ser realizada.
+	 * @return <b>String</b> com o <i>JSON</i> que representa um grafo.
+	 * @throws ErrorFileException caso ocorra algum erro na sobrescrita.
+	 * @throws IOException caso ocorra algum erro na sobrescrita.
+	 */
+	private static String rest_query(String query) throws ErrorFileException,
 			IOException {
-		String usuario = Autenticacao.USER.toString();
-		String senha = Autenticacao.PASSWORD.toString();
+		//TODO colocar o arquivo com um nome temporário.
+		String user = Authentication.USER.toString();
+		String password = Authentication.PASSWORD.toString();
 		String template = null;
 		try {
-			template = Arquivo
-					.lerArquivo(path + "rest_query_template.py");
+			template = File
+					.readFile(Paths.REST.toString() + "rest_query_template.py");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		
-		Arquivo.escreverArquivo( path + "rest_query.py",
-				template.replace("#user", "\"" + usuario + "\"")
-						.replace("#password", "\"" + senha + "\"")
+		File.writeFile( Paths.REST.toString() + "rest_query.py",
+				template.replace("#user", "\"" + user + "\"")
+						.replace("#password", "\"" + password + "\"")
 						.replace("#query",
 								"\"" + query.replace("\"", "\\\"") + "\""));
-		String retorno = Sistema.comando("python " + path + "rest_query.py");
-		Sistema.comando("rm " + path + "rest_query.py");
+		String retorned = Sys.command("python " + Paths.REST.toString() + "rest_query.py");
+		Sys.command("rm " + Paths.REST.toString() + "rest_query.py");
 		
-		return retorno;
+		return retorned;
 	}
 
-	public static Grafo construirGrafo(String response) {
-		Grafo grafo = new Grafo();
-		String linhas[] = response.split("\n");
+	/**
+	 * Constroi um grafo com o <i>JSON</i> retornado do banco.
+	 * @param response que é o que o banco retorna através do método rest_query da classe {@link Neo4j_Rest}.
+	 * @return <b>Graph</b> construido a partir do <b>response</b>.
+	 */
+	private static Graph builderGraph(String response) {
+		Graph graph = new Graph();
+		String lines[] = response.split("\n");
 
-		for (int i = 0; i < linhas.length; i++) {
-			String linha[] = linhas[i].split(", ");
+		for (int i = 0; i < lines.length; i++) {
+			String line[] = lines[i].split(", ");
 
-			if (linha[0].equals("node")) {
+			if (line[0].equals("node")) {
 
-				Vertice vertice = new Vertice(linha[1].split(": ")[1],
-						linha[2].split(": ")[1], linha[3].split(": ")[1]);
+				Vertex vertex = new Vertex(line[1].split(": ")[1],
+						line[2].split(": ")[1], line[3].split(": ")[1]);
 				
-				grafo.adicionarVertice(vertice);
+				graph.addVertex(vertex);
 				
 				
-			} else if (linha[0].equals("edge")) {
-				Aresta aresta = new Aresta(linha[1].split(": ")[1], linha[2].split(": ")[1]);
+			} else if (line[0].equals("edge")) {
+				Edge edge = new Edge(line[1].split(": ")[1], line[2].split(": ")[1]);
 				
-				grafo.adicionarAresta(aresta);
+				graph.addEdge(edge);
 			}
 		}
 
-		return grafo;
+		return graph;
 	}
 	
-	public static Grafo getGrafo(String query) throws ErroArquivoException, IOException {
-		return construirGrafo(rest_query(query));
+	/**
+	 * Retorna um grafo, dada uma query em Cypher.
+	 * @param query String no formato Cypher.
+	 * @return <b>Graph</b>.
+	 * @throws ErrorFileException caso ocorra erro nos métodos dependentes.
+	 * @throws IOException caso ocorra erro nos métodos dependentes.
+	 */
+	public static Graph getGraph(String query) throws ErrorFileException, IOException {
+		return builderGraph(rest_query(query));
 	}
-//	
-//	// TODO remover o main que foi utilizado para teste
-//	public static void main(String[] args) throws ErroArquivoException,
-//			IOException {
-//
-//		String query = "match (p:Pessoa)-[r1]-(e:Evento)-[r2]-(l:Local) where e.trecho =~ \"(?i).*guer.*\" return p,e,l,r1,r2";
-//
-//		Grafo grafo = getGrafo(query);	//construirGrafo(rest_query(query));
-//		
-//		for (int i = 0; i < grafo.getVertices().size(); i++) {
-//			System.out.println(grafo.getVertices().get(i));
-//		}
-//		
-//		for (int i = 0; i < grafo.getArestas().size(); i++) {
-//			System.out.println(grafo.getArestas().get(i));
-//		}
-//	}
 }

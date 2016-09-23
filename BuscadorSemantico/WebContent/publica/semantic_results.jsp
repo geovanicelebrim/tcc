@@ -1,7 +1,7 @@
 <!doctype html>
-<%@page import="entidade.Grafo"%>
-<%@page import="entidade.resultados.ResultadoCypher"%>
-<%@page import="entidade.resultados.ResultadoDocumento"%>
+<%@page import="entity.Graph"%>
+<%@page import="entity.results.CypherResults"%>
+<%@page import="entity.results.DocumentResult"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.net.URLEncoder"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
@@ -99,21 +99,17 @@
 	<script type="text/javascript">
 	          function draw() {
 				//Create graph in java web
-				<%
-					Grafo grafo = (Grafo) request.getAttribute("grafo");
-				%>
+				<%Graph graph = (Graph) request.getAttribute("graph");%>
 				
 				var edges = [{
-					<%
-						if(grafo != null)
-							for (int i = 0; i < grafo.getArestas().size(); i++) {
-								out.println("from: " + grafo.getArestas().get(i).getFrom() + ",");
-								out.println("to: " + grafo.getArestas().get(i).getTo());
+					<%if(graph != null)
+							for (int i = 0; i < graph.getEdges().size(); i++) {
+								out.println("from: " + graph.getEdges().get(i).getFrom() + ",");
+								out.println("to: " + graph.getEdges().get(i).getTo());
 								
-								if( i + 1 != grafo.getArestas().size() )
+								if( i + 1 != graph.getEdges().size() )
 									out.println("}, {");
-							}
-					%>
+							}%>
 				}];
 				//http://glyphsearch.com/?library=ionicons&copy=unicode-hexadecimal				
 				var optionsIO = {
@@ -271,18 +267,16 @@
 				
 				//create nodes in java web
 				var nodesIO = [{
-					<%
-						if( grafo != null)
-							for (int i = 0; i < grafo.getVertices().size(); i++) {
-								out.println("id: " + grafo.getVertices().get(i).getID() + ",");
-								//out.println("title: " + grafo.getVertices().get(i).title() + ",");
-								out.println("label: '" + grafo.getVertices().get(i).getTrecho() + "',");
-								out.println("group: '" + grafo.getVertices().get(i).getLabel() + "',");
+					<%if( graph != null)
+							for (int i = 0; i < graph.getVertices().size(); i++) {
+								out.println("id: " + graph.getVertices().get(i).getID() + ",");
+								//out.println("title: " + graph.getVertices().get(i).title() + ",");
+								out.println("label: '" + graph.getVertices().get(i).getSlice() + "',");
+								out.println("group: '" + graph.getVertices().get(i).getLabel() + "',");
 								
-								if ( i + 1 != grafo.getVertices().size() )
+								if ( i + 1 != graph.getVertices().size() )
 									out.println("}, {");
-							}
-					%>
+							}%>
 				}];
 
 	            // create a network
@@ -292,8 +286,7 @@
 	              edges: edges
 	            };
 				
-	           <%
-	           		if( grafo != null) { %>
+	           <%if( graph != null) {%>
 	           			var networkIO = new vis.Network(containerIO, dataIO, optionsIO);
 	           		<%}%>
 	           /*//Dispara uma ação quando clica em um nó
@@ -315,23 +308,22 @@
         <![endif]-->
 	
 	<%
-		String error_message = (String) request.getAttribute("error_message");
-		if (error_message != null) {
+			String errorMessage = (String) request.getAttribute("errorMessage");
+				if (errorMessage != null) {
 			out.println("<script LANGUAGE=\"JavaScript\" type=\"text/javascript\">");
 			out.println("alert(\""
-					+ error_message.replace("\"", "\\\"").replace("\n",
+					+ errorMessage.replace("\"", "\\\"").replace("\n",
 							"\\n") + "\");");
 			out.println("</script>");
-		}
-
-	%>
+				}
+		%>
 	
 	<div class="container">
 		<div class="row">
 			<div
 				class="col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
 
-				<form action="PaginaResultados?action=buscar" method="get">
+				<form action="ResultsPage?action=buscar" method="get">
 					<div class="form-group text-center">
 						<img class="img-responsive center-block" src="publica/images/cedim.jpg"
 							for="search-query" style="width: 40%; height: 40%;">
@@ -340,11 +332,9 @@
 							<input type="text" class="form-control input-lg"
 								id="search-query" name="search-query"
 								placeholder="Type your query"
-								<%	
-									String query = (String) request.getAttribute("query");
+								<%String query = (String) request.getAttribute("query");
 									if (query != null)
-										out.println("value=\"" + query.replace("\"", "&quot;") + "\"");
-								%>>
+										out.println("value=\"" + query.replace("\"", "&quot;") + "\"");%>>
 
 							<div class="input-group-btn">
 								<select name="search-mode" class="form-control input-lg"
@@ -397,19 +387,19 @@
 
 							<%
 								@SuppressWarnings("unchecked")
-								ArrayList<ResultadoDocumento> resultadoDocumento = (ArrayList<ResultadoDocumento>) request
-								.getAttribute("resultadoDocumento");
+																							ArrayList<DocumentResult> documentResults = (ArrayList<DocumentResult>) request
+																							.getAttribute("documentResults");
 
-								if (resultadoDocumento != null) {
-									for (int i = 0; i < resultadoDocumento.size(); i++) {
+																							if (documentResults != null) {
+																								for (int i = 0; i < documentResults.size(); i++) {
 							%>
 										<form id="<%out.print(i);%>"
-											action="PaginaResultados?action=<% out.println(resultadoDocumento.get(i).getNomeDocumento());%>"
+											action="ResultsPage?action=<%out.println(documentResults.get(i).getDocumentName());%>"
 											method="get">
 											<input type="hidden" name="viewDoc"
-												value="<%out.print(resultadoDocumento.get(i).getNomeDocumento());%>" />
-											<input type="hidden" name="trecho"
-												value="<%out.print(resultadoDocumento.get(i).getTrecho()
+												value="<%out.print(documentResults.get(i).getDocumentName());%>" />
+											<input type="hidden" name="slice"
+												value="<%out.print(documentResults.get(i).getSlice()
 												.replace("\"", "&quot;"));%>" />
 											<div class="panel panel-default list-group-item">
 												<div class="panel-body">
@@ -425,22 +415,22 @@
 																<a href="javascript:{}"
 																	onclick="document.getElementById('<%out.print(i);%>').submit(); return false;">
 																	<%
-																		out.println(resultadoDocumento.get(i).getNomeDocumento()
-																			.split("/")[2]);
+																		out.println(documentResults.get(i).getDocumentName()
+																																																																															.split("/")[2]);
 																	%>
 																</a>
 															</h4>
 															
 															<label class="reference">
 																<%
-																	out.print("(" + resultadoDocumento.get(i).getAutor()
-																			+ ", " + resultadoDocumento.get(i).getFonte() + ")");
+																	out.print("(" + documentResults.get(i).getAuthor()
+																																																																																									+ ", " + documentResults.get(i).getSource() + ")");
 																%>
 															</label>
 															<div id="div<%out.print(i);%>">
 																<%
-																	out.println(resultadoDocumento.get(i).getTrecho() + " [...]");
-																	out.println("<br><br>");
+																	out.println(documentResults.get(i).getSlice() + " [...]");
+																																																											out.println("<br><br>");
 																%>
 															</div>
 														</div>
@@ -449,8 +439,10 @@
 											</div>
 										</form>
 										<br>
-								<% 	}
-								} %>
+								<%
+									}
+																				}
+								%>
 						</div>
 						
 						<br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
@@ -476,25 +468,25 @@
 						    <tbody>
 						    <%
 						    	@SuppressWarnings("unchecked")
-								ArrayList<ResultadoCypher> resultadoCypher = ((ArrayList<ResultadoCypher>) request
-									.getAttribute("resultadoCypher"));
-							
-								if (resultadoCypher != null) {
-									for(int i = 0; i < resultadoCypher.size(); i++) {
-										out.println("<tr>");
-										
-										out.println("<td> " + resultadoCypher.get(i).getEntidade1() + " </td>");
-										out.println("<td> " + resultadoCypher.get(i).getEntidade2() + " </td>");
-										out.println("<td class=\"text-center\" > " + resultadoCypher.get(i).getCitacoesEntidade1() + " </td>");
-										out.println("<td class=\"text-center\" > " + resultadoCypher.get(i).getCitacoesEntidade2() + " </td>");
-										out.println("<td class=\"text-center\" > " + resultadoCypher.get(i).getRelacoesEntidade1() + " </td>");
-										out.println("<td class=\"text-center\" > " + resultadoCypher.get(i).getRelacoesEntidade2() + " </td>");
-										out.println("<td> " + resultadoCypher.get(i).getNomeDocumento() + " </td>");
-										
-										out.println("</tr>");
-									}
-								}
-							%>						       
+						    				    						ArrayList<CypherResults> cypherResults = ((ArrayList<CypherResults>) request
+						    				    							.getAttribute("cypherResults"));
+						    				    					
+						    				    						if (cypherResults != null) {
+						    				    							for(int i = 0; i < cypherResults.size(); i++) {
+						    				    								out.println("<tr>");
+						    				    								
+						    				    								out.println("<td> " + cypherResults.get(i).getEntidade1() + " </td>");
+						    				    								out.println("<td> " + cypherResults.get(i).getEntidade2() + " </td>");
+						    				    								out.println("<td class=\"text-center\" > " + cypherResults.get(i).getCitacoesEntidade1() + " </td>");
+						    				    								out.println("<td class=\"text-center\" > " + cypherResults.get(i).getCitacoesEntidade2() + " </td>");
+						    				    								out.println("<td class=\"text-center\" > " + cypherResults.get(i).getRelacoesEntidade1() + " </td>");
+						    				    								out.println("<td class=\"text-center\" > " + cypherResults.get(i).getRelacoesEntidade2() + " </td>");
+						    				    								out.println("<td> " + cypherResults.get(i).getNomeDocumento() + " </td>");
+						    				    								
+						    				    								out.println("</tr>");
+						    				    							}
+						    				    						}
+						    %>						       
 
 						    </tbody>
 						</table>

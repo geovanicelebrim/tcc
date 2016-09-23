@@ -1,0 +1,125 @@
+\hypertarget{classcontrolador_1_1SemanticsSearch}{}\section{controlador.\+Semantics\+Search Class Reference}
+\label{classcontrolador_1_1SemanticsSearch}\index{controlador.\+Semantics\+Search@{controlador.\+Semantics\+Search}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Array\+List$<$ \hyperlink{classentidade_1_1resultados_1_1cypherResults}{cypher\+Results} $>$ \hyperlink{classcontrolador_1_1SemanticsSearch_a339848789ce165207406c6ee6f49c538}{cypher\+Search\+Bolt} (String cypher\+Query)  throws Exception 
+\item 
+static \hyperlink{classentidade_1_1Graph}{Graph} \hyperlink{classcontrolador_1_1SemanticsSearch_af6332056f2b69450b64220a5b11a69f4}{busca\+Cypher\+Rest} (String query)
+\item 
+static Array\+List$<$ \hyperlink{classentidade_1_1resultados_1_1DocumentResult}{Document\+Result} $>$ \hyperlink{classcontrolador_1_1SemanticsSearch_a0cd2e6b6e45fe9738ea91c606a48afef}{document\+Search} (String cypher\+Query)  throws Exception 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Controlador responsável por mediar as buscas semânticas no banco e no repositório de arquivos.
+
+\begin{DoxyAuthor}{Author}
+Geovani Celebrim 
+\end{DoxyAuthor}
+
+
+Definition at line 27 of file Semantics\+Search.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classcontrolador_1_1SemanticsSearch_af6332056f2b69450b64220a5b11a69f4}{}\label{classcontrolador_1_1SemanticsSearch_af6332056f2b69450b64220a5b11a69f4} 
+\index{controlador\+::\+Semantics\+Search@{controlador\+::\+Semantics\+Search}!busca\+Cypher\+Rest@{busca\+Cypher\+Rest}}
+\index{busca\+Cypher\+Rest@{busca\+Cypher\+Rest}!controlador\+::\+Semantics\+Search@{controlador\+::\+Semantics\+Search}}
+\subsubsection{\texorpdfstring{busca\+Cypher\+Rest()}{buscaCypherRest()}}
+{\footnotesize\ttfamily static \hyperlink{classentidade_1_1Graph}{Graph} controlador.\+Semantics\+Search.\+busca\+Cypher\+Rest (\begin{DoxyParamCaption}\item[{String}]{query }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Realiza uma busca no banco Neo4j, usando o módulo em Python, dada uma String no formato Cypher, e retorna um \hyperlink{}{Graph}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & String em formato Cypher. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\bfseries Graph} 
+\end{DoxyReturn}
+
+
+Definition at line 68 of file Semantics\+Search.\+java.
+
+
+
+References D\+A\+O.\+Neo4j\+\_\+\+Rest.\+get\+Graph().
+
+
+
+Referenced by controlador.\+servlets.\+Pagina\+Principal.\+processar\+Requisicao(), and controlador.\+servlets.\+Pagina\+Resultados.\+processar\+Requisicao().
+
+\hypertarget{classcontrolador_1_1SemanticsSearch_a339848789ce165207406c6ee6f49c538}{}\label{classcontrolador_1_1SemanticsSearch_a339848789ce165207406c6ee6f49c538} 
+\index{controlador\+::\+Semantics\+Search@{controlador\+::\+Semantics\+Search}!cypher\+Search\+Bolt@{cypher\+Search\+Bolt}}
+\index{cypher\+Search\+Bolt@{cypher\+Search\+Bolt}!controlador\+::\+Semantics\+Search@{controlador\+::\+Semantics\+Search}}
+\subsubsection{\texorpdfstring{cypher\+Search\+Bolt()}{cypherSearchBolt()}}
+{\footnotesize\ttfamily static Array\+List$<$\hyperlink{classentidade_1_1resultados_1_1cypherResults}{cypher\+Results}$>$ controlador.\+Semantics\+Search.\+cypher\+Search\+Bolt (\begin{DoxyParamCaption}\item[{String}]{cypher\+Query }\end{DoxyParamCaption}) throws Exception\hspace{0.3cm}{\ttfamily [static]}}
+
+Busca no banco Neo4j, dada uma String no formato Cypher, e retorna um \hyperlink{}{Array\+List} de \hyperlink{}{cypher\+Results}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cypher\+Query} & String no formato Cypher. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\bfseries Array\+List} de \hyperlink{}{cypher\+Results} contendo os resultados encontrados. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & caso ocorra uma falha em algum passo da busca. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 41 of file Semantics\+Search.\+java.
+
+
+
+References D\+A\+O.\+Neo4j.\+disconnect(), D\+A\+O.\+Neo4j.\+get\+Session(), and util.\+Data\+Processing.\+statement\+To\+Cypher().
+
+
+
+Referenced by controlador.\+servlets.\+Pagina\+Principal.\+processar\+Requisicao(), and controlador.\+servlets.\+Pagina\+Resultados.\+processar\+Requisicao().
+
+\hypertarget{classcontrolador_1_1SemanticsSearch_a0cd2e6b6e45fe9738ea91c606a48afef}{}\label{classcontrolador_1_1SemanticsSearch_a0cd2e6b6e45fe9738ea91c606a48afef} 
+\index{controlador\+::\+Semantics\+Search@{controlador\+::\+Semantics\+Search}!document\+Search@{document\+Search}}
+\index{document\+Search@{document\+Search}!controlador\+::\+Semantics\+Search@{controlador\+::\+Semantics\+Search}}
+\subsubsection{\texorpdfstring{document\+Search()}{documentSearch()}}
+{\footnotesize\ttfamily static Array\+List$<$\hyperlink{classentidade_1_1resultados_1_1DocumentResult}{Document\+Result}$>$ controlador.\+Semantics\+Search.\+document\+Search (\begin{DoxyParamCaption}\item[{String}]{cypher\+Query }\end{DoxyParamCaption}) throws Exception\hspace{0.3cm}{\ttfamily [static]}}
+
+Realiza uma busca no banco Neo4j, dada uma String no formato Cypher, e retorna um \hyperlink{}{Array\+List} de \hyperlink{}{Document\+Result}. Essa busca cruza os dados do banco para obter o trecho onde a informação se encontra no documento.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cypher\+Query} & String no formado Cypher. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\bfseries Array\+List} de \hyperlink{}{Document\+Result}. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & caso ocorra algum erro na extração dos dados. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 104 of file Semantics\+Search.\+java.
+
+
+
+References util.\+Documents\+Data.\+approaching\+Initial\+Index(), util.\+Data\+Processing.\+cross\+Data(), util.\+Documents\+Data.\+end\+Index(), entidade.\+resultados.\+Document\+Result.\+get\+Author(), entidade.\+resultados.\+Document\+Result.\+get\+Source(), D\+A\+O.\+File.\+read\+Prefixed\+File(), and util.\+Documents\+Data.\+search\+Author\+And\+Source().
+
+
+
+Referenced by controlador.\+servlets.\+Pagina\+Principal.\+processar\+Requisicao(), and controlador.\+servlets.\+Pagina\+Resultados.\+processar\+Requisicao().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+controlador/\hyperlink{SemanticsSearch_8java}{Semantics\+Search.\+java}\end{DoxyCompactItemize}
