@@ -1,9 +1,6 @@
-/org
-/util
-/excessao
-/controlador
-/entidade
 /DAO
 /control
 /entity
 /exception
+/org
+/util

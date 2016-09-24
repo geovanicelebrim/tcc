@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import util.Syntactic;
 import control.SemanticSearch;
 import control.SimpleSearch;
 import entity.Graph;
@@ -91,9 +92,10 @@ public class MainPage extends HttpServlet {
 					ArrayList<DocumentResult> documentResults = new ArrayList<>();
 					Graph graph = null;
 					try {
-						cypherResults = SemanticSearch.cypherSearchBolt(query);
-						documentResults = SemanticSearch.documentSearch(query);
-						graph = SemanticSearch.buscaCypherRest(query);
+						String newQuery = Syntactic.translateToCypherQuery(query);
+						cypherResults = SemanticSearch.cypherSearchBolt(newQuery);
+						documentResults = SemanticSearch.documentSearch(newQuery);
+						graph = SemanticSearch.buscaCypherRest(newQuery);
 					} catch (Exception e) {
 						if (!e.getMessage().equals("1")) {
 							request.setAttribute("errorMessage", e.getMessage());
