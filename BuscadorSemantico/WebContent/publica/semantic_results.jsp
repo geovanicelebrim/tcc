@@ -270,7 +270,6 @@
 					<%if( graph != null)
 							for (int i = 0; i < graph.getVertices().size(); i++) {
 								out.println("id: " + graph.getVertices().get(i).getID() + ",");
-								//out.println("title: " + graph.getVertices().get(i).title() + ",");
 								out.println("label: '" + graph.getVertices().get(i).getSlice() + "',");
 								out.println("group: '" + graph.getVertices().get(i).getLabel() + "',");
 								
@@ -300,7 +299,90 @@
 	           });*/
 	          }
 	        </script>
+	
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		
+	<script>
+		$( function() {
+			var availableTags = [
+				"(Pessoa",
+				"(Evento",
+				"(Local",
+				"(Data",
+				"(AutorReporter",
+				"(Pesquisador",
+				"(Organizacao",
+				"(Fonte",
+				"(TempoFonte",
+				"(URLFonte",
+				"(Artefato",
+				"(Quantidade",
+				"(Grupo"
+			];
 
+    function split( val ) {
+      return val.split( /--/ );
+    }
+    function extractLast( term ) {
+      return split( term ).pop();
+    }
+ 
+    $( "#search-query" )
+      // don't navigate away from the field on tab when selecting an item
+      .on( "keydown", function( event ) {
+        if ( event.keyCode === $.ui.keyCode.TAB &&
+            $( this ).autocomplete( "instance" ).menu.active ) {
+          event.preventDefault();
+        }
+      })
+      .autocomplete({
+        minLength: 0,
+        source: function( request, response ) {
+          // delegate back to autocomplete, but extract the last term
+          response( $.ui.autocomplete.filter(
+            availableTags, extractLast( request.term ) ) );
+        },
+        focus: function() {
+          // prevent value inserted on focus
+          return false;
+        },
+        select: function( event, ui ) {
+          var terms = split( this.value );
+          // remove the current input
+          terms.pop();
+          // add the selected item
+          terms.push( ui.item.value + ":\"\")");
+          // add placeholder to get the comma-and-space at the end
+          // terms.push( "" );
+          this.value = terms.join( "--");
+          setCaretToPos(this, this.value.length - 2);
+          return false;
+        }
+      });
+  } );
+
+  function setSelectionRange(input, selectionStart, selectionEnd) {
+    if (input.setSelectionRange) {
+      input.focus();
+      input.setSelectionRange(selectionStart, selectionEnd);
+    }
+    else if (input.createTextRange) {
+      var range = input.createTextRange();
+      range.collapse(true);
+      range.moveEnd('character', selectionEnd);
+      range.moveStart('character', selectionStart);
+      range.select();
+    }
+  }
+
+  function setCaretToPos (input, pos) {
+    setSelectionRange(input, pos, pos);
+  }
+
+
+  </script>
 </head>
 <body style="padding-top: 40px;">
 	<!--[if lt IE 8]>
@@ -326,12 +408,11 @@
 				<form action="ResultsPage?action=buscar" method="get">
 					<div class="form-group text-center">
 						<img class="img-responsive center-block" src="publica/images/cedim.jpg"
-							for="search-query" style="width: 40%; height: 40%;">
+							style="width: 40%; height: 40%;">
 
 						<div class="input-group">
-							<input type="text" class="form-control input-lg"
-								id="search-query" name="search-query"
-								placeholder="Type your query"
+							<input type="text" class="form-control input-lg" id="search-query" name="search-query"
+								placeholder="Type your query" required autocomplete="off"
 								<%String query = (String) request.getAttribute("query");
 									if (query != null)
 										out.println("value=\"" + query.replace("\"", "&quot;") + "\"");%>>
@@ -515,8 +596,7 @@
 		<br>
 	</div>
 
-	<script src="publica/js/vendor/jquery-1.11.2.min.js"></script>
-	<script src="publica/js/vendor/bootstrap.min.js"></script>
-	<script src="publica/js/main.js"></script>
+	<script src="./publica/js/vendor/bootstrap.min.js"></script>
+	<script src="./publica/js/main.js"></script>
 </body>
 </html>
