@@ -9,12 +9,12 @@
         <title>Semantic Search</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="./publica/icons/apple-touch-icon.png">
-        <link rel="shortcut icon" href="./publica/icons/favicon.ico">
+        <link rel="apple-touch-icon" href="./public/icons/apple-touch-icon.png">
+        <link rel="shortcut icon" href="./public/icons/favicon.ico">
 
-        <link rel="stylesheet" href="./publica/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./publica/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="./publica/css/main.css">
+        <link rel="stylesheet" href="./public/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./public/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="./public/css/main.css">
 
         <!--[if lt IE 9]>
             <script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
@@ -117,7 +117,7 @@
 
             <form action="MainPage?action=search" method="get">
               <div class="form-group text-center">
-              	<img class="img-responsive center-block" src="./publica/images/cedim.jpg" style="width:70%;height:70%;">
+              	<img class="img-responsive center-block" src="./public/images/cedim.jpg" style="width:70%;height:70%;">
                 
                 <div class="input-group">
                     <input type="text" class="form-control input-lg" id="search-query" name="search-query" placeholder="Type your query" required autocomplete="off">
@@ -142,7 +142,7 @@
         </div>
       </div>
 
-      <script src="./publica/js/vendor/bootstrap.min.js"></script>
-      <script src="./publica/js/main.js"></script>
+      <script src="./public/js/vendor/bootstrap.min.js"></script>
+      <script src="./public/js/main.js"></script>
     </body>
 </html>

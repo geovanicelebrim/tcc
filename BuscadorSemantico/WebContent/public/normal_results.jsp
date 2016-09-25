@@ -18,17 +18,17 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<link rel="apple-touch-icon" href="publica/icons/apple-touch-icon.png">
-	<link rel="shortcut icon" href="publica/icons/favicon.ico">
+	<link rel="apple-touch-icon" href="public/icons/apple-touch-icon.png">
+	<link rel="shortcut icon" href="public/icons/favicon.ico">
 	
-	<link rel="stylesheet" href="publica/css/bootstrap.min.css">
-	<link rel="stylesheet" href="publica/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="publica/css/main.css">
+	<link rel="stylesheet" href="public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="public/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="public/css/main.css">
 	
-	<script type="text/javascript" src="publica/js/results/util.js"></script>
+	<script type="text/javascript" src="public/js/results/util.js"></script>
 	
 	<!--[if lt IE 9]>
-	            <script src="publica/js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
+	            <script src="public/js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
 	        <![endif]-->
 	
 <style>
@@ -187,7 +187,7 @@
 
 				<form action="ResultsPage?action=buscar" method="get">
 					<div class="form-group text-center">
-						<img class="img-responsive center-block" src="publica/images/cedim.jpg"
+						<img class="img-responsive center-block" src="public/images/cedim.jpg"
 							style="width: 40%; height: 40%;">
 
 						<div class="input-group">
@@ -260,7 +260,7 @@
 														<div class="media-left">
 															<a href="javascript:{}"
 																onclick="document.getElementById('<%out.print(i);%>').submit(); return false;"> <img class="media-object img-rounded"
-																src="publica/images/docs/A-aventura-dos-pracinhas-brasileiros-na-Segunda-Guerra-Mundial.png" alt="..." width="90" height="120" >
+																src="public/images/docs/A-aventura-dos-pracinhas-brasileiros-na-Segunda-Guerra-Mundial.png" alt="..." width="90" height="120" >
 															</a>
 														</div>
 														<div class="media-body">
@@ -306,7 +306,7 @@
 		</div>
 	</div>
 
-	<script src="./publica/js/vendor/bootstrap.min.js"></script>
-	<script src="./publica/js/main.js"></script>
+	<script src="./public/js/vendor/bootstrap.min.js"></script>
+	<script src="./public/js/main.js"></script>
 </body>
 </html>

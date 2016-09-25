@@ -20,23 +20,23 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<link rel="apple-touch-icon" href="publica/icons/apple-touch-icon.png">
-	<link rel="shortcut icon" href="publica/icons/favicon.ico">
+	<link rel="apple-touch-icon" href="public/icons/apple-touch-icon.png">
+	<link rel="shortcut icon" href="public/icons/favicon.ico">
 	
-	<link rel="stylesheet" href="publica/css/bootstrap.min.css">
-	<link rel="stylesheet" href="publica/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="publica/css/main.css">
+	<link rel="stylesheet" href="public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="public/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="public/css/main.css">
 	
-	<script type="text/javascript" src="publica/js/vis/dist/vis.js"></script>
-	<link href="publica/js/vis/dist/vis.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="public/js/vis/dist/vis.js"></script>
+	<link href="public/js/vis/dist/vis.css" rel="stylesheet" type="text/css" />
 	
 	<link rel="stylesheet"
 		href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	
-	<script type="text/javascript" src="publica/js/results/util.js"></script>
+	<script type="text/javascript" src="public/js/results/util.js"></script>
 	
 	<!--[if lt IE 9]>
-	            <script src="publica/js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
+	            <script src="public/js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
 	        <![endif]-->
 	
 <style>
@@ -407,7 +407,7 @@
 
 				<form action="ResultsPage?action=buscar" method="get">
 					<div class="form-group text-center">
-						<img class="img-responsive center-block" src="publica/images/cedim.jpg"
+						<img class="img-responsive center-block" src="public/images/cedim.jpg"
 							style="width: 40%; height: 40%;">
 
 						<div class="input-group">
@@ -488,7 +488,7 @@
 														<div class="media-left">
 															<a href="javascript:{}"
 																onclick="document.getElementById('<%out.print(i);%>').submit(); return false;"> <img class="media-object img-rounded"
-																src="publica/images/docs/A-aventura-dos-pracinhas-brasileiros-na-Segunda-Guerra-Mundial.png" alt="..." width="90" height="120" >
+																src="public/images/docs/A-aventura-dos-pracinhas-brasileiros-na-Segunda-Guerra-Mundial.png" alt="..." width="90" height="120" >
 															</a>
 														</div>
 														<div class="media-body">
@@ -537,36 +537,28 @@
 						<table class="table table-bordered table-hover">
 						    <thead align="center">
 						      <tr>
-						           <th class="text-center">Entidade 1 (E1)</th>
-						           <th class="text-center">Entidade 2 (E2)</th>
-						           <th class="text-center">Citações (E1)</th>
-						           <th class="text-center">Citações (E2)</th>
-						           <th class="text-center">Relações (E1)</th>
-						           <th class="text-center">Relações (E2)</th>
-						           <th class="text-center">Documento</th>
+						           <th class="text-center">Slice</th>
+						           <th class="text-center">Citations</th>
+						           <th class="text-center">Relations</th>
+						           <th class="text-center">Document</th>
 						       </tr>
 						    </thead>
 						    <tbody>
 						    <%
 						    	@SuppressWarnings("unchecked")
-						    				    						ArrayList<CypherResults> cypherResults = ((ArrayList<CypherResults>) request
-						    				    							.getAttribute("cypherResults"));
-						    				    					
-						    				    						if (cypherResults != null) {
-						    				    							for(int i = 0; i < cypherResults.size(); i++) {
-						    				    								out.println("<tr>");
-						    				    								
-						    				    								out.println("<td> " + cypherResults.get(i).getEntidade1() + " </td>");
-						    				    								out.println("<td> " + cypherResults.get(i).getEntidade2() + " </td>");
-						    				    								out.println("<td class=\"text-center\" > " + cypherResults.get(i).getCitacoesEntidade1() + " </td>");
-						    				    								out.println("<td class=\"text-center\" > " + cypherResults.get(i).getCitacoesEntidade2() + " </td>");
-						    				    								out.println("<td class=\"text-center\" > " + cypherResults.get(i).getRelacoesEntidade1() + " </td>");
-						    				    								out.println("<td class=\"text-center\" > " + cypherResults.get(i).getRelacoesEntidade2() + " </td>");
-						    				    								out.println("<td> " + cypherResults.get(i).getNomeDocumento() + " </td>");
-						    				    								
-						    				    								out.println("</tr>");
-						    				    							}
-						    				    						}
+						    	ArrayList<CypherResults> cypherResults = ((ArrayList<CypherResults>) request.getAttribute("cypherResults"));
+						    	
+						    	if (cypherResults != null) {
+						    		for(int i = 0; i < cypherResults.size(); i++) {
+						    			
+						    			out.println("<tr>");
+										out.println("<td class=\"text-center\" > " + cypherResults.get(i).getSlice() + " </td>");
+						    			out.println("<td class=\"text-center\" > " + cypherResults.get(i).getCitations() + " </td>");
+						    			out.println("<td class=\"text-center\" > " + cypherResults.get(i).getRelations() + " </td>");
+						    			out.println("<td class=\"text-center\" > " + cypherResults.get(i).getDocument() + " </td>");
+						    			out.println("</tr>");
+									}
+						    	}
 						    %>						       
 
 						    </tbody>
@@ -596,7 +588,7 @@
 		<br>
 	</div>
 
-	<script src="./publica/js/vendor/bootstrap.min.js"></script>
-	<script src="./publica/js/main.js"></script>
+	<script src="./public/js/vendor/bootstrap.min.js"></script>
+	<script src="./public/js/main.js"></script>
 </body>
 </html>

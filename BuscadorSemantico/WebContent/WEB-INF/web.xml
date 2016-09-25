@@ -4,7 +4,7 @@
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
-    <welcome-file>publica/index.jsp</welcome-file>
+    <welcome-file>public/index.jsp</welcome-file>
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
@@ -12,7 +12,7 @@
   
   <error-page>
        <error-code>404</error-code>
-         <location>/publica/404.html</location>
+         <location>/public/404.html</location>
    </error-page>
    
 </web-app>

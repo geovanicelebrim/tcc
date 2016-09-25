@@ -112,75 +112,40 @@ public class DataProcessing {
 	 * @param result
 	 *            {@link StatementResult} com os resultados do banco.
 	 * @return {@link CypherResults} contendo os resultados.
-	 * @throws InvalidQueryException
-	 *             caso a query esteja inválida.
 	 */
 	public static ArrayList<CypherResults> statementToCypher(
-			String cypherQuery, StatementResult result)
-			throws InvalidQueryException {
+			String cypherQuery, StatementResult result) {
 
 		String parameters[] = cypherQuery.split("return")[1].split(",");
 
 		ArrayList<CypherResults> returned = new ArrayList<>();
+		CypherResults cyperResult = null;
 
 		while (result.hasNext()) {
-
-			String entidade1 = null, entidade2 = null, citacoes_entidade1 = null, citacoes_entidade2 = null, relacoes_entidade1 = null, relacoes_entidade2 = null, nome_documento = null;
-
+			
 			Record record = result.next();
-
+			String document = "", slice = "", citations = "", relations = "";
 			for (int i = 0; i < parameters.length; i++) {
-				try {
-
-					if (parameters[i].split("as ")[0].contains("trecho")) {
-
-						if (entidade1 == null) {
-							entidade1 = record
-									.get(parameters[i].split("as ")[1]) + " ";
-						} else {
-							entidade2 = record
-									.get(parameters[i].split("as ")[1]) + " ";
-						}
-
-					} else if (parameters[i].split("as ")[0]
-							.contains("numeroCitacoes")) {
-
-						if (citacoes_entidade1 == null) {
-							citacoes_entidade1 = record.get(parameters[i]
-									.split("as ")[1]) + " ";
-						} else {
-							citacoes_entidade2 = record.get(parameters[i]
-									.split("as ")[1]) + " ";
-						}
-
-					} else if (parameters[i].split("as ")[0]
-							.contains("numeroRelacoes")) {
-
-						if (relacoes_entidade1 == null) {
-							relacoes_entidade1 = record.get(parameters[i]
-									.split("as ")[1]) + " ";
-						} else {
-							relacoes_entidade2 = record.get(parameters[i]
-									.split("as ")[1]) + " ";
-						}
-
-					} else if (parameters[i].split("as ")[0].contains("nome")) {
-
-						nome_documento = record
-								.get(parameters[i].split("as ")[1]) + " ";
-					}
-
-				} catch (Exception e) {
-					throw new InvalidQueryException();
+				if (parameters[i].split("as ")[0].contains("trecho")) {
+					slice = record.get(parameters[i].split("as ")[1]).asString();
+					
+				} else if (parameters[i].split("as ")[0].contains("numeroCitacoes")) {
+					citations = record.get(parameters[i].split("as ")[1]).toString();
+					
+				} else if (parameters[i].split("as ")[0].contains("numeroRelacoes")) {
+					relations = record.get(parameters[i].split("as ")[1]).toString();
+					
+				} else if (parameters[i].split("as ")[0].contains("nome")) {
+					document = record.get(parameters[i].split("as ")[1]).asString();
+				
 				}
+				if (!slice.equals("") && !citations.equals("") && !relations.equals("") && !document.equals("")){
+					cyperResult = new CypherResults(slice, citations, relations, document);
+					returned.add(cyperResult);
+					document = slice = citations = relations = "";
+				}				
 			}
-
-			returned.add(new CypherResults(entidade1, entidade2,
-					citacoes_entidade1, citacoes_entidade2, relacoes_entidade1,
-					relacoes_entidade2, nome_documento));
 		}
-
 		return returned;
 	}
-
 }

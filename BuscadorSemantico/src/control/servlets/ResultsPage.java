@@ -174,8 +174,8 @@ public class ResultsPage extends HttpServlet {
 			HttpServletResponse response) {
 
 		RequestDispatcher rd = null;
-		// rd = request.getRequestDispatcher("publica/resultados.jsp");
-		rd = request.getRequestDispatcher("publica/normal_results.jsp");
+		// rd = request.getRequestDispatcher("public/resultados.jsp");
+		rd = request.getRequestDispatcher("public/normal_results.jsp");
 
 		try {
 			rd.forward(request, response);
@@ -194,8 +194,8 @@ public class ResultsPage extends HttpServlet {
 			HttpServletResponse response) {
 
 		RequestDispatcher rd = null;
-		// rd = request.getRequestDispatcher("publica/resultados.jsp");
-		rd = request.getRequestDispatcher("publica/semantic_results.jsp");
+		// rd = request.getRequestDispatcher("public/resultados.jsp");
+		rd = request.getRequestDispatcher("public/semantic_results.jsp");
 
 		try {
 			rd.forward(request, response);
@@ -214,8 +214,8 @@ public class ResultsPage extends HttpServlet {
 			HttpServletResponse response) {
 
 		RequestDispatcher rd = null;
-		// rd = request.getRequestDispatcher("publica/exibirDocumento.jsp");
-		rd = request.getRequestDispatcher("publica/building.html");
+		// rd = request.getRequestDispatcher("public/exibirDocumento.jsp");
+		rd = request.getRequestDispatcher("public/building.html");
 
 		try {
 			rd.forward(request, response);
