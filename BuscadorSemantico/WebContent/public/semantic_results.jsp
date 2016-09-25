@@ -117,7 +117,7 @@
 					physics: {
 						interaction:{hover:true},
 						maxVelocity: 16,
-						//TODO verificar necessidade.
+
 						solver: 'forceAtlas2Based',
 						timestep: 0.35,
 						stabilization: {
@@ -420,8 +420,8 @@
 							<div class="input-group-btn">
 								<select name="search-mode" class="form-control input-lg"
 									id="search-mode">
-									<option value="normal" selected>Normal search</option>
-									<option value="semantic">Semantic search</option>
+									<option value="normal">Normal search</option>
+									<option value="semantic" selected>Semantic search</option>
 								</select>
 							</div>
 
@@ -468,11 +468,10 @@
 
 							<%
 								@SuppressWarnings("unchecked")
-																							ArrayList<DocumentResult> documentResults = (ArrayList<DocumentResult>) request
-																							.getAttribute("documentResults");
+								ArrayList<DocumentResult> documentResults = (ArrayList<DocumentResult>) request.getAttribute("documentResults");
 
-																							if (documentResults != null) {
-																								for (int i = 0; i < documentResults.size(); i++) {
+								if (documentResults != null) {
+									for (int i = 0; i < documentResults.size(); i++) {
 							%>
 										<form id="<%out.print(i);%>"
 											action="ResultsPage?action=<%out.println(documentResults.get(i).getDocumentName());%>"
@@ -488,7 +487,7 @@
 														<div class="media-left">
 															<a href="javascript:{}"
 																onclick="document.getElementById('<%out.print(i);%>').submit(); return false;"> <img class="media-object img-rounded"
-																src="public/images/docs/A-aventura-dos-pracinhas-brasileiros-na-Segunda-Guerra-Mundial.png" alt="..." width="90" height="120" >
+																src="<% out.println("public/images/docs/" + documentResults.get(i).getDocumentName().split("/")[2].replace(".txt", ".png"));%>" alt="..." width="90" height="120" >
 															</a>
 														</div>
 														<div class="media-body">
@@ -496,16 +495,14 @@
 																<a href="javascript:{}"
 																	onclick="document.getElementById('<%out.print(i);%>').submit(); return false;">
 																	<%
-																		out.println(documentResults.get(i).getDocumentName()
-																																																																															.split("/")[2]);
+																		out.println(documentResults.get(i).getDocumentName().split("/")[2]);
 																	%>
 																</a>
 															</h4>
 															
 															<label class="reference">
 																<%
-																	out.print("(" + documentResults.get(i).getAuthor()
-																																																																																									+ ", " + documentResults.get(i).getSource() + ")");
+																	out.print("(" + documentResults.get(i).getAuthor() + ", " + documentResults.get(i).getSource() + ")");
 																%>
 															</label>
 															<div id="div<%out.print(i);%>">
@@ -525,11 +522,15 @@
 																				}
 								%>
 						</div>
-						
-						<br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-						<br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-						<br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-
+						<%
+						if(documentResults != null) {
+							if(documentResults.size() < 3) {
+								for(int i = documentResults.size(); i < 3; i++) { 
+									out.print("<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>");
+								}
+							}
+						}
+						%>
 					</div>
 
 					<div role="tabpanel" class="tab-pane fade" id="db_results">
@@ -537,6 +538,7 @@
 						<table class="table table-bordered table-hover">
 						    <thead align="center">
 						      <tr>
+						      	   <th class="text-center">Entity</th>
 						           <th class="text-center">Slice</th>
 						           <th class="text-center">Citations</th>
 						           <th class="text-center">Relations</th>
@@ -552,6 +554,7 @@
 						    		for(int i = 0; i < cypherResults.size(); i++) {
 						    			
 						    			out.println("<tr>");
+						    			out.println("<td class=\"text-center\" > " + cypherResults.get(i).getLabel() + " </td>");
 										out.println("<td class=\"text-center\" > " + cypherResults.get(i).getSlice() + " </td>");
 						    			out.println("<td class=\"text-center\" > " + cypherResults.get(i).getCitations() + " </td>");
 						    			out.println("<td class=\"text-center\" > " + cypherResults.get(i).getRelations() + " </td>");
@@ -563,13 +566,16 @@
 
 						    </tbody>
 						</table>
-												
-
-						<br> <br> <br> <br> <br> <br> <br>
-						<br> <br> <br> <br> <br> <br> <br>
-						<br> <br> <br> <br> <br> <br> <br>
-						<br> <br> <br> <br> <br> <br> <br>
 						
+						<%
+						if (cypherResults != null) {
+							if(cypherResults.size() < 16) {
+								for(int i = cypherResults.size(); i < 16; i++) { 
+									out.print("<br> <br>");
+								}
+							}
+						}
+						%>												
 
 					</div>
 

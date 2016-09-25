@@ -260,7 +260,7 @@
 														<div class="media-left">
 															<a href="javascript:{}"
 																onclick="document.getElementById('<%out.print(i);%>').submit(); return false;"> <img class="media-object img-rounded"
-																src="public/images/docs/A-aventura-dos-pracinhas-brasileiros-na-Segunda-Guerra-Mundial.png" alt="..." width="90" height="120" >
+																src="<% out.println("public/images/docs/" + simpleResults.get(i).getDocumentName().split("/")[2].replace(".txt", ".png"));%>" alt="..." width="90" height="120" >
 															</a>
 														</div>
 														<div class="media-body">
@@ -296,10 +296,14 @@
 								} %>
 						</div>
 						
-						<br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-						<br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-						<br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-
+						<%
+							if(simpleResults.size() < 3) {
+								for(int i = simpleResults.size(); i < 3; i++) { 
+									out.print("<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>");
+								}
+							}
+						%>
+						
 					</div>
 				</div>
 			</div>

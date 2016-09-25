@@ -98,14 +98,14 @@ public class Syntactic {
 									"\"\\(?i\\)");
 					if(nPositions == 1){
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao1, " + node + ".posicao as posicao2, " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao1, " + node + ".posicao as posicao2, " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
 					} else if (nPositionsUsed < 2) {
 						nPositionsUsed++;
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao" + nPositionsUsed + ", "  + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao" + nPositionsUsed + ", "  + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
 					} else {
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
 					}
 					
 					count++;
@@ -120,14 +120,14 @@ public class Syntactic {
 					
 					if(nPositions == 1){
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao1, " + node + ".posicao as posicao2, "  + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao1, " + node + ".posicao as posicao2, "  + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
 					} else if (nPositionsUsed < 2) {
 						nPositionsUsed++;
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao" + nPositionsUsed + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao" + nPositionsUsed + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
 					} else {
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
 					}
 					count++;
 				} else {
@@ -141,14 +141,14 @@ public class Syntactic {
 					
 					if(nPositions == 1){
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao1, " + node + ".posicao as posicao2, " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao1, " + node + ".posicao as posicao2, " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
 					} else if (nPositionsUsed < 2) {
 						nPositionsUsed++;
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao" + nPositionsUsed + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao" + nPositionsUsed + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
 					} else {
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
 					}
 					
 					count++;
@@ -161,14 +161,14 @@ public class Syntactic {
 					
 					if(nPositions == 1){
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao1, " + node + ".posicao as posicao2, " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao1, " + node + ".posicao as posicao2, " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
 					} else if (nPositionsUsed < 2) {
 						nPositionsUsed++;
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao" + nPositionsUsed + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao" + nPositionsUsed + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
 					} else {
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
 					}
 					
 					count++;
@@ -179,14 +179,14 @@ public class Syntactic {
 					
 					if(nPositions == 1){
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao1, " + node + ".posicao as posicao2, " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao1, " + node + ".posicao as posicao2, " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
 					} else if (nPositionsUsed < 2) {
 						nPositionsUsed++;
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao" + nPositionsUsed + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao" + nPositionsUsed + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
 					} else {
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
 					}
 					
 					count++;
@@ -198,14 +198,14 @@ public class Syntactic {
 					
 					if(nPositions == 1){
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao1, " + node + ".posicao as posicao2, " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao1, " + node + ".posicao as posicao2, " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
 					} else if (nPositionsUsed < 2) {
 						nPositionsUsed++;
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao" + nPositionsUsed + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao" + nPositionsUsed + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
 					} else {
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
 					}
 					
 					count++;
@@ -216,14 +216,14 @@ public class Syntactic {
 					
 					if(nPositions == 1){
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao1, " + node + ".posicao as posicao2, " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao1, " + node + ".posicao as posicao2, " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
 					} else if (nPositionsUsed < 2) {
 						nPositionsUsed++;
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao" + nPositionsUsed + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao" + nPositionsUsed + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
 					} else {
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
 					}
 					
 					count++;
@@ -233,14 +233,14 @@ public class Syntactic {
 					
 					if(nPositions == 1){
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao1, " + node + ".posicao as posicao2, " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao1, " + node + ".posicao as posicao2, " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
 					} else if (nPositionsUsed < 2) {
 						nPositionsUsed++;
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao" + nPositionsUsed + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao" + nPositionsUsed + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
 					} else {
 						String node = "node" + count;
-						returnable += node + ".trecho as " + "trecho" + count + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
+						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count + ", rel" + count + ", ";
 					}
 					
 					count++;

@@ -10,16 +10,26 @@ package entity.results;
  */
 public class CypherResults {
 
-	private String slice, citations, relations, document;
+	private String label, slice, citations, relations, document;
 
-	public CypherResults(String slice, String citations, String relations,
+	public CypherResults(String label, String slice, String citations, String relations,
 			String document) {
+		this.label = label;
 		this.slice = slice;
 		this.citations = citations;
 		this.relations = relations;
 		this.document = document;
 	}
 
+	/**
+	 * Obtém qual é o tipo da entidade.
+	 * 
+	 * @return {@link String}.
+	 */
+	public String getLabel() {
+		return this.label;
+	}
+	
 	/**
 	 * Obtém o techo guardado no banco que representa aquela entidade.
 	 * 

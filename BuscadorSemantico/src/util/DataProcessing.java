@@ -1,6 +1,10 @@
 package util;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 import org.neo4j.driver.v1.Record;
 import org.neo4j.driver.v1.StatementResult;
@@ -99,10 +103,7 @@ public class DataProcessing {
 
 		return returned;
 	}
-
-	// TODO esse método é o responsável por gerar os dados que alimenta a tabela
-	// da interface gráfica. Deve ser corrigido para que possa entrar em
-	// produção.
+	
 	/**
 	 * Realiza uma busca das características das entidades passadas como
 	 * argumento.
@@ -116,36 +117,61 @@ public class DataProcessing {
 	public static ArrayList<CypherResults> statementToCypher(
 			String cypherQuery, StatementResult result) {
 
-		String parameters[] = cypherQuery.split("return")[1].split(",");
-
+		String tokens[] = cypherQuery.split("return")[1].split(", ");
+		String queryDocument = "";
+		
+		List<String> queryLabel, querySlice, queryCitations, queryRelations;
+		queryLabel = new ArrayList<>();
+		querySlice = new ArrayList<>();
+		queryCitations = new ArrayList<>();
+		queryRelations = new ArrayList<>();
+		
+		for (int i = 0; i < tokens.length; i++) {
+			if (tokens[i].contains("nome")) {
+				queryDocument = tokens[i].split("as ")[1];
+			} else if (tokens[i].contains("node") && !tokens[i].contains("posicao")) {
+				if (tokens[i].contains("labels")) {
+					queryLabel.add(tokens[i].split("as ")[1]);
+				} else if (tokens[i].contains("trecho")) {
+					querySlice.add(tokens[i].split("as ")[1]);
+				} else if (tokens[i].contains("numeroCitacoes")) {
+					queryCitations.add(tokens[i].split("as ")[1]);
+				} else if (tokens[i].contains("numeroRelacoes")) {
+					queryRelations.add(tokens[i].split("as ")[1]);
+				}
+			}
+		}
+		
 		ArrayList<CypherResults> returned = new ArrayList<>();
-		CypherResults cyperResult = null;
+		HashMap<String, CypherResults> mapResult = new HashMap<>();
+		CypherResults cypherResult = null;
 
 		while (result.hasNext()) {
 			
 			Record record = result.next();
-			String document = "", slice = "", citations = "", relations = "";
-			for (int i = 0; i < parameters.length; i++) {
-				if (parameters[i].split("as ")[0].contains("trecho")) {
-					slice = record.get(parameters[i].split("as ")[1]).asString();
-					
-				} else if (parameters[i].split("as ")[0].contains("numeroCitacoes")) {
-					citations = record.get(parameters[i].split("as ")[1]).toString();
-					
-				} else if (parameters[i].split("as ")[0].contains("numeroRelacoes")) {
-					relations = record.get(parameters[i].split("as ")[1]).toString();
-					
-				} else if (parameters[i].split("as ")[0].contains("nome")) {
-					document = record.get(parameters[i].split("as ")[1]).asString();
+			String document = "", label = "", slice = "", citations = "", relations = "";
+			
+			for (int i = 0; i < querySlice.size(); i++) {
 				
-				}
-				if (!slice.equals("") && !citations.equals("") && !relations.equals("") && !document.equals("")){
-					cyperResult = new CypherResults(slice, citations, relations, document);
-					returned.add(cyperResult);
-					document = slice = citations = relations = "";
-				}				
+				label = record.get(queryLabel.get(i)).asList().get(0).toString();
+				slice = record.get(querySlice.get(i)).asString();
+				citations = record.get(queryCitations.get(i)).toString();
+				relations = record.get(queryRelations.get(i)).toString();
+				document = record.get(queryDocument).asString();
+				
+				cypherResult = new CypherResults(label, slice, citations, relations, document);
+				mapResult.put(slice+document, cypherResult);
 			}
 		}
+		
+		Set<String> keys = mapResult.keySet();
+		for (Iterator<String> iterator = keys.iterator(); iterator.hasNext();)
+		{
+			String key = iterator.next();
+			if(key != null)
+				returned.add(mapResult.get(key));
+		}
+		
 		return returned;
 	}
 }
