@@ -21,8 +21,7 @@ public class Neo4j_Rest {
 	 * @throws ErrorFileException caso ocorra algum erro na sobrescrita.
 	 * @throws IOException caso ocorra algum erro na sobrescrita.
 	 */
-	private static String rest_query(String query) throws ErrorFileException,
-			IOException {
+	private static String rest_query(String query) throws ErrorFileException {
 		//TODO colocar o arquivo com um nome temporário.
 		String user = Authentication.USER.toString();
 		String password = Authentication.PASSWORD.toString();
@@ -34,14 +33,19 @@ public class Neo4j_Rest {
 			e.printStackTrace();
 		}
 		
+		String retorned = null;
 		
-		File.writeFile( Paths.REST.toString() + "rest_query.py",
-				template.replace("#user", "\"" + user + "\"")
-						.replace("#password", "\"" + password + "\"")
-						.replace("#query",
-								"\"" + query.replace("\"", "\\\"") + "\""));
-		String retorned = Sys.command("python " + Paths.REST.toString() + "rest_query.py");
-		Sys.command("rm " + Paths.REST.toString() + "rest_query.py");
+		try {
+			File.writeFile( Paths.REST.toString() + "rest_query.py",
+					template.replace("#user", "\"" + user + "\"")
+							.replace("#password", "\"" + password + "\"")
+							.replace("#query",
+									"\"" + query.replace("\"", "\\\"") + "\""));
+			retorned = Sys.command("python " + Paths.REST.toString() + "rest_query.py");
+			Sys.command("rm " + Paths.REST.toString() + "rest_query.py");
+		} catch (IOException e) {
+			throw new ErrorFileException("write");
+		}
 		
 		return retorned;
 	}
@@ -83,7 +87,7 @@ public class Neo4j_Rest {
 	 * @throws ErrorFileException caso ocorra erro nos métodos dependentes.
 	 * @throws IOException caso ocorra erro nos métodos dependentes.
 	 */
-	public static Graph getGraph(String query) throws ErrorFileException, IOException {
+	public static Graph getGraph(String query) throws ErrorFileException {
 		return builderGraph(rest_query(query));
 	}
 }

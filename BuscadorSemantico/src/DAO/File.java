@@ -43,7 +43,7 @@ public class File {
 
 			f.close();
 		} catch (Exception e) {
-			throw new ErrorFileException();
+			throw new ErrorFileException("open");
 		}
 		return text;
 	}
@@ -77,7 +77,7 @@ public class File {
 
 			f.close();
 		} catch (Exception e) {
-			throw new ErrorFileException();
+			throw new ErrorFileException("access");
 		}
 		return text;
 
@@ -92,16 +92,20 @@ public class File {
 	 *            que é o caminho e nome do arquivo.
 	 * @param text
 	 *            que é o texto a ser escrito no arquivo.
-	 * @throws IOException
-	 *             caso não seja possível a escrita.
+	 * @throws ErrorFileException caso não seja possível a escrita.
 	 */
-	public static void writeFile(String path, String text) throws IOException {
+	public static void writeFile(String path, String text) throws ErrorFileException {
 
-		FileWriter f = new FileWriter(path);
-		PrintWriter pf = new PrintWriter(f);
+		FileWriter f;
+		try {
+			f = new FileWriter(path);
+			PrintWriter pf = new PrintWriter(f);
+			pf.printf(text);
+			f.close();
+		} catch (IOException e) {
+			throw new ErrorFileException("write");
+		}
 
-		pf.printf(text);
-		f.close();
 	}
 
 	/**

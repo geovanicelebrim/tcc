@@ -1,0 +1,49 @@
+p {
+	text-indent: 3em;
+}
+
+body {
+	padding-top: 20px;
+}
+
+.top20 {
+	padding-top: 20px;
+}
+
+span.menu-bar {
+    font-size: 20pt;
+}
+
+.container {
+		margin-right: 5%;
+		margin-left: 5%;
+		padding-left: 6px;
+		padding-right: 6px;
+	}
+	
+	.container:before,.container:after {
+		content: " ";
+		display: table;
+	}
+	
+	.container:after {
+		clear: both;
+	}
+	
+	@media ( min-width : 768px) {
+		.container {
+			width: 732px;
+		}
+	}
+	
+	@media ( min-width : 992px) {
+		.container {
+			width: 952px;
+		}
+	}
+	
+	@media ( min-width : 1200px) {
+		.container {
+			width: 1200px;
+		}
+	}

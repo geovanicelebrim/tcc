@@ -17,6 +17,9 @@ import entity.Graph;
 import entity.results.CypherResults;
 import entity.results.DocumentResult;
 import entity.results.SimpleResults;
+import exception.DatabaseConnectionException;
+import exception.ErrorFileException;
+import exception.InvalidQueryException;
 
 /**
  * Controlador Servlet responsável pela página principal.
@@ -66,16 +69,15 @@ public class MainPage extends HttpServlet {
 					request.setAttribute("query", query);
 
 					ArrayList<SimpleResults> simpleResults = null;
-
+					
 					try {
 						simpleResults = SimpleSearch.simpleSearch(query);
-
-					} catch (Exception e) {
-
+					} catch (ErrorFileException | DatabaseConnectionException e) {
 						if (!e.getMessage().equals("1")) {
 							request.setAttribute("errorMessage", e.getMessage());
 						}
 					}
+					
 					request.setAttribute("simpleResults", simpleResults);
 
 					gotoSimpleResults(request, response);
@@ -91,16 +93,18 @@ public class MainPage extends HttpServlet {
 					ArrayList<CypherResults> cypherResults = null;
 					ArrayList<DocumentResult> documentResults = new ArrayList<>();
 					Graph graph = null;
-					try {
-						String newQuery = Syntactic.translateToCypherQuery(query);
-						cypherResults = SemanticSearch.cypherSearchBolt(newQuery);
-						documentResults = SemanticSearch.documentSearch(newQuery);
-						graph = SemanticSearch.buscaCypherRest(newQuery);
-					} catch (Exception e) {
-						if (!e.getMessage().equals("1")) {
-							request.setAttribute("errorMessage", e.getMessage());
+					
+						String newQuery = null;
+						try {
+							newQuery = Syntactic.translateToCypherQuery(query);
+							cypherResults = SemanticSearch.cypherSearchBolt(newQuery);
+							documentResults = SemanticSearch.documentSearch(newQuery);
+							graph = SemanticSearch.buscaCypherRest(newQuery);
+						} catch (InvalidQueryException | ErrorFileException | DatabaseConnectionException e) {
+							if (!e.getMessage().equals("1")) {
+								request.setAttribute("errorMessage", e.getMessage());
+							}
 						}
-					}
 
 					request.setAttribute("cypherResults", cypherResults);
 					request.setAttribute("documentResults", documentResults);

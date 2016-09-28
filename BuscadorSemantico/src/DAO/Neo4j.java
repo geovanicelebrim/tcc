@@ -5,6 +5,8 @@ import org.neo4j.driver.v1.Driver;
 import org.neo4j.driver.v1.GraphDatabase;
 import org.neo4j.driver.v1.Session;
 
+import exception.DatabaseConnectionException;
+
 /**
  * Responsável por realizar as conexções com o banco através do <i>bolt</i>.
  * 
@@ -20,12 +22,21 @@ public class Neo4j {
 	/**
 	 * O construtor inicializa uma conexão com o banco, para que seja realizada
 	 * uma consulta.
+	 * 
+	 * @throws DatabaseConnectionException
+	 *             ocorre quando existe uma falha na conexão com o banco de
+	 *             dados.
 	 */
-	public Neo4j() {
+	public Neo4j() throws DatabaseConnectionException {
 		this.driver = GraphDatabase.driver("bolt://localhost", AuthTokens
 				.basic(Authentication.USER.toString(),
 						Authentication.PASSWORD.toString()));
-		this.session = this.driver.session();
+		try {
+			this.session = this.driver.session();
+		} catch (Exception e) {
+			throw new DatabaseConnectionException();
+		}
+
 	}
 
 	/**

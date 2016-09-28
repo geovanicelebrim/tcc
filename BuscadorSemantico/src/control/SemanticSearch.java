@@ -1,6 +1,5 @@
 package control;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import org.neo4j.driver.v1.Record;
@@ -15,6 +14,7 @@ import entity.Graph;
 import entity.Position;
 import entity.results.CypherResults;
 import entity.results.DocumentResult;
+import exception.DatabaseConnectionException;
 import exception.ErrorFileException;
 
 /**
@@ -35,21 +35,16 @@ public class SemanticSearch {
 	 *            String no formato Cypher.
 	 * @return <b>ArrayList</b> de {@link CypherResults} contendo os resultados
 	 *         encontrados.
-	 * @throws Exception
-	 *             caso ocorra uma falha em algum passo da busca.
+	 * @throws DatabaseConnectionException ocorre quando há uma falha na conexão com o banco de dados. 
 	 */
-	public static ArrayList<CypherResults> cypherSearchBolt(String cypherQuery)
-			throws Exception {
+	public static ArrayList<CypherResults> cypherSearchBolt(String cypherQuery) throws DatabaseConnectionException {
 		Neo4j neo4j = new Neo4j();
 
 		StatementResult retorned = neo4j.getSession().run(cypherQuery);
 
 		ArrayList<CypherResults> res = null;
-		try {
-			res = DataProcessing.statementToCypher(cypherQuery, retorned);
-		} catch (Exception e) {
-			throw e;
-		}
+
+		res = DataProcessing.statementToCypher(cypherQuery, retorned);
 
 		neo4j.disconnect();
 
@@ -64,8 +59,9 @@ public class SemanticSearch {
 	 * @param query
 	 *            String em formato Cypher.
 	 * @return <b>Graph</b>
+	 * @throws ErrorFileException
 	 */
-	public static Graph buscaCypherRest(String query) {
+	public static Graph buscaCypherRest(String query) throws ErrorFileException {
 
 		String q = (query.split("return")[0] + "return " + query
 				.split("return")[0].replaceAll("(\" \")*match(\" \")*", "")
@@ -78,17 +74,13 @@ public class SemanticSearch {
 
 		try {
 			graph = Neo4j_Rest.getGraph(q);
-
 		} catch (ErrorFileException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+			throw e;
 		}
 
 		return graph;
 	}
 
-	// TODO adicionar exemplo do formado da query
 	/**
 	 * Realiza uma busca no banco Neo4j, dada uma String no formato Cypher, e
 	 * retorna um {@link ArrayList} de {@link DocumentResult}. Essa busca cruza
@@ -98,11 +90,10 @@ public class SemanticSearch {
 	 * @param cypherQuery
 	 *            String no formado Cypher.
 	 * @return <b>ArrayList</b> de {@link DocumentResult}.
-	 * @exception Exception
-	 *                caso ocorra algum erro na extração dos dados.
+	 * @throws ErrorFileException caso ocorra algum erro na extração dos dados.
+	 * @throws DatabaseConnectionException ocorre quando há uma falha na conexão com o banco de dados.
 	 */
-	public static ArrayList<DocumentResult> documentSearch(String cypherQuery)
-			throws Exception {
+	public static ArrayList<DocumentResult> documentSearch(String cypherQuery) throws ErrorFileException, DatabaseConnectionException {
 
 		ArrayList<DocumentResult> documentResults = new ArrayList<>();
 
@@ -113,53 +104,49 @@ public class SemanticSearch {
 		ArrayList<Position> position1 = new ArrayList<>();
 		ArrayList<Position> position2 = new ArrayList<>();
 
-		try {
-			while (retorned.hasNext()) {
-				Record record = retorned.next();
-				String p1[] = record.get("posicao1").asString().split("; ");
+		while (retorned.hasNext()) {
+			Record record = retorned.next();
+			String p1[] = record.get("posicao1").asString().split("; ");
 
-				for (int i = 0; i < p1.length; i++) {
-					position1.add(new Position(p1[i].split(", ")[0], p1[i]
-							.split(", ")[1]));
-				}
-
-				String p2[] = record.get("posicao2").asString().split("; ");
-
-				for (int i = 0; i < p2.length; i++) {
-					position2.add(new Position(p2[i].split(", ")[0], p2[i]
-							.split(", ")[1]));
-				}
-
-				ArrayList<Position> crusadersData = DataProcessing.crossData(
-						position1, position2);
-
-				String documentPath = record.get("caminho").asString();
-
-				for (int i = 0; i < crusadersData.size(); i++) {
-
-					String text = File.readPrefixedFile(documentPath);
-					int begin, end;
-
-					begin = DocumentsMetaData.approachingInitialIndex(text,
-							crusadersData.get(i).getBegin());
-					end = DocumentsMetaData.endIndex(text, begin + 250);
-
-					DocumentResult documentResult = new DocumentResult(
-							documentPath, crusadersData.get(i), text.substring(
-									begin, end), DocumentsMetaData
-									.searchAuthorAndSource(documentPath)
-									.getAuthor(), DocumentsMetaData
-									.searchAuthorAndSource(documentPath)
-									.getSource());
-
-					documentResults.add(documentResult);
-				}
-
-				position1.clear();
-				position2.clear();
+			for (int i = 0; i < p1.length; i++) {
+				position1.add(new Position(p1[i].split(", ")[0], p1[i]
+						.split(", ")[1]));
 			}
-		} catch (Exception e) {
-			throw e;
+
+			String p2[] = record.get("posicao2").asString().split("; ");
+
+			for (int i = 0; i < p2.length; i++) {
+				position2.add(new Position(p2[i].split(", ")[0], p2[i]
+						.split(", ")[1]));
+			}
+
+			ArrayList<Position> crusadersData = DataProcessing.crossData(
+					position1, position2);
+
+			String documentPath = record.get("caminho").asString();
+
+			for (int i = 0; i < crusadersData.size(); i++) {
+
+				String text = File.readPrefixedFile(documentPath);
+				int begin, end;
+
+				begin = DocumentsMetaData.approachingInitialIndex(text,
+						crusadersData.get(i).getBegin());
+				end = DocumentsMetaData.endIndex(text, begin + 250);
+
+				DocumentResult documentResult = new DocumentResult(
+						documentPath, crusadersData.get(i), text.substring(
+								begin, end), DocumentsMetaData
+								.searchAuthorAndSource(documentPath)
+								.getAuthor(), DocumentsMetaData
+								.searchAuthorAndSource(documentPath)
+								.getSource());
+
+				documentResults.add(documentResult);
+			}
+
+			position1.clear();
+			position2.clear();
 		}
 
 		neo4j.disconnect();

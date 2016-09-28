@@ -18,6 +18,9 @@ import entity.Graph;
 import entity.results.CypherResults;
 import entity.results.DocumentResult;
 import entity.results.SimpleResults;
+import exception.DatabaseConnectionException;
+import exception.ErrorFileException;
+import exception.InvalidQueryException;
 
 /**
  * Controlador Servlet responsável pela página de resultados.
@@ -53,42 +56,32 @@ public class ResultsPage extends HttpServlet {
 
 			if (queryString.split("viewDoc=").length > 1) {
 				String text = null, name = null, slice = null;
-				try {
-					if (request.getQueryString().contains("&slice=")) {
-						name = java.net.URLDecoder.decode(request
-								.getQueryString().split("&slice=")[0]
-								.substring(
-										8,
-										request.getQueryString().split(
-												"&slice=")[0].length()),
-								"UTF-8");
 
-						slice = java.net.URLDecoder.decode(request
-								.getQueryString().split("&slice=")[1]
-								.substring(
-										0,
-										request.getQueryString().split(
-												"&slice=")[1].length()),
-								"UTF-8");
-					} else {
-						name = java.net.URLDecoder.decode(
-								request.getQueryString().substring(8,
-										request.getQueryString().length()),
-								"UTF-8");
-					}
+				if (request.getQueryString().contains("&slice=")) {
+					name = java.net.URLDecoder.decode(request.getQueryString()
+							.split("&slice=")[0].substring(8, request
+							.getQueryString().split("&slice=")[0].length()),
+							"UTF-8");
 
-					text = File.readPrefixedFile(name);
-					request.setAttribute("name", name);
-					request.setAttribute("text", text);
-					request.setAttribute("slice", slice);
-				} catch (Exception e) {
-					request.setAttribute("errorMessage", e.getMessage());
+					slice = java.net.URLDecoder.decode(request.getQueryString()
+							.split("&slice=")[1].substring(0, request
+							.getQueryString().split("&slice=")[1].length()),
+							"UTF-8");
+				} else {
+					name = java.net.URLDecoder.decode(request.getQueryString()
+							.substring(8, request.getQueryString().length()),
+							"UTF-8");
 				}
+
+				text = File.readPrefixedFile(name);
+				request.setAttribute("name", name);
+				request.setAttribute("text", text);
+				request.setAttribute("slice", slice);
 
 				gotoDocument(request, response);
 				return;
 			} else {
-				throw new Exception();
+				throw new ErrorFileException("access");
 			}
 
 		} catch (Exception e) {
@@ -117,15 +110,16 @@ public class ResultsPage extends HttpServlet {
 
 					ArrayList<SimpleResults> simpleResults = null;
 
-					try {
-						simpleResults = SimpleSearch.simpleSearch(query);
-
-					} catch (Exception e) {
-
-						if (!e.getMessage().equals("1")) {
-							request.setAttribute("errorMessage", e.getMessage());
+					
+						try {
+							simpleResults = SimpleSearch.simpleSearch(query);
+						} catch (ErrorFileException
+								| DatabaseConnectionException e) {
+							if (!e.getMessage().equals("1")) {
+								request.setAttribute("errorMessage", e.getMessage());
+							}
 						}
-					}
+					
 					request.setAttribute("simpleResults", simpleResults);
 
 					gotoSimpleResults(request, response);
@@ -141,16 +135,21 @@ public class ResultsPage extends HttpServlet {
 					ArrayList<CypherResults> cypherResults = null;
 					ArrayList<DocumentResult> documentResults = new ArrayList<>();
 					Graph graph = null;
-					try {
-						String newQuery = Syntactic.translateToCypherQuery(query);
-						cypherResults = SemanticSearch.cypherSearchBolt(newQuery);
-						documentResults = SemanticSearch.documentSearch(newQuery);
-						graph = SemanticSearch.buscaCypherRest(newQuery);
-					} catch (Exception e) {
-						if (!e.getMessage().equals("1")) {
-							request.setAttribute("errorMessage", e.getMessage());
+					
+						String newQuery;
+						try {
+							newQuery = Syntactic
+									.translateToCypherQuery(query);
+							cypherResults = SemanticSearch
+									.cypherSearchBolt(newQuery);
+							documentResults = SemanticSearch
+									.documentSearch(newQuery);
+							graph = SemanticSearch.buscaCypherRest(newQuery);
+						} catch (InvalidQueryException | DatabaseConnectionException | ErrorFileException e) {
+							if (!e.getMessage().equals("1")) {
+								request.setAttribute("errorMessage", e.getMessage());
+							}
 						}
-					}
 
 					request.setAttribute("cypherResults", cypherResults);
 					request.setAttribute("documentResults", documentResults);

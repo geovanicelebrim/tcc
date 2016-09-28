@@ -120,8 +120,12 @@
         minLength: 0,
         source: function( request, response ) {
           // delegate back to autocomplete, but extract the last term
-          response( $.ui.autocomplete.filter(
-            availableTags, extractLast( request.term ) ) );
+			var e = document.getElementById("search-mode");
+			var strUser = e.options[e.selectedIndex].value;
+			if(strUser == "semantic") {
+				response( $.ui.autocomplete.filter(
+				availableTags, extractLast( request.term ) ) );
+			}
         },
         focus: function() {
           // prevent value inserted on focus
@@ -297,8 +301,12 @@
 						</div>
 						
 						<%
-							if(simpleResults.size() < 3) {
-								for(int i = simpleResults.size(); i < 3; i++) { 
+							int size = 0;
+							if (simpleResults != null) {
+								size = simpleResults.size();
+							}
+							if(size < 3) {
+								for(int i = size; i < 3; i++) { 
 									out.print("<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>");
 								}
 							}

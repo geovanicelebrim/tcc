@@ -9,6 +9,7 @@ import DAO.File;
 import DAO.Neo4j;
 import entity.Document;
 import entity.results.SimpleResults;
+import exception.DatabaseConnectionException;
 import exception.ErrorFileException;
 
 /**
@@ -21,15 +22,20 @@ import exception.ErrorFileException;
 public class SimpleSearch {
 
 	/**
-	 * Realiza uma busca simples por palavra chave nos documentos do repositório.
-	 * @param keyWords String da busca.
+	 * Realiza uma busca simples por palavra chave nos documentos do
+	 * repositório.
+	 * 
+	 * @param keyWords
+	 *            String da busca.
 	 * @return <b>ArrayList</b> de {@link SimpleResults}.
-	 * @throws ErrorFileException caso ocorra erro na leitura dos arquivos.
+	 * @throws ErrorFileException
+	 *             caso ocorra erro na leitura dos arquivos.
+	 * @throws DatabaseConnectionException 
 	 */
 	// TODO melhorar a técnica de obter informação do documento para a busca,
 	// para não depender de uma substring
 	public static ArrayList<SimpleResults> simpleSearch(String keyWords)
-			throws ErrorFileException {
+			throws ErrorFileException, DatabaseConnectionException {
 
 		ArrayList<Document> documents = new ArrayList<>();
 		java.io.File[] documentsNames = File.listFiles();
@@ -58,10 +64,13 @@ public class SimpleSearch {
 
 	/**
 	 * Busca um autor de um documento passado por parâmetro no banco.
-	 * @param documentName String contendo o nome do documento.
+	 * 
+	 * @param documentName
+	 *            String contendo o nome do documento.
 	 * @return <b>String</b> contendo o nome do autor.
+	 * @throws DatabaseConnectionException ocorre quando há uma falha na conexão com o banco de dados.
 	 */
-	private static String searchAuthor(String documentName) {
+	private static String searchAuthor(String documentName) throws DatabaseConnectionException {
 
 		Neo4j neo4j = new Neo4j();
 		String cypherQuery = "match (d:Documento) where d.nome = \""
@@ -85,10 +94,13 @@ public class SimpleSearch {
 
 	/**
 	 * Busca a fonte de um documento passado por parâmetro no banco.
-	 * @param documentName String contendo o nome do documento.
+	 * 
+	 * @param documentName
+	 *            String contendo o nome do documento.
 	 * @return <b>String</b> contendo o nome da fonte.
+	 * @throws DatabaseConnectionException 
 	 */
-	private static String searchSource(String documentName) {
+	private static String searchSource(String documentName) throws DatabaseConnectionException {
 
 		Neo4j neo4j = new Neo4j();
 		String cypherQuery = "match (d:Documento) where d.nome = \""

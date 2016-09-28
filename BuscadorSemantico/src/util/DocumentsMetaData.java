@@ -5,6 +5,7 @@ import org.neo4j.driver.v1.StatementResult;
 
 import DAO.Neo4j;
 import entity.results.DocumentResult;
+import exception.DatabaseConnectionException;
 
 /**
  * Realiza buscas de metadados dos arquivos.
@@ -18,8 +19,9 @@ public class DocumentsMetaData {
 	 * @param documentPath
 	 *            String contendo o caminho do documento.
 	 * @return {@link DocumentResult}.
+	 * @throws DatabaseConnectionException 
 	 */
-	public static DocumentResult searchAuthorAndSource(String documentPath) {
+	public static DocumentResult searchAuthorAndSource(String documentPath) throws DatabaseConnectionException {
 
 		Neo4j neo4j = new Neo4j();
 		String cypherQuery = "match (d:Documento) where d.caminho = \""

@@ -341,8 +341,12 @@
         minLength: 0,
         source: function( request, response ) {
           // delegate back to autocomplete, but extract the last term
-          response( $.ui.autocomplete.filter(
-            availableTags, extractLast( request.term ) ) );
+			var e = document.getElementById("search-mode");
+			var strUser = e.options[e.selectedIndex].value;
+			if(strUser == "semantic") {
+				response( $.ui.autocomplete.filter(
+            	availableTags, extractLast( request.term ) ) );
+        	}
         },
         focus: function() {
           // prevent value inserted on focus
@@ -568,13 +572,18 @@
 						</table>
 						
 						<%
+						int size = 0;
+						
 						if (cypherResults != null) {
-							if(cypherResults.size() < 16) {
-								for(int i = cypherResults.size(); i < 16; i++) { 
-									out.print("<br> <br>");
-								}
+							size = cypherResults.size();
+						}
+						
+						if(size < 16) {
+							for(int i = size; i < 16; i++) { 
+								out.print("<br> <br>");
 							}
 						}
+						
 						%>												
 
 					</div>

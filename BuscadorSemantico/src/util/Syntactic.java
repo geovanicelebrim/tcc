@@ -1,5 +1,7 @@
 package util;
 
+import exception.InvalidQueryException;
+
 /**
  * 
  * @author Geovani Celebrim
@@ -27,10 +29,9 @@ public class Syntactic {
 	 *            do tipo String, contendo a consulta semântica.
 	 * @return <b>true</b> informando se a query está léxica e sintáticamente
 	 *         correta.
-	 * @throws Exception
-	 *             informando que a query não passou no teste léxico/sintático.
+	 * @throws InvalidQueryException informando que a query não passou no teste léxico/sintático.
 	 */
-	public static boolean checkQuery(String query) throws Exception {
+	public static boolean checkQuery(String query) throws InvalidQueryException {
 		String in = query.replaceAll("( )+", " ").replaceAll("- -", "--")
 				.replaceAll("\\) -- \\(", "\\)--\\(").replaceAll("'", "\"");
 		String tokens[] = in.split("--");
@@ -44,9 +45,7 @@ public class Syntactic {
 			} else if (tokens[i].matches("\\(( )*[A-z]+( )*\\)")) {
 				// System.out.println("Ok (Entidade)");
 			} else {
-				throw new Exception(
-						"A consulta não está correta. Erro no token "
-								+ tokens[i]);
+				throw new InvalidQueryException(tokens[i]);
 			}
 		}
 		return true;
@@ -65,11 +64,11 @@ public class Syntactic {
 	 *            do tipo String, contendo a consulta semântica.
 	 * @return <b>queryOut</b> do tipo String, contendo a consulta semântica
 	 *         traduzida para Cypher.
+	 * @throws InvalidQueryException 
 	 * @throws Exception
 	 *             informando que a query não passou no teste léxico/sintático.
 	 */
-	public static String translateToCypherQuery(String queryIn)
-			throws Exception {
+	public static String translateToCypherQuery(String queryIn) throws InvalidQueryException {
 		checkQuery(queryIn);
 
 		String in = queryIn.replaceAll("( )+", " ").replaceAll("- -", "--")
