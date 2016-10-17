@@ -13,8 +13,7 @@ public enum Paths {
 	 * buscas.
 	 */
 
-	DATA_TEXT("/home/geovani/cedim-data/"),
-	// DATA_TEXT("/home/geovani/WebServer/"),
+	 DATA_TEXT("/home/geovani/WebServer/"),
 
 	/**
 	 * Enum que representa a pasta dos dados utilizados no protótipo.
@@ -26,8 +25,7 @@ public enum Paths {
 	 * Enum que representa o diretório do módulo em Python utilizado para conexão <i>REST</i> 
 	 */
 	
-	REST("/home/geovani/git/tcc/BuscadorSemantico/rest/");
-//	REST("/home/geovani/WebServer/");
+	REST("/home/geovani/WebServer/");
 
 	private final String text;
 

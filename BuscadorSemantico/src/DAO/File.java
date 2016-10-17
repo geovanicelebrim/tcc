@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import exception.ErrorFileException;
 
@@ -130,4 +131,40 @@ public class File {
 		return files;
 	}
 
+	public static ArrayList<String> readLinesFile(String path) {
+		String nameFile = path;
+		ArrayList<String> lines = new ArrayList<>();
+
+		try {
+			FileReader f = new FileReader(nameFile);
+			BufferedReader readF = new BufferedReader(f);
+
+			String line = readF.readLine();
+
+			while (line != null) {
+				lines.add(line);
+				line = readF.readLine();
+			}
+
+			f.close();
+		} catch (Exception e) {
+			System.err.println("Erro na leitura do arquivo");
+		}
+		return lines;
+	}
+	
+	public static java.io.File[] listFilesOfType(String path, final String type) {
+		java.io.File[] files = new java.io.File(path).listFiles(new FileFilter() {
+
+			@Override
+			public boolean accept(java.io.File pathname) {
+				if (pathname.getName().contains(type)) {
+					return true;
+				}
+				return false;
+			}
+		});
+
+		return files;
+	}
 }

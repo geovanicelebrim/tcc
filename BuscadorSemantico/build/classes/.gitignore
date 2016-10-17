@@ -1,7 +1,7 @@
-/DAO
-/Documentation.doxyfile
-/control
-/entity
-/exception
-/org
-/util
+/DAO/
+/control/
+/entity/
+/exception/
+/importation/
+/org/
+/util/
