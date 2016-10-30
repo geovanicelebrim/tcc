@@ -71,10 +71,9 @@ public class SimpleSearch {
 	 * @throws DatabaseConnectionException ocorre quando há uma falha na conexão com o banco de dados.
 	 */
 	private static String searchAuthor(String documentName) throws DatabaseConnectionException {
-
 		Neo4j neo4j = new Neo4j();
 		String cypherQuery = "match (d:Documento) where d.nome = \""
-				+ documentName + "\" return d.autor as autor";
+				+ documentName.replace(".txt", "") + "\" return d.autor as autor";
 
 		StatementResult retorned = neo4j.getSession().run(cypherQuery);
 
@@ -104,7 +103,7 @@ public class SimpleSearch {
 
 		Neo4j neo4j = new Neo4j();
 		String cypherQuery = "match (d:Documento) where d.nome = \""
-				+ documentName + "\" return d.fonte as fonte";
+				+ documentName.replace(".txt", "") + "\" return d.fonte as fonte";
 
 		StatementResult retorned = neo4j.getSession().run(cypherQuery);
 

@@ -21,7 +21,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<link rel="apple-touch-icon" href="public/icons/apple-touch-icon.png">
-	<link rel="shortcut icon" href="public/icons/favicon.ico">
+	<link rel="shortcut icon" href="./public/icons/icon.png">
 	
 	<link rel="stylesheet" href="public/css/bootstrap.min.css">
 	<link rel="stylesheet" href="public/css/bootstrap-theme.min.css">
@@ -491,7 +491,7 @@
 														<div class="media-left">
 															<a href="javascript:{}"
 																onclick="document.getElementById('<%out.print(i);%>').submit(); return false;"> <img class="media-object img-rounded"
-																src="<% out.println("public/images/docs/" + documentResults.get(i).getDocumentName().split("/")[2].replace(".txt", ".png"));%>" alt="..." width="90" height="120" >
+																src="<% out.println("public/images/docs/" + documentResults.get(i).getDocumentName().replace(".txt", ".png"));%>" alt="..." width="90" height="120" >
 															</a>
 														</div>
 														<div class="media-body">
@@ -499,7 +499,7 @@
 																<a href="javascript:{}"
 																	onclick="document.getElementById('<%out.print(i);%>').submit(); return false;">
 																	<%
-																		out.println(documentResults.get(i).getDocumentName().split("/")[2]);
+																		out.println(documentResults.get(i).getDocumentName().replace(".txt", ""));
 																	%>
 																</a>
 															</h4>
