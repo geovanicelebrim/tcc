@@ -254,10 +254,7 @@
 											action="ResultsPage?action=<%out.println(simpleResults.get(i).getDocumentName());%>"
 											method="get">
 											<input type="hidden" name="viewDoc"
-												value="<%out.print(simpleResults.get(i).getDocumentName());%>" />
-											<input type="hidden" name="trecho"
-												value="<%out.print(simpleResults.get(i).getSlice()
-												.replace("\"", "&quot;"));%>" />
+												value="<%out.print(simpleResults.get(i).getDocumentName().split("/")[2]);%>" />
 											<div class="panel panel-default list-group-item">
 												<div class="panel-body">
 													<div class="media">
@@ -272,7 +269,7 @@
 																<a href="javascript:{}"
 																	onclick="document.getElementById('<%out.print(i);%>').submit(); return false;">
 																	<%
-																		out.println(simpleResults.get(i).getDocumentName().split("/")[2]);
+																		out.println(simpleResults.get(i).getDocumentName().split("/")[2].split(".txt")[0]);
 																	%>
 																</a>
 															</h4>

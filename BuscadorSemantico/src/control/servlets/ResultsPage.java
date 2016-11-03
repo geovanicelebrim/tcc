@@ -53,30 +53,43 @@ public class ResultsPage extends HttpServlet {
 
 			String queryString = java.net.URLDecoder.decode(
 					request.getQueryString(), "UTF-8");
-
+			
 			if (queryString.split("viewDoc=").length > 1) {
-				String text = null, name = null, slice = null;
+				String text = null, name = null, beginSlice = null, endSlice = null;
 
-				if (request.getQueryString().contains("&slice=")) {
+				if (request.getQueryString().contains("&beginSlice=")) {
 					name = java.net.URLDecoder.decode(request.getQueryString()
-							.split("&slice=")[0].substring(8, request
-							.getQueryString().split("&slice=")[0].length()),
+							.split("&beginSlice=")[0].substring(8, request
+							.getQueryString().split("&beginSlice=")[0].length()),
 							"UTF-8");
 
-					slice = java.net.URLDecoder.decode(request.getQueryString()
-							.split("&slice=")[1].substring(0, request
-							.getQueryString().split("&slice=")[1].length()),
+					beginSlice = java.net.URLDecoder.decode(request.getQueryString()
+							.split("&beginSlice=")[1].substring(0, request
+							.getQueryString().split("&beginSlice=")[1].split("&endSlice")[0].length()),
+							"UTF-8");
+					endSlice = java.net.URLDecoder.decode(request.getQueryString()
+							.split("&endSlice=")[1].substring(0, request
+							.getQueryString().split("&endSlice=")[1].length()),
 							"UTF-8");
 				} else {
 					name = java.net.URLDecoder.decode(request.getQueryString()
-							.substring(8, request.getQueryString().length()),
+							.split("&beginSlice=")[0].substring(8, request
+							.getQueryString().split("&beginSlice=")[0].length()),
 							"UTF-8");
 				}
-
+				
+				
 				text = File.readPrefixedFile(name);
-				request.setAttribute("name", name);
+
+				//TODO acrescentar título e autor para a função de citar
+				//TODO remover o "replace" do nome futuramente 
+				request.setAttribute("title", name.split(".txt")[0].replace("-", " ").replaceAll("[0-9]*", ""));
 				request.setAttribute("text", text);
-				request.setAttribute("slice", slice);
+				
+				if(beginSlice != null && endSlice != null) {
+					request.setAttribute("beginSlice", Integer.parseInt(beginSlice));
+					request.setAttribute("endSlice", Integer.parseInt(endSlice));
+				}
 
 				gotoDocument(request, response);
 				return;
@@ -214,8 +227,9 @@ public class ResultsPage extends HttpServlet {
 
 		RequestDispatcher rd = null;
 		// rd = request.getRequestDispatcher("public/exibirDocumento.jsp");
-		rd = request.getRequestDispatcher("public/building.html");
-
+		// rd = request.getRequestDispatcher("public/building.html");
+		rd = request.getRequestDispatcher("public/view_document.jsp");
+		
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {

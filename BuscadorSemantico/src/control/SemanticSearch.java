@@ -136,7 +136,7 @@ public class SemanticSearch {
 
 				DocumentResult documentResult = new DocumentResult(
 						documentName, crusadersData.get(i), text.substring(
-								begin, end), DocumentsMetaData
+								begin, end), begin, end, DocumentsMetaData
 								.searchAuthorAndSource(documentPath)
 								.getAuthor(), DocumentsMetaData
 								.searchAuthorAndSource(documentPath)

@@ -19,7 +19,7 @@ public enum Paths {
 	 * Enum que representa a pasta dos dados utilizados no protótipo.
 	 */
 
-	FOLDER("/CEDIM-II-GUERRA"),
+	FOLDER("/CEDIM-II-GUERRA/"),
 	
 	/**
 	 * Enum que representa o diretório do módulo em Python utilizado para conexão <i>REST</i> 

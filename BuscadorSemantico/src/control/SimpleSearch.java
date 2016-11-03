@@ -43,8 +43,7 @@ public class SimpleSearch {
 
 		for (int i = 0; i < documentsNames.length; i++) {
 			documents.add(new Document(documentsNames[i].getName(), File
-					.readPrefixedFile("/CEDIM-II-GUERRA/"
-							+ documentsNames[i].getName())));
+					.readPrefixedFile(documentsNames[i].getName())));
 		}
 
 		for (int i = 0; i < documents.size(); i++) {

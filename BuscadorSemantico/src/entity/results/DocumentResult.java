@@ -11,15 +11,19 @@ import entity.Position;
 public class DocumentResult {
 	private String documentName;
 	private Position position;
+	private Integer beginSlice;
+	private Integer endSlice;
 	private String slice;
 	private String author;
 	private String source;
 
-	public DocumentResult(String documentName, Position position, String slice,
+	public DocumentResult(String documentName, Position position, String slice, Integer beginSlice, Integer endSlice,
 			String author, String source) {
 		this.documentName = documentName;
 		this.position = position;
 		this.slice = slice;
+		this.beginSlice = beginSlice;
+		this.endSlice = endSlice;
 		this.author = author;
 		this.source = source;
 	}
@@ -77,6 +81,14 @@ public class DocumentResult {
 	 */
 	public String getSource() {
 		return this.source;
+	}
+	
+	public Integer getBeginSlice() {
+		return this.beginSlice;
+	}
+	
+	public Integer getEndSlice() {
+		return this.endSlice;
 	}
 
 	@Override

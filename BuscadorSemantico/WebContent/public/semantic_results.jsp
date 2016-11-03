@@ -94,7 +94,7 @@
 	              	scroll();
 	              });
 	          }
-	        </script>
+	</script>
 
 	<script type="text/javascript">
 	          function draw() {
@@ -482,9 +482,10 @@
 											method="get">
 											<input type="hidden" name="viewDoc"
 												value="<%out.print(documentResults.get(i).getDocumentName());%>" />
-											<input type="hidden" name="slice"
-												value="<%out.print(documentResults.get(i).getSlice()
-												.replace("\"", "&quot;"));%>" />
+											<input type="hidden" name="beginSlice"
+												value="<%out.print(documentResults.get(i).getBeginSlice());%>" />
+											<input type="hidden" name="endSlice"
+												value="<%out.print(documentResults.get(i).getEndSlice());%>" />
 											<div class="panel panel-default list-group-item">
 												<div class="panel-body">
 													<div class="media">

@@ -63,7 +63,7 @@ public class File {
 	 */
 	public static String readPrefixedFile(String path)
 			throws ErrorFileException {
-		String nameFile = Paths.DATA_TEXT.toString() + path;
+		String nameFile = Paths.DATA_TEXT.toString() + Paths.FOLDER.toString() + path;
 		String text = "";
 		try {
 			FileReader f = new FileReader(nameFile);
