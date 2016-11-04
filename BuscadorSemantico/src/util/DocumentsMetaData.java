@@ -75,10 +75,11 @@ public class DocumentsMetaData {
 	 *            inteiro encontrado a partir do cruzamento de dados.
 	 * @return <b>int</b> com o melhor posicionamento final.
 	 */
+	//TODO a parte comentada implicava em não poder fazer uma busca de apenas uma entidade. Deve ser verificado.
 	public static int endIndex(String text, int position) {
 		for (int i = position; i < text.length(); i++) {
 			if (((text.charAt(i) == '.') || (text.charAt(i) == '?') || (text
-					.charAt(i) == '!')) && (text.charAt(i + 1) == ' ')) {
+					.charAt(i) == '!'))/* && (text.charAt(i + 1) == ' ')*/) {
 
 				return i + 2;
 			}

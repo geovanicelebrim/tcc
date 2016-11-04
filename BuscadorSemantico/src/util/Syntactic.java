@@ -33,16 +33,16 @@ public class Syntactic {
 	 */
 	public static boolean checkQuery(String query) throws InvalidQueryException {
 		String in = query.replaceAll("( )+", " ").replaceAll("- -", "--")
-				.replaceAll("\\) -- \\(", "\\)--\\(").replaceAll("'", "\"");
+				.replaceAll(" -- ", "--").replaceAll("'", "\"");
 		String tokens[] = in.split("--");
 
 		for (int i = 0; i < tokens.length; i++) {
 
-			if (tokens[i].matches("\\(( )*[A-z]+( )*:( )*\"[^\\)]*\"( )*\\)")) {
+			if (tokens[i].matches("( )*[A-z]+( )*:( )*\".*\"( )*")) {
 				// System.out.println("Ok (Entidade:Where)");
-			} else if (tokens[i].matches("\\(( )*\"[^\\)]*\"( )*\\)")) {
+			} else if (tokens[i].matches("( )*\".*\"( )*")) {
 				// System.out.println("Ok (Where)");
-			} else if (tokens[i].matches("\\(( )*[A-z]+( )*\\)")) {
+			} else if (tokens[i].matches("( )*[A-z]+( )*")) {
 				// System.out.println("Ok (Entidade)");
 			} else {
 				throw new InvalidQueryException(tokens[i]);
@@ -72,7 +72,7 @@ public class Syntactic {
 		checkQuery(queryIn);
 
 		String in = queryIn.replaceAll("( )+", " ").replaceAll("- -", "--")
-				.replaceAll("\\) -- \\(", "\\)--\\(").replaceAll("'", "\"");
+				.replaceAll(" -- ", "--").replaceAll("'", "\"");
 		String tokens[] = in.split("--");
 
 		int count = 0;
@@ -84,7 +84,7 @@ public class Syntactic {
 		int nPositionsUsed = 0;
 
 		for (int i = 0; i < tokens.length; i++) {
-			tokens[i] = tokens[i].replaceAll("\\(", "").replaceAll("\\)", "");
+			tokens[i] = tokens[i];
 
 			if (tokens[i].split(":").length > 1) {
 				if (i + 1 == tokens.length) {
@@ -93,8 +93,8 @@ public class Syntactic {
 					where += "node"
 							+ count
 							+ ".trecho =~ "
-							+ tokens[i].split(":")[1].replaceFirst("\"",
-									"\"\\(?i\\)");
+							+ tokens[i].split(":")[1].replaceAll("\"", ".*\"").replaceFirst("\\.\\*\"",
+									"\"\\(?i\\).*");
 					if(nPositions == 1){
 						String node = "node" + count;
 						returnable += "labels(" + node + ") as label" + count + ", " + node + ".trecho as " + "trecho" + count + ", " + node + ".posicao as posicao1, " + node + ".posicao as posicao2, " + node + ".numeroCitacoes as c" + count + ", " + node + ".numeroRelacoes as r" + count;
@@ -114,8 +114,8 @@ public class Syntactic {
 					where += "node"
 							+ count
 							+ ".trecho =~ "
-							+ tokens[i].split(":")[1].replaceFirst("\"",
-									"\"\\(?i\\)");
+							+ tokens[i].split(":")[1].replaceAll("\"", ".*\"").replaceFirst("\\.\\*\"",
+									"\"\\(?i\\).*");
 					
 					if(nPositions == 1){
 						String node = "node" + count;
@@ -135,8 +135,8 @@ public class Syntactic {
 					where += "node"
 							+ count
 							+ ".trecho =~ "
-							+ tokens[i].split(":")[1].replaceFirst("\"",
-									"\"\\(?i\\)") + " and ";
+							+ tokens[i].split(":")[1].replaceAll("\"", ".*\"").replaceFirst("\\.\\*\"",
+									"\"\\(?i\\).*") + " and ";
 					
 					if(nPositions == 1){
 						String node = "node" + count;
@@ -156,7 +156,7 @@ public class Syntactic {
 				if (i + 1 == tokens.length) {
 					queryOut += "(node" + count + ")";
 					where += "node" + count + ".trecho =~ "
-							+ tokens[i].replaceFirst("\"", "\"\\(?i\\)");
+							+ tokens[i].replaceAll("\"", ".*\"").replaceFirst("\\.\\*\"", "\"\\(?i\\).*");
 					
 					if(nPositions == 1){
 						String node = "node" + count;
@@ -174,7 +174,7 @@ public class Syntactic {
 				} else if (!tokens[i + 1].contains("\"")) {
 					queryOut += "(node" + count + ")-[rel" + count + "]-";
 					where += "node" + count + ".trecho =~ "
-							+ tokens[i].replaceFirst("\"", "\"\\(?i\\)");
+							+ tokens[i].replaceAll("\"", ".*\"").replaceFirst("\\.\\*\"", "\"\\(?i\\).*");
 					
 					if(nPositions == 1){
 						String node = "node" + count;
@@ -192,7 +192,7 @@ public class Syntactic {
 				} else {
 					queryOut += "(node" + count + ")-[rel" + count + "]-";
 					where += "node" + count + ".trecho =~ "
-							+ tokens[i].replaceFirst("\"", "\"\\(?i\\)")
+							+ tokens[i].replaceAll("\"", ".*\"").replaceFirst("\\.\\*\"", "\"\\(?i\\).*")
 							+ " and ";
 					
 					if(nPositions == 1){
