@@ -172,14 +172,14 @@
 											action="ResultsPage?action=<%out.println(simpleResults.get(i).getDocumentName());%>"
 											method="get">
 											<input type="hidden" name="viewDoc"
-												value="<%out.print(simpleResults.get(i).getDocumentName().split("/")[2]);%>" />
+												value="<%out.print(simpleResults.get(i).getDocumentName());%>" />
 											<div class="panel panel-default list-group-item">
 												<div class="panel-body">
 													<div class="media">
 														<div class="media-left">
 															<a href="javascript:{}"
 																onclick="document.getElementById('<%out.print(i);%>').submit(); return false;"> <img class="media-object img-rounded"
-																src="<% out.println("public/images/docs/" + simpleResults.get(i).getDocumentName().split("/")[2].replace(".txt", ".png"));%>" alt="..." width="90" height="120" >
+																src="<% out.println("public/images/docs/" + simpleResults.get(i).getDocumentName().replace(".txt", ".png"));%>" alt="..." width="90" height="120" >
 															</a>
 														</div>
 														<div class="media-body">
@@ -187,7 +187,7 @@
 																<a href="javascript:{}"
 																	onclick="document.getElementById('<%out.print(i);%>').submit(); return false;">
 																	<%
-																		out.println(simpleResults.get(i).getDocumentName().split("/")[2].split(".txt")[0]);
+																		out.println(simpleResults.get(i).getDocumentName().split(".txt")[0]);
 																	%>
 																</a>
 															</h4>

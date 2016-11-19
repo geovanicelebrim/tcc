@@ -63,7 +63,7 @@ public class File {
 	 */
 	public static String readPrefixedFile(String path)
 			throws ErrorFileException {
-		String nameFile = Paths.DATA_TEXT.toString() + Paths.FOLDER.toString() + path;
+		String nameFile = Paths.DATA_TEXT.toString() + path;
 		String text = "";
 		try {
 			FileReader f = new FileReader(nameFile);
@@ -116,8 +116,7 @@ public class File {
 	 *         fixado.
 	 */
 	public static java.io.File[] listFiles() {
-		java.io.File[] files = new java.io.File(Paths.DATA_TEXT.toString()
-				+ Paths.FOLDER.toString()).listFiles(new FileFilter() {
+		java.io.File[] files = new java.io.File(Paths.DATA_TEXT.toString()).listFiles(new FileFilter() {
 
 			@Override
 			public boolean accept(java.io.File pathname) {

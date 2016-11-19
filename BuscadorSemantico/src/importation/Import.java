@@ -13,15 +13,15 @@ import importation.entity.Relation;
 
 public class Import {
 
-	// "/home/geovani/WebServer/CEDIM-II-GUERRA"
+	// "/home/geovani/WebServer/CEDIM-II-GUERRA/"
 	public static void importOf(String path) {
 		// Obtém os arquivos .ann
-		File files[] = DAO.File.listFilesOfType(path, ".ann");
+		File files[] = DAO.File.listFilesOfType(path + "ann/", ".ann");
 		int countFile = 1;
 		for (File file : files) {
 
-			ArrayList<String> fileLines = DAO.File.readLinesFile(path + file.getName());
-			ArrayList<String> metadataLines = DAO.File.readLinesFile(path + file.getName().replace(".ann", ".meta"));
+			ArrayList<String> fileLines = DAO.File.readLinesFile(path + "ann/" + file.getName());
+			ArrayList<String> metadataLines = DAO.File.readLinesFile(path + "meta/" + file.getName().replace(".ann", ".meta"));
 
 			ArrayList<Entity> entities = new ArrayList<>();
 			ArrayList<Relation> relations = new ArrayList<>();

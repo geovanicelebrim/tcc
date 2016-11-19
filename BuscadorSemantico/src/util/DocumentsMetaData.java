@@ -81,7 +81,8 @@ public class DocumentsMetaData {
 			if (((text.charAt(i) == '.') || (text.charAt(i) == '?') || (text
 					.charAt(i) == '!'))/* && (text.charAt(i + 1) == ' ')*/) {
 
-				return i + 2;
+				
+				return (i + 2) >= text.length() ? text.length() - 1 : i + 2;
 			}
 		}
 		return text.length() - 1;

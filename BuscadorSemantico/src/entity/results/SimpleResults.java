@@ -7,21 +7,32 @@ package entity.results;
  * 
  */
 public class SimpleResults {
-	private String documentResult;
+	
+	private String pathDocument;
+	private String title;
 	private String slice;
 	private String author;
 	private String source;
+	private Float score;
 
-	public SimpleResults(String documentResults, String slice, String author,
-			String fonte) {
-		this.documentResult = documentResults;
+	public SimpleResults(String pathDocument, String slice, String author,
+			String source, Float score) {
+		this.pathDocument = pathDocument;
+		this.title = pathDocument.replaceAll(".txt", "");
 		this.slice = slice;
 		this.author = author;
-		this.source = fonte;
+		this.source = source;
+		this.score = score;
+	}
+	
+	public SimpleResults(String pathDocument, Float score) {
+		this.pathDocument = pathDocument;
+		this.title = pathDocument.replaceAll(".txt", "");
+		this.score = score;
 	}
 
-	public SimpleResults(String documentName) {
-		this.documentResult = documentName;
+	public SimpleResults(String pathDocument) {
+		this.pathDocument = pathDocument;
 	}
 
 	public SimpleResults(String author, String source) {
@@ -35,7 +46,7 @@ public class SimpleResults {
 	 * @return {@link String}.
 	 */
 	public String getDocumentName() {
-		return this.documentResult;
+		return this.pathDocument;
 	}
 
 	/**
@@ -64,10 +75,16 @@ public class SimpleResults {
 	public String getSource() {
 		return this.source;
 	}
-
-	@Override
-	public String toString() {
-		return "Nome: " + this.documentResult + "\nPosicao: " + "\nAutor: "
-				+ this.author + "\nFonte: " + this.source;
+	
+	public String getTitle() {
+		return this.title;
+	}
+	
+	public Float getScore() {
+		return this.score;
+	}
+	
+	public void setScore(Float score) {
+		this.score = score;
 	}
 }

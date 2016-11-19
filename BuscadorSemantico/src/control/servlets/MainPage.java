@@ -72,7 +72,7 @@ public class MainPage extends HttpServlet {
 					
 					try {
 						simpleResults = SimpleSearch.simpleSearch(query);
-					} catch (ErrorFileException | DatabaseConnectionException e) {
+					} catch (Exception e) {
 						if (!e.getMessage().equals("1")) {
 							request.setAttribute("errorMessage", e.getMessage());
 						}

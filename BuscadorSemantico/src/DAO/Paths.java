@@ -13,18 +13,21 @@ public enum Paths {
 	 * buscas.
 	 */
 
-	 DATA_TEXT("/home/geovani/WebServer/"),
+	DATA_TEXT("/home/geovani/WebServer/repository/data/"),
 
 	/**
-	 * Enum que representa a pasta dos dados utilizados no protótipo.
+	 * Enum que representa o diretório do repositório de dados, incluindo os
+	 * documentos, propriamente ditos, seus metadados, suas anotações e os
+	 * indices criados para indexação para o motor de buscas.
 	 */
 
-	FOLDER("/CEDIM-II-GUERRA/"),
-	
+	REPOSITORY("/home/geovani/WebServer/repository/"),
+
 	/**
-	 * Enum que representa o diretório do módulo em Python utilizado para conexão <i>REST</i> 
+	 * Enum que representa o diretório do módulo em Python utilizado para
+	 * conexão <i>REST</i>
 	 */
-	
+
 	REST("/home/geovani/WebServer/");
 
 	private final String text;

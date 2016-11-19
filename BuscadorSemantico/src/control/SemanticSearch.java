@@ -132,7 +132,7 @@ public class SemanticSearch {
 
 				begin = DocumentsMetaData.approachingInitialIndex(text,
 						crusadersData.get(i).getBegin());
-				end = DocumentsMetaData.endIndex(text, begin + 250);
+				end = (begin + 250) >= text.length() ? DocumentsMetaData.endIndex(text, text.length() - 1) : DocumentsMetaData.endIndex(text, begin + 250);
 
 				DocumentResult documentResult = new DocumentResult(
 						documentName, crusadersData.get(i), text.substring(
