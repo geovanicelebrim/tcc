@@ -30,12 +30,15 @@ public class SimpleSearch {
 	 * @throws DatabaseConnectionException
 	 */
 	public static ArrayList<SimpleResults> simpleSearch(String keyWords) throws Exception {
-
 		Engine engine = new Engine(Engine.DEFAULT_MAX_RESULTS, Paths.REPOSITORY.toString() + "index");
 		engine.searcherBy(keyWords);
 		
-		String suggestions = engine.getSuggestions(keyWords);
-		System.out.println(suggestions != null ? "Did you mean " + suggestions + "?" : "No suggestions for word: " + keyWords);
 		return engine.showResults();
+	}
+	
+	public static String getSuggestion(String keyWords) throws Exception {
+		Engine engine = new Engine(Engine.DEFAULT_MAX_RESULTS, Paths.REPOSITORY.toString() + "index");
+		String suggestions = engine.getSuggestions(keyWords.replaceAll("\"", "").trim());
+		return suggestions != null ? suggestions : null;
 	}
 }

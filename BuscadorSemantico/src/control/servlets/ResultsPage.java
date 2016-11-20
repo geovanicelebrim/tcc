@@ -119,19 +119,25 @@ public class ResultsPage extends HttpServlet {
 			case "normal":
 				if (query != null) {
 
-					request.setAttribute("query", query);
+					request.setAttribute("query", query.trim());
 
 					ArrayList<SimpleResults> simpleResults = null;
-
+					String suggestion = null;
 					
 						try {
-							simpleResults = SimpleSearch.simpleSearch(query);
+							if(query.trim().length() == 0) {
+								throw new Exception("The query can not be empty.");
+							}
+							simpleResults = SimpleSearch.simpleSearch(query.trim());
+							if (simpleResults.size() == 0) {
+								suggestion = SimpleSearch.getSuggestion(query.trim());
+							}
 						} catch (Exception e) {
 							if (!e.getMessage().equals("1")) {
 								request.setAttribute("errorMessage", e.getMessage());
 							}
 						}
-					
+					request.setAttribute("suggestion", suggestion);
 					request.setAttribute("simpleResults", simpleResults);
 
 					gotoSimpleResults(request, response);

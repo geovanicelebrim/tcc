@@ -68,6 +68,11 @@
 
 </style>
 	
+	<%
+		@SuppressWarnings("unchecked")
+		ArrayList<SimpleResults> simpleResults = (ArrayList<SimpleResults>) request.getAttribute("simpleResults");
+		if (simpleResults != null && simpleResults.size() > 0) {
+	%>
 	<script type="text/javascript">
 	          window.onload = function() {
 	        	  document.activeElement.blur();
@@ -78,7 +83,7 @@
 	              });
 	          }
 	</script>
-	
+	<%} %>
 		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -149,7 +154,9 @@
 					<li role="presentation" class="active"><a
 						href="#simple_results" aria-controls="simple_results" role="tab"
 						data-toggle="tab"
-						onclick="setTimeout(hide_graph, 300); scroll();"
+						<%if (simpleResults != null && simpleResults.size() > 0) { %>
+						onclick="scroll();"
+						<%}%>
 						class="scroll_to_tab">Simple Results</a></li>
 				</ul>
 
@@ -159,14 +166,44 @@
 					<div role="tabpanel" class="tab-pane fade in active"
 						id="simple_results">
 
-						<div class="list-group">
-
+						<div class="list-group">						
+							
 							<%
-								@SuppressWarnings("unchecked")
-													ArrayList<SimpleResults> simpleResults = (ArrayList<SimpleResults>) request.getAttribute("simpleResults");
-
-													if (simpleResults != null) {
-														for (int i = 0; i < simpleResults.size(); i++) {
+								String suggestion = (String) request.getAttribute("suggestion");
+								if ((suggestion == null || suggestion.isEmpty()) && (simpleResults == null || simpleResults.size() == 0)) {
+							%>
+							<div style="margin-left: 15px;">
+							<%
+									out.print("No suggestions for this query.");
+							%>
+							</div>
+							<%
+								}
+								else if (suggestion != null && (simpleResults == null | simpleResults.size() == 0)) {
+							%> 
+							<div style="margin-left: 15px;">
+								<form id="sugg" action="ResultsPage?action=buscar" method="get"> 
+									<div hidden="true">
+										<input type="text" autocomplete="off" id="search-query" name="search-query"
+										placeholder="Type your query" required autocomplete="off" 
+										<%out.print("value=\"" + suggestion + "\""); %>>
+		
+										<select name="search-mode" id="search-mode">
+											<option value="normal" selected>Normal search</option>
+											<option value="semantic">Semantic search</option>
+										</select>
+									</div>
+									
+									Did you mean <a href="#" onclick="document.getElementById('sugg').submit();">
+									<%
+										out.print(suggestion);
+									%></a>?
+								</form>
+							</div>
+							<%
+								}
+								else {
+									for (int i = 0; i < simpleResults.size(); i++) {
 							%>
 										<form id="<%out.print(i);%>"
 											action="ResultsPage?action=<%out.println(simpleResults.get(i).getDocumentName());%>"
@@ -187,7 +224,7 @@
 																<a href="javascript:{}"
 																	onclick="document.getElementById('<%out.print(i);%>').submit(); return false;">
 																	<%
-																		out.println(simpleResults.get(i).getDocumentName().split(".txt")[0]);
+																		out.println(simpleResults.get(i).getTitle());
 																	%>
 																</a>
 															</h4>
