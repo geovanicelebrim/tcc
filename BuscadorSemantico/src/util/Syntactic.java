@@ -260,7 +260,6 @@ public class Syntactic {
 //		try {
 //			System.out.println(translateToCypherQuery(in));
 //		} catch (Exception e) {
-//			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
 //	}
