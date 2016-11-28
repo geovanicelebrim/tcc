@@ -12,6 +12,7 @@ public class RunTasks {
 	private static ArrayList<Date> sheduleIndex = new ArrayList<>();
 	private static ArrayList<Date> sheduleImport = new ArrayList<>();
 	private static boolean permission = true;
+	private static boolean permissionForAdd = true;
 	
 	private RunTasks () {
 		
@@ -79,20 +80,24 @@ public class RunTasks {
 	
 	public void addIndexShedule(Date date) {
 		
-		while(!permission) {};
+		while(!permission && !permissionForAdd) {};
+		permissionForAdd = false;
 		if(!sheduleIndex.contains(date)) { 
 			sheduleIndex.add(date);
 			sheduleIndex.sort((d0, d1) -> d1.compareTo(d0));
 		}
+		permissionForAdd = true;
 	}
 
 	public void addImportShedule(Date date) {
 		
-		while(!permission) {};
+		while(!permission && !permissionForAdd) {};
+		permissionForAdd = false;
 		if(!sheduleImport.contains(date)) { 
 			sheduleImport.add(date);
 			sheduleImport.sort((d0, d1) -> d1.compareTo(d0));
 		}
+		permissionForAdd = true;
 	}
 	
 	public int getIndexSheduleSize() {
