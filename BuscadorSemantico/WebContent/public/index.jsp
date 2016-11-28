@@ -36,9 +36,10 @@
         <![endif]-->
 
 	<div class="container fill">
-		<form action="MainPage?action=menu" method="get">
+		<form id="management" action="MainPage?action=management" method="get">
 			<div align="right" style="position: fixed; top: 3%; right: 5%">
-				<a href="http://localhost:8080/BuscadorSemantico/ManagementPage">Management</a>
+				<input hidden="true" name="action" value="management">
+				<a href="javascript:{}" onclick="document.getElementById('management').submit(); return false;">Management</a>
 			</div>
 		</form>
 		<div class="row vertical-center">

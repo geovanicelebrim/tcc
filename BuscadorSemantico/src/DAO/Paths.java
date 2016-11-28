@@ -8,6 +8,8 @@ package DAO;
  * @author Geovani Celebrim
  */
 public enum Paths {
+	
+	PATH_DATA("/home/geovani/WebServer/repository/data"),
 	/**
 	 * Enum que representa o diretório de arquivos de texto retornados nas
 	 * buscas.

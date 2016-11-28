@@ -1,6 +1,12 @@
 package management.addition;
 
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
+
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +24,6 @@ public class Importation {
 		File files[] = DAO.File.listFilesOfType(path + "ann/", ".ann");
 		int countFile = 1;
 		for (File file : files) {
-
 			ArrayList<String> fileLines = DAO.File.readLinesFile(path + "ann/" + file.getName());
 			ArrayList<String> metadataLines = DAO.File.readLinesFile(path + "meta/" + file.getName().replace(".ann", ".meta"));
 
@@ -154,10 +159,11 @@ public class Importation {
 			// Cria a entidade documento
 			ArrayList<String> document_querys = new ArrayList<String>();
 			String query = "create(:Documento {tipo:\"Documento\", nome:\"" + metadataLines.get(0).split("\t")[1]
-					+ "\", autor:\"" + metadataLines.get(1).split("\t")[1] + "\", ano:\""
-					+ metadataLines.get(2).split("\t")[1] + "\", fonte:\"" + metadataLines.get(3).split("\t")[1]
-					+ "\", caminho:\"" + metadataLines.get(4).split("\t")[1] + "\", dataModificacao:\""
-					+ metadataLines.get(5).split("\t")[1] + "\"})";
+					+ "\", titulo:\"" + metadataLines.get(1).split("\t")[1] 
+					+ "\", autor:\"" + metadataLines.get(2).split("\t")[1] + "\", ano:\""
+					+ metadataLines.get(3).split("\t")[1] + "\", fonte:\"" + metadataLines.get(4).split("\t")[1]
+					+ "\", caminho:\"" + metadataLines.get(5).split("\t")[1] + "\", dataModificacao:\""
+					+ metadataLines.get(6).split("\t")[1] + "\"})";
 			document_querys.add(query);
 			query = "match (d:Documento) where d.nome = \"" + metadataLines.get(0).split("\t")[1]
 					+ "\" match (n) where not (n)-[]-(:Documento) and not Labels(n) = \"Documento\" create (n)-[:Relacao]->(d)";
@@ -202,7 +208,29 @@ public class Importation {
 			} catch (DatabaseConnectionException e) {
 				e.printStackTrace();
 			}
+			
+			moveImportedFile(path + "ann/", file.getName());
+			moveImportedFile(path + "meta/", file.getName().replace(".ann", ".meta"));
+			
 			countFile++;
+		}
+		
+	}
+	
+	private static void moveImportedFile(String path, String fileName) {
+		Path newDirectory = FileSystems.getDefault().getPath(path + "imported");
+		Path source = FileSystems.getDefault().getPath(path + fileName);
+		Path target = FileSystems.getDefault().getPath(path + "/imported/" + fileName);
+		
+		if (!Files.exists(newDirectory)) {
+			new File(newDirectory.toString()).mkdirs();
+		}
+		
+		try {
+			Files.move(source, target, REPLACE_EXISTING);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }

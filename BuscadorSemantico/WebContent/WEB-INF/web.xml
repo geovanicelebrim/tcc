@@ -12,7 +12,7 @@
   
   <error-page>
        <error-code>404</error-code>
-         <location>/public/404.html</location>
-   </error-page>
+       <location>/public/404.html</location>
+  </error-page>
    
 </web-app>

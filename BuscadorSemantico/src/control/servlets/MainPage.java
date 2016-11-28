@@ -44,10 +44,18 @@ public class MainPage extends HttpServlet {
 	 */
 	private void processarRequisicao(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException {
-
+		request.getSession().invalidate();
 		String query = null;
 		String searchType = null;
 
+		try {
+			String action = request.getParameter("action");
+			if(action.equals("management")) { gotoManagement(request, response); }
+			return;
+		} catch (Exception e) {
+			
+		}
+		
 		try {
 			String queryString = java.net.URLDecoder.decode(
 					request.getQueryString(), "UTF-8");
@@ -128,6 +136,19 @@ public class MainPage extends HttpServlet {
 		}
 	}
 
+	private void gotoManagement(HttpServletRequest request,
+			HttpServletResponse response) {
+
+		RequestDispatcher rd = null;
+		rd = request.getRequestDispatcher("public/management.jsp");
+
+		try {
+			rd.forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	/**
 	 * Redireciona para a pagina de resultados semânticos.
 	 * 

@@ -5,17 +5,19 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Date;
 
 import javax.servlet.http.Part;
 
 import org.apache.lucene.index.IndexWriterConfig.OpenMode;
 
 import DAO.Paths;
+import management.RunTasks;
 import management.addition.Importation;
 import management.addition.Indexer;
 
 public class Management {
-
+	
 	public static void indexerData(OpenMode openMode) throws Exception {
 		Indexer indexer = new Indexer(Paths.REPOSITORY.toString());
 		indexer.createIndexWriter(openMode);
@@ -35,12 +37,15 @@ public class Management {
 		Importation.importOf(Paths.REPOSITORY.toString());
 	}
 
-	public static void addFile(final String path, final Part filePart) throws Exception {
+	public static void addFile(final String path, final Part filePart, final String type) throws Exception {
 
 		final String fileName = getFileName(filePart);
 		OutputStream out = null;
 		InputStream filecontent = null;
-
+		
+		if(!fileName.contains(type)) {
+			throw new Exception("O arquivo inserido não é válido");
+		}
 		try {
 			out = new FileOutputStream(new File(path + File.separator + fileName));
 			filecontent = filePart.getInputStream();
@@ -64,8 +69,54 @@ public class Management {
 		}
 	}
 
+	public static void createMetaFile(Part textFilePart, String title, String author, String year, String source) throws Exception {
+		String fileName = getFileName(textFilePart).replace(".txt", ".meta");
+		
+		String text = "Name\t" + fileName.replace(".meta", "") + "\nTitle\t" + title + "\nAuthor\t" + author + 
+				"\nYear\t" + year + "\nSource\t" + source + 
+				"\nPath\t" + Paths.PATH_DATA.toString() +
+				"\nModification\t" + new Date().toString();
+		
+		DAO.File.writeFile(Paths.REPOSITORY.toString() + "meta/" + fileName, text);
+	}
+	
+	@SuppressWarnings("deprecation")
+	public static void sheduleIndex(String shedule) throws Exception {
+		
+		Date now = new Date();
+		Date sheduleDate = new Date(shedule);
+		sheduleDate.setHours(23);
+		sheduleDate.setMinutes(59);
+		sheduleDate.setSeconds(59);
+		
+		if (now.after(sheduleDate)) {
+			throw new Exception("A data está no passado. A indexação ocorrerá junto com a próxima indexação agendada.");
+		}
+		RunTasks tasks = RunTasks.getInstance();
+		
+		tasks.addIndexShedule(sheduleDate);
+		
+	}
+	
+	@SuppressWarnings("deprecation")
+	public static void sheduleImport(String shedule) throws Exception {
+
+		Date now = new Date();
+		Date sheduleDate = new Date(shedule);
+		sheduleDate.setHours(23);
+		sheduleDate.setMinutes(59);
+		sheduleDate.setSeconds(59);
+		
+		if (now.after(sheduleDate)) {
+			throw new Exception("A data está no passado. A indexação ocorrerá junto com a próxima indexação agendada.");
+		}
+		RunTasks tasks = RunTasks.getInstance();
+		
+		tasks.addImportShedule(sheduleDate);
+		
+	}
+	
 	private static String getFileName(final Part part) {
-		final String partHeader = part.getHeader("content-disposition");
 		for (String content : part.getHeader("content-disposition").split(";")) {
 			if (content.trim().startsWith("filename")) {
 				return content.substring(content.indexOf('=') + 1).trim().replace("\"", "");

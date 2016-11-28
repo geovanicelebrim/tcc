@@ -3,6 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
+<%@page import="java.util.ArrayList"%>
 <html class="no-js" lang="">
 <!--<![endif]-->
 <head>
@@ -46,6 +47,9 @@
 
 
 <script type="text/javascript">
+
+var file1 = false;
+var file2 = false;
 	$(function() {
 
 		// We can attach the `fileselect` event to all file inputs on the page
@@ -73,7 +77,11 @@
 														':text'), log = numFiles > 1 ? numFiles
 														+ ' files selected'
 														: label;
-
+												if (file1) {
+													file2 = true;
+												} else {
+													file1 = true;
+												}
 												if (input.length) {
 													input.val(log);
 												} else {
@@ -86,6 +94,61 @@
 
 	});
 
+	function permission() {
+		if (!(file1 == true && file2 == true)) {
+			alert("Select the files before submit.");
+			return false;
+		}
+		return true;
+	}
+	
+	function showIndexer() {
+		$('.nav-tabs a[href="#indexer_file"]').tab('show');
+		$('.nav li').not('.active').addClass('disabled');
+	    $('.nav li').not('.active').find('a').removeAttr("data-toggle");
+	}
+	
+	function showImport() {
+		$('.nav-tabs a[href="#import_database"]').tab('show');
+		$('.nav li').not('.active').addClass('disabled');
+	    $('.nav li').not('.active').find('a').removeAttr("data-toggle");
+	}
+	
+	$(document).ready(function() {
+	    /*disable non active tabs*/
+	    $('.nav li').not('.active').addClass('disabled');
+	    $('.nav li').not('.active').find('a').removeAttr("data-toggle");
+	    
+	    $('gotoIndexer').click(function(){
+	        /*enable next tab*/
+	        $('.nav li.active').next('li').removeClass('disabled');
+	        $('.nav li.active').next('li').find('a').attr("data-toggle","tab")
+	    });
+	    $('gotoImport').click(function(){
+	        /*enable next tab*/
+	        $('.nav li.active').next('li').removeClass('disabled');
+	        $('.nav li.active').next('li').find('a').attr("data-toggle","tab")
+	    });
+	});
+	
+	
+	jQuery(document).ready(function(){
+		jQuery('#index_file_form').submit(function(){
+			var dados = jQuery( this ).serialize();
+
+			jQuery.ajax({
+				type: "POST",
+				url: "ManagementPage?action=index",
+				data: dados,
+				success: function( data )
+				{
+					
+				}
+			});
+			
+			return false;
+		});
+	});
 </script>
 
 </head>
@@ -126,7 +189,7 @@
 							<br>
 						</div>
 
-						<form method="POST" action="ManagementPage?action=upload"
+						<form id="add_file_form" method="POST" action="ManagementPage?action=upload" onsubmit="return permission();"
 							enctype="multipart/form-data">
 
 							<table style="width: 100%;">
@@ -173,7 +236,7 @@
 										<div class="input-group">
 											<label class="input-group-btn"> <span
 												class="btn btn-primary"> Text File&hellip; <input
-													name="textFile" type="file" style="display: none;" multiple>
+													name="textFile" type="file" style="display: none;">
 											</span>
 											</label> <input type="text" class="form-control" readonly>
 										</div></td>
@@ -182,16 +245,42 @@
 										<div class="input-group">
 											<label class="input-group-btn"> <span
 												class="btn btn-primary"> Ann File&hellip; <input
-													name="annFile" type="file" style="display: none;" multiple>
+													name="annFile" type="file" style="display: none;">
 											</span>
 											</label> <input type="text" class="form-control" readonly>
 										</div></td>
 								</tr>
-							</table>
-
+							</table> <br> 
+							
+							<%
+								ArrayList<String> files = (ArrayList<String>) request.getSession().getAttribute("files");
+								if(files != null) {
+									for(String file : files) {
+										
+								
+							%>
+								<div style="padding: 5px 15px 0 15px; ">
+									<div class="alert-success">
+										<strong>Success!</strong> The file <% out.print(file); %> is added.
+									</div>
+								</div>
+							<%
+									}
+								}
+							%>
 							<div align="center">
-								<br> <input class="btn btn-primary" type="submit"
-									value="Next Step" name="next_step" id="next_step" />
+								<br> 
+								<input class="btn btn-primary" type="submit"
+									value="Add File" name="add_file" id="add_file" />
+								<%
+									if ((files != null) && (files.size() > 0)) {
+								%>
+									<a class="btn btn-primary" id="gotoIndexer" onclick="showIndexer();">Next Step</a>
+								<%
+									} else {
+								%>
+									<a class="btn btn-primary" onclick="alert('Please enter at least one file.')">Next Step</a>
+								<% } %>
 							</div>
 						</form>
 
@@ -203,7 +292,8 @@
 							<br>
 						</div>
 						<div align="center">
-							<select id="selectBoxIndexer" onchange="changeFuncIndexer();" class="form-control text-center" style="width: 15em;">
+							<form id="index_file_form" method="POST" action="ManagementPage?action=index">
+							<select id="selectBoxIndexer" name="selectBoxIndexer" onchange="changeFuncIndexer();" class="form-control text-center" style="width: 15em;">
 								<option value="execute" selected>Execute indexing now</option>
 								<option value="shedule">Schedule indexing</option>
 							</select>
@@ -241,11 +331,11 @@
 								</script>
 							</div>
 
-
 							<div align="center">
-								<br> <input class="btn btn-primary" type="submit" onclick="alert('carregando');"
-									value="Next Step" name="next_step" id="next_step" />
+								<br> <input class="btn btn-primary" id="gotoImport" onclick="showImport();"
+									value="Next Step" type="submit" />
 							</div>
+							</form>
 						</div>
 
 					</div>
@@ -256,7 +346,8 @@
 							<br>
 						</div>
 						<div align="center">
-							<select id="selectBoxImport" onchange="changeFuncImport();" class="form-control text-center" style="width: 15em;">
+							<form id="import_file_form" method="POST" action="ManagementPage?action=import">
+							<select id="selectBoxImport" name="selectBoxImport" onchange="changeFuncImport();" class="form-control text-center" style="width: 15em;">
 								<option value="execute" selected>Execute import now</option>
 								<option value="shedule">Schedule import</option>
 							</select>
@@ -296,9 +387,10 @@
 
 
 							<div align="center">
-								<br> <input class="btn btn-primary" type="submit" onclick="alert('vai');"
+								<br> <input class="btn btn-primary" type="submit"
 									value="Conclude" name="conclude" id="conclude" />
 							</div>
+							</form>
 						</div>
 					</div>
 
