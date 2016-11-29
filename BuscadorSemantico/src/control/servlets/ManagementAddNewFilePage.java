@@ -15,7 +15,8 @@ import javax.servlet.http.Part;
 import org.apache.lucene.index.IndexWriterConfig.OpenMode;
 
 import DAO.Paths;
-import control.Management;
+import control.ManagementAddNewFile;
+import entity.User;
 
 /**
  * Controlador Servlet responsável pela página de gerenciamento.
@@ -23,12 +24,12 @@ import control.Management;
  * @author Geovani Celebrim
  * 
  */
-@WebServlet("/ManagementPage")
+@WebServlet("/ManagementAddNewFilePage")
 @MultipartConfig
-public class ManagementPage extends HttpServlet {
+public class ManagementAddNewFilePage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public ManagementPage() {
+	public ManagementAddNewFilePage() {
 		super();
 	}
 
@@ -42,6 +43,13 @@ public class ManagementPage extends HttpServlet {
 	 */
 	private void processarRequisicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		User user = (User) request.getSession().getAttribute("user");
+
+		if (user == null) {
+			gotoIndex(request, response);
+			return;
+		}
 
 		response.setContentType("text/html;charset=UTF-8");
 
@@ -57,13 +65,7 @@ public class ManagementPage extends HttpServlet {
 			final String pathAnnFile = Paths.REPOSITORY.toString() + "ann";
 			final Part textFilePart = request.getPart("textFile");
 			final Part annFilePart = request.getPart("annFile");
-
-			try {
-				Management.createMetaFile(textFilePart, title, author, year, source);
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			boolean ann = false, txt = false;
 
 			@SuppressWarnings("unchecked")
 			ArrayList<String> files = (ArrayList<String>) request.getSession().getAttribute("files");
@@ -80,60 +82,71 @@ public class ManagementPage extends HttpServlet {
 			request.getSession().setAttribute("files", files);
 
 			try {
-				Management.addFile(pathTextFile, textFilePart, "txt");
+				ManagementAddNewFile.addFile(pathTextFile, textFilePart, "txt");
+				txt = true;
 			} catch (Exception e) {
-				//TODO adicionar erro na página
+				// TODO adicionar erro na página
 				System.out.println("Texto: " + e.getMessage());
 			}
 
 			try {
-				Management.addFile(pathAnnFile, annFilePart, "ann");
+				ManagementAddNewFile.addFile(pathAnnFile, annFilePart, "ann");
+				ann = true;
 			} catch (Exception e) {
-				//TODO adicionar erro na página
+				// TODO adicionar erro na página
 				System.out.println("Ann: " + e.getMessage());
 			}
 
+			try {
+				if(ann && txt) {
+					ManagementAddNewFile.createMetaFile(textFilePart, title, author, year, source);
+				}
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 			gotoManagement(request, response);
 		} else if (action.equals("index")) {
 			String option = request.getParameter("selectBoxIndexer");
-			String shedule = request.getParameter("birthdateIndexer");
+			String schedule = request.getParameter("birthdateIndexer");
 			option = option == null ? "" : option;
-			shedule = shedule == null ? "" : shedule;
+			schedule = schedule == null ? "" : schedule;
 
 			if (option.equals("execute")) {
 				try {
-					Management.indexerData(OpenMode.CREATE_OR_APPEND);
+					ManagementAddNewFile.indexerData(OpenMode.CREATE_OR_APPEND);
 				} catch (Exception e) {
 					System.out.println("Erro execute: " + e.getMessage());
 				}
-			} else if (option.equals("shedule")) {
+			} else if (option.equals("schedule")) {
 				try {
-					Management.sheduleIndex(shedule);
+					ManagementAddNewFile.scheduleIndex(schedule);
 				} catch (Exception e) {
 					System.out.println(e.getMessage());
 				}
 			}
 		} else if (action.equals("import")) {
 			String option = request.getParameter("selectBoxImport");
-			String shedule = request.getParameter("birthdateImport");
+			String schedule = request.getParameter("birthdateImport");
 			option = option == null ? "" : option;
-			shedule = shedule == null ? "" : shedule;
-			
+			schedule = schedule == null ? "" : schedule;
+
 			if (option.equals("execute")) {
 				try {
-					Management.importAnn();
+					ManagementAddNewFile.importAnn();
 				} catch (Exception e) {
 					System.out.println("Erro execute: " + e.getMessage());
 				}
-			} else if (option.equals("shedule")) {
+			} else if (option.equals("schedule")) {
 				try {
-					Management.sheduleImport(shedule);
+					ManagementAddNewFile.scheduleImport(schedule);
 				} catch (Exception e) {
 					System.out.println(e.getMessage());
 				}
 			}
 
-			request.getSession().invalidate();
+			request.getSession().setAttribute("files", null);
 			gotoManagement(request, response);
 		}
 	}
@@ -142,7 +155,20 @@ public class ManagementPage extends HttpServlet {
 
 		RequestDispatcher rd = null;
 
-		rd = request.getRequestDispatcher("public/management.jsp");
+		rd = request.getRequestDispatcher("public/management_add_new_file.jsp");
+
+		try {
+			rd.forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void gotoIndex(HttpServletRequest request,
+			HttpServletResponse response) {
+
+		RequestDispatcher rd = null;
+		rd = request.getRequestDispatcher("public/index.jsp");
 
 		try {
 			rd.forward(request, response);

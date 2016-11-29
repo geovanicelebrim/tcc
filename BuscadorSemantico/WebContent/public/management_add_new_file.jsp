@@ -9,7 +9,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>Management</title>
+<title>Add New Files</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="apple-touch-icon" href="./public/icons/apple-touch-icon.png">
@@ -138,7 +138,7 @@ var file2 = false;
 
 			jQuery.ajax({
 				type: "POST",
-				url: "ManagementPage?action=index",
+				url: "ManagementAddNewFilePage?action=index",
 				data: dados,
 				success: function( data )
 				{
@@ -189,7 +189,7 @@ var file2 = false;
 							<br>
 						</div>
 
-						<form id="add_file_form" method="POST" action="ManagementPage?action=upload" onsubmit="return permission();"
+						<form id="add_file_form" method="POST" action="ManagementAddNewFilePage?action=upload" onsubmit="return permission();"
 							enctype="multipart/form-data">
 
 							<table style="width: 100%;">
@@ -292,10 +292,10 @@ var file2 = false;
 							<br>
 						</div>
 						<div align="center">
-							<form id="index_file_form" method="POST" action="ManagementPage?action=index">
+							<form id="index_file_form" method="POST" action="ManagementAddNewFilePage?action=index">
 							<select id="selectBoxIndexer" name="selectBoxIndexer" onchange="changeFuncIndexer();" class="form-control text-center" style="width: 15em;">
 								<option value="execute" selected>Execute indexing now</option>
-								<option value="shedule">Schedule indexing</option>
+								<option value="schedule">Schedule indexing</option>
 							</select>
 							
 							<script type="text/javascript">
@@ -304,7 +304,7 @@ var file2 = false;
 									var selectBox = document.getElementById("selectBoxIndexer");
 									var selectedValue = selectBox.options[selectBox.selectedIndex].value;
 									var div = document.getElementById('dateIndexer');
-									if(selectedValue == "shedule") {
+									if(selectedValue == "schedule") {
 										div.style.display = 'block';
 									} else {
 										div.style.display = 'none';
@@ -346,10 +346,10 @@ var file2 = false;
 							<br>
 						</div>
 						<div align="center">
-							<form id="import_file_form" method="POST" action="ManagementPage?action=import">
+							<form id="import_file_form" method="POST" action="ManagementAddNewFilePage?action=import">
 							<select id="selectBoxImport" name="selectBoxImport" onchange="changeFuncImport();" class="form-control text-center" style="width: 15em;">
 								<option value="execute" selected>Execute import now</option>
-								<option value="shedule">Schedule import</option>
+								<option value="schedule">Schedule import</option>
 							</select>
 							
 							<script type="text/javascript">
@@ -358,7 +358,7 @@ var file2 = false;
 									var selectBox = document.getElementById("selectBoxImport");
 									var selectedValue = selectBox.options[selectBox.selectedIndex].value;
 									var div = document.getElementById('dateImport');
-									if(selectedValue == "shedule") {
+									if(selectedValue == "schedule") {
 										div.style.display = 'block';
 									} else {
 										div.style.display = 'none';

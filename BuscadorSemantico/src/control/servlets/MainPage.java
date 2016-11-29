@@ -50,6 +50,14 @@ public class MainPage extends HttpServlet {
 
 		try {
 			String action = request.getParameter("action");
+			String user = (String) request.getSession().getAttribute("user");
+			String password = (String) request.getSession().getAttribute("password");
+			
+			if(user == null | password == null) {
+				gotoLogin(request, response);
+				return;
+			}
+			
 			if(action.equals("management")) { gotoManagement(request, response); }
 			return;
 		} catch (Exception e) {
@@ -136,11 +144,24 @@ public class MainPage extends HttpServlet {
 		}
 	}
 
+	private void gotoLogin(HttpServletRequest request,
+			HttpServletResponse response) {
+
+		RequestDispatcher rd = null;
+		rd = request.getRequestDispatcher("public/login.jsp");
+
+		try {
+			rd.forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	private void gotoManagement(HttpServletRequest request,
 			HttpServletResponse response) {
 
 		RequestDispatcher rd = null;
-		rd = request.getRequestDispatcher("public/management.jsp");
+		rd = request.getRequestDispatcher("public/menu_management.jsp");
 
 		try {
 			rd.forward(request, response);

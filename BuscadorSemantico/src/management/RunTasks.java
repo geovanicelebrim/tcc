@@ -5,12 +5,12 @@ import java.util.Date;
 
 import org.apache.lucene.index.IndexWriterConfig.OpenMode;
 
-import control.Management;
+import control.ManagementAddNewFile;
 
 public class RunTasks {
 	private static RunTasks instance;
-	private static ArrayList<Date> sheduleIndex = new ArrayList<>();
-	private static ArrayList<Date> sheduleImport = new ArrayList<>();
+	private static ArrayList<Date> scheduleIndex = new ArrayList<>();
+	private static ArrayList<Date> scheduleImport = new ArrayList<>();
 	private static boolean permission = true;
 	private static boolean permissionForAdd = true;
 	
@@ -25,17 +25,17 @@ public class RunTasks {
 					//O indice é recriado, de forma que otimize o tamanho ocupado em disco. Lembrando que a ação não impede
 					//que o usuário realize pesquisas simultaneamente. Os indices são replicados até estarem completamente 
 					//construídos.
-					for (Date shedule : sheduleIndex) {
+					for (Date shedule : scheduleIndex) {
 						if (now.after(shedule)) {
 							
 							try {
-								Management.indexerData(OpenMode.CREATE);
-								Management.buildDictionary();
+								ManagementAddNewFile.indexerData(OpenMode.CREATE);
+								ManagementAddNewFile.buildDictionary();
 							} catch (Exception e) {
 								System.out.println("Ocorreu uma falha na indexação. Classe: " + this.getClass().getName());
 							}
 							
-							sheduleIndex.remove(shedule);
+							scheduleIndex.remove(shedule);
 							System.out.println("Tarefa agendada concluída. Removendo -> " + shedule);
 							break;
 						}
@@ -43,16 +43,16 @@ public class RunTasks {
 					
 					//Verifica se existe alguma tarefa de importação agendada. Essa importação não impede
 					//que o usuário realize pesquisas simultaneamente.
-					for (Date shedule : sheduleImport) {
+					for (Date shedule : scheduleImport) {
 						if (now.after(shedule)) {
 							
 							try {
-								Management.importAnn();
+								ManagementAddNewFile.importAnn();
 							} catch (Exception e) {
 								System.out.println("Ocorreu uma falha na importação. Classe: " + this.getClass().getName());
 							}
 							
-							sheduleImport.remove(shedule);
+							scheduleImport.remove(shedule);
 							System.out.println("Tarefa agendada concluída. Removendo -> " + shedule);
 							break;
 						}
@@ -78,39 +78,39 @@ public class RunTasks {
 		return instance;
 	}
 	
-	public void addIndexShedule(Date date) {
+	public void addIndexSchedule(Date date) {
 		
 		while(!permission && !permissionForAdd) {};
 		permissionForAdd = false;
-		if(!sheduleIndex.contains(date)) { 
-			sheduleIndex.add(date);
-			sheduleIndex.sort((d0, d1) -> d1.compareTo(d0));
+		if(!scheduleIndex.contains(date)) { 
+			scheduleIndex.add(date);
+			scheduleIndex.sort((d0, d1) -> d1.compareTo(d0));
 		}
 		permissionForAdd = true;
 	}
 
-	public void addImportShedule(Date date) {
+	public void addImportSchedule(Date date) {
 		
 		while(!permission && !permissionForAdd) {};
 		permissionForAdd = false;
-		if(!sheduleImport.contains(date)) { 
-			sheduleImport.add(date);
-			sheduleImport.sort((d0, d1) -> d1.compareTo(d0));
+		if(!scheduleImport.contains(date)) { 
+			scheduleImport.add(date);
+			scheduleImport.sort((d0, d1) -> d1.compareTo(d0));
 		}
 		permissionForAdd = true;
 	}
 	
-	public int getIndexSheduleSize() {
+	public int getIndexScheduleSize() {
 		
 		while(!permission) {};
 		
-		return sheduleIndex.size();
+		return scheduleIndex.size();
 	}
 	
-	public int getImportSheduleSize() {
+	public int getImportScheduleSize() {
 		
 		while(!permission) {};
 		
-		return sheduleImport.size();
+		return scheduleImport.size();
 	}
 }

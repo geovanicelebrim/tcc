@@ -16,7 +16,7 @@ import management.RunTasks;
 import management.addition.Importation;
 import management.addition.Indexer;
 
-public class Management {
+public class ManagementAddNewFile {
 	
 	public static void indexerData(OpenMode openMode) throws Exception {
 		Indexer indexer = new Indexer(Paths.REPOSITORY.toString());
@@ -81,38 +81,38 @@ public class Management {
 	}
 	
 	@SuppressWarnings("deprecation")
-	public static void sheduleIndex(String shedule) throws Exception {
+	public static void scheduleIndex(String schedule) throws Exception {
 		
 		Date now = new Date();
-		Date sheduleDate = new Date(shedule);
-		sheduleDate.setHours(23);
-		sheduleDate.setMinutes(59);
-		sheduleDate.setSeconds(59);
+		Date scheduleDate = new Date(schedule);
+		scheduleDate.setHours(23);
+		scheduleDate.setMinutes(59);
+		scheduleDate.setSeconds(59);
 		
-		if (now.after(sheduleDate)) {
+		if (now.after(scheduleDate)) {
 			throw new Exception("A data está no passado. A indexação ocorrerá junto com a próxima indexação agendada.");
 		}
 		RunTasks tasks = RunTasks.getInstance();
 		
-		tasks.addIndexShedule(sheduleDate);
+		tasks.addIndexSchedule(scheduleDate);
 		
 	}
 	
 	@SuppressWarnings("deprecation")
-	public static void sheduleImport(String shedule) throws Exception {
+	public static void scheduleImport(String schedule) throws Exception {
 
 		Date now = new Date();
-		Date sheduleDate = new Date(shedule);
-		sheduleDate.setHours(23);
-		sheduleDate.setMinutes(59);
-		sheduleDate.setSeconds(59);
+		Date scheduleDate = new Date(schedule);
+		scheduleDate.setHours(23);
+		scheduleDate.setMinutes(59);
+		scheduleDate.setSeconds(59);
 		
-		if (now.after(sheduleDate)) {
+		if (now.after(scheduleDate)) {
 			throw new Exception("A data está no passado. A indexação ocorrerá junto com a próxima indexação agendada.");
 		}
 		RunTasks tasks = RunTasks.getInstance();
 		
-		tasks.addImportShedule(sheduleDate);
+		tasks.addImportSchedule(scheduleDate);
 		
 	}
 	
