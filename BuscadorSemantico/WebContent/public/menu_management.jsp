@@ -4,6 +4,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
 <%@page import="java.util.ArrayList"%>
+<%@page import="entity.User"%>
 <html class="no-js" lang="">
 <!--<![endif]-->
 <head>
@@ -111,6 +112,13 @@ div.header {
 			<div align="right" style="position: fixed; top: 3%; right: 5%">
 				<a href="#" onclick="document.getElementById('logout').submit();">Logout</a>
 			</div>
+			<div align="center" style="position: fixed; left: 50%; transform: translateX(-50%); top: 6%;">
+				Welcome
+				<%
+					User user = (User) request.getSession().getAttribute("user");
+					out.print(user.getName());
+				%>
+			</div>
 		</form>
 		
 		<div class="row">
@@ -125,15 +133,18 @@ div.header {
 			<table class="text-center" style="width: 100%;">
 				<tr>
 					<td align="center">
-						<div class="card">
-							<div class="header btn btn-primary" onclick="alert('Em construção');">
-								<h1>Add Admin User</h1>
+						<form id="add_user" action="MenuManagement?action=add_user" method="get">
+							<input hidden="true" name="option" value="add_user">
+							<div class="card">
+								<div class="header btn btn-primary" onclick="document.getElementById('add_user').submit();">
+									<h1>Add Admin User</h1>
+								</div>
+	
+								<div style="padding: 10px;">
+									<p>Add a new administrator. An administrator can access this folder, add new files, check the scheduled tasks, and view system status.</p>
+								</div>
 							</div>
-
-							<div style="padding: 10px;">
-								<p>Add a new administrator. An administrator can access this folder, add new files, check the scheduled tasks, and view system status.</p>
-							</div>
-						</div>
+						</form>
 					</td>
 					<td align="center">
 						<form id="add_file" action="MenuManagement?action=add_file" method="get">

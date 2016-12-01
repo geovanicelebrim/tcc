@@ -163,8 +163,8 @@ span.psw {
 			</div>
 
 			<div style="padding: 16px;">
-				<label><b>Username</b></label> <input class="in" type="text"
-					placeholder="Enter Username" name="user" id="user" required> <label><b>Password</b></label>
+				<label><b>E-mail</b></label> <input class="in" type="text"
+					placeholder="Enter your e-mail" name="email" id="email" required> <label><b>Password</b></label>
 				<input class="in" type="password" placeholder="Enter Password" name="password" id="password"
 					required>
 
@@ -205,7 +205,7 @@ span.psw {
 			if(user == null) {
 		%>
 			<div align="right" style="position: fixed; top: 3%; right: 5%">
-				<a href="#" onclick="document.getElementById('id01').style.display='block'; $('#user').focus();">Management</a>
+				<a href="#" onclick="document.getElementById('id01').style.display='block'; $('#email').focus();">Management</a>
 			</div>
 		<%
 			} else {

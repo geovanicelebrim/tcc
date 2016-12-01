@@ -1,56 +1,69 @@
 package control;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 import DAO.Paths;
 import entity.User;
+import util.CryptoUtils;
 
 public class Login {
-	
-	public static User DEFAULT_USER = new User("geovanicelebrim", "celebrim");
+
 	private static String absolutePath = Paths.REPOSITORY.toString() + "users.dat";
-	
+
 	private static ArrayList<User> loadUsers(String absolutePath) throws Exception {
-		if(!DAO.File.existFile(absolutePath)) {
+		if (!DAO.File.existFile(absolutePath)) {
 			throw new Exception("Arquivo inexistente");
 		}
 		
-		ArrayList<String> lines = DAO.File.readLinesFile(absolutePath);
-		ArrayList<User> users = new ArrayList<>();
+		File inputFile = new File(absolutePath);
+		FileInputStream inputStream = new FileInputStream(inputFile);
+		byte[] inputBytes = new byte[(int) inputFile.length()];
+		inputStream.read(inputBytes);
 		
-		for(String l : lines) {
-			users.add(new User(l.split("\t")[0], l.split("\t")[1]));
+		byte[] textByte = CryptoUtils.decrypt(inputBytes);
+
+		String text = new String(textByte);
+		String textLines[] = text.split("\n");
+		
+		ArrayList<User> users = new ArrayList<>();
+		for (String l : textLines) {
+			users.add(new User(l.split("\t")[0], l.split("\t")[1], l.split("\t")[2]));
 		}
 		
+		inputStream.close();
 		return users;
 	}
-	
+
 	public static void writeUsers(String absolutePath, User user) throws Exception {
 		ArrayList<User> users;
-		if(DAO.File.existFile(absolutePath)) {
+		if (DAO.File.existFile(absolutePath)) {
 			users = loadUsers(absolutePath);
 		} else {
 			users = new ArrayList<>();
 			users.add(user);
 		}
+
+		byte[] textByte = User.encryptAll(users);
 		
-		String text = "";
-		for(User u : users) {
-			text += u.getUserName() + "\t" + u.getPassword() + "\n";
-		}
+		File outputFile = new File(absolutePath);
+		FileOutputStream outputStream = new FileOutputStream(outputFile);
+		outputStream.write(textByte);
 		
-		DAO.File.writeFile(absolutePath, text);
+		outputStream.close();
 	}
-	
-	public static boolean authenticateUser(User user) throws Exception {
-		
+
+	public static User authenticateUser(User user) throws Exception {
+
 		ArrayList<User> users = loadUsers(absolutePath);
-		
+
 		for (User u : users) {
 			if (u.authenticate(user)) {
-				return true;
+				return u;
 			}
 		}
-		return false;
+		return null;
 	}
 }

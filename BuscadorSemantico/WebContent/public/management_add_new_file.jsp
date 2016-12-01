@@ -253,6 +253,7 @@ var file2 = false;
 							</table> <br> 
 							
 							<%
+								@SuppressWarnings("unchecked")
 								ArrayList<String> files = (ArrayList<String>) request.getSession().getAttribute("files");
 								if(files != null) {
 									for(String file : files) {
@@ -269,7 +270,8 @@ var file2 = false;
 								}
 							%>
 							<div align="center">
-								<br> 
+								<br>
+								<a class="btn btn-warning" id="gotoIndexer" onclick="window.history.back();">Back</a> 
 								<input class="btn btn-primary" type="submit"
 									value="Add File" name="add_file" id="add_file" />
 								<%

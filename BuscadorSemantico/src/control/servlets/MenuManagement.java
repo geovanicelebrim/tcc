@@ -50,6 +50,9 @@ public class MenuManagement extends HttpServlet {
 		case "add_file":
 			gotoManagementAddNewFile(request, response);
 			break;
+		case "add_user":
+			gotoManagementAddNewUser(request, response);
+			break;
 			//TODO criar ações para as outras opções
 		default:
 			gotoManagement(request, response);
@@ -75,6 +78,19 @@ public class MenuManagement extends HttpServlet {
 
 		RequestDispatcher rd = null;
 		rd = request.getRequestDispatcher("public/menu_management.jsp");
+
+		try {
+			rd.forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void gotoManagementAddNewUser(HttpServletRequest request, HttpServletResponse response) {
+
+		RequestDispatcher rd = null;
+
+		rd = request.getRequestDispatcher("public/management_add_new_user.jsp");
 
 		try {
 			rd.forward(request, response);

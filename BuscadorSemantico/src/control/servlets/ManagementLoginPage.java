@@ -36,7 +36,7 @@ public class ManagementLoginPage extends HttpServlet {
 	private void processarRequisicao(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException {
 		String action = (String) request.getParameter("action");
-		String userName = (String) request.getParameter("user");
+		String userName = (String) request.getParameter("email");
 		String password = (String) request.getParameter("password");
 		
 		action = action == null ? "" : action;
@@ -49,7 +49,14 @@ public class ManagementLoginPage extends HttpServlet {
 			return;
 		}
 		
-		User user = new User(userName, password);
+		User user = null;
+		
+		try {
+			user = new User(userName, password);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		User userAuthenticated = (User) request.getSession().getAttribute("user");
 		
 		if(userAuthenticated != null) {
@@ -58,8 +65,9 @@ public class ManagementLoginPage extends HttpServlet {
 		}
 		
 		try {
-			if(Login.authenticateUser(user)) {
-				request.getSession().setAttribute("user", user);
+			User us = Login.authenticateUser(user);
+			if(us != null) {
+				request.getSession().setAttribute("user", us);
 				gotoManagement(request, response);
 			} else {
 				gotoIndex(request, response);
