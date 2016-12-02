@@ -79,24 +79,6 @@
 			return false;
 		}
 	}
-	
-	jQuery(document).ready(function(){
-		jQuery('#index_file_form').submit(function(){
-			var dados = jQuery( this ).serialize();
-
-			jQuery.ajax({
-				type: "POST",
-				url: "ManagementAddNewFilePage?action=index",
-				data: dados,
-				success: function( data )
-				{
-					
-				}
-			});
-			
-			return false;
-		});
-	});
 </script>
 
 </head>
@@ -131,33 +113,32 @@
 							Here you can enter a new administrator for the system.<br> <br>
 						</div>
 
-						<form id="add_file_form" method="POST"
-							action="action=add_user"
+						<form id="add_user_form" method="POST" action="ManagementAddNewUserPage?action=add_user"
 							onsubmit="return checkPassword();">
 
 
 							<div align="center" style="width: 30%; margin: 0 auto;">
 								<div class="form-group">
-									<label for="name">Name:</label> <input type="text"
+									<label for="name">Name:</label> <input type="text" onkeypress="$('#error').hide();"
 										class="form-control" name="name" autofocus="autofocus"
 										placeholder="Inform the name." required autocomplete="off">
 								</div>
 
 								<div class="form-group">
-									<label for="email">E-mail:</label> <input type="text"
+									<label for="email">E-mail:</label> <input type="text" onkeypress="$('#error').hide();"
 										class="form-control" name="email" 
 										placeholder="Inform the e-mail." required autocomplete="off">
 								</div>
 
 								<div class="form-group">
 									<label for="password">Password:</label> <input type="password"
-										class="form-control" name="password" id="password" onkeypress="$('#error_password').hide();"
+										class="form-control" name="password" id="password" onkeypress="$('#error_password').hide(); $('#error').hide();"
 										placeholder="Inform the password." required autocomplete="off">
 								</div>
 
 								<div class="form-group">
 									<label for="confirm_password">Confirm Password:</label> <input
-										type="password" class="form-control" name="confirm_password" id="confirm_password" onkeypress="$('#error_password').hide();"
+										type="password" class="form-control" name="confirm_password" id="confirm_password" onkeypress="$('#error_password').hide(); $('#error').hide();"
 										placeholder="Confirm the password." required
 										autocomplete="off">
 								</div>
@@ -165,6 +146,16 @@
 								<div id="error_password" class="alert alert-warning" hidden="true">
 									<strong>Warning!</strong> The passwords you entered do not match.
 								</div>
+								<%
+									String error = (String) request.getAttribute("error");
+									if(error != null) {
+								%>
+										<div id="error" class="alert alert-danger">
+											<strong>Danger!</strong> <% out.print(error); %>
+										</div>
+								<%
+									}
+								%>
 							</div>
 
 
