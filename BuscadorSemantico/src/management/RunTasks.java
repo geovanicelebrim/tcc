@@ -6,11 +6,16 @@ import java.util.Date;
 import org.apache.lucene.index.IndexWriterConfig.OpenMode;
 
 import control.ManagementAddNewFile;
+import management.entity.Task;
+import management.entity.TaskType;
 
 public class RunTasks {
 	private static RunTasks instance;
-	private static ArrayList<Date> scheduleIndex = new ArrayList<>();
-	private static ArrayList<Date> scheduleImport = new ArrayList<>();
+//	private static ArrayList<Date> scheduleIndex = new ArrayList<>();
+//	private static ArrayList<Date> scheduleImport = new ArrayList<>();
+	
+	private static ArrayList<Task> tasks = new ArrayList<>();
+	
 	private static boolean permission = true;
 	private static boolean permissionForAdd = true;
 	
@@ -21,48 +26,35 @@ public class RunTasks {
 				while (true) {
 					Date now = new Date();
 					permission = false;
-					//Verifica se existe alguma tarefa de indexação agendada. Essa indexação é dada de forma completa, ou seja,
-					//O indice é recriado, de forma que otimize o tamanho ocupado em disco. Lembrando que a ação não impede
-					//que o usuário realize pesquisas simultaneamente. Os indices são replicados até estarem completamente 
-					//construídos.
-					for (Date shedule : scheduleIndex) {
-						if (now.after(shedule)) {
-							
+					
+					while(!permissionForAdd) {};
+					
+					for (Task task : tasks) {
+						if (now.after(task.getScheduled())) {
 							try {
-								ManagementAddNewFile.indexerData(OpenMode.CREATE);
-								ManagementAddNewFile.buildDictionary();
+								if(!task.getExecuted()) {
+									if (task.getType().equals(TaskType.TYPE_INDEX)) {
+										ManagementAddNewFile.indexerData(OpenMode.CREATE);
+										ManagementAddNewFile.buildDictionary();
+										task.execute();
+										break;
+									} else if (task.getType().equals(TaskType.TYPE_IMPORT)) {
+										ManagementAddNewFile.importAnn();
+										task.execute();
+										break;
+									}
+								}
 							} catch (Exception e) {
-								System.out.println("Ocorreu uma falha na indexação. Classe: " + this.getClass().getName());
+								System.out.println("Falha na tarefa agendada.");
 							}
-							
-							scheduleIndex.remove(shedule);
-							System.out.println("Tarefa agendada concluída. Removendo -> " + shedule);
-							break;
 						}
 					}
 					
-					//Verifica se existe alguma tarefa de importação agendada. Essa importação não impede
-					//que o usuário realize pesquisas simultaneamente.
-					for (Date shedule : scheduleImport) {
-						if (now.after(shedule)) {
-							
-							try {
-								ManagementAddNewFile.importAnn();
-							} catch (Exception e) {
-								System.out.println("Ocorreu uma falha na importação. Classe: " + this.getClass().getName());
-							}
-							
-							scheduleImport.remove(shedule);
-							System.out.println("Tarefa agendada concluída. Removendo -> " + shedule);
-							break;
-						}
-					}
 					permission = true;
 					
 					try {
 						Thread.sleep(15000);
 					} catch (Exception e) {
-						// TODO: handle exception
 					}
 				}
 			}
@@ -78,39 +70,23 @@ public class RunTasks {
 		return instance;
 	}
 	
-	public void addIndexSchedule(Date date) {
-		
+	public void addTask(String type, Date scheduled) {
+		Task task = new Task(type, scheduled);
 		while(!permission && !permissionForAdd) {};
 		permissionForAdd = false;
-		if(!scheduleIndex.contains(date)) { 
-			scheduleIndex.add(date);
-			scheduleIndex.sort((d0, d1) -> d1.compareTo(d0));
-		}
-		permissionForAdd = true;
-	}
-
-	public void addImportSchedule(Date date) {
-		
-		while(!permission && !permissionForAdd) {};
-		permissionForAdd = false;
-		if(!scheduleImport.contains(date)) { 
-			scheduleImport.add(date);
-			scheduleImport.sort((d0, d1) -> d1.compareTo(d0));
+		if(!tasks.contains(task)) { 
+			tasks.add(task);
+			tasks.sort((d0, d1) -> d1.getScheduled().compareTo(d0.getScheduled()));
 		}
 		permissionForAdd = true;
 	}
 	
-	public int getIndexScheduleSize() {
-		
-		while(!permission) {};
-		
-		return scheduleIndex.size();
-	}
-	
-	public int getImportScheduleSize() {
-		
-		while(!permission) {};
-		
-		return scheduleImport.size();
+	public ArrayList<Task> getScheduledTask( ) {
+		ArrayList<Task> ts = new ArrayList<>();
+		while(!permission && !permissionForAdd) {};
+		permissionForAdd = false;
+		ts.addAll(tasks);
+		permissionForAdd = true;
+		return ts;
 	}
 }

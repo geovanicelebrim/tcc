@@ -163,16 +163,19 @@ div.header {
 				</tr>
 				<tr>
 					<td align="center" style="padding-top: 20px;">
-						<div class="card">
-							<div class="header btn btn-primary" onclick="alert('Em construção');">
-								<h1>View Scheduled Task</h1>
+						<form id="view_scheduled_task" action="MenuManagement?action=view_scheduled_task" method="get">
+							<input hidden="true" name="option" value="view_scheduled_task">
+							<div class="card">
+								<div class="header btn btn-primary" onclick="document.getElementById('view_scheduled_task').submit();">
+									<h1>View Scheduled Task</h1>
+								</div>
+	
+								<div style="padding: 10px;">
+									<p>Check scheduled tasks, such as indexing and import, that were not performed by the system.</p>
+								</div>
+	
 							</div>
-
-							<div style="padding: 10px;">
-								<p>Check scheduled tasks, such as indexing and import, that were not performed by the system.</p>
-							</div>
-
-						</div>
+						</form>
 					</td>
 					<td align="center" style="padding-top: 20px;">
 						<div class="card">

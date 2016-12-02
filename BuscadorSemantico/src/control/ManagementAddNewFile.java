@@ -15,6 +15,7 @@ import DAO.Paths;
 import management.RunTasks;
 import management.addition.Importation;
 import management.addition.Indexer;
+import management.entity.TaskType;
 
 public class ManagementAddNewFile {
 	
@@ -93,8 +94,7 @@ public class ManagementAddNewFile {
 			throw new Exception("A data está no passado. A indexação ocorrerá junto com a próxima indexação agendada.");
 		}
 		RunTasks tasks = RunTasks.getInstance();
-		
-		tasks.addIndexSchedule(scheduleDate);
+		tasks.addTask(TaskType.TYPE_INDEX, scheduleDate);
 		
 	}
 	
@@ -112,7 +112,7 @@ public class ManagementAddNewFile {
 		}
 		RunTasks tasks = RunTasks.getInstance();
 		
-		tasks.addImportSchedule(scheduleDate);
+		tasks.addTask(TaskType.TYPE_IMPORT, scheduleDate);
 		
 	}
 	

@@ -1,6 +1,7 @@
 package control.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entity.User;
+import management.RunTasks;
+import management.entity.Task;
 
 /**
  * Controlador Servlet responsável pela página de gerenciamento.
@@ -52,6 +55,11 @@ public class MenuManagement extends HttpServlet {
 			break;
 		case "add_user":
 			gotoManagementAddNewUser(request, response);
+			break;
+		case "view_scheduled_task":
+			ArrayList<Task> tasks = RunTasks.getInstance().getScheduledTask();
+			request.setAttribute("tasks", tasks);
+			gotoManagementViewScheduledTask(request, response);
 			break;
 			//TODO criar ações para as outras opções
 		default:
@@ -104,6 +112,19 @@ public class MenuManagement extends HttpServlet {
 		RequestDispatcher rd = null;
 
 		rd = request.getRequestDispatcher("public/management_add_new_file.jsp");
+
+		try {
+			rd.forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void gotoManagementViewScheduledTask(HttpServletRequest request, HttpServletResponse response) {
+
+		RequestDispatcher rd = null;
+
+		rd = request.getRequestDispatcher("public/management_view_scheduled_task.jsp");
 
 		try {
 			rd.forward(request, response);
