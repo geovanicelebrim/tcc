@@ -61,7 +61,9 @@ public class MenuManagement extends HttpServlet {
 			request.setAttribute("tasks", tasks);
 			gotoManagementViewScheduledTask(request, response);
 			break;
-			//TODO criar ações para as outras opções
+		case "status":
+			gotoManagementStatus(request, response);
+			break;
 		default:
 			gotoManagement(request, response);
 			break;
@@ -125,6 +127,19 @@ public class MenuManagement extends HttpServlet {
 		RequestDispatcher rd = null;
 
 		rd = request.getRequestDispatcher("public/management_view_scheduled_task.jsp");
+
+		try {
+			rd.forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void gotoManagementStatus(HttpServletRequest request, HttpServletResponse response) {
+
+		RequestDispatcher rd = null;
+
+		rd = request.getRequestDispatcher("public/management_status.jsp");
 
 		try {
 			rd.forward(request, response);

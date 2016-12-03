@@ -178,16 +178,18 @@ div.header {
 						</form>
 					</td>
 					<td align="center" style="padding-top: 20px;">
-						<div class="card">
-							<div class="header btn btn-primary" onclick="alert('Em construção');">
-								<h1>Status Of System</h1>
+						<form id="status" action="MenuManagement?action=status" method="get">
+							<input hidden="true" name="option" value="status">
+							<div class="card">
+								<div class="header btn btn-primary" onclick="document.getElementById('status').submit();">
+									<h1>Status Of System</h1>
+								</div>
+	
+								<div style="padding: 10px;">
+									<p>Check the system status. Here you can check whether the system has been initialized or if it fails.</p>
+								</div>
 							</div>
-
-							<div style="padding: 10px;">
-								<p>Check the system status. Here you can check whether the system has been initialized or if it fails.</p>
-							</div>
-
-						</div>
+						</form>
 					</td>
 				</tr>
 			</table>
