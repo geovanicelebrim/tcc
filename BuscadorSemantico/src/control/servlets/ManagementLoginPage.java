@@ -36,25 +36,12 @@ public class ManagementLoginPage extends HttpServlet {
 	private void processarRequisicao(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException {
 		String action = (String) request.getParameter("action");
-		String userName = (String) request.getParameter("email");
-		String password = (String) request.getParameter("password");
-		
 		action = action == null ? "" : action;
-		userName = userName == null ? "" : userName;
-		password = password == null ? "" : password;
 		
 		if(action.equals("logout")) {
 			request.getSession().invalidate();
 			gotoIndex(request, response);
 			return;
-		}
-		
-		User user = null;
-		
-		try {
-			user = new User(userName, password);
-		} catch (Exception e) {
-			// TODO: handle exception
 		}
 		
 		User userAuthenticated = (User) request.getSession().getAttribute("user");
@@ -64,12 +51,23 @@ public class ManagementLoginPage extends HttpServlet {
 			return;
 		}
 		
+		String userName = (String) request.getParameter("email");
+		String password = (String) request.getParameter("password");
+		userName = userName == null ? "" : userName;
+		password = password == null ? "" : password;
+		
+		User user = null;
+		
 		try {
-			User us = Login.authenticateUser(user);
-			if(us != null) {
-				request.getSession().setAttribute("user", us);
+			user = new User(userName, password);
+			User anthenticated = Login.authenticateUser(user);
+			if(anthenticated != null) {
+				request.getSession().setAttribute("user", anthenticated);
 				gotoManagement(request, response);
 			} else {
+				String errorLogin = "Could not perform authentication.";
+				request.setAttribute("errorLogin", errorLogin);
+				request.setAttribute("email", user.getEmail());
 				gotoIndex(request, response);
 			}
 		} catch (Exception e) {
