@@ -17,7 +17,7 @@ import exception.CryptoException;
  *
  */
 public class CryptoUtils {
-	private static final String KEY = "LtlH#21?2sLtlH#21?2sLtlH#21?2s2d";
+	private static final String KEY = "LtlH#21?2sLtlH#2";
     private static final String ALGORITHM = "AES";
     private static final String TRANSFORMATION = "AES";
  
@@ -34,8 +34,8 @@ public class CryptoUtils {
              
         } catch (NoSuchPaddingException | NoSuchAlgorithmException
                 | InvalidKeyException | BadPaddingException
-                | IllegalBlockSizeException /*| IOException*/ ex) {
-            throw new CryptoException("Error encrypting/decrypting file", ex);
+                | IllegalBlockSizeException ex) {
+            throw new CryptoException("Error encrypting file", ex);
         }
     }
  
@@ -52,8 +52,8 @@ public class CryptoUtils {
              
         } catch (NoSuchPaddingException | NoSuchAlgorithmException
                 | InvalidKeyException | BadPaddingException
-                | IllegalBlockSizeException /*| IOException*/ ex) {
-            throw new CryptoException("Error encrypting/decrypting file", ex);
+                | IllegalBlockSizeException ex) {
+            throw new CryptoException("Error decrypting file", ex);
         }
     }
 }
