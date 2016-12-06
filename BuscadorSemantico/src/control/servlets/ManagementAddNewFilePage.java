@@ -65,48 +65,38 @@ public class ManagementAddNewFilePage extends HttpServlet {
 			final String pathAnnFile = Paths.REPOSITORY.toString() + "ann";
 			final Part textFilePart = request.getPart("textFile");
 			final Part annFilePart = request.getPart("annFile");
-			boolean ann = false, txt = false;
-
-			@SuppressWarnings("unchecked")
-			ArrayList<String> files = (ArrayList<String>) request.getSession().getAttribute("files");
-
-			if (files != null) {
-				if (!files.contains(title)) {
-					files.add(title);
-				}
-			} else {
-				files = new ArrayList<>();
-				files.add(title);
-			}
-
-			request.getSession().setAttribute("files", files);
 
 			try {
 				ManagementAddNewFile.addFile(pathTextFile, textFilePart, "txt");
-				txt = true;
-			} catch (Exception e) {
-				// TODO adicionar erro na página
-				System.out.println("Texto: " + e.getMessage());
-			}
-
-			try {
 				ManagementAddNewFile.addFile(pathAnnFile, annFilePart, "ann");
-				ann = true;
+				ManagementAddNewFile.createMetaFile(textFilePart, title, author, year, source);
+				
+				@SuppressWarnings("unchecked")
+				ArrayList<String> files = (ArrayList<String>) request.getSession().getAttribute("files");
+
+				if (files != null) {
+					if (!files.contains(title)) {
+						files.add(title);
+					}
+				} else {
+					files = new ArrayList<>();
+					files.add(title);
+				}
+
+				request.getSession().setAttribute("files", files);
+				redirectToManagementAddNewFile(request, response);
+				return;
+				
 			} catch (Exception e) {
-				// TODO adicionar erro na página
-				System.out.println("Ann: " + e.getMessage());
+				String error = e.getMessage();
+				request.setAttribute("error", error);
+				request.setAttribute("title", title);
+				System.out.println("Error: " + e.getMessage());
+				gotoManagementAddNewFile(request, response);
+				return;
 			}
 
-			try {
-				if(ann && txt) {
-					ManagementAddNewFile.createMetaFile(textFilePart, title, author, year, source);
-				}
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
 			
-			gotoManagement(request, response);
 		} else if (action.equals("index")) {
 			String option = request.getParameter("selectBoxIndexer");
 			String schedule = request.getParameter("birthdateIndexer");
@@ -147,11 +137,39 @@ public class ManagementAddNewFilePage extends HttpServlet {
 			}
 
 			request.getSession().setAttribute("files", null);
-			gotoManagement(request, response);
+			redirectToManagement(request, response);
 		}
 	}
 
-	private void gotoManagement(HttpServletRequest request, HttpServletResponse response) {
+	private void redirectToManagement(HttpServletRequest request, HttpServletResponse response) {
+
+		request.setAttribute("target", "ManagementLoginPage?action=authenticate");
+		RequestDispatcher rd = null;
+
+		rd = request.getRequestDispatcher("public/redirect.jsp");
+
+		try {
+			rd.forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void redirectToManagementAddNewFile(HttpServletRequest request, HttpServletResponse response) {
+
+		request.setAttribute("target", "MenuManagement?option=add_file");
+		RequestDispatcher rd = null;
+
+		rd = request.getRequestDispatcher("public/redirect.jsp");
+
+		try {
+			rd.forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void gotoManagementAddNewFile(HttpServletRequest request, HttpServletResponse response) {
 
 		RequestDispatcher rd = null;
 
@@ -163,7 +181,7 @@ public class ManagementAddNewFilePage extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void gotoIndex(HttpServletRequest request,
 			HttpServletResponse response) {
 

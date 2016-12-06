@@ -23,7 +23,7 @@ public class User {
 	
 	public User(String email, String password) throws Exception {
 		if (!validadeEmail(email)) {
-			throw new Exception("Email inválido");
+			throw new Exception("Could not build user.");
 		}
 		this.password = password;
 		this.email = email;

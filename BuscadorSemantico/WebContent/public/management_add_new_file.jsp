@@ -189,14 +189,14 @@ var file2 = false;
 							<br>
 						</div>
 
-						<form id="add_file_form" method="POST" action="ManagementAddNewFilePage?action=upload" onsubmit="return permission();"
+						<form method="POST" action="ManagementAddNewFilePage?action=upload" onsubmit="return permission();"
 							enctype="multipart/form-data">
 
 							<table style="width: 100%;">
 								<tr>
 									<td style="padding: 0 15px 0 15px;">
 										<div class="form-group">
-											<label for="title">Title:</label> <input type="text"
+											<label for="title">Title:</label> <input type="text" onkeypress="$('#error').hide();"
 												class="form-control" name="title"
 												placeholder="Inform the title of the document." required
 												autocomplete="off">
@@ -204,7 +204,7 @@ var file2 = false;
 									</td>
 									<td style="padding: 0 15px 0 15px;">
 										<div class="form-group">
-											<label for="author">Author:</label> <input type="text"
+											<label for="author">Author:</label> <input type="text" onkeypress="$('#error').hide();"
 												class="form-control" name="author"
 												placeholder="Inform the author of the document." required
 												autocomplete="off">
@@ -214,7 +214,7 @@ var file2 = false;
 								<tr>
 									<td style="padding: 0 15px 0 15px;">
 										<div class="form-group">
-											<label for="year">Year:</label> <input type="text"
+											<label for="year">Year:</label> <input type="text" onkeypress="$('#error').hide();"
 												class="form-control" name="year"
 												placeholder="Inform the year of the document." required
 												autocomplete="off">
@@ -222,7 +222,7 @@ var file2 = false;
 									</td>
 									<td style="padding: 0 15px 0 15px;">
 										<div class="form-group">
-											<label for="source">Source:</label> <input type="text"
+											<label for="source">Source:</label> <input type="text" onkeypress="$('#error').hide();"
 												class="form-control" name="source"
 												placeholder="Inform the source of the document." required
 												autocomplete="off">
@@ -267,6 +267,23 @@ var file2 = false;
 								</div>
 							<%
 									}
+								}
+								
+								String error = (String) request.getAttribute("error");
+								String title = (String) request.getAttribute("title");
+								error = error == null ? "" : error;
+								title = title == null ? "" : title;
+								
+								if (error != "") {								
+							%>
+								
+								<div id="error" style="padding: 5px 15px 0 15px; ">
+									<div class="alert-warning">
+										<strong>Warning!</strong> The file <% out.print(title); %> is invalid.
+									</div>
+								</div>
+							
+							<%
 								}
 							%>
 							<div align="center">

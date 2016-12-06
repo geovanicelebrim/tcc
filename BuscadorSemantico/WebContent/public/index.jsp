@@ -172,7 +172,7 @@ function validateEmail(idEmail) {
 			if (errorLogin == null) {
 		%>
 				<div id="id01" class="modal" style="position: absolute;">
-					<form class="modal-content animate" action="ManagementLoginPage?action=authenticate" method="post" onsubmit="return validateEmail('#email');">
+					<form id="login_form" class="modal-content animate" action="ManagementLoginPage?action=authenticate" method="post" onsubmit="return validateEmail('#email');">
 						<div class="imgcontainer">
 							<span onclick="$( '#id01' ).fadeOut( 'mediun' );" class="close"
 								title="Close Modal">&times;</span> <img
@@ -202,7 +202,7 @@ function validateEmail(idEmail) {
 			} else {
 		%>
 				<div id="id01" style="position: absolute; display: block;" class="modal">
-					<form class="modal-content" action="ManagementLoginPage?action=authenticate" method="post" onsubmit="return validateEmail('#email');">
+					<form id="login_form" class="modal-content" action="ManagementLoginPage?action=authenticate" method="post" onsubmit="return validateEmail('#email');">
 						<div class="imgcontainer">
 							<span onclick="$( '#id01' ).fadeOut( 'mediun' );" class="close"
 								title="Close Modal">&times;</span> <img

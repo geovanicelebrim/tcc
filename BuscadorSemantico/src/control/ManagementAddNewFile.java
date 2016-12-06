@@ -45,7 +45,7 @@ public class ManagementAddNewFile {
 		InputStream filecontent = null;
 		
 		if(!fileName.contains(type)) {
-			throw new Exception("O arquivo inserido não é válido");
+			throw new Exception("The file you entered is not valid.");
 		}
 		try {
 			out = new FileOutputStream(new File(path + File.separator + fileName));
@@ -91,7 +91,7 @@ public class ManagementAddNewFile {
 		scheduleDate.setSeconds(59);
 		
 		if (now.after(scheduleDate)) {
-			throw new Exception("A data está no passado. A indexação ocorrerá junto com a próxima indexação agendada.");
+			throw new Exception("The date is in the past. Indexing will occur along with the next scheduled indexing.");
 		}
 		RunTasks tasks = RunTasks.getInstance();
 		tasks.addTask(TaskType.TYPE_INDEX, scheduleDate);
@@ -108,7 +108,7 @@ public class ManagementAddNewFile {
 		scheduleDate.setSeconds(59);
 		
 		if (now.after(scheduleDate)) {
-			throw new Exception("A data está no passado. A indexação ocorrerá junto com a próxima indexação agendada.");
+			throw new Exception("The date is in the past. Import will occur along with the next scheduled import.");
 		}
 		RunTasks tasks = RunTasks.getInstance();
 		

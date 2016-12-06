@@ -56,7 +56,7 @@ public class ManagementAddNewUserPage extends HttpServlet {
 			try {
 				u = new User(email, password, name);
 				ManagementAddNewUser.addNewUser(u);
-				gotoMenuManagement(request, response);
+				redirectToManagement(request, response);
 			} catch (Exception e) {
 				error = e.getMessage();
 				request.setAttribute("error", error);
@@ -64,9 +64,23 @@ public class ManagementAddNewUserPage extends HttpServlet {
 			}
 			return;
 		}
-		gotoMenuManagement(request, response);
+		redirectToManagement(request, response);
 	}
 
+	private void redirectToManagement(HttpServletRequest request, HttpServletResponse response) {	
+		request.setAttribute("target", "ManagementLoginPage?action=authenticate");
+		
+		RequestDispatcher rd = null;
+
+		rd = request.getRequestDispatcher("public/redirect.jsp");
+
+		try {
+			rd.forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	private void gotoAddNewUser(HttpServletRequest request, HttpServletResponse response) {
 
 		RequestDispatcher rd = null;
@@ -79,20 +93,7 @@ public class ManagementAddNewUserPage extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-	
-	private void gotoMenuManagement(HttpServletRequest request, HttpServletResponse response) {
-
-		RequestDispatcher rd = null;
-
-		rd = request.getRequestDispatcher("public/menu_management.jsp");
-
-		try {
-			rd.forward(request, response);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
+		
 	private void gotoIndex(HttpServletRequest request,
 			HttpServletResponse response) {
 
