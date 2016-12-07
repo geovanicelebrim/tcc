@@ -29,10 +29,12 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="./public/js/search/autocomplete.js"></script>
+<script src="./public/js/search/mobile.js"></script>
 
 <style>
 /* Full-width input fields */
 .in {
+	max-width:100%;
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -266,7 +268,7 @@ function validateEmail(idEmail) {
 			if(user == null) {
 		%>
 			<div align="right" style="position: fixed; top: 3%; right: 5%">
-				<a href="#" onclick="document.getElementById('id01').style.display='block'; $('#email').focus();">Management</a>
+				<a href="#" onclick="document.getElementById('id01').style.display='block'; focusOnlyNotMobile('#email');">Management</a>
 			</div>
 		<%
 			} else {
