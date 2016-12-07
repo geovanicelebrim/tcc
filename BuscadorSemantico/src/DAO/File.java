@@ -98,11 +98,11 @@ public class File {
 	 *            que é o texto a ser escrito no arquivo.
 	 * @throws ErrorFileException caso não seja possível a escrita.
 	 */
-	public static void writeFile(String path, String text) throws ErrorFileException {
+	public static void writeFile(String path, String text, boolean append) throws ErrorFileException {
 
 		FileWriter f;
 		try {
-			f = new FileWriter(path);
+			f = new FileWriter(path, append);
 			PrintWriter pf = new PrintWriter(f);
 			pf.printf(text);
 			f.close();
@@ -110,6 +110,10 @@ public class File {
 			throw new ErrorFileException("write");
 		}
 
+	}
+	
+	public static void writeFile(String path, String text) throws ErrorFileException {
+		writeFile(path, text, false);
 	}
 
 	/**
