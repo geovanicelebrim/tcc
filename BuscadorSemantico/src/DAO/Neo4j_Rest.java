@@ -25,13 +25,7 @@ public class Neo4j_Rest {
 		//TODO colocar o arquivo com um nome temporário.
 		String user = Authentication.USER.toString();
 		String password = Authentication.PASSWORD.toString();
-		String template = null;
-		try {
-			template = File
-					.readFile(Paths.REST.toString() + "rest_query_template.py");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		String template = File.readFile(Paths.REST.toString() + "rest_query_template.py");
 		
 		String retorned = null;
 		
@@ -44,7 +38,7 @@ public class Neo4j_Rest {
 			retorned = Sys.command("python " + Paths.REST.toString() + "rest_query.py");
 			Sys.command("rm " + Paths.REST.toString() + "rest_query.py");
 		} catch (IOException e) {
-			throw new ErrorFileException("write");
+			throw new ErrorFileException("write", Neo4j_Rest.class.getName());
 		}
 		
 		return retorned;

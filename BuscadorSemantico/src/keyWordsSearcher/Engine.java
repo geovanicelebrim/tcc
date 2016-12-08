@@ -1,6 +1,7 @@
 package keyWordsSearcher;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,6 +9,7 @@ import java.util.HashMap;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
@@ -23,6 +25,7 @@ import DAO.Neo4j;
 import DAO.Paths;
 import entity.results.SimpleResults;
 import exception.DatabaseConnectionException;
+import exception.ErrorFileException;
 
 public class Engine {
 	@SuppressWarnings("unused")
@@ -33,7 +36,7 @@ public class Engine {
 	private TopScoreDocCollector collectorBody;
 	public static final Integer DEFAULT_MAX_RESULTS = 1000;
 	
-	public Engine(int hitsPerPage, String pathToIndex) throws Exception {
+	public Engine(int hitsPerPage, String pathToIndex) throws IOException {
 		Directory index = FSDirectory.open(FileSystems.getDefault().getPath(pathToIndex));
 		this.hitsPerPage = hitsPerPage;
 		reader = DirectoryReader.open(index);
@@ -51,7 +54,7 @@ public class Engine {
 		collectorBody = TopScoreDocCollector.create(hitsPerPage);
 	}
 	
-	public void searcherBy(String queryString) throws Exception {
+	public void searcherBy(String queryString) throws IOException, ParseException {
 		Query queryTitle = SearchFeatures.queryParser("title", queryString.replaceAll("~", "") + "~");
 		searcher.search(queryTitle, collectorTitle);
 		
@@ -59,7 +62,7 @@ public class Engine {
 		searcher.search(queryBody, collectorBody);
 	}
 	
-	public ArrayList<SimpleResults> showResults() throws Exception {
+	public ArrayList<SimpleResults> showResults() throws IOException, ErrorFileException, DatabaseConnectionException {
 		
 		ArrayList<SimpleResults> resultsTitleList = new ArrayList<>();
 		
@@ -116,7 +119,7 @@ public class Engine {
 		return orderedResults;
 	}
 	
-	private SimpleResults buildResult(SimpleResults r) throws Exception {
+	private SimpleResults buildResult(SimpleResults r) throws ErrorFileException, DatabaseConnectionException {
 		String slice = File.readPrefixedFile(r.getDocumentName());
 		slice = slice.length() > 500 ? slice.substring(0, 500) : slice.substring(0, slice.length());
 		
@@ -186,7 +189,7 @@ public class Engine {
 		return source;
 	}
 	
-	public String[] getSuggestions( String wordForSuggestions, int suggestionsNumber, String pathToDictionary) throws Exception {
+	public String[] getSuggestions( String wordForSuggestions, int suggestionsNumber, String pathToDictionary) throws IOException {
 
 		if ( wordForSuggestions.split("\\b").length > 1 ) { return null; }
 		BufferedReader br = new BufferedReader(new FileReader(pathToDictionary + "suggestion.txt"));
@@ -215,23 +218,9 @@ public class Engine {
 		return getSuggestions(wordForSuggestions, suggestionsNumber, Paths.REPOSITORY.toString() + "dictionary/");
 	}
 	
-	public String getSuggestions( String wordForSuggestions) throws Exception {
+	public String getSuggestions( String wordForSuggestions) throws IOException {
 		String[] suggerstions = getSuggestions(wordForSuggestions, 1, Paths.REPOSITORY.toString() + "dictionary/");
 		
 		return suggerstions != null && suggerstions.length > 0 ? suggerstions[0] : null;
 	}
-	
-	
-//	public static void main(String[] args) throws Exception {
-		//============ Consultas OK - Refatorar ==================	
-//		Indexer indexer = new Indexer(Paths.REPOSITORY.toString());
-//		indexer.createIndexWriter(OpenMode.CREATE);
-//		indexer.indexData();
-		//========================================================
-		
-		//============ Sugestões OK - Refatorar ==================
-		// Constroi um dicionário para sugestão
-//		indexer.buildDictionary( Paths.REPOSITORY.toString() + "dictionary");
-		//========================================================
-//	}
 }

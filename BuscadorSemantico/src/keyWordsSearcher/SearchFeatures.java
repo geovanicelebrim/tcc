@@ -1,6 +1,7 @@
 package keyWordsSearcher;
 import org.apache.lucene.analysis.br.BrazilianAnalyzer;
 import org.apache.lucene.index.Term;
+import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.FuzzyQuery;
 import org.apache.lucene.search.Query;
@@ -51,14 +52,10 @@ public class SearchFeatures {
 	}
 	
 	//Apresenta ótimos resultados
-	public static Query queryParser(String field, String query) {
+	public static Query queryParser(String field, String query) throws ParseException {
 
 		QueryParser queryParser = new QueryParser(field,new BrazilianAnalyzer());
-		try {
-			return queryParser.parse(query);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
+		
+		return queryParser.parse(query);
 	}
 }

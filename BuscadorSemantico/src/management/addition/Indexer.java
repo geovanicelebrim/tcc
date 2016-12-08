@@ -21,6 +21,8 @@ import org.apache.lucene.search.spell.SpellChecker;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
+import exception.ErrorFileException;
+
 public class Indexer {
 
 	private IndexWriter indexWriter;
@@ -55,8 +57,7 @@ public class Indexer {
 			config.setOpenMode(openMode);
 			indexWriter = new IndexWriter(index, config);
 		} catch (IOException ie) {
-			System.out.println("Error in creating IndexWriter");
-			throw new RuntimeException(ie);
+			throw new ErrorFileException(null, getClass().getName(), "Error in creating IndexWriter");
 		}
 	}
 

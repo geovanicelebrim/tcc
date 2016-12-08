@@ -19,13 +19,14 @@ import management.entity.Relation;
 
 public class Importation {
 
-	public static void importOf(String path) {
+	public static void importOf(String path) throws IOException, DatabaseConnectionException {
 		// Obtém os arquivos .ann
 		File files[] = DAO.File.listFilesOfType(path + "ann/", ".ann");
 		int countFile = 1;
 		for (File file : files) {
 			ArrayList<String> fileLines = DAO.File.readLinesFile(path + "ann/" + file.getName());
-			ArrayList<String> metadataLines = DAO.File.readLinesFile(path + "meta/" + file.getName().replace(".ann", ".meta"));
+			ArrayList<String> metadataLines = DAO.File
+					.readLinesFile(path + "meta/" + file.getName().replace(".ann", ".meta"));
 
 			ArrayList<Entity> entities = new ArrayList<>();
 			ArrayList<Relation> relations = new ArrayList<>();
@@ -159,78 +160,69 @@ public class Importation {
 			// Cria a entidade documento
 			ArrayList<String> document_querys = new ArrayList<String>();
 			String query = "create(:Documento {tipo:\"Documento\", nome:\"" + metadataLines.get(0).split("\t")[1]
-					+ "\", titulo:\"" + metadataLines.get(1).split("\t")[1] 
-					+ "\", autor:\"" + metadataLines.get(2).split("\t")[1] + "\", ano:\""
-					+ metadataLines.get(3).split("\t")[1] + "\", fonte:\"" + metadataLines.get(4).split("\t")[1]
-					+ "\", caminho:\"" + metadataLines.get(5).split("\t")[1] + "\", dataModificacao:\""
+					+ "\", titulo:\"" + metadataLines.get(1).split("\t")[1] + "\", autor:\""
+					+ metadataLines.get(2).split("\t")[1] + "\", ano:\"" + metadataLines.get(3).split("\t")[1]
+					+ "\", fonte:\"" + metadataLines.get(4).split("\t")[1] + "\", caminho:\""
+					+ metadataLines.get(5).split("\t")[1] + "\", dataModificacao:\""
 					+ metadataLines.get(6).split("\t")[1] + "\"})";
 			document_querys.add(query);
 			query = "match (d:Documento) where d.nome = \"" + metadataLines.get(0).split("\t")[1]
 					+ "\" match (n) where not (n)-[]-(:Documento) and not Labels(n) = \"Documento\" create (n)-[:Relacao]->(d)";
 			document_querys.add(query);
-			
-			//Serializa os dados no banco
+
+			// Serializa os dados no banco
 			System.out.println("File " + countFile + " of " + files.length);
-			try {
-				Neo4j neo4j;
-				int countEntity = 1, countRelation = 1, countAnnotation = 1;
 
-				for (Map.Entry<String, String> pair : entity_querys.entrySet()) {
-					System.out.println("\tEntity " + countEntity + " of " + entity_querys.size());
-					countEntity++;
-					neo4j = new Neo4j();
-					neo4j.getSession().run(pair.getValue());
-					neo4j.disconnect();
-				}
+			Neo4j neo4j;
+			int countEntity = 1, countRelation = 1, countAnnotation = 1;
 
-				for (Map.Entry<String, String> pair : relation_querys.entrySet()) {
-					System.out.println("\tRelation " + countRelation + " of " + relation_querys.size());
-					countRelation++;
-					neo4j = new Neo4j();
-					neo4j.getSession().run(pair.getValue());
-					neo4j.disconnect();
-				}
-
-				for (Map.Entry<String, String> pair : annotation_querys.entrySet()) {
-					System.out.println("\tAnnotation " + countAnnotation + " of " + annotation_querys.size());
-					countAnnotation++;
-					neo4j = new Neo4j();
-					neo4j.getSession().run(pair.getValue());
-					neo4j.disconnect();
-				}
-
-				for (int i = 0; i < document_querys.size(); i++) {
-					neo4j = new Neo4j();
-					neo4j.getSession().run(document_querys.get(i));
-					neo4j.disconnect();
-				}
-
-			} catch (DatabaseConnectionException e) {
-				e.printStackTrace();
+			for (Map.Entry<String, String> pair : entity_querys.entrySet()) {
+				System.out.println("\tEntity " + countEntity + " of " + entity_querys.size());
+				countEntity++;
+				neo4j = new Neo4j();
+				neo4j.getSession().run(pair.getValue());
+				neo4j.disconnect();
 			}
-			
+
+			for (Map.Entry<String, String> pair : relation_querys.entrySet()) {
+				System.out.println("\tRelation " + countRelation + " of " + relation_querys.size());
+				countRelation++;
+				neo4j = new Neo4j();
+				neo4j.getSession().run(pair.getValue());
+				neo4j.disconnect();
+			}
+
+			for (Map.Entry<String, String> pair : annotation_querys.entrySet()) {
+				System.out.println("\tAnnotation " + countAnnotation + " of " + annotation_querys.size());
+				countAnnotation++;
+				neo4j = new Neo4j();
+				neo4j.getSession().run(pair.getValue());
+				neo4j.disconnect();
+			}
+
+			for (int i = 0; i < document_querys.size(); i++) {
+				neo4j = new Neo4j();
+				neo4j.getSession().run(document_querys.get(i));
+				neo4j.disconnect();
+			}
+
 			moveImportedFile(path + "ann/", file.getName());
 			moveImportedFile(path + "meta/", file.getName().replace(".ann", ".meta"));
-			
+
 			countFile++;
 		}
-		
+
 	}
-	
-	private static void moveImportedFile(String path, String fileName) {
+
+	private static void moveImportedFile(String path, String fileName) throws IOException {
 		Path newDirectory = FileSystems.getDefault().getPath(path + "imported");
 		Path source = FileSystems.getDefault().getPath(path + fileName);
 		Path target = FileSystems.getDefault().getPath(path + "/imported/" + fileName);
-		
+
 		if (!Files.exists(newDirectory)) {
 			new File(newDirectory.toString()).mkdirs();
 		}
-		
-		try {
-			Files.move(source, target, REPLACE_EXISTING);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+		Files.move(source, target, REPLACE_EXISTING);
 	}
 }

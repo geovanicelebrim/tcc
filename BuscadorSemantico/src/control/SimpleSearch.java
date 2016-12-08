@@ -1,6 +1,9 @@
 package control;
 
+import java.io.IOException;
 import java.util.ArrayList;
+
+import org.apache.lucene.queryparser.classic.ParseException;
 
 import DAO.Paths;
 import entity.results.SimpleResults;
@@ -28,15 +31,16 @@ public class SimpleSearch {
 	 * @throws ErrorFileException
 	 *             caso ocorra erro na leitura dos arquivos.
 	 * @throws DatabaseConnectionException
+	 * @throws ParseException 
 	 */
-	public static ArrayList<SimpleResults> simpleSearch(String keyWords) throws Exception {
+	public static ArrayList<SimpleResults> simpleSearch(String keyWords) throws IOException, ErrorFileException, DatabaseConnectionException, ParseException {
 		Engine engine = new Engine(Engine.DEFAULT_MAX_RESULTS, Paths.REPOSITORY.toString() + "index");
 		engine.searcherBy(keyWords);
 		
 		return engine.showResults();
 	}
 	
-	public static String getSuggestion(String keyWords) throws Exception {
+	public static String getSuggestion(String keyWords) throws IOException {
 		Engine engine = new Engine(Engine.DEFAULT_MAX_RESULTS, Paths.REPOSITORY.toString() + "index");
 		String suggestions = engine.getSuggestions(keyWords.replaceAll("\"", "").trim());
 		return suggestions != null ? suggestions : null;

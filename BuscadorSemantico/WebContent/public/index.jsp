@@ -161,9 +161,19 @@ function validateEmail(idEmail) {
     
     return re.test(email);
 }
+function getIP() {
+	$(document).ready(function () {
+	    $.getJSON("http://jsonip.com/?callback=?", function (data) {
+	        console.log(data);
+	        document.getElementById("ipF1").value = data.ip;
+	        document.getElementById("ipF2").value = data.ip;
+	    });
+	});
+}
+
 </script>
 </head>
-<body>
+<body onload="getIP();">
 	<!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -182,6 +192,7 @@ function validateEmail(idEmail) {
 						</div>
 			
 						<div style="padding: 16px;">
+							<input id="ipF1" name="ip" hidden="true">
 							<label><b>E-mail</b></label> <input class="in" type="text" onkeypress="document.getElementById('error_email').style.display='none';"
 								placeholder="Enter your e-mail" name="email" id="email" required> <label><b>Password</b></label>
 							<input class="in" type="password" placeholder="Enter Password" name="password" id="password" onkeypress="document.getElementById('error_email').style.display='none';"
@@ -212,6 +223,7 @@ function validateEmail(idEmail) {
 						</div>
 			
 						<div style="padding: 16px;">
+							<input id="ipF1" name="ip" hidden="true">
 							<label><b>E-mail</b></label> 
 							<input class="in" type="text" onkeypress="document.getElementById('error_password').style.display='none';"
 								placeholder="Enter your e-mail" name="email" id="email" value="${email}" required> 
@@ -291,6 +303,7 @@ function validateEmail(idEmail) {
 							src="./public/images/cedim.jpg" style="width: 70%; height: 70%;">
 
 						<div class="input-group">
+							<input id="ipF2" name="ip" hidden="true">
 							<input type="text" style="position: static;" class="form-control input-lg"
 								id="search-query" name="search-query"
 								placeholder="Type your query" required autocomplete="off">

@@ -46,8 +46,9 @@ public class File {
 			}
 
 			f.close();
+			readFile.close();
 		} catch (Exception e) {
-			throw new ErrorFileException("open");
+			throw new ErrorFileException("open", File.class.getName());
 		}
 		return text;
 	}
@@ -64,8 +65,7 @@ public class File {
 	 *             informando que não foi possível realizar a leitura do
 	 *             arquivo.
 	 */
-	public static String readPrefixedFile(String path)
-			throws ErrorFileException {
+	public static String readPrefixedFile(String path) throws ErrorFileException {
 		String nameFile = Paths.DATA_TEXT.toString() + path;
 		String text = "";
 		try {
@@ -80,8 +80,9 @@ public class File {
 			}
 
 			f.close();
+			readF.close();
 		} catch (Exception e) {
-			throw new ErrorFileException("access");
+			throw new ErrorFileException("access", File.class.getName());
 		}
 		return text;
 
@@ -96,7 +97,8 @@ public class File {
 	 *            que é o caminho e nome do arquivo.
 	 * @param text
 	 *            que é o texto a ser escrito no arquivo.
-	 * @throws ErrorFileException caso não seja possível a escrita.
+	 * @throws ErrorFileException
+	 *             caso não seja possível a escrita.
 	 */
 	public static void writeFile(String path, String text, boolean append) throws ErrorFileException {
 
@@ -106,12 +108,13 @@ public class File {
 			PrintWriter pf = new PrintWriter(f);
 			pf.printf(text);
 			f.close();
+			pf.close();
 		} catch (IOException e) {
-			throw new ErrorFileException("write");
+			throw new ErrorFileException("write", File.class.getName());
 		}
 
 	}
-	
+
 	public static void writeFile(String path, String text) throws ErrorFileException {
 		writeFile(path, text, false);
 	}
@@ -137,28 +140,26 @@ public class File {
 		return files;
 	}
 
-	public static ArrayList<String> readLinesFile(String path) {
+	public static ArrayList<String> readLinesFile(String path) throws IOException {
 		String nameFile = path;
 		ArrayList<String> lines = new ArrayList<>();
 
-		try {
-			FileReader f = new FileReader(nameFile);
-			BufferedReader readF = new BufferedReader(f);
+		FileReader f = new FileReader(nameFile);
+		BufferedReader readF = new BufferedReader(f);
 
-			String line = readF.readLine();
+		String line = readF.readLine();
 
-			while (line != null) {
-				lines.add(line);
-				line = readF.readLine();
-			}
-
-			f.close();
-		} catch (Exception e) {
-			System.err.println("Erro na leitura do arquivo");
+		while (line != null) {
+			lines.add(line);
+			line = readF.readLine();
 		}
+		
+		f.close();
+		readF.close();
+
 		return lines;
 	}
-	
+
 	public static java.io.File[] listFilesOfType(String path, final String type) {
 		java.io.File[] files = new java.io.File(path).listFiles(new FileFilter() {
 
@@ -173,11 +174,11 @@ public class File {
 
 		return files;
 	}
-	
+
 	public static boolean existFile(String absolutePath) {
 		Path path = FileSystems.getDefault().getPath(absolutePath);
-		
+
 		return Files.exists(path) ? true : false;
 	}
-	
+
 }

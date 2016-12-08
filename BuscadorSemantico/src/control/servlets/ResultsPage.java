@@ -94,11 +94,12 @@ public class ResultsPage extends HttpServlet {
 				gotoDocument(request, response);
 				return;
 			} else {
-				throw new ErrorFileException("access");
+				throw new ErrorFileException("access", getClass().getName());
 			}
 
 		} catch (Exception e) {
-
+			String ip = (String) request.getParameter("ip");
+			util.Log.getInstance().addSystemEntry(ip, e.toString());
 		}
 
 		try {
@@ -110,7 +111,8 @@ public class ResultsPage extends HttpServlet {
 			searchType = queryString.split("&search-mode=")[1];
 
 		} catch (Exception e) {
-
+			String ip = (String) request.getParameter("ip");
+			util.Log.getInstance().addSystemEntry(ip, e.toString());
 		}
 
 		if (searchType != null) {
@@ -134,6 +136,8 @@ public class ResultsPage extends HttpServlet {
 							}
 						} catch (Exception e) {
 							if (!e.getMessage().equals("1")) {
+								String ip = (String) request.getParameter("ip");
+								util.Log.getInstance().addSystemEntry(ip, "Normal Search: " + e);
 								request.setAttribute("errorMessage", e.getMessage());
 							}
 						}
@@ -165,6 +169,8 @@ public class ResultsPage extends HttpServlet {
 							graph = SemanticSearch.buscaCypherRest(newQuery);
 						} catch (InvalidQueryException | DatabaseConnectionException | ErrorFileException e) {
 							if (!e.getMessage().equals("1")) {
+								String ip = (String) request.getParameter("ip");
+								util.Log.getInstance().addSystemEntry(ip, "Semantic Search: " + e);
 								request.setAttribute("errorMessage", e.getMessage());
 							}
 						}
@@ -191,12 +197,13 @@ public class ResultsPage extends HttpServlet {
 			HttpServletResponse response) {
 
 		RequestDispatcher rd = null;
-		// rd = request.getRequestDispatcher("public/resultados.jsp");
 		rd = request.getRequestDispatcher("public/normal_results.jsp");
 
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
+			String ip = (String) request.getParameter("ip");
+			util.Log.getInstance().addSystemEntry(ip, e.toString());
 			e.printStackTrace();
 		}
 	}
@@ -211,12 +218,13 @@ public class ResultsPage extends HttpServlet {
 			HttpServletResponse response) {
 
 		RequestDispatcher rd = null;
-		// rd = request.getRequestDispatcher("public/resultados.jsp");
 		rd = request.getRequestDispatcher("public/semantic_results.jsp");
 
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
+			String ip = (String) request.getParameter("ip");
+			util.Log.getInstance().addSystemEntry(ip, e.toString());
 			e.printStackTrace();
 		}
 	}
@@ -231,13 +239,13 @@ public class ResultsPage extends HttpServlet {
 			HttpServletResponse response) {
 
 		RequestDispatcher rd = null;
-		// rd = request.getRequestDispatcher("public/exibirDocumento.jsp");
-		// rd = request.getRequestDispatcher("public/building.html");
 		rd = request.getRequestDispatcher("public/view_document.jsp");
 		
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
+			String ip = (String) request.getParameter("ip");
+			util.Log.getInstance().addSystemEntry(ip, e.toString());
 			e.printStackTrace();
 		}
 	}

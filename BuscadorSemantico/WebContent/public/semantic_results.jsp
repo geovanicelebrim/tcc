@@ -84,7 +84,20 @@
 		max-width: 700px;
 	}
 </style>
-	
+
+	<script type="text/javascript">
+	function getIP() {
+		$(document).ready(function () {
+		    $.getJSON("http://jsonip.com/?callback=?", function (data) {
+		        console.log(data);
+		        
+		        $("input[id|='ip']").each(function (i, el) {
+		            el.value = data.ip;
+		        });
+		    });
+		});
+	}
+	</script>	
 	<script type="text/javascript">
 	          window.onload = function() {
 	        	  document.activeElement.blur();
@@ -306,7 +319,7 @@
 		<script src="./public/js/search/autocomplete.js"></script>
 
 </head>
-<body style="padding-top: 40px;">
+<body style="padding-top: 40px;" onload="getIP();">
 	<!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -333,6 +346,7 @@
 							style="width: 40%; height: 40%;">
 
 						<div class="input-group">
+							<input id="ip" name="ip" hidden="true" onload="getIP();">
 							<input type="text" class="form-control input-lg" id="search-query" name="search-query"
 								placeholder="Type your query" required autocomplete="off"
 								<%String query = (String) request.getAttribute("query");
@@ -398,6 +412,7 @@
 										<form id="<%out.print(i);%>"
 											action="ResultsPage?action=<%out.println(documentResults.get(i).getDocumentName());%>"
 											method="get">
+											<input id="ip" name="ip" hidden="true">
 											<input type="hidden" name="viewDoc"
 												value="<%out.print(documentResults.get(i).getDocumentName());%>" />
 											<input type="hidden" name="beginSlice"

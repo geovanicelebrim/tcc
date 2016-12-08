@@ -3,6 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.util.ArrayList"%>
 <html class="no-js" lang="">
@@ -260,108 +261,25 @@
 								<h4 class="panel-title">
 									<a style="width: 100%; color: white;" class="btn btn-info" data-toggle="collapse" data-parent="#accordion"
 										href="#collapseFive" onclick="setTimeout(scrollTo('#collapseFive'), 3);"><span
-										class="glyphicon glyphicon-file"> </span> System log</a>
+										class="glyphicon glyphicon-file"> </span> System log error</a>
 								</h4>
 								<div id="collapseFive" class="panel-collapse collapse">
 									<div class="panel-body">
 										<div style="width: 100%; height: 30em; overflow-y: scroll;">
 											<table class="table">
-												<tr>
-													<td><span class="glyphicon glyphicon-usd"></span><a
-														href="http://www.jquery2dotnet.com">Início</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-user"></span><a
-														href="http://www.jquery2dotnet.com">Customers</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-usd"></span><a
-														href="http://www.jquery2dotnet.com">Sales</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-user"></span><a
-														href="http://www.jquery2dotnet.com">Customers</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-usd"></span><a
-														href="http://www.jquery2dotnet.com">Sales</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-user"></span><a
-														href="http://www.jquery2dotnet.com">Customers</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-usd"></span><a
-														href="http://www.jquery2dotnet.com">Sales</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-user"></span><a
-														href="http://www.jquery2dotnet.com">Customers</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-usd"></span><a
-														href="http://www.jquery2dotnet.com">Sales</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-user"></span><a
-														href="http://www.jquery2dotnet.com">Customers</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-usd"></span><a
-														href="http://www.jquery2dotnet.com">Sales</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-user"></span><a
-														href="http://www.jquery2dotnet.com">Customers</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-usd"></span><a
-														href="http://www.jquery2dotnet.com">Sales</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-user"></span><a
-														href="http://www.jquery2dotnet.com">Customers</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-usd"></span><a
-														href="http://www.jquery2dotnet.com">Sales</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-user"></span><a
-														href="http://www.jquery2dotnet.com">Customers</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-usd"></span><a
-														href="http://www.jquery2dotnet.com">Sales</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-user"></span><a
-														href="http://www.jquery2dotnet.com">Customers</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-usd"></span><a
-														href="http://www.jquery2dotnet.com">Sales</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-user"></span><a
-														href="http://www.jquery2dotnet.com">Customers</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-usd"></span><a
-														href="http://www.jquery2dotnet.com">Sales</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-user"></span><a
-														href="http://www.jquery2dotnet.com">Customers</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-usd"></span><a
-														href="http://www.jquery2dotnet.com">Sales</a></td>
-												</tr>
-												<tr>
-													<td><span class="glyphicon glyphicon-user"></span><a
-														href="http://www.jquery2dotnet.com">Fim</a></td>
-												</tr>
+												<%
+													@SuppressWarnings("unchecked")
+													ArrayList<String> logSystem = (ArrayList<String>) request.getAttribute("logSystem");
+													if(logSystem != null) {
+														for(int i = logSystem.size() - 1; i >= 0; i--) {
+												%>
+															<tr>
+																<td><% out.print(logSystem.get(i)); %></td>
+															</tr>
+												<%
+														}
+													}
+												%>
 											</table>
 										</div>
 									</div>

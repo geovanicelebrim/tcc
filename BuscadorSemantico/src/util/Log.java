@@ -1,5 +1,6 @@
 package util;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -102,37 +103,49 @@ public class Log {
 		try {
 			DAO.File.writeFile(p, log, true);
 		} catch (ErrorFileException e) {
-			
+			e.printStackTrace();
 		}
 	}
 	
-	public static ArrayList<String> getLogSystem() {
+	public ArrayList<String> getLogSystem() {
 		while (blockSystem) {};
 		blockSystem = true;
 		if(logSystemBuffer.size() > 0) {
 			freeLogSystemBuffer();
 		}
 		
-		ArrayList<String> logSystem = DAO.File.readLinesFile(pathLogSystem);
+		ArrayList<String> logSystem = null;
+		
+		try {
+			logSystem = DAO.File.readLinesFile(pathLogSystem);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		blockSystem = false;
 		
 		return logSystem;
 	}
 	
-	public static ArrayList<String> getLogManagement() {
+	public ArrayList<String> getLogManagement() {
 		while (blockManagement) {};
 		blockManagement = true;
 		if(logManagementBuffer.size() > 0) {
 			freeLogManagementBuffer();
 		}
 		
-		ArrayList<String> logManagement = DAO.File.readLinesFile(pathLogManagement);
+		ArrayList<String> logManagement = null;
+		try {
+			logManagement = DAO.File.readLinesFile(pathLogManagement);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		blockManagement = false;
 		
 		return logManagement;
 	}
 
-	public static void addSystemEntry(String ip, String entry) {
+	public void addSystemEntry(String ip, String entry) {
 		
 		Thread t = new Thread(new Runnable() {
 			public void run() {
@@ -146,7 +159,7 @@ public class Log {
 		t.start();
 	}
 	
-	public static void addManagementEntry(String ip, String email, String entry) {
+	public void addManagementEntry(String ip, String email, String entry) {
 		
 		Thread t = new Thread(new Runnable() {
 			public void run() {
@@ -214,11 +227,16 @@ public class Log {
 		blockAccessCount = false;
 	}
 	
-	public static ArrayList<String> getAccessList() {
+	public ArrayList<String> getAccessList() {
 		while (blockAccessCount) {};
 		blockAccessCount = true;
 		
-		ArrayList<String> accessCountList = DAO.File.readLinesFile(pathAccessCount);
+		ArrayList<String> accessCountList = null;
+		try {
+			accessCountList = DAO.File.readLinesFile(pathAccessCount);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		blockAccessCount = false;
 		
 		return accessCountList;

@@ -67,6 +67,19 @@
 	}
 
 </style>
+	<script type="text/javascript">
+	function getIP() {
+		$(document).ready(function () {
+		    $.getJSON("http://jsonip.com/?callback=?", function (data) {
+		        console.log(data);
+		        
+		        $("input[id|='ip']").each(function (i, el) {
+		            el.value = data.ip;
+		        });
+		    });
+		});
+	}
+	</script>
 	
 	<%
 		@SuppressWarnings("unchecked")
@@ -91,7 +104,7 @@
 
 </head>
 
-<body style="padding-top: 40px;">
+<body style="padding-top: 40px;" onload="getIP();">
 	<!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -118,6 +131,7 @@
 							style="width: 40%; height: 40%;">
 
 						<div class="input-group">
+							<input id="ip" name="ip" hidden="true">
 							<input type="text" autocomplete="off" class="form-control input-lg"
 								id="search-query" name="search-query"
 								placeholder="Type your query" required autocomplete="off"
@@ -183,6 +197,7 @@
 							%> 
 							<div style="margin-left: 15px;">
 								<form id="sugg" action="ResultsPage?action=buscar" method="get"> 
+									<input id="ip" name="ip" hidden="true">
 									<div hidden="true">
 										<input type="text" autocomplete="off" id="search-query" name="search-query"
 										placeholder="Type your query" required autocomplete="off" 
@@ -210,6 +225,7 @@
 											method="get">
 											<input type="hidden" name="viewDoc"
 												value="<%out.print(simpleResults.get(i).getDocumentName());%>" />
+											<input id="ip" name="ip" hidden="true">
 											<div class="panel panel-default list-group-item">
 												<div class="panel-body">
 													<div class="media">

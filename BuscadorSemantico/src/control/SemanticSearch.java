@@ -26,7 +26,6 @@ import exception.ErrorFileException;
  */
 public class SemanticSearch {
 
-	// TODO adicionar exemplo do formado da query
 	/**
 	 * Busca no banco Neo4j, dada uma String no formato Cypher, e retorna um
 	 * {@link ArrayList} de {@link CypherResults}.
@@ -51,7 +50,6 @@ public class SemanticSearch {
 		return res;
 	}
 
-	// TODO adicionar exemplo do formado da query
 	/**
 	 * Realiza uma busca no banco Neo4j, usando o módulo em Python, dada uma
 	 * String no formato Cypher, e retorna um {@link Graph}.
@@ -70,13 +68,7 @@ public class SemanticSearch {
 				.replaceAll("\\[", ",").replaceAll("\\]", ",")
 				.replaceAll(":[A-z]*", ""));
 
-		Graph graph = null;
-
-		try {
-			graph = Neo4j_Rest.getGraph(q);
-		} catch (ErrorFileException e) {
-			throw e;
-		}
+		Graph graph = Neo4j_Rest.getGraph(q);
 
 		return graph;
 	}

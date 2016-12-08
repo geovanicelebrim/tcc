@@ -45,7 +45,7 @@ public class RunTasks {
 									}
 								}
 							} catch (Exception e) {
-								System.out.println("Falha na tarefa agendada.");
+								util.Log.getInstance().addSystemEntry("", "Scheduled task failed.: " + e);
 							}
 						}
 					}

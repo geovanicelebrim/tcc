@@ -34,7 +34,7 @@ public class Neo4j {
 		try {
 			this.session = this.driver.session();
 		} catch (Exception e) {
-			throw new DatabaseConnectionException();
+			throw new DatabaseConnectionException(getClass().getName());
 		}
 
 	}

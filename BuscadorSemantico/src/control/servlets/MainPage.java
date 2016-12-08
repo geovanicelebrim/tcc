@@ -34,7 +34,7 @@ public class MainPage extends HttpServlet {
 	public MainPage() {
 		super();
 	}
-
+	
 	/**
 	 * Processa uma requisição vinda da jsp.
 	 * 
@@ -47,7 +47,7 @@ public class MainPage extends HttpServlet {
 
 		String query = null;
 		String searchType = null;
-
+		
 		try {
 			String queryString = java.net.URLDecoder.decode(
 					request.getQueryString(), "UTF-8");
@@ -58,6 +58,8 @@ public class MainPage extends HttpServlet {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			String ip = (String) request.getParameter("ip");
+			util.Log.getInstance().addSystemEntry(ip, "Error: QueryString builder. " + e);
 		}
 
 		if (searchType != null) {
@@ -82,6 +84,8 @@ public class MainPage extends HttpServlet {
 						}
 					} catch (Exception e) {
 						if (!e.getMessage().equals("1")) {
+							String ip = (String) request.getParameter("ip");
+							util.Log.getInstance().addSystemEntry(ip, "Normal Search: " + e);
 							request.setAttribute("errorMessage", e.getMessage());
 						}
 					}
@@ -110,6 +114,8 @@ public class MainPage extends HttpServlet {
 							graph = SemanticSearch.buscaCypherRest(newQuery);
 						} catch (InvalidQueryException | ErrorFileException | DatabaseConnectionException e) {
 							if (!e.getMessage().equals("1")) {
+								String ip = (String) request.getParameter("ip");
+								util.Log.getInstance().addSystemEntry(ip, "Semantic Search: " + e);
 								request.setAttribute("errorMessage", e.getMessage());
 							}
 						}
@@ -144,6 +150,8 @@ public class MainPage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
+			String ip = (String) request.getParameter("ip");
+			util.Log.getInstance().addSystemEntry(ip, e.toString());
 			e.printStackTrace();
 		}
 	}
@@ -164,6 +172,8 @@ public class MainPage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
+			String ip = (String) request.getParameter("ip");
+			util.Log.getInstance().addSystemEntry(ip, e.toString());
 			e.printStackTrace();
 		}
 	}

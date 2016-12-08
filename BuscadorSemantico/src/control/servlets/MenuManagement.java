@@ -62,6 +62,8 @@ public class MenuManagement extends HttpServlet {
 			gotoManagementViewScheduledTask(request, response);
 			break;
 		case "status":
+			ArrayList<String> logSystem = util.Log.getInstance().getLogSystem();
+			request.setAttribute("logSystem", logSystem);
 			gotoManagementStatus(request, response);
 			break;
 		default:

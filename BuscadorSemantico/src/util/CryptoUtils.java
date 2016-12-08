@@ -35,7 +35,7 @@ public class CryptoUtils {
         } catch (NoSuchPaddingException | NoSuchAlgorithmException
                 | InvalidKeyException | BadPaddingException
                 | IllegalBlockSizeException ex) {
-            throw new CryptoException("Error encrypting file", ex);
+            throw new CryptoException("Error encrypting file: ", ex);
         }
     }
  
@@ -53,7 +53,7 @@ public class CryptoUtils {
         } catch (NoSuchPaddingException | NoSuchAlgorithmException
                 | InvalidKeyException | BadPaddingException
                 | IllegalBlockSizeException ex) {
-            throw new CryptoException("Error decrypting file", ex);
+            throw new CryptoException("Error decrypting file: ", ex);
         }
     }
 }

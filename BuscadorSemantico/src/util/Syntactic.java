@@ -252,15 +252,4 @@ public class Syntactic {
 		}
 		return queryOut + where + returnable;
 	}
-
-//	public static void main(String[] args) {
-//
-//		String in = "(Data)--(Pessoa)--(Evento:'.*guerra.*')";
-//
-//		try {
-//			System.out.println(translateToCypherQuery(in));
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
 }
