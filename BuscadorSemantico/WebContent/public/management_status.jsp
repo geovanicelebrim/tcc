@@ -3,6 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
+<%@page import="java.util.Calendar"%>
 <%@page import="java.util.ArrayList"%>
 <html class="no-js" lang="">
 <!--<![endif]-->
@@ -168,7 +169,7 @@
 									<div class="panel-body">
 
 										<!-- Scroll bar present and enabled -->        
-										<div style="width: 100%; height: 50%; overflow-y: scroll;">
+										<div style="width: 100%; height: 30em; overflow-y: scroll;">
 											<table class="table">
 												<tr>
 													<td><a href="http://www.jquery2dotnet.com">Change
@@ -240,15 +241,15 @@
 												{x: '2016-01-01', y: 10},
 												{x: '2016-02-01', y: 25},
 												{x: '2016-03-01', y: 30},
-												{x: '2016-04-01', y: 10},
-												{x: '2016-05-01', y: 15},
+												{x: '2016-04-01', y: 27},
+												{x: '2016-05-01', y: 25},
 												{x: '2016-06-01', y: 30},
-												{x: '2016-07-01', y: 30}
+												{x: '2016-07-01', y: 22}
 											];
 											var dataset = new vis.DataSet(items);
 											var options = {
-												start: '2016-01-01',
-												end: '2017-01-01'
+												start: <% out.print("'" + Calendar.getInstance().get(Calendar.YEAR) + "-01-01'");%>,
+												end: <% out.print("'" + (Calendar.getInstance().get(Calendar.YEAR) + 1) + "-01-01'"); %>
 											};
 											var graph2d = new vis.Graph2d(container, dataset, options);
 										</script>
@@ -263,11 +264,11 @@
 								</h4>
 								<div id="collapseFive" class="panel-collapse collapse">
 									<div class="panel-body">
-										<div style="width: 100%; height: 50%; overflow-y: scroll;">
+										<div style="width: 100%; height: 30em; overflow-y: scroll;">
 											<table class="table">
 												<tr>
 													<td><span class="glyphicon glyphicon-usd"></span><a
-														href="http://www.jquery2dotnet.com">Sales</a></td>
+														href="http://www.jquery2dotnet.com">Início</a></td>
 												</tr>
 												<tr>
 													<td><span class="glyphicon glyphicon-user"></span><a
@@ -320,6 +321,46 @@
 												<tr>
 													<td><span class="glyphicon glyphicon-user"></span><a
 														href="http://www.jquery2dotnet.com">Customers</a></td>
+												</tr>
+												<tr>
+													<td><span class="glyphicon glyphicon-usd"></span><a
+														href="http://www.jquery2dotnet.com">Sales</a></td>
+												</tr>
+												<tr>
+													<td><span class="glyphicon glyphicon-user"></span><a
+														href="http://www.jquery2dotnet.com">Customers</a></td>
+												</tr>
+												<tr>
+													<td><span class="glyphicon glyphicon-usd"></span><a
+														href="http://www.jquery2dotnet.com">Sales</a></td>
+												</tr>
+												<tr>
+													<td><span class="glyphicon glyphicon-user"></span><a
+														href="http://www.jquery2dotnet.com">Customers</a></td>
+												</tr>
+												<tr>
+													<td><span class="glyphicon glyphicon-usd"></span><a
+														href="http://www.jquery2dotnet.com">Sales</a></td>
+												</tr>
+												<tr>
+													<td><span class="glyphicon glyphicon-user"></span><a
+														href="http://www.jquery2dotnet.com">Customers</a></td>
+												</tr>
+												<tr>
+													<td><span class="glyphicon glyphicon-usd"></span><a
+														href="http://www.jquery2dotnet.com">Sales</a></td>
+												</tr>
+												<tr>
+													<td><span class="glyphicon glyphicon-user"></span><a
+														href="http://www.jquery2dotnet.com">Customers</a></td>
+												</tr>
+												<tr>
+													<td><span class="glyphicon glyphicon-usd"></span><a
+														href="http://www.jquery2dotnet.com">Sales</a></td>
+												</tr>
+												<tr>
+													<td><span class="glyphicon glyphicon-user"></span><a
+														href="http://www.jquery2dotnet.com">Fim</a></td>
 												</tr>
 											</table>
 										</div>
