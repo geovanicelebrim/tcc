@@ -281,6 +281,53 @@
 													}
 												%>
 											</table>
+											<%
+												String csv = "";
+												if(logSystem != null) {
+												for(int i = logSystem.size() - 1; i >= 0; i--) {
+													csv += logSystem.get(i) + "\n";
+												}
+											}
+											%>
+											<div style="width: 10em;">
+												<textarea id="textbox" hidden="true"><% out.print(csv); %></textarea> 
+												<button class="btn btn-default" style="width: 100%;" id="create">Generate file</button> 
+												<a class="btn btn-info" download="logSystem.csv" id="downloadlink" style="display: none">Download</a>
+											</div>
+											
+											<script type="text/javascript">
+											
+											(function () {
+												var textFile = null,
+												  makeTextFile = function (text) {
+												    var data = new Blob([text], {type: 'text/plain'});
+
+												    // If we are replacing a previously generated file we need to
+												    // manually revoke the object URL to avoid memory leaks.
+												    if (textFile !== null) {
+												      window.URL.revokeObjectURL(textFile);
+												    }
+
+												    textFile = window.URL.createObjectURL(data);
+
+												    return textFile;
+												  };
+
+
+												  var create = document.getElementById('create'),
+												    textbox = document.getElementById('textbox');
+
+												  create.addEventListener('click', function () {
+												    var link = document.getElementById('downloadlink');
+												    link.href = makeTextFile(textbox.value);
+												    create.style.display = 'none';
+												    link.style.display = 'block';
+												  }, false);
+												})();
+
+											
+											</script>
+											
 										</div>
 									</div>
 								</div>

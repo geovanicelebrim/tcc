@@ -33,7 +33,7 @@ public class Log {
 			public void run() {
 				while(true) {
 					
-					if(logSystemBuffer.size() > 20) {
+					if(logSystemBuffer.size() > 0) {
 						while (blockSystem) {};
 						blockSystem = true;
 						freeLogSystemBuffer();

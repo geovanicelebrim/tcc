@@ -98,6 +98,21 @@ div.header {
 	}
 }
 
+.glyphicon-refresh-animate {
+    -animation: spin 1.5s infinite linear;
+    -webkit-animation: spin2 1.5s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
 </style>
 </head>
 <body>
@@ -109,10 +124,10 @@ div.header {
 
 	<div class="container">
 		<form id="logout" name="logout" action="ManagementLoginPage?action=logout" method="post">
-			<div align="right" style="position: fixed; top: 3%; right: 5%">
+			<div align="right" style="position: absolute; top: 3%; right: 5%">
 				<a href="#" onclick="document.getElementById('logout').submit();">Logout</a>
 			</div>
-			<div align="center" style="position: fixed; left: 50%; transform: translateX(-50%); top: 6%;">
+			<div align="center" style="position: absolute; left: 50%; transform: translateX(-50%); top: 6%;">
 				Welcome
 				<%
 					User user = (User) request.getSession().getAttribute("user");
@@ -181,10 +196,19 @@ div.header {
 						<form id="status" action="MenuManagement?action=status" method="get">
 							<input hidden="true" name="option" value="status">
 							<div class="card">
-								<div class="header btn btn-primary" onclick="document.getElementById('status').submit();">
-									<h1>Status Of System</h1>
+								<div id="logSystem" class="header btn btn-primary btn-lg" onclick="submitStatus();">
+									<script type="text/javascript">
+										function submitStatus() {
+											document.getElementById('press').style.display = 'block';
+											document.getElementById('noPress').style.display = 'none';
+											document.getElementById('status').submit();
+										}
+										 
+									</script>
+									
+									<h1 id="noPress"> Status Of System</h1>
+									<h1 id="press" hidden="true"> <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Status Of System</h1>
 								</div>
-	
 								<div style="padding: 10px;">
 									<p>Check the system status. Here you can check whether the system has been initialized or if it fails.</p>
 								</div>
