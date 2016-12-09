@@ -325,13 +325,17 @@
 
 											var container = document.getElementById('visualization');
 											var items = [
-												{x: '2016-01-01', y: 10},
-												{x: '2016-02-01', y: 25},
-												{x: '2016-03-01', y: 30},
-												{x: '2016-04-01', y: 27},
-												{x: '2016-05-01', y: 25},
-												{x: '2016-06-01', y: 30},
-												{x: '2016-07-01', y: 22}
+												<%
+													@SuppressWarnings("unchecked")
+													ArrayList<String> accessList = (ArrayList<String>) request.getAttribute("accessList");
+													for (int i = 0; i < accessList.size(); i++) {
+														if(i + 1 == accessList.size()) {
+															out.print("{x: '" + accessList.get(i).split("\t")[0] + "', y: " + accessList.get(i).split("\t")[1] + "}");
+														} else {
+															out.print("{x: '" + accessList.get(i).split("\t")[0] + "', y: " + accessList.get(i).split("\t")[1] + "},");
+														}
+													}
+												%>
 											];
 											var dataset = new vis.DataSet(items);
 											var options = {

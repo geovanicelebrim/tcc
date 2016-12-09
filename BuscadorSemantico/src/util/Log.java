@@ -2,6 +2,7 @@ package util;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -53,7 +54,9 @@ public class Log {
 					if(now.after(scheduled)) {
 						while (blockAccessCount) {};
 						blockAccessCount = true;
-						String text = scheduled + "\t" + accessCount + "\n";
+						Date date = new Date(); 
+						String newstring = new SimpleDateFormat("yyyy-MM-dd").format(date);
+						String text = newstring + "\t" + accessCount + "\n";
 						write(pathAccessCount, text);
 						accessCount = 0;
 						blockAccessCount = false;
@@ -171,7 +174,6 @@ public class Log {
 		
 		t.start();
 	}
-	
 	
 	public String getSystemBoot() {
 		File[] files = DAO.File.listFilesOfType(DAO.Paths.REPOSITORY.toString() + "dictionary/", ".txt");

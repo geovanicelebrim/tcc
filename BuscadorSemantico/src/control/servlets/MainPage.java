@@ -44,7 +44,7 @@ public class MainPage extends HttpServlet {
 	 */
 	private void processarRequisicao(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException {
-
+		
 		String query = null;
 		String searchType = null;
 		
@@ -131,6 +131,20 @@ public class MainPage extends HttpServlet {
 			default:
 				break;
 			}
+		}
+		gotoIndex(request, response);
+	}
+	
+	private void gotoIndex(HttpServletRequest request,
+			HttpServletResponse response) {
+
+		RequestDispatcher rd = null;
+		rd = request.getRequestDispatcher("public/index.jsp");
+
+		try {
+			rd.forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	

@@ -72,6 +72,8 @@ public class MenuManagement extends HttpServlet {
 			request.setAttribute("keyWordSearch", util.Log.getInstance().getKeyWordEngine());
 			request.setAttribute("semanticSearch", util.Log.getInstance().getSemanticEngine());
 			
+			request.setAttribute("accessList", util.Log.getInstance().getAccessList());
+			
 			request.setAttribute("logManagement", logManagement);
 			request.setAttribute("logSystem", logSystem);
 			gotoManagementStatus(request, response);
