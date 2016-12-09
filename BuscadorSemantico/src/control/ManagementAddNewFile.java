@@ -3,6 +3,7 @@ package control;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Date;
@@ -12,6 +13,7 @@ import javax.servlet.http.Part;
 import org.apache.lucene.index.IndexWriterConfig.OpenMode;
 
 import DAO.Paths;
+import exception.DatabaseConnectionException;
 import management.RunTasks;
 import management.addition.Importation;
 import management.addition.Indexer;
@@ -34,7 +36,7 @@ public class ManagementAddNewFile {
 		indexer.buildDictionary(Paths.REPOSITORY.toString() + "dictionary");
 	}
 
-	public static void importAnn() {
+	public static void importAnn() throws IOException, DatabaseConnectionException {
 		Importation.importOf(Paths.REPOSITORY.toString());
 	}
 

@@ -149,10 +149,22 @@ var file2 = false;
 			return false;
 		});
 	});
+	
+	function getIP() {
+		$(document).ready(function () {
+		    $.getJSON("http://jsonip.com/?callback=?", function (data) {
+		        console.log(data);
+		        
+		        $("input[id|='ip']").each(function (i, el) {
+		            el.value = data.ip;
+		        });
+		    });
+		});
+	}
 </script>
 
 </head>
-<body>
+<body onload="getIP();">
 	<!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -191,7 +203,7 @@ var file2 = false;
 
 						<form method="POST" action="ManagementAddNewFilePage?action=upload" onsubmit="return permission();"
 							enctype="multipart/form-data">
-
+							<input id="ip" name="ip" hidden="true">
 							<table style="width: 100%;">
 								<tr>
 									<td style="padding: 0 15px 0 15px;">
@@ -312,6 +324,7 @@ var file2 = false;
 						</div>
 						<div align="center">
 							<form id="index_file_form" method="POST" action="ManagementAddNewFilePage?action=index">
+							<input id="ip" name="ip" hidden="true">
 							<select id="selectBoxIndexer" name="selectBoxIndexer" onchange="changeFuncIndexer();" class="form-control text-center" style="width: 15em;">
 								<option value="execute" selected>Execute indexing now</option>
 								<option value="schedule">Schedule indexing</option>
@@ -366,6 +379,7 @@ var file2 = false;
 						</div>
 						<div align="center">
 							<form id="import_file_form" method="POST" action="ManagementAddNewFilePage?action=import">
+							<input id="ip" name="ip" hidden="true">
 							<select id="selectBoxImport" name="selectBoxImport" onchange="changeFuncImport();" class="form-control text-center" style="width: 15em;">
 								<option value="execute" selected>Execute import now</option>
 								<option value="schedule">Schedule import</option>

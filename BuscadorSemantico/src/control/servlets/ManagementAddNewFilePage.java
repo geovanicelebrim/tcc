@@ -45,7 +45,8 @@ public class ManagementAddNewFilePage extends HttpServlet {
 			throws ServletException, IOException {
 
 		User user = (User) request.getSession().getAttribute("user");
-
+		String ip = (String) request.getParameter("ip");
+		
 		if (user == null) {
 			gotoIndex(request, response);
 			return;
@@ -82,7 +83,7 @@ public class ManagementAddNewFilePage extends HttpServlet {
 					files = new ArrayList<>();
 					files.add(title);
 				}
-
+				util.Log.getInstance().addManagementEntry(util.Log.ACTIVITY_TYPE, ip, user.getEmail(), "Add new file.");
 				request.getSession().setAttribute("files", files);
 				redirectToManagementAddNewFile(request, response);
 				return;
@@ -91,7 +92,9 @@ public class ManagementAddNewFilePage extends HttpServlet {
 				String error = e.getMessage();
 				request.setAttribute("error", error);
 				request.setAttribute("title", title);
-				System.out.println("Error: " + e.getMessage());
+				User ur = (User) request.getAttribute("user");
+				String email = ur == null ? "" : ur.getEmail();
+				util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
 				gotoManagementAddNewFile(request, response);
 				return;
 			}
@@ -106,14 +109,20 @@ public class ManagementAddNewFilePage extends HttpServlet {
 			if (option.equals("execute")) {
 				try {
 					ManagementAddNewFile.indexerData(OpenMode.CREATE_OR_APPEND);
+					util.Log.getInstance().addManagementEntry(util.Log.ACTIVITY_TYPE, ip, user.getEmail(), "Indexing executed.");
 				} catch (Exception e) {
-					System.out.println("Erro execute: " + e.getMessage());
+					User ur = (User) request.getAttribute("user");
+					String email = ur == null ? "" : ur.getEmail();
+					util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
 				}
 			} else if (option.equals("schedule")) {
 				try {
 					ManagementAddNewFile.scheduleIndex(schedule);
+					util.Log.getInstance().addManagementEntry(util.Log.ACTIVITY_TYPE, ip, user.getEmail(), "Indexing scheduled.");
 				} catch (Exception e) {
-					System.out.println(e.getMessage());
+					User ur = (User) request.getAttribute("user");
+					String email = ur == null ? "" : ur.getEmail();
+					util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
 				}
 			}
 		} else if (action.equals("import")) {
@@ -125,14 +134,20 @@ public class ManagementAddNewFilePage extends HttpServlet {
 			if (option.equals("execute")) {
 				try {
 					ManagementAddNewFile.importAnn();
+					util.Log.getInstance().addManagementEntry(util.Log.ACTIVITY_TYPE, ip, user.getEmail(), "Import executed.");
 				} catch (Exception e) {
-					System.out.println("Erro execute: " + e.getMessage());
+					User ur = (User) request.getAttribute("user");
+					String email = ur == null ? "" : ur.getEmail();
+					util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
 				}
 			} else if (option.equals("schedule")) {
 				try {
 					ManagementAddNewFile.scheduleImport(schedule);
+					util.Log.getInstance().addManagementEntry(util.Log.ACTIVITY_TYPE, ip, user.getEmail(), "Import scheduled.");
 				} catch (Exception e) {
-					System.out.println(e.getMessage());
+					User ur = (User) request.getAttribute("user");
+					String email = ur == null ? "" : ur.getEmail();
+					util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
 				}
 			}
 
@@ -151,7 +166,10 @@ public class ManagementAddNewFilePage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			e.printStackTrace();
+			String ip = (String) request.getParameter("ip");
+			User ur = (User) request.getAttribute("user");
+			String email = ur == null ? "" : ur.getEmail();
+			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
 		}
 	}
 	
@@ -165,7 +183,10 @@ public class ManagementAddNewFilePage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			e.printStackTrace();
+			String ip = (String) request.getParameter("ip");
+			User ur = (User) request.getAttribute("user");
+			String email = ur == null ? "" : ur.getEmail();
+			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
 		}
 	}
 
@@ -178,7 +199,10 @@ public class ManagementAddNewFilePage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			e.printStackTrace();
+			String ip = (String) request.getParameter("ip");
+			User ur = (User) request.getAttribute("user");
+			String email = ur == null ? "" : ur.getEmail();
+			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
 		}
 	}
 
@@ -191,7 +215,10 @@ public class ManagementAddNewFilePage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			e.printStackTrace();
+			String ip = (String) request.getParameter("ip");
+			User ur = (User) request.getAttribute("user");
+			String email = ur == null ? "" : ur.getEmail();
+			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
 		}
 	}
 

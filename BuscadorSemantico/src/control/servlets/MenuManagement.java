@@ -62,7 +62,17 @@ public class MenuManagement extends HttpServlet {
 			gotoManagementViewScheduledTask(request, response);
 			break;
 		case "status":
+			ArrayList<String> logManagement = util.Log.getInstance().getLogManagement();
 			ArrayList<String> logSystem = util.Log.getInstance().getLogSystem();
+			
+			request.setAttribute("systemBoot", util.Log.getInstance().getSystemBoot());
+			request.setAttribute("index", util.Log.getInstance().getIndex());
+			request.setAttribute("dictionary", util.Log.getInstance().getDictionary());
+			request.setAttribute("database", util.Log.getInstance().getDatabase());
+			request.setAttribute("keyWordSearch", util.Log.getInstance().getKeyWordEngine());
+			request.setAttribute("semanticSearch", util.Log.getInstance().getSemanticEngine());
+			
+			request.setAttribute("logManagement", logManagement);
 			request.setAttribute("logSystem", logSystem);
 			gotoManagementStatus(request, response);
 			break;
@@ -94,7 +104,10 @@ public class MenuManagement extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			e.printStackTrace();
+			String ip = (String) request.getParameter("ip");
+			User ur = (User) request.getAttribute("user");
+			String email = ur == null ? "" : ur.getEmail();
+			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
 		}
 	}
 
@@ -107,7 +120,10 @@ public class MenuManagement extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			e.printStackTrace();
+			String ip = (String) request.getParameter("ip");
+			User ur = (User) request.getAttribute("user");
+			String email = ur == null ? "" : ur.getEmail();
+			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
 		}
 	}
 	
@@ -120,7 +136,10 @@ public class MenuManagement extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			e.printStackTrace();
+			String ip = (String) request.getParameter("ip");
+			User ur = (User) request.getAttribute("user");
+			String email = ur == null ? "" : ur.getEmail();
+			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
 		}
 	}
 	
@@ -133,7 +152,10 @@ public class MenuManagement extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			e.printStackTrace();
+			String ip = (String) request.getParameter("ip");
+			User ur = (User) request.getAttribute("user");
+			String email = ur == null ? "" : ur.getEmail();
+			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
 		}
 	}
 	
@@ -146,7 +168,10 @@ public class MenuManagement extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			e.printStackTrace();
+			String ip = (String) request.getParameter("ip");
+			User ur = (User) request.getAttribute("user");
+			String email = ur == null ? "" : ur.getEmail();
+			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
 		}
 	}
 

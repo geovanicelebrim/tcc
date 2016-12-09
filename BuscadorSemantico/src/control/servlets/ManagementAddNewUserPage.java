@@ -38,6 +38,7 @@ public class ManagementAddNewUserPage extends HttpServlet {
 			throws ServletException, IOException {
 		
 		User user = (User) request.getSession().getAttribute("user");
+		String ip = (String) request.getParameter("ip");
 
 		if (user == null) {
 			gotoIndex(request, response);
@@ -47,6 +48,7 @@ public class ManagementAddNewUserPage extends HttpServlet {
 		String action = request.getParameter("action");
 		
 		if (action.equals("add_user")) {
+			util.Log.getInstance().addManagementEntry(util.Log.ACTIVITY_TYPE, ip, user.getEmail(), "Add new user.");
 			String email = request.getParameter("email");
 			String password = (String) request.getParameter("password");
 			String name = (String) request.getParameter("name");
@@ -56,11 +58,13 @@ public class ManagementAddNewUserPage extends HttpServlet {
 			try {
 				u = new User(email, password, name);
 				ManagementAddNewUser.addNewUser(u);
+				util.Log.getInstance().addManagementEntry(util.Log.ACTIVITY_TYPE, ip, user.getEmail(), "New user added.");
 				redirectToManagement(request, response);
 			} catch (Exception e) {
 				error = e.getMessage();
 				request.setAttribute("error", error);
 				gotoAddNewUser(request, response);
+				util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
 			}
 			return;
 		}
@@ -77,7 +81,10 @@ public class ManagementAddNewUserPage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			e.printStackTrace();
+			String ip = (String) request.getParameter("ip");
+			User ur = (User) request.getAttribute("user");
+			String email = ur == null ? "" : ur.getEmail();
+			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
 		}
 	}
 	
@@ -90,7 +97,10 @@ public class ManagementAddNewUserPage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			e.printStackTrace();
+			String ip = (String) request.getParameter("ip");
+			User ur = (User) request.getAttribute("user");
+			String email = ur == null ? "" : ur.getEmail();
+			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
 		}
 	}
 		
@@ -103,7 +113,10 @@ public class ManagementAddNewUserPage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			e.printStackTrace();
+			String ip = (String) request.getParameter("ip");
+			User ur = (User) request.getAttribute("user");
+			String email = ur == null ? "" : ur.getEmail();
+			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
 		}
 	}
 

@@ -144,7 +144,6 @@ public class MainPage extends HttpServlet {
 			HttpServletResponse response) {
 
 		RequestDispatcher rd = null;
-		// rd = request.getRequestDispatcher("public/resultados.jsp");
 		rd = request.getRequestDispatcher("public/semantic_results.jsp");
 
 		try {

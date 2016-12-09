@@ -114,8 +114,22 @@ div.header {
 }
 
 </style>
+
+<script type="text/javascript">
+function getIP() {
+	$(document).ready(function () {
+	    $.getJSON("http://jsonip.com/?callback=?", function (data) {
+	        console.log(data);
+	        
+	        $("input[id|='ip']").each(function (i, el) {
+	            el.value = data.ip;
+	        });
+	    });
+	});
+}
+</script>
 </head>
-<body>
+<body onload="getIP();">
 	<!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -124,6 +138,7 @@ div.header {
 
 	<div class="container">
 		<form id="logout" name="logout" action="ManagementLoginPage?action=logout" method="post">
+			<input id="ip" name="ip" hidden="true">
 			<div align="right" style="position: absolute; top: 3%; right: 5%">
 				<a href="#" onclick="document.getElementById('logout').submit();">Logout</a>
 			</div>
@@ -149,6 +164,7 @@ div.header {
 				<tr>
 					<td align="center">
 						<form id="add_user" action="MenuManagement?action=add_user" method="get">
+							<input id="ip" name="ip" hidden="true">
 							<input hidden="true" name="option" value="add_user">
 							<div class="card">
 								<div class="header btn btn-primary" onclick="document.getElementById('add_user').submit();">
@@ -163,6 +179,7 @@ div.header {
 					</td>
 					<td align="center">
 						<form id="add_file" action="MenuManagement?action=add_file" method="get">
+							<input id="ip" name="ip" hidden="true">
 							<input hidden="true" name="option" value="add_file">
 							<div align="center" class="card">
 								<div class="header btn btn-primary" onclick="document.getElementById('add_file').submit();">
@@ -179,6 +196,7 @@ div.header {
 				<tr>
 					<td align="center" style="padding-top: 20px;">
 						<form id="view_scheduled_task" action="MenuManagement?action=view_scheduled_task" method="get">
+							<input id="ip" name="ip" hidden="true">
 							<input hidden="true" name="option" value="view_scheduled_task">
 							<div class="card">
 								<div class="header btn btn-primary" onclick="document.getElementById('view_scheduled_task').submit();">
@@ -194,6 +212,7 @@ div.header {
 					</td>
 					<td align="center" style="padding-top: 20px;">
 						<form id="status" action="MenuManagement?action=status" method="get">
+							<input id="ip" name="ip" hidden="true">
 							<input hidden="true" name="option" value="status">
 							<div class="card">
 								<div id="logSystem" class="header btn btn-primary btn-lg" onclick="submitStatus();">

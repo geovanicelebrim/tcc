@@ -1,12 +1,20 @@
 package util;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
+import DAO.Neo4j;
+import control.SemanticSearch;
+import control.SimpleSearch;
+import exception.DatabaseConnectionException;
 import exception.ErrorFileException;
+import exception.InvalidQueryException;
 
 public class Log {
+	public static final String ERROR_TYPE = "ERROR";
+	public static final String ACTIVITY_TYPE = "ACTIVITY";
 	private static Log instance;
 	private static String pathLogSystem = DAO.Paths.REPOSITORY.toString() + "logSystem.txt";
 	private static String pathLogManagement = DAO.Paths.REPOSITORY.toString() + "logManagement.txt";
@@ -17,14 +25,6 @@ public class Log {
 	private static boolean blockManagement = false;
 	private static boolean blockAccessCount = false;
 	
-	private static boolean systemBoot = false; // Foi inicializado?
-	private static boolean index = false; // Está criado?
-	private static boolean dictionary = false; // Está criado?
-	private static boolean database = false; // Está atualizado e com conexão?
-	private static boolean keyWordEngine = false; // Está operando normalmente?
-	private static boolean semanticEngine = false; // Está operando normalmente?
-	private static boolean management = false; // Está operando normalmente?
-	
 	private static Integer accessCount = 0; // Contador de acessos
 	
 	private Log () {
@@ -32,24 +32,23 @@ public class Log {
 			@SuppressWarnings("deprecation")
 			public void run() {
 				while(true) {
+					Date scheduled = new Date();
+					Date now = new Date();
+					scheduled.setHours(23); scheduled.setMinutes(59);
 					
-					if(logSystemBuffer.size() > 0) {
+					if(logSystemBuffer.size() > 20 || now.after(scheduled)) {
 						while (blockSystem) {};
 						blockSystem = true;
 						freeLogSystemBuffer();
 						blockSystem = false;
 					}
 					
-					if(logManagementBuffer.size() > 20) {
+					if(logManagementBuffer.size() > 20 || now.after(scheduled)) {
 						while (blockManagement) {};
 						blockManagement = true;
 						freeLogManagementBuffer();
 						blockManagement = false;
 					}
-					
-					Date now = new Date();
-					Date scheduled = new Date();
-					scheduled.setHours(23); scheduled.setMinutes(59); scheduled.setSeconds(59);
 					
 					if(now.after(scheduled)) {
 						while (blockAccessCount) {};
@@ -92,11 +91,11 @@ public class Log {
 	private static void freeLogManagementBuffer() {
 		String log = "";
 		
-		for (String string : logSystemBuffer) {
+		for (String string : logManagementBuffer) {
 			log += string + "\n";
 		}
 		write(pathLogManagement, log);
-		logSystemBuffer.clear();
+		logManagementBuffer.clear();
 	}
 	
 	private static void write(String p, String log) {
@@ -159,13 +158,13 @@ public class Log {
 		t.start();
 	}
 	
-	public void addManagementEntry(String ip, String email, String entry) {
+	public void addManagementEntry(String logType, String ip, String email, String entry) {
 		
 		Thread t = new Thread(new Runnable() {
 			public void run() {
 				while (blockManagement) {};
 				blockManagement = true;
-				logManagementBuffer.add(new Date() + "\t" + ip + "\t" + email + "\t" + entry);
+				logManagementBuffer.add(logType + "\t" + new Date() + "\t" + ip + "\t" + email + "\t" + entry);
 				blockManagement = false;
 			}
 		});
@@ -174,51 +173,62 @@ public class Log {
 	}
 	
 	
-	public boolean getSystemBoot() {
-		return systemBoot;	
-	}
-	public boolean getIndex() {
-		return index;	
-	}
-	public boolean getDictionary() {
-		return dictionary;	
-	}
-	public boolean getDatabase() {
-		return database;	
-	}
-	public boolean getKeyWordEngine() {
-		return keyWordEngine;	
-	}
-	public boolean getSemanticEngine() {
-		return semanticEngine;	
-	}
-	public boolean getManagement() {
-		return management;	
-	}
-
-
-	public void setSystemBoot(boolean state) {
-		systemBoot = state;
-	}
-	public void setIndex(boolean state) {
-		index = state;
-	}
-	public void setDictionary(boolean state) {
-		dictionary = state;
-	}
-	public void setDatabase(boolean state) {
-		database = state;
-	}
-	public void setKeyWordEngine(boolean state) {
-		keyWordEngine = state;
-	}
-	public void setSemanticEngine(boolean state) {
-		semanticEngine = state;
-	}
-	public void setManagement(boolean state) {
-		management = state;
+	public String getSystemBoot() {
+		File[] files = DAO.File.listFilesOfType(DAO.Paths.REPOSITORY.toString() + "dictionary/", ".txt");
+		return files.length > 0 ? "Was executed." : "error:\tIt was not executed.";
 	}
 	
+	public String getIndex() {
+		File[] files = DAO.File.listFilesOfType(DAO.Paths.REPOSITORY.toString() + "index/", "");
+		return files.length > 0 ? "Is created." : "error:\tNot created.";
+	}
+	
+	public String getDictionary() {
+		File[] files = DAO.File.listFilesOfType(DAO.Paths.REPOSITORY.toString() + "dictionary/index/", "");
+		return files.length > 0 ? "Is created." : "error:\tNot created.";
+	}
+	
+	public String getDatabase() {
+		Neo4j neo4jTest;
+		try {
+			neo4jTest = new Neo4j();
+			neo4jTest.disconnect();
+		} catch (DatabaseConnectionException e) {
+			return "error:\t" + e.getMessage();
+		}
+		
+		File[] files = DAO.File.listFilesOfType(DAO.Paths.REPOSITORY.toString() + "ann/", ".ann");
+		
+		return files.length > 0 ? "error:\tOutdated database." : "Database updated.";
+
+	}
+	
+	public String getKeyWordEngine() {
+		try {
+			SimpleSearch.simpleSearch("test");
+		} catch (Exception e) {
+			return "error:\tKeyword search is not operating.";
+		}
+		return "Keyword search is operating.";
+	}
+	
+	public String getSemanticEngine() {
+		String newQuery = null;
+		try {
+			newQuery = Syntactic.translateToCypherQuery("Pessoa--Grupo");
+		} catch (InvalidQueryException e) {
+		}
+		
+		try {
+			SemanticSearch.cypherSearchBolt(newQuery);
+			SemanticSearch.documentSearch(newQuery);
+			SemanticSearch.buscaCypherRest(newQuery);
+		} catch (Exception e) {
+			return "error:\tSemantic search is not operating.";
+		}
+		return "Semantic search is operating.";
+	}
+
 	
 	public void addAccess() {
 		while (blockAccessCount) {};

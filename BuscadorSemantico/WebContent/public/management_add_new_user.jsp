@@ -79,10 +79,22 @@
 			return false;
 		}
 	}
+	
+	function getIP() {
+		$(document).ready(function () {
+		    $.getJSON("http://jsonip.com/?callback=?", function (data) {
+		        console.log(data);
+		        
+		        $("input[id|='ip']").each(function (i, el) {
+		            el.value = data.ip;
+		        });
+		    });
+		});
+	}
 </script>
 
 </head>
-<body>
+<body onload="getIP();">
 	<!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -115,8 +127,7 @@
 
 						<form id="add_user_form" method="POST" action="ManagementAddNewUserPage?action=add_user"
 							onsubmit="return checkPassword();">
-
-
+							<input id="ip" name="ip" hidden="true">
 							<div align="center" style="width: 30%; margin: 0 auto;">
 								<div class="form-group">
 									<label for="name">Name:</label> <input type="text" onkeypress="$('#error').hide();"
