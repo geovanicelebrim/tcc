@@ -81,7 +81,13 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-
+	<%
+		Boolean accessed = (Boolean) request.getSession().getAttribute("accessed");
+		if (accessed == null) {
+			request.getSession().setAttribute("accessed", accessed);
+			util.Log.getInstance().addAccess();
+		}
+	%>
 
 	<div class="container">
 		<div class="row">
@@ -115,11 +121,11 @@
 								<h4 class="panel-title">
 									<a style="width: 100%; color: white;" class="btn btn-info" id="current_state" data-toggle="collapse" data-parent="#accordion"
 										href="#collapseOne"><span
-										class="glyphicon glyphicon-folder-close"> </span> Current
+										class="glyphicon glyphicon-list-alt"> </span> Current
 										state</a>
 								</h4>
 								
-								<div id="collapseOne" class="panel-collapse collapse in">
+								<div id="collapseOne" class="panel-collapse collapse">
 									<div class="panel-body">
 
 										<table class="table">
@@ -227,7 +233,7 @@
 								<h4 class="panel-title">
 									<a style="width: 100%; color: white;" class="btn btn-info" data-toggle="collapse" data-parent="#accordion"
 										href="#collapseThree" onclick="setTimeout(scrollTo('#collapseThree'), 3);"><span
-										class="glyphicon glyphicon-user"> </span> Activity record</a>
+										class="glyphicon glyphicon-tasks"> </span> Activity record</a>
 								</h4>
 								<div id="collapseThree" class="panel-collapse collapse">
 									<div class="panel-body">
@@ -315,7 +321,7 @@
 								<h4 class="panel-title">
 									<a style="width: 100%; color: white;" class="btn btn-info" data-toggle="collapse" data-parent="#accordion"
 										href="#collapseFour" onclick="setTimeout(scrollTo('#collapseFour'), 3);"><span
-										class="glyphicon glyphicon-file"> </span> Access</a>
+										class="glyphicon glyphicon-equalizer"> </span> Access</a>
 								</h4>
 								<div id="collapseFour" class="panel-collapse collapse">
 									<div class="panel-body">
