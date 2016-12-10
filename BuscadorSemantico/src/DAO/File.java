@@ -41,7 +41,7 @@ public class File {
 			String line = readFile.readLine();
 
 			while (line != null) {
-				text += "\n" + line;
+				text += line + "\n";
 				line = readFile.readLine();
 			}
 

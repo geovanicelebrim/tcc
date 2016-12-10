@@ -46,78 +46,44 @@ public class ResultsPage extends HttpServlet {
 	private void processRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException {
 
-		String query = null;
-		String searchType = null;
-
-		try {
-
-			String queryString = java.net.URLDecoder.decode(
-					request.getQueryString(), "UTF-8");
+		String viewDoc = request.getParameter("viewDoc");
+		
+		if(viewDoc != null) {
+			String text = null, beginSlice = null, endSlice = null;
+	
+			beginSlice = request.getParameter("beginSlice");		
+			endSlice = request.getParameter("endSlice");
 			
-			if (queryString.split("viewDoc=").length > 1) {
-				String text = null, name = null, beginSlice = null, endSlice = null;
-
-				if (request.getQueryString().contains("&beginSlice=")) {
-					name = java.net.URLDecoder.decode(request.getQueryString()
-							.split("&beginSlice=")[0].substring(8, request
-							.getQueryString().split("&beginSlice=")[0].length()),
-							"UTF-8");
-
-					beginSlice = java.net.URLDecoder.decode(request.getQueryString()
-							.split("&beginSlice=")[1].substring(0, request
-							.getQueryString().split("&beginSlice=")[1].split("&endSlice")[0].length()),
-							"UTF-8");
-					endSlice = java.net.URLDecoder.decode(request.getQueryString()
-							.split("&endSlice=")[1].substring(0, request
-							.getQueryString().split("&endSlice=")[1].length()),
-							"UTF-8");
-				} else {
-					name = java.net.URLDecoder.decode(request.getQueryString()
-							.split("&beginSlice=")[0].substring(8, request
-							.getQueryString().split("&beginSlice=")[0].length()),
-							"UTF-8");
-				}
-				
-				
-				text = File.readPrefixedFile(name);
-
-				//TODO acrescentar título e autor para a função de citar
-				//TODO remover o "replace" do nome futuramente 
-				request.setAttribute("title", name.split(".txt")[0].replace("-", " ").replaceAll("[0-9]*", ""));
-				request.setAttribute("text", text);
-				
-				if(beginSlice != null && endSlice != null) {
-					request.setAttribute("beginSlice", Integer.parseInt(beginSlice));
-					request.setAttribute("endSlice", Integer.parseInt(endSlice));
-				}
-
-				gotoDocument(request, response);
-				return;
-			} else {
-				throw new ErrorFileException("access", getClass().getName());
+			try {
+				text = File.readPrefixedFile(viewDoc);
+			} catch (ErrorFileException e) {
+				String ip = (String) request.getParameter("ip");
+				util.Log.getInstance().addSystemEntry(ip, e.toString());
 			}
-
-		} catch (Exception e) {
-			String ip = (String) request.getParameter("ip");
-			util.Log.getInstance().addSystemEntry(ip, e.toString());
+	
+			//TODO acrescentar título e autor para a função de citar
+			//TODO remover o "replace" do nome futuramente 
+			request.setAttribute("title", viewDoc.split(".txt")[0].replace("-", " ").replaceAll("[0-9]*", ""));
+			request.setAttribute("text", text);
+			
+			if(beginSlice != null && endSlice != null) {
+				request.setAttribute("beginSlice", Integer.parseInt(beginSlice));
+				request.setAttribute("endSlice", Integer.parseInt(endSlice));
+			}
+	
+			gotoDocument(request, response);
+			return;
 		}
 
-		try {
-			String queryString = java.net.URLDecoder.decode(
-					request.getQueryString(), "UTF-8");
+		String query = null;
+		String searchMode = null;
+		
+		query = (String) request.getParameter("search-query");
+		searchMode = (String) request.getParameter("search-mode");
 
-			query = queryString.split("&search-mode=")[0].split("query=")[1];
+		if (searchMode != null) {
 
-			searchType = queryString.split("&search-mode=")[1];
-
-		} catch (Exception e) {
-			String ip = (String) request.getParameter("ip");
-			util.Log.getInstance().addSystemEntry(ip, e.toString());
-		}
-
-		if (searchType != null) {
-
-			switch (searchType) {
+			switch (searchMode) {
 			case "normal":
 				if (query != null) {
 
@@ -183,7 +149,6 @@ public class ResultsPage extends HttpServlet {
 				}
 				break;
 			}
-
 		}
 	}
 
