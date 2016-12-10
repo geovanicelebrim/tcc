@@ -323,7 +323,13 @@
 	<!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-	
+	<%
+		Boolean accessed = (Boolean) request.getSession().getAttribute("accessed");
+		if (accessed == null) {
+			request.getSession().setAttribute("accessed", accessed);
+			util.Log.getInstance().addAccess();
+		}
+	%>	
 	<%
 			String errorMessage = (String) request.getAttribute("errorMessage");
 				if (errorMessage != null) {

@@ -110,6 +110,13 @@
         <![endif]-->
 	
 	<%
+		Boolean accessed = (Boolean) request.getSession().getAttribute("accessed");
+		if (accessed == null) {
+			request.getSession().setAttribute("accessed", accessed);
+			util.Log.getInstance().addAccess();
+		}
+	%>
+	<%
 			String errorMessage = (String) request.getAttribute("errorMessage");
 				if (errorMessage != null) {
 			out.println("<script LANGUAGE=\"JavaScript\" type=\"text/javascript\">");
@@ -266,6 +273,18 @@
 										<br>
 								<% 	}
 								} %>
+						
+							<div align="center">
+								<ul class="pagination">
+								    <li><a style="cursor:not-allowed" >&laquo;</a></li>
+								    <li><a href="#">1</a></li>
+								    <li><a href="#">2</a></li>
+								    <li><a href="#">3</a></li>
+								    <li><a href="#">4</a></li>
+								    <li><a href="#">5</a></li>
+								    <li><a href="#">&raquo;</a></li>
+								</ul>
+							</div>
 						</div>
 						
 						<%

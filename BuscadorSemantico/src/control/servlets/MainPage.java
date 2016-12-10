@@ -132,22 +132,8 @@ public class MainPage extends HttpServlet {
 				break;
 			}
 		}
-		gotoIndex(request, response);
 	}
-	
-	private void gotoIndex(HttpServletRequest request,
-			HttpServletResponse response) {
 
-		RequestDispatcher rd = null;
-		rd = request.getRequestDispatcher("public/index.jsp");
-
-		try {
-			rd.forward(request, response);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
 	/**
 	 * Redireciona para a pagina de resultados semânticos.
 	 * 
