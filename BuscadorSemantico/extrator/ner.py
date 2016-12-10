@@ -71,7 +71,7 @@ def ner(fileName):
 
 	parseToAnn(nerProcessOutput, fileName)
 
-parser = argparse.ArgumentParser(description='ner')
+parser = argparse.ArgumentParser(description='Named Entity Extractor')
 
 parser.add_argument('-nlp', '--opennlp', help='path to the opennlp lib', required=True)
 parser.add_argument('-m', '--model', help='path to the tokenNameFinder model', required=True)
@@ -80,12 +80,11 @@ parser.add_argument('-d', '--dir', help='path to a dir', required=False)
 
 args = vars(parser.parse_args())
 
-help = 'help'
-
 opennlpExecutablePath = args['opennlp'].strip()
 
 if not os.path.isfile(opennlpExecutablePath):
-	print(help)
+	print('error: opennlp lib is not a file!')
+	print(parser.print_usage())
 	sys.exit(0)
 else:
 	opennlpExecutablePath = os.path.abspath(opennlpExecutablePath)
@@ -93,7 +92,8 @@ else:
 modelPath = args['model'].strip()
 
 if not os.path.isfile(modelPath):
-	print(help)
+	print('error: model is not a file!')
+	print(parser.print_usage())
 	sys.exit(0)
 else:
 	modelPath = os.path.abspath(modelPath)
@@ -109,7 +109,8 @@ if dirPath is not None and os.path.isdir(dirPath):
 			files.append(os.path.abspath(os.path.join(dirPath, fileName)))
 
 	if len(files) == 0:
-		print(help)
+		print('error: there are no text files in the given dir!')
+		print(parser.print_usage())
 		sys.exit(0)
 	else:
 		for fileName in files:
@@ -122,5 +123,6 @@ elif filePath is not None and os.path.isfile(filePath) and filePath.endswith('.t
 	ner(filePath)
 
 else:
-	print(help)
+	print('error: either dir/file param not given or the text file provided in the -f/--file param is not valid!')
+	print(parser.print_usage())
 	sys.exit(0)
