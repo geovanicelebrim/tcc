@@ -12,142 +12,24 @@
 <title>Semantic Search</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="apple-touch-icon" href="./public/icons/apple-touch-icon.png">
+
 <link href="./public/icons/icon.png" rel="shortcut icon">
 
 <link rel="stylesheet" href="./public/css/bootstrap.min.css">
 <link rel="stylesheet" href="./public/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="./public/css/main.css">
+<link rel="stylesheet" href="./public/css/login.css">
 
-<!--[if lt IE 9]>
-            <script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
-        <![endif]-->
-
-
-<link rel="stylesheet"
-	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="./public/js/search/autocomplete.js"></script>
 <script src="./public/js/search/mobile.js"></script>
 
-<style>
-/* Full-width input fields */
-.in {
-	max-width:100%;
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
+<!--[if lt IE 9]>
+	<script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
+<![endif]-->
 
-/* Set a style for all buttons */
-.btnPer {
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-/* Center the image and position the close button */
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-    position: relative;
-}
-
-img.avatar {
-    width: 20%;
-    border-radius: 20%;
-}
-
-span.psw {
-    float: right;
-    padding-top: 16px;
-}
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: relative; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 7%;
-}
-
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    
-}
-
-@media ( min-width : 1px) {
-	.modal-content {
-		width: 90%;
-	}
-}
-
-@media ( min-width : 25em) {
-	.modal-content {
-		width: 25em;
-	}
-}
-
-/* The Close Button (x) */
-.close {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: red;
-    cursor: pointer;
-}
-
-/* Add Zoom Animation */
-.animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)} 
-    to {-webkit-transform: scale(1)}
-}
-    
-@keyframes animatezoom {
-    from {transform: scale(0)} 
-    to {transform: scale(1)}
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-    .cancelbtn {
-       width: 100%;
-    }
-}
-</style>
 
 <script type="text/javascript">
 function validateEmail(idEmail) {
@@ -180,7 +62,7 @@ function getIP() {
 	<!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    
+    	
 		<%
 			Boolean accessed = (Boolean) request.getSession().getAttribute("accessed");
 			if (accessed == null) {

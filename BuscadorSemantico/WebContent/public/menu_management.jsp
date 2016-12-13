@@ -1,7 +1,7 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if lt IE 7]>  <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
 <%@page import="java.util.ArrayList"%>
 <%@page import="entity.User"%>
@@ -13,126 +13,46 @@
 <title>Menu Management</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="apple-touch-icon" href="./public/icons/apple-touch-icon.png">
+
 <link href="./public/icons/icon.png" rel="shortcut icon">
 
 <link rel="stylesheet" href="./public/css/bootstrap.min.css">
 <link rel="stylesheet" href="./public/css/bootstrap.css">
 <link rel="stylesheet" href="./public/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="./public/css/main.css">
+<link rel="stylesheet" href="./public/css/management.css">
 
 <!--[if lt IE 9]>
-            <script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
-        <![endif]-->
+	<script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
+<![endif]-->
 
-
-<link rel="stylesheet"
-	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <!-- Include Required Prerequisites -->
-<script type="text/javascript"
-	src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
-<script type="text/javascript"
-	src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
-
-<style type="text/css">
-div.card {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
-		rgba(0, 0, 0, 0.19);
-	text-align: center;
-}
-
-div.header {
-	/* background-color: #b3d1ff; */
-	color: white;
-	padding: 10px;
-	font-size: 40px;
-}
-
-@media ( min-width : 1px) {
-	div.card {
-		width: 10em;
-	}
-	h1 {
-		font-size: 32%;
-	}
-	div.header {
-		width: 3.5em;
-	}
-}
-
-@media ( min-width : 480px) {
-	div.card {
-		width: 15em;
-	}
-	h1 {
-		font-size: 45%;
-	}
-	div.header {
-		width: 5.25em;
-	}
-}
-
-@media ( min-width : 768px) {
-	div.card {
-		width: 20em;
-	}
-	h1 {
-		font-size: 60%;
-	}
-	div.header {
-		width: 7em;
-	}
-}
-
-@media ( min-width : 992px) {
-	div.card {
-		width: 30em;
-	}
-	div.header {
-		width: 10.5em;
-	}
-}
-
-.glyphicon-refresh-animate {
-    -animation: spin 1.5s infinite linear;
-    -webkit-animation: spin2 1.5s infinite linear;
-}
-
-@-webkit-keyframes spin2 {
-    from { -webkit-transform: rotate(0deg);}
-    to { -webkit-transform: rotate(360deg);}
-}
-
-@keyframes spin {
-    from { transform: scale(1) rotate(0deg);}
-    to { transform: scale(1) rotate(360deg);}
-}
-
-</style>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
 
 <script type="text/javascript">
 function getIP() {
 	$(document).ready(function () {
-	    $.getJSON("http://jsonip.com/?callback=?", function (data) {
-	        console.log(data);
-	        
-	        $("input[id|='ip']").each(function (i, el) {
-	            el.value = data.ip;
-	        });
-	    });
+	$.getJSON("http://jsonip.com/?callback=?", function (data) {
+	console.log(data);
+	
+	$("input[id|='ip']").each(function (i, el) {
+	el.value = data.ip;
+	});
+	});
 	});
 }
 </script>
 </head>
 <body onload="getIP();">
 	<!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
 	<%
 		Boolean accessed = (Boolean) request.getSession().getAttribute("accessed");

@@ -5,9 +5,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.net.URLEncoder"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if lt IE 7]>  <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="">
 <!--<![endif]-->
@@ -20,7 +20,6 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<link rel="apple-touch-icon" href="public/icons/apple-touch-icon.png">
 	<link rel="shortcut icon" href="./public/icons/icon.png">
 	
 	<link rel="stylesheet" href="public/css/bootstrap.min.css">
@@ -36,81 +35,36 @@
 	<script type="text/javascript" src="public/js/results/util.js"></script>
 	
 	<!--[if lt IE 9]>
-	            <script src="public/js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
-	        <![endif]-->
+		<script src="public/js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
+	<![endif]-->
 	
-<style>
-	.container {
-		margin-right: auto;
-		margin-left: auto;
-		padding-left: 6px;
-		padding-right: 6px;
-	}
-	
-	.container:before,.container:after {
-		content: " ";
-		display: table;
-	}
-	
-	.container:after {
-		clear: both;
-	}
-	
-	@media ( min-width : 768px) {
-		.container {
-			width: 732px;
-		}
-	}
-	
-	@media ( min-width : 992px) {
-		.container {
-			width: 952px;
-		}
-	}
-	
-	@media ( min-width : 1200px) {
-		.container {
-			width: 1300px;
-		}
-	}
-	
-	#mynetwork {
-		height: 86vh;
-		width: 98%;
-		border: 1px solid lightgrey;
-	}
-	
-	p {
-		max-width: 700px;
-	}
-</style>
 
 	<script type="text/javascript">
 	function getIP() {
 		$(document).ready(function () {
-		    $.getJSON("http://jsonip.com/?callback=?", function (data) {
-		        console.log(data);
-		        
-		        $("input[id|='ip']").each(function (i, el) {
-		            el.value = data.ip;
-		        });
-		    });
+		$.getJSON("http://jsonip.com/?callback=?", function (data) {
+		console.log(data);
+		
+		$("input[id|='ip']").each(function (i, el) {
+		el.value = data.ip;
+		});
+		});
 		});
 	}
 	</script>	
 	<script type="text/javascript">
-	          window.onload = function() {
-	        	  document.activeElement.blur();
-	              scroll();
+	  window.onload = function() {
+		  document.activeElement.blur();
+	  scroll();
 	
-	              $(".scroll_to_tab").click(function () {
-	              	scroll();
-	              });
-	          }
+	  $(".scroll_to_tab").click(function () {
+	  	scroll();
+	  });
+	  }
 	</script>
 
 	<script type="text/javascript">
-	          function draw() {
+	  function draw() {
 				//Create graph in java web
 				<%Graph graph = (Graph) request.getAttribute("graph");%>
 				
@@ -275,7 +229,7 @@
 								color: '#f0a30a'
 							}
 						}
-	            	}
+		}
 				};
 				
 				//create nodes in java web
@@ -291,27 +245,27 @@
 							}%>
 				}];
 
-	            // create a network
-	           var containerIO = document.getElementById('mynetwork');
-	           var dataIO = {
-	              nodes: nodesIO,
-	              edges: edges
-	            };
+	// create a network
+	   var containerIO = document.getElementById('mynetwork');
+	   var dataIO = {
+	  nodes: nodesIO,
+	  edges: edges
+	};
 				
-	           <%if( graph != null) {%>
-	           			var networkIO = new vis.Network(containerIO, dataIO, optionsIO);
-	           		<%}%>
-	           /*//Dispara uma ação quando clica em um nó
-	           networkIO.on("click", function (params) {
+	   <%if( graph != null) {%>
+	   			var networkIO = new vis.Network(containerIO, dataIO, optionsIO);
+	   		<%}%>
+	   /*//Dispara uma ação quando clica em um nó
+	   networkIO.on("click", function (params) {
 					params.event = "[original event]";
 					//document.getElementById('eventSpan').innerHTML = '<h2>Click event:</h2>' + JSON.stringify(params, null, 4);
 					var text = JSON.stringify(params, null, 4);
 					obj = JSON.parse(text);
 					document.getElementById('eventSpan').innerHTML = '<h2>Click event:</h2>' + nodesIO.obj.nodes[0];
 					
-	           });*/
-	          }
-	        </script>
+	   });*/
+	  }
+	</script>
 	
 		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -321,8 +275,8 @@
 </head>
 <body style="padding-top: 40px;" onload="getIP();">
 	<!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
 	<%
 		Boolean accessed = (Boolean) request.getSession().getAttribute("accessed");
 		if (accessed == null) {
@@ -558,35 +512,35 @@
 					<div role="tabpanel" class="tab-pane fade" id="db_results">
 
 						<table class="table table-bordered table-hover">
-						    <thead align="center">
-						      <tr>
-						      	   <th class="text-center">Entity</th>
-						           <th class="text-center">Slice</th>
-						           <th class="text-center">Citations</th>
-						           <th class="text-center">Relations</th>
-						           <th class="text-center">Document</th>
-						       </tr>
-						    </thead>
-						    <tbody>
-						    <%
-						    	@SuppressWarnings("unchecked")
-						    	ArrayList<CypherResults> cypherResults = ((ArrayList<CypherResults>) request.getAttribute("cypherResults"));
-						    	
-						    	if (cypherResults != null) {
-						    		for(int i = 0; i < cypherResults.size(); i++) {
-						    			
-						    			out.println("<tr>");
-						    			out.println("<td class=\"text-center\" > " + cypherResults.get(i).getLabel() + " </td>");
+						<thead align="center">
+						  <tr>
+						  	   <th class="text-center">Entity</th>
+						   <th class="text-center">Slice</th>
+						   <th class="text-center">Citations</th>
+						   <th class="text-center">Relations</th>
+						   <th class="text-center">Document</th>
+						   </tr>
+						</thead>
+						<tbody>
+						<%
+							@SuppressWarnings("unchecked")
+							ArrayList<CypherResults> cypherResults = ((ArrayList<CypherResults>) request.getAttribute("cypherResults"));
+							
+							if (cypherResults != null) {
+								for(int i = 0; i < cypherResults.size(); i++) {
+									
+									out.println("<tr>");
+									out.println("<td class=\"text-center\" > " + cypherResults.get(i).getLabel() + " </td>");
 										out.println("<td class=\"text-center\" > " + cypherResults.get(i).getSlice() + " </td>");
-						    			out.println("<td class=\"text-center\" > " + cypherResults.get(i).getCitations() + " </td>");
-						    			out.println("<td class=\"text-center\" > " + cypherResults.get(i).getRelations() + " </td>");
-						    			out.println("<td class=\"text-center\" > " + cypherResults.get(i).getDocument() + " </td>");
-						    			out.println("</tr>");
+									out.println("<td class=\"text-center\" > " + cypherResults.get(i).getCitations() + " </td>");
+									out.println("<td class=\"text-center\" > " + cypherResults.get(i).getRelations() + " </td>");
+									out.println("<td class=\"text-center\" > " + cypherResults.get(i).getDocument() + " </td>");
+									out.println("</tr>");
 									}
-						    	}
-						    %>						       
+							}
+						%>						   
 
-						    </tbody>
+						</tbody>
 						</table>
 						
 						<%

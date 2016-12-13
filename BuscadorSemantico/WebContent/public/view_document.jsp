@@ -24,20 +24,19 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<link rel="apple-touch-icon" href="public/icons/apple-touch-icon.png">
-	<link rel="shortcut icon" href="public/icons/icon.png">
+	<link rel="shortcut icon" href="./public/icons/icon.png">
 	
-	<link rel="stylesheet" href="public/css/bootstrap.min.css">
-	<link rel="stylesheet" href="public/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="public/css/main.css">
-	<link rel="stylesheet" href="public/css/util.css">
-	<link rel="stylesheet" href="public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="public/fonts/font-awesome-4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="./public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./public/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="./public/css/main.css">
+	<link rel="stylesheet" href="./public/css/util.css">
+	<link rel="stylesheet" href="./public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./public/fonts/font-awesome-4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	
 	<script src="https://code.jquery.com/jquery-1.12.1.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script type="text/javascript" src="public/js/viewDocument/actions.js"></script>
+	<script type="text/javascript" src="./public/js/viewDocument/actions.js"></script>
 	
 	<!--[if lt IE 9]>
 		<script src="public/js/vendor/html5-3.6-respond-1.4.2.min.js"></script>

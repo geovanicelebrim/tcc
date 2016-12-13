@@ -1,7 +1,7 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if lt IE 7]>  <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
 <%@page import="java.util.ArrayList"%>
 <html class="no-js" lang="">
@@ -12,7 +12,7 @@
 <title>Add New Files</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="apple-touch-icon" href="./public/icons/apple-touch-icon.png">
+
 <link href="./public/icons/icon.png" rel="shortcut icon">
 
 <link rel="stylesheet" href="./public/css/bootstrap.min.css">
@@ -21,30 +21,22 @@
 <link rel="stylesheet" href="./public/css/main.css">
 
 <!--[if lt IE 9]>
-            <script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
-        <![endif]-->
+	<script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
+<![endif]-->
 
 
-<link rel="stylesheet"
-	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <!-- Include Required Prerequisites -->
-<script type="text/javascript"
-	src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
-<script type="text/javascript"
-	src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
 
 <!-- Include Date Range Picker -->
-<script type="text/javascript"
-	src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-
-
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 
 <script type="text/javascript">
 
@@ -105,30 +97,30 @@ var file2 = false;
 	function showIndexer() {
 		$('.nav-tabs a[href="#indexer_file"]').tab('show');
 		$('.nav li').not('.active').addClass('disabled');
-	    $('.nav li').not('.active').find('a').removeAttr("data-toggle");
+	$('.nav li').not('.active').find('a').removeAttr("data-toggle");
 	}
 	
 	function showImport() {
 		$('.nav-tabs a[href="#import_database"]').tab('show');
 		$('.nav li').not('.active').addClass('disabled');
-	    $('.nav li').not('.active').find('a').removeAttr("data-toggle");
+		$('.nav li').not('.active').find('a').removeAttr("data-toggle");
 	}
 	
 	$(document).ready(function() {
-	    /*disable non active tabs*/
-	    $('.nav li').not('.active').addClass('disabled');
-	    $('.nav li').not('.active').find('a').removeAttr("data-toggle");
-	    
-	    $('gotoIndexer').click(function(){
-	        /*enable next tab*/
-	        $('.nav li.active').next('li').removeClass('disabled');
-	        $('.nav li.active').next('li').find('a').attr("data-toggle","tab")
-	    });
-	    $('gotoImport').click(function(){
-	        /*enable next tab*/
-	        $('.nav li.active').next('li').removeClass('disabled');
-	        $('.nav li.active').next('li').find('a').attr("data-toggle","tab")
-	    });
+		/*disable non active tabs*/
+		$('.nav li').not('.active').addClass('disabled');
+		$('.nav li').not('.active').find('a').removeAttr("data-toggle");
+	
+		$('gotoIndexer').click(function(){
+			/*enable next tab*/
+			$('.nav li.active').next('li').removeClass('disabled');
+			$('.nav li.active').next('li').find('a').attr("data-toggle","tab")
+		});
+		$('gotoImport').click(function(){
+			/*enable next tab*/
+			$('.nav li.active').next('li').removeClass('disabled');
+			$('.nav li.active').next('li').find('a').attr("data-toggle","tab")
+		});
 	});
 	
 	
@@ -152,13 +144,13 @@ var file2 = false;
 	
 	function getIP() {
 		$(document).ready(function () {
-		    $.getJSON("http://jsonip.com/?callback=?", function (data) {
-		        console.log(data);
-		        
-		        $("input[id|='ip']").each(function (i, el) {
-		            el.value = data.ip;
-		        });
-		    });
+			$.getJSON("http://jsonip.com/?callback=?", function (data) {
+				console.log(data);
+
+				$("input[id|='ip']").each(function (i, el) {
+					el.value = data.ip;
+				});
+			});
 		});
 	}
 </script>
@@ -166,8 +158,8 @@ var file2 = false;
 </head>
 <body onload="getIP();">
 	<!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
 
 	<%
 		Boolean accessed = (Boolean) request.getSession().getAttribute("accessed");
@@ -275,8 +267,6 @@ var file2 = false;
 								ArrayList<String> files = (ArrayList<String>) request.getSession().getAttribute("files");
 								if(files != null) {
 									for(String file : files) {
-										
-								
 							%>
 								<div style="padding: 5px 15px 0 15px; ">
 									<div class="alert-success">
@@ -330,49 +320,49 @@ var file2 = false;
 						</div>
 						<div align="center">
 							<form id="index_file_form" method="POST" action="ManagementAddNewFilePage?action=index">
-							<input id="ip" name="ip" hidden="true">
-							<select id="selectBoxIndexer" name="selectBoxIndexer" onchange="changeFuncIndexer();" class="form-control text-center" style="width: 15em;">
-								<option value="execute" selected>Execute indexing now</option>
-								<option value="schedule">Schedule indexing</option>
-							</select>
+								<input id="ip" name="ip" hidden="true">
+								<select id="selectBoxIndexer" name="selectBoxIndexer" onchange="changeFuncIndexer();" class="form-control text-center" style="width: 15em;">
+									<option value="execute" selected>Execute indexing now</option>
+									<option value="schedule">Schedule indexing</option>
+								</select>
 							
-							<script type="text/javascript">
-
-								function changeFuncIndexer() {
-									var selectBox = document.getElementById("selectBoxIndexer");
-									var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-									var div = document.getElementById('dateIndexer');
-									if(selectedValue == "schedule") {
-										div.style.display = 'block';
-									} else {
-										div.style.display = 'none';
-									}
-								}
-							
-							</script>
-							
-							<div id="dateIndexer" hidden="true"> <br>
-								<input class="form-control text-center" type="text"
-									name="birthdateIndexer" value="" style="width: 8em;" />
-	
 								<script type="text/javascript">
-								
-								$(function() {
-								    $('input[name="birthdateIndexer"]').daterangepicker({
-								        singleDatePicker: true,
-								        showDropdowns: true
-								    }, 
-								    function(start, end, label) {
-								        var years = moment().diff(start, 'years');
-								    });
-								});
-								</script>
-							</div>
 
-							<div align="center">
-								<br> <input class="btn btn-primary" id="gotoImport" onclick="showImport();"
-									value="Next Step" type="submit" />
-							</div>
+									function changeFuncIndexer() {
+										var selectBox = document.getElementById("selectBoxIndexer");
+										var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+										var div = document.getElementById('dateIndexer');
+										if(selectedValue == "schedule") {
+											div.style.display = 'block';
+										} else {
+											div.style.display = 'none';
+										}
+									}
+							
+								</script>
+							
+								<div id="dateIndexer" hidden="true"> <br>
+									<input class="form-control text-center" type="text"
+										name="birthdateIndexer" value="" style="width: 8em;" />
+	
+									<script type="text/javascript">
+									
+										$(function() {
+											$('input[name="birthdateIndexer"]').daterangepicker({
+												singleDatePicker: true,
+												showDropdowns: true
+											}, 
+											function(start, end, label) {
+												var years = moment().diff(start, 'years');
+											});
+										});
+									</script>
+								</div>
+
+								<div align="center">
+									<br> <input class="btn btn-primary" id="gotoImport" onclick="showImport();"
+										value="Next Step" type="submit" />
+								</div>
 							</form>
 						</div>
 
@@ -385,50 +375,50 @@ var file2 = false;
 						</div>
 						<div align="center">
 							<form id="import_file_form" method="POST" action="ManagementAddNewFilePage?action=import">
-							<input id="ip" name="ip" hidden="true">
-							<select id="selectBoxImport" name="selectBoxImport" onchange="changeFuncImport();" class="form-control text-center" style="width: 15em;">
-								<option value="execute" selected>Execute import now</option>
-								<option value="schedule">Schedule import</option>
-							</select>
-							
-							<script type="text/javascript">
-
-								function changeFuncImport() {
-									var selectBox = document.getElementById("selectBoxImport");
-									var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-									var div = document.getElementById('dateImport');
-									if(selectedValue == "schedule") {
-										div.style.display = 'block';
-									} else {
-										div.style.display = 'none';
-									}
-								}
-							
-							</script>
-							
-							<div id="dateImport" hidden="true"> <br>
-								<input class="form-control text-center" type="text"
-									name="birthdateImport" value="" style="width: 8em;" />
-	
-								<script type="text/javascript">
+								<input id="ip" name="ip" hidden="true">
+								<select id="selectBoxImport" name="selectBoxImport" onchange="changeFuncImport();" class="form-control text-center" style="width: 15em;">
+									<option value="execute" selected>Execute import now</option>
+									<option value="schedule">Schedule import</option>
+								</select>
 								
-								$(function() {
-								    $('input[name="birthdateImport"]').daterangepicker({
-								        singleDatePicker: true,
-								        showDropdowns: true
-								    }, 
-								    function(start, end, label) {
-								        var years = moment().diff(start, 'years');
-								    });
-								});
+								<script type="text/javascript">
+	
+									function changeFuncImport() {
+										var selectBox = document.getElementById("selectBoxImport");
+										var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+										var div = document.getElementById('dateImport');
+										if(selectedValue == "schedule") {
+											div.style.display = 'block';
+										} else {
+											div.style.display = 'none';
+										}
+									}
+								
 								</script>
-							</div>
-
-
-							<div align="center">
-								<br> <input class="btn btn-primary" type="submit"
-									value="Conclude" name="conclude" id="conclude" />
-							</div>
+								
+								<div id="dateImport" hidden="true"> <br>
+									<input class="form-control text-center" type="text"
+										name="birthdateImport" value="" style="width: 8em;" />
+		
+									<script type="text/javascript">
+									
+										$(function() {
+											$('input[name="birthdateImport"]').daterangepicker({
+												singleDatePicker: true,
+												showDropdowns: true
+											}, 
+											function(start, end, label) {
+												var years = moment().diff(start, 'years');
+											});
+										});
+									</script>
+								</div>
+	
+	
+								<div align="center">
+									<br> <input class="btn btn-primary" type="submit"
+										value="Conclude" name="conclude" id="conclude" />
+								</div>
 							</form>
 						</div>
 					</div>

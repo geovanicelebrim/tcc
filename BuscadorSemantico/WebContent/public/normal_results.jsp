@@ -3,9 +3,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.net.URLEncoder"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if lt IE 7]>  <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="">
 <!--<![endif]-->
@@ -18,7 +18,6 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<link rel="apple-touch-icon" href="public/icons/apple-touch-icon.png">
 	<link rel="shortcut icon" href="./public/icons/icon.png">
 	
 	<link rel="stylesheet" href="public/css/bootstrap.min.css">
@@ -28,55 +27,19 @@
 	<script type="text/javascript" src="public/js/results/util.js"></script>
 	
 	<!--[if lt IE 9]>
-	            <script src="public/js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
-	        <![endif]-->
+	<script src="public/js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
+	<![endif]-->
 	
-<style>
-	.container {
-		margin-right: auto;
-		margin-left: auto;
-		padding-left: 6px;
-		padding-right: 6px;
-	}
-	
-	.container:before,.container:after {
-		content: " ";
-		display: table;
-	}
-	
-	.container:after {
-		clear: both;
-	}
-	
-	@media ( min-width : 768px) {
-		.container {
-			width: 732px;
-		}
-	}
-	
-	@media ( min-width : 992px) {
-		.container {
-			width: 952px;
-		}
-	}
-	
-	@media ( min-width : 1200px) {
-		.container {
-			width: 1300px;
-		}
-	}
-
-</style>
 	<script type="text/javascript">
 	function getIP() {
 		$(document).ready(function () {
-		    $.getJSON("http://jsonip.com/?callback=?", function (data) {
-		        console.log(data);
-		        
-		        $("input[id|='ip']").each(function (i, el) {
-		            el.value = data.ip;
-		        });
-		    });
+		$.getJSON("http://jsonip.com/?callback=?", function (data) {
+		console.log(data);
+		
+		$("input[id|='ip']").each(function (i, el) {
+		el.value = data.ip;
+		});
+		});
 		});
 	}
 	</script>
@@ -88,14 +51,14 @@
 		if (simpleResults != null && simpleResults.size() > 0) {
 	%>
 	<script type="text/javascript">
-	          window.onload = function() {
-	        	  document.activeElement.blur();
-	              scroll();
+	  window.onload = function() {
+		  document.activeElement.blur();
+	  scroll();
 	
-	              $(".scroll_to_tab").click(function () {
-	              	scroll();
-	              });
-	          }
+	  $(".scroll_to_tab").click(function () {
+	  	scroll();
+	  });
+	  }
 	</script>
 	<%} %>
 		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -107,8 +70,8 @@
 
 <body style="padding-top: 40px;" onload="getIP();">
 	<!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
 	
 	<%
 		Boolean accessed = (Boolean) request.getSession().getAttribute("accessed");

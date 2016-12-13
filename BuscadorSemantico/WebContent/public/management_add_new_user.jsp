@@ -1,7 +1,7 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if lt IE 7]>  <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
 <%@page import="java.util.ArrayList"%>
 <html class="no-js" lang="">
@@ -12,7 +12,7 @@
 <title>Add New User</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="apple-touch-icon" href="./public/icons/apple-touch-icon.png">
+
 <link href="./public/icons/icon.png" rel="shortcut icon">
 
 <link rel="stylesheet" href="./public/css/bootstrap.min.css">
@@ -21,8 +21,8 @@
 <link rel="stylesheet" href="./public/css/main.css">
 
 <!--[if lt IE 9]>
-            <script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
-        <![endif]-->
+<script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
+<![endif]-->
 
 
 <link rel="stylesheet"
@@ -49,20 +49,20 @@
 <script type="text/javascript">
 
 	$(document).ready(function() {
-	    /*disable non active tabs*/
-	    $('.nav li').not('.active').addClass('disabled');
-	    $('.nav li').not('.active').find('a').removeAttr("data-toggle");
-	    
-	    $('gotoIndexer').click(function(){
-	        /*enable next tab*/
-	        $('.nav li.active').next('li').removeClass('disabled');
-	        $('.nav li.active').next('li').find('a').attr("data-toggle","tab")
-	    });
-	    $('gotoImport').click(function(){
-	        /*enable next tab*/
-	        $('.nav li.active').next('li').removeClass('disabled');
-	        $('.nav li.active').next('li').find('a').attr("data-toggle","tab")
-	    });
+	/*disable non active tabs*/
+	$('.nav li').not('.active').addClass('disabled');
+	$('.nav li').not('.active').find('a').removeAttr("data-toggle");
+	
+	$('gotoIndexer').click(function(){
+	/*enable next tab*/
+	$('.nav li.active').next('li').removeClass('disabled');
+	$('.nav li.active').next('li').find('a').attr("data-toggle","tab")
+	});
+	$('gotoImport').click(function(){
+	/*enable next tab*/
+	$('.nav li.active').next('li').removeClass('disabled');
+	$('.nav li.active').next('li').find('a').attr("data-toggle","tab")
+	});
 	});
 	
 	function checkPassword() {
@@ -82,13 +82,13 @@
 	
 	function getIP() {
 		$(document).ready(function () {
-		    $.getJSON("http://jsonip.com/?callback=?", function (data) {
-		        console.log(data);
-		        
-		        $("input[id|='ip']").each(function (i, el) {
-		            el.value = data.ip;
-		        });
-		    });
+		$.getJSON("http://jsonip.com/?callback=?", function (data) {
+		console.log(data);
+		
+		$("input[id|='ip']").each(function (i, el) {
+		el.value = data.ip;
+		});
+		});
 		});
 	}
 </script>
@@ -96,8 +96,8 @@
 </head>
 <body onload="getIP();">
 	<!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
 
 	<%
 		Boolean accessed = (Boolean) request.getSession().getAttribute("accessed");
