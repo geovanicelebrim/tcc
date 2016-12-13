@@ -177,17 +177,26 @@ public class Log {
 	
 	public String getSystemBoot() {
 		File[] files = DAO.File.listFilesOfType(DAO.Paths.REPOSITORY.toString() + "dictionary/", ".txt");
-		return files.length > 0 ? "Was executed." : "error:\tIt was not executed.";
+		if(files != null)
+			return files.length > 0 ? "Was executed." : "error:\tIt was not executed.";
+		else
+			return "error:\tIt was not executed.";
 	}
 	
 	public String getIndex() {
 		File[] files = DAO.File.listFilesOfType(DAO.Paths.REPOSITORY.toString() + "index/", "");
-		return files.length > 0 ? "Is created." : "error:\tNot created.";
+		if(files != null)
+			return files.length > 0 ? "Is created." : "error:\tNot created.";
+		else
+			return "error:\tNot created.";
 	}
 	
 	public String getDictionary() {
 		File[] files = DAO.File.listFilesOfType(DAO.Paths.REPOSITORY.toString() + "dictionary/index/", "");
-		return files.length > 0 ? "Is created." : "error:\tNot created.";
+		if (files != null)
+			return files.length > 0 ? "Is created." : "error:\tNot created.";
+		else
+			return "error:\tNot created.";
 	}
 	
 	public String getDatabase() {
@@ -200,8 +209,10 @@ public class Log {
 		}
 		
 		File[] files = DAO.File.listFilesOfType(DAO.Paths.REPOSITORY.toString() + "ann/", ".ann");
-		
-		return files.length > 0 ? "error:\tOutdated database." : "Database updated.";
+		if(files != null)
+			return files.length > 0 ? "error:\tOutdated database." : "Database updated.";
+		else
+			return "Database updated.";
 
 	}
 	
@@ -217,12 +228,12 @@ public class Log {
 	public String getSemanticEngine() {
 		String newQuery = null;
 		try {
-			newQuery = Syntactic.translateToCypherQuery("Pessoa--Grupo");
+			newQuery = Syntactic.translateToCypherQuery("Pessoa");
 		} catch (InvalidQueryException e) {
 		}
 		
 		try {
-			SemanticSearch.cypherSearchBolt(newQuery);
+			if(SemanticSearch.cypherSearchBolt(newQuery).size() == 0) { return "error:\tThe database is empty."; }
 			SemanticSearch.documentSearch(newQuery);
 			SemanticSearch.buscaCypherRest(newQuery);
 		} catch (Exception e) {
