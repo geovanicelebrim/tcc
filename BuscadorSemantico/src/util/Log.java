@@ -121,7 +121,7 @@ public class Log {
 		try {
 			logSystem = DAO.File.readLinesFile(pathLogSystem);
 		} catch (IOException e) {
-			e.printStackTrace();
+			logSystem = new ArrayList<>();
 		}
 		
 		blockSystem = false;
@@ -140,7 +140,7 @@ public class Log {
 		try {
 			logManagement = DAO.File.readLinesFile(pathLogManagement);
 		} catch (IOException e) {
-			e.printStackTrace();
+			logManagement = new ArrayList<>();
 		}
 		blockManagement = false;
 		
@@ -247,7 +247,7 @@ public class Log {
 		try {
 			accessCountList = DAO.File.readLinesFile(pathAccessCount);
 		} catch (IOException e) {
-			e.printStackTrace();
+			accessCountList = new ArrayList<>();
 		}
 		blockAccessCount = false;
 		
