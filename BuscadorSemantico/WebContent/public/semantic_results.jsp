@@ -411,9 +411,23 @@
 							<%
 								@SuppressWarnings("unchecked")
 								ArrayList<DocumentResult> documentResults = (ArrayList<DocumentResult>) request.getAttribute("documentResults");
+								if (documentResults == null) { documentResults = new ArrayList<>(); }
+								
+								final Integer resultsPerPage = 10;
+								String cp = (String) request.getAttribute("page");
+								Integer currentPage;
+								try {
+									currentPage = Integer.parseInt(cp);
+								} catch (Exception e) {
+									currentPage = 0;
+								}
 
 								if (documentResults != null) {
-									for (int i = 0; i < documentResults.size(); i++) {
+									
+									int begin = resultsPerPage * currentPage;
+									int end = (begin + resultsPerPage) > documentResults.size() ? documentResults.size() : (begin + resultsPerPage);
+
+									for (int i = begin; i < end; i++) {
 							%>
 										<form id="<%out.print(i);%>"
 											action="ResultsPage?action=<%out.println(documentResults.get(i).getDocumentName());%>"
@@ -466,6 +480,70 @@
 																				}
 								%>
 						</div>
+						
+						<div align="center">
+							<ul class="pagination">
+							<%
+								//========================================================================
+								int nSeePage = 9;
+								if (currentPage == 0) {
+									%>
+										<li><a style="cursor:not-allowed" >&laquo;</a></li>
+									<%
+								} else {
+									%>
+										<li><a href="ResultsPage?<% out.print(request.getQueryString().replaceAll("&page=[0-9]*", "") + "&page=" + (currentPage - 1));%>">&laquo;</a></li>
+									<%
+								}
+								
+								//========================================================================
+								int nPage = (documentResults.size()%resultsPerPage) == 0 ? (documentResults.size()/resultsPerPage) : (documentResults.size()/resultsPerPage) + 1;
+								
+								int end = (currentPage + nSeePage/2) > nPage ? nPage : (currentPage + nSeePage/2);
+								int begin = (end - nSeePage) < 0 ? 0 : (end - nSeePage);
+								
+								/*
+								int begin = currentPage;
+								for (int i = nSeePage/2; i > 0; i--) {
+									if (currentPage - i > 0) {
+										begin = currentPage - i;
+										break;
+									}
+								} 
+								int end = (begin + nSeePage) > nPage ? nPage : (begin + nSeePage);
+								*/
+								if (!(begin < end)) { 
+									%>
+										<li class="active"><a>1</a></li> 
+									<%
+								}
+								for(int i = begin; i < end; i++) {
+									if(i == currentPage) {
+										%>
+											<li class="active"><a><%out.print(i+1);%></a></li>														
+										<%
+									} else {
+										String queryString = "ResultsPage?" + request.getQueryString().replaceAll("&page=[0-9]*", "") + "&page=" + i;
+										%>
+											<li><a href="<%out.print(queryString);%>"><%out.print(i+1);%></a></li>
+										<%
+									}
+								}
+								//========================================================================
+								
+								if (currentPage + 1 >= (documentResults.size()/resultsPerPage)) {
+									%>
+										<li><a style="cursor:not-allowed">&raquo;</a></li>
+									<%
+								} else {
+									%>
+										<li><a href="ResultsPage?<% out.print(request.getQueryString().replaceAll("&page=[0-9]*", "") + "&page=" + (currentPage + 1)); %>">&raquo;</a></li>
+									<%
+								}
+							%>
+							</ul>
+						</div>
+						
 						<%
 						if(documentResults != null) {
 							if(documentResults.size() < 3) {
@@ -512,17 +590,16 @@
 						</table>
 						
 						<%
-						int size = 0;
-						
-						if (cypherResults != null) {
-							size = cypherResults.size();
-						}
-						
-						if(size < 16) {
-							for(int i = size; i < 16; i++) { 
-								out.print("<br> <br>");
+							int size = 0;
+							if (cypherResults != null) {
+								size = cypherResults.size();
 							}
-						}
+							
+							if(size < 16) {
+								for(int i = size; i < 16; i++) { 
+									out.print("<br> <br>");
+								}
+							}
 						
 						%>												
 

@@ -91,22 +91,26 @@ public class ResultsPage extends HttpServlet {
 
 					ArrayList<SimpleResults> simpleResults = null;
 					String suggestion = null;
-					
-						try {
-							if(query.trim().length() == 0) {
-								throw new Exception("The query can not be empty.");
-							}
-							simpleResults = SimpleSearch.simpleSearch(query.trim());
-							if (simpleResults.size() == 0) {
-								suggestion = SimpleSearch.getSuggestion(query.trim());
-							}
-						} catch (Exception e) {
-							if (!e.getMessage().equals("1")) {
-								String ip = (String) request.getParameter("ip");
-								util.Log.getInstance().addSystemEntry(ip, "Normal Search: " + e);
-								request.setAttribute("errorMessage", e.getMessage());
-							}
+				
+					try {
+						if(query.trim().length() == 0) {
+							throw new Exception("The query can not be empty.");
 						}
+						simpleResults = SimpleSearch.simpleSearch(query.trim());
+						if (simpleResults.size() == 0) {
+							suggestion = SimpleSearch.getSuggestion(query.trim());
+						}
+					} catch (Exception e) {
+						if (!e.getMessage().equals("1")) {
+							String ip = (String) request.getParameter("ip");
+							util.Log.getInstance().addSystemEntry(ip, "Normal Search: " + e);
+							request.setAttribute("errorMessage", e.getMessage());
+						}
+					}
+					
+					String page = (String) request.getParameter("page");	
+					
+					request.setAttribute("page", page);
 					request.setAttribute("suggestion", suggestion);
 					request.setAttribute("simpleResults", simpleResults);
 
@@ -124,23 +128,26 @@ public class ResultsPage extends HttpServlet {
 					ArrayList<DocumentResult> documentResults = new ArrayList<>();
 					Graph graph = null;
 					
-						String newQuery;
-						try {
-							newQuery = Syntactic
-									.translateToCypherQuery(query);
-							cypherResults = SemanticSearch
-									.cypherSearchBolt(newQuery);
-							documentResults = SemanticSearch
-									.documentSearch(newQuery);
-							graph = SemanticSearch.buscaCypherRest(newQuery);
-						} catch (InvalidQueryException | DatabaseConnectionException | ErrorFileException e) {
-							if (!e.getMessage().equals("1")) {
-								String ip = (String) request.getParameter("ip");
-								util.Log.getInstance().addSystemEntry(ip, "Semantic Search: " + e);
-								request.setAttribute("errorMessage", e.getMessage());
-							}
+					String newQuery;
+					try {
+						newQuery = Syntactic
+								.translateToCypherQuery(query);
+						cypherResults = SemanticSearch
+								.cypherSearchBolt(newQuery);
+						documentResults = SemanticSearch
+								.documentSearch(newQuery);
+						graph = SemanticSearch.buscaCypherRest(newQuery);
+					} catch (InvalidQueryException | DatabaseConnectionException | ErrorFileException e) {
+						if (!e.getMessage().equals("1")) {
+							String ip = (String) request.getParameter("ip");
+							util.Log.getInstance().addSystemEntry(ip, "Semantic Search: " + e);
+							request.setAttribute("errorMessage", e.getMessage());
 						}
-
+					}
+					
+					String page = (String) request.getParameter("page");	
+					
+					request.setAttribute("page", page);
 					request.setAttribute("cypherResults", cypherResults);
 					request.setAttribute("documentResults", documentResults);
 					request.setAttribute("graph", graph);
