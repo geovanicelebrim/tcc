@@ -32,20 +32,16 @@
 	<link rel="stylesheet" href="./public/css/util.css">
 	<link rel="stylesheet" href="./public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="./public/fonts/font-awesome-4.7.0/css/font-awesome.css">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="./public/css/jquery-ui.css">
 	
-	<script src="https://code.jquery.com/jquery-1.12.1.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script type="text/javascript" src="./public/js/viewDocument/actions.js"></script>
-	
-	<!--[if lt IE 9]>
-		<script src="public/js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
-	<![endif]-->
-	
+	<script src="./public/js/jquery/jquery-1.12.4.js"></script>
+	<script src="./public/js/jquery/jquery-ui.js"></script>
+	<script src="./public/js/viewDocument/actions.js"></script>
+
 </head>
 
 <body>
-	<!--[if lt IE 8]>
+	<!--[if lt IE 10]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 	<%

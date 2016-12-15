@@ -26,6 +26,7 @@
 	<link rel="stylesheet" href="./public/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="./public/css/main.css">
 	<link rel="stylesheet" href="./public/css/results.css">
+	<link rel="stylesheet" href="./public/css/jquery-ui.css">
 	<link rel="stylesheet" href="./public/js/vis/dist/vis.css">
 	<link rel="stylesheet" href="./public/css/dataTables.bootstrap.min.css">
 	<link rel="stylesheet" href="./public/css/ionicons-2.0.1/css/ionicons.min.css">
@@ -34,226 +35,65 @@
 	<script src="./public/js/jquery/jquery-ui.js"></script>
 	<script src="./public/js/search/autocomplete.js"></script>
 	<script src="./public/js/results/util.js"></script>
+	<script src="./public/js/results/graph.js"></script>
 	<script src="./public/js/vendor/bootstrap.min.js"></script>
-	<script src="./public/js/vis/dist/vis.js"></script>
-	
+	<script src="./public/js/vis/dist/vis.js"></script>	
 	<script src="./public/js/jquery/jquery.dataTables.min.js"></script>	
 	<script src="./public/js/jquery/dataTables.bootstrap.min.js"></script>
 		
 	<script type="text/javascript">
-	          window.onload = function() {
-	        	  document.activeElement.blur();
-	              scroll();
-	
-	              $(".scroll_to_tab").click(function () {
-	              	scroll();
-	              });
-	          }
+		window.onload = function() {
+			document.activeElement.blur();
+			scroll();
+			$(".scroll_to_tab").click(function () {
+				scroll();
+			});
+		}
+
+		<%Graph graph = (Graph) request.getAttribute("graph");%>
+		var edges = [{
+			<%
+				if(graph != null) {
+					for (int i = 0; i < graph.getEdges().size(); i++) {
+						out.println("from: " + graph.getEdges().get(i).getFrom() + ",");
+						out.println("to: " + graph.getEdges().get(i).getTo());
+						
+						if( i + 1 != graph.getEdges().size()) {
+							out.println("}, {");
+						}
+					}
+				}
+			%>
+		}];
+		
+		var nodesIO = [{
+			<%
+				if( graph != null) {
+					for (int i = 0; i < graph.getVertices().size(); i++) {
+						out.println("id: " + graph.getVertices().get(i).getID() + ",");
+						out.println("label: '" + graph.getVertices().get(i).getSlice() + "',");
+						out.println("group: '" + graph.getVertices().get(i).getLabel() + "',");
+						
+						if ( i + 1 != graph.getVertices().size()) {
+							out.println("}, {");
+						}
+					}
+				}
+			%>
+		}];
+		
+		function draw() {
+			<%
+				if(graph != null && graph.getVertices().size() > 0) {
+			%>
+					drawGraph(edges, nodesIO);
+			<%
+				}
+			%>
+			
+		}
+		
 	</script>
-
-	<script type="text/javascript">
-	          function draw() {
-				//Create graph in java web
-				<%Graph graph = (Graph) request.getAttribute("graph");%>
-				
-				var edges = [{
-					<%if(graph != null)
-							for (int i = 0; i < graph.getEdges().size(); i++) {
-								out.println("from: " + graph.getEdges().get(i).getFrom() + ",");
-								out.println("to: " + graph.getEdges().get(i).getTo());
-								
-								if( i + 1 != graph.getEdges().size() )
-									out.println("}, {");
-							}%>
-				}];
-				//http://glyphsearch.com/?library=ionicons&copy=unicode-hexadecimal				
-				var optionsIO = {
-					interaction: {tooltipDelay: 400},
-					physics: {
-						interaction:{hover:true},
-						maxVelocity: 16,
-
-						solver: 'forceAtlas2Based',
-						timestep: 0.35,
-						stabilization: {
-							enabled:false,
-							iterations:2000,
-							updateInterval:25
-						}
-					},
-					groups: {
-						Grupo: {
-							shape: 'icon',
-							icon: {
-								face: 'Ionicons',
-								code: '\uf47c',
-								size: 50,
-								color: '#57169a'
-							}
-						},
-						Pessoa: {
-							shape: 'icon',
-							icon: {
-								face: 'Ionicons',
-								code: '\uf47e',
-								size: 50,
-								color: '#aa00ff'
-							}
-						},
-						Organizacao: {
-							shape: 'icon',
-							icon: {
-								face: 'Ionicons',
-								code: '\uf276',
-								size: 50,
-								color: '#f0a30a'
-							}
-						},//----------
-						Data: {
-							shape: 'icon',
-							icon: {
-								face: 'Ionicons',
-								code: '\uf2d1',
-								size: 50,
-								color: '#f0a30a'
-							}
-						},
-						Duvida: {
-							shape: 'icon',
-							icon: {
-								face: 'Ionicons',
-								code: '\uf445',
-								size: 50,
-								color: '#f0a30a'
-							}
-						},
-						Local: {
-							shape: 'icon',
-							icon: {
-								face: 'Ionicons',
-								code: '\uf455',
-								size: 50,
-								color: '#f0a30a'
-							}
-						},
-						Documento: {
-							shape: 'icon',
-							icon: {
-								face: 'Ionicons',
-								code: '\uf471',
-								size: 50,
-								color: '#f0a30a'
-							}
-						},
-						URLFonte: {
-							shape: 'icon',
-							icon: {
-								face: 'Ionicons',
-								code: '\uf347',
-								size: 50,
-								color: '#f0a30a'
-							}
-						},
-						TempoFonte: {
-							shape: 'icon',
-							icon: {
-								face: 'Ionicons',
-								code: '\uf2d1',
-								size: 50,
-								color: '#f0a30a'
-							}
-						},
-						Fonte: {
-							shape: 'icon',
-							icon: {
-								face: 'Ionicons',
-								code: '\uf12e',
-								size: 50,
-								color: '#f0a30a'
-							}
-						},
-						Evento: {
-							shape: 'icon',
-							icon: {
-								face: 'Ionicons',
-								code: '\uf3ae',
-								size: 50,
-								color: '#f0a30a'
-							}
-						},
-						Quantidade: {
-							shape: 'icon',
-							icon: {
-								face: 'Ionicons',
-								code: '\uf262',
-								size: 50,
-								color: '#f0a30a'
-							}
-						},
-						Artefato: {
-							shape: 'icon',
-							icon: {
-								face: 'Ionicons',
-								code: '\uf371',
-								size: 50,
-								color: '#f0a30a'
-							}
-						},
-						AutorReporter: {
-							shape: 'icon',
-							icon: {
-								face: 'Ionicons',
-								code: '\uf37e',
-								size: 50,
-								color: '#f0a30a'
-							}
-						},
-						Pesquisador: {
-							shape: 'icon',
-							icon: {
-								face: 'Ionicons',
-								code: '\uf21f',
-								size: 50,
-								color: '#f0a30a'
-							}
-						}
-	            	}
-				};
-				
-				//create nodes in java web
-				var nodesIO = [{
-					<%if( graph != null)
-							for (int i = 0; i < graph.getVertices().size(); i++) {
-								out.println("id: " + graph.getVertices().get(i).getID() + ",");
-								out.println("label: '" + graph.getVertices().get(i).getSlice() + "',");
-								out.println("group: '" + graph.getVertices().get(i).getLabel() + "',");
-								
-								if ( i + 1 != graph.getVertices().size() )
-									out.println("}, {");
-							}%>
-				}];
-
-	            // create a network
-	           var containerIO = document.getElementById('mynetwork');
-	           var dataIO = {
-	              nodes: nodesIO,
-	              edges: edges
-	            };
-				
-	           <%if( graph != null) {%>
-	           			var networkIO = new vis.Network(containerIO, dataIO, optionsIO);
-	           		<%}%>
-	           /*//Dispara uma ação quando clica em um nó
-	           networkIO.on("click", function (params) {
-					params.event = "[original event]";
-					//document.getElementById('eventSpan').innerHTML = '<h2>Click event:</h2>' + JSON.stringify(params, null, 4);
-					var text = JSON.stringify(params, null, 4);
-					obj = JSON.parse(text);
-					document.getElementById('eventSpan').innerHTML = '<h2>Click event:</h2>' + nodesIO.obj.nodes[0];
-					
-	           });*/
-	          }
-	        </script>
 
 </head>
 <body style="padding-top: 40px;">
