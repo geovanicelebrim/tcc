@@ -46,6 +46,14 @@ public class ResultsPage extends HttpServlet {
 	private void processRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException {
 
+		Boolean accessed = (Boolean) request.getSession().getAttribute("accessed");
+		
+		if (accessed == null) {
+			accessed = new Boolean(true);
+			request.getSession().setAttribute("accessed", accessed);
+			util.Log.getInstance().addAccess();
+		}
+		
 		String viewDoc = request.getParameter("viewDoc");
 		
 		if(viewDoc != null) {

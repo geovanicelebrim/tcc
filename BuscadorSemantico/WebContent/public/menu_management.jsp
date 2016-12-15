@@ -27,17 +27,9 @@
 
 </head>
 <body onload="getIP();">
-	<!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-	<%
-		Boolean accessed = (Boolean) request.getSession().getAttribute("accessed");
-		if (accessed == null) {
-			request.getSession().setAttribute("accessed", accessed);
-			util.Log.getInstance().addAccess();
-		}
-	%>
+	<!--[if lt IE 10]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
 
 	<div class="container">
 		<form id="logout" name="logout" action="ManagementLoginPage?action=logout" method="post">

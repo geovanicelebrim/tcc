@@ -34,12 +34,6 @@
 	<![endif]-->
     	
 	<%
-		Boolean accessed = (Boolean) request.getSession().getAttribute("accessed");
-		if (accessed == null) {
-			request.getSession().setAttribute("accessed", accessed);
-			util.Log.getInstance().addAccess();
-		}
-
 		String errorLogin = (String) request.getAttribute("errorLogin");
 		if (errorLogin == null) {
 	%>

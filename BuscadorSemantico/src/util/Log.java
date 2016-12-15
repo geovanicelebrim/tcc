@@ -26,32 +26,32 @@ public class Log {
 	private static boolean blockManagement = false;
 	private static boolean blockAccessCount = false;
 	
-	private static Integer accessCount = 0; // Contador de acessos
+	private static boolean writeAccess = false;
+	
+	private static Integer accessCount = 0;
 	
 	private Log () {
 		Thread t = new Thread(new Runnable() {
 			@SuppressWarnings("deprecation")
 			public void run() {
 				while(true) {
-					Date scheduled = new Date();
-					Date now = new Date();
-					scheduled.setHours(23); scheduled.setMinutes(59);
-					
-					if(logSystemBuffer.size() > 20 || now.after(scheduled)) {
+					if(logSystemBuffer.size() > 20) {
 						while (blockSystem) {};
 						blockSystem = true;
 						freeLogSystemBuffer();
 						blockSystem = false;
 					}
 					
-					if(logManagementBuffer.size() > 20 || now.after(scheduled)) {
+					if(logManagementBuffer.size() > 20) {
 						while (blockManagement) {};
 						blockManagement = true;
 						freeLogManagementBuffer();
 						blockManagement = false;
 					}
 					
-					if(now.after(scheduled)) {
+					Date now = new Date();
+
+					if(now.getHours() == 0 && now.getMinutes() < 5 && !writeAccess) {
 						while (blockAccessCount) {};
 						blockAccessCount = true;
 						Date date = new Date(); 
@@ -60,6 +60,11 @@ public class Log {
 						write(pathAccessCount, text);
 						accessCount = 0;
 						blockAccessCount = false;
+						writeAccess = true;
+					}
+
+					if(now.getHours() >= 0 && now.getMinutes() >= 5 && writeAccess) {
+						writeAccess = false;
 					}
 					
 					try {

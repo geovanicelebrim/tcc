@@ -45,6 +45,14 @@ public class MainPage extends HttpServlet {
 	private void processarRequisicao(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException {
 		
+		Boolean accessed = (Boolean) request.getSession().getAttribute("accessed");
+		
+		if (accessed == null) {
+			accessed = new Boolean(true);
+			request.getSession().setAttribute("accessed", accessed);
+			util.Log.getInstance().addAccess();
+		}
+		
 		String query = null;
 		String searchType = null;
 		
