@@ -19,145 +19,18 @@
 <link rel="stylesheet" href="./public/css/bootstrap.css">
 <link rel="stylesheet" href="./public/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="./public/css/main.css">
+<link rel="stylesheet" href="./public/css/daterangepicker.css">
 
-<!--[if lt IE 9]>
-	<script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
-<![endif]-->
-
-
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-<!-- Include Required Prerequisites -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
-
-<!-- Include Date Range Picker -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-
-<script type="text/javascript">
-
-var file1 = false;
-var file2 = false;
-	$(function() {
-
-		// We can attach the `fileselect` event to all file inputs on the page
-		$(document).on(
-				'change',
-				':file',
-				function() {
-					var input = $(this), numFiles = input.get(0).files ? input
-							.get(0).files.length : 1, label = input.val()
-							.replace(/\\/g, '/').replace(/.*\//, '');
-					input.trigger('fileselect', [ numFiles, label ]);
-				});
-
-		// We can watch for our custom `fileselect` event like this
-		$(document)
-				.ready(
-						function() {
-							$(':file')
-									.on(
-											'fileselect',
-											function(event, numFiles, label) {
-
-												var input = $(this).parents(
-														'.input-group').find(
-														':text'), log = numFiles > 1 ? numFiles
-														+ ' files selected'
-														: label;
-												if (file1) {
-													file2 = true;
-												} else {
-													file1 = true;
-												}
-												if (input.length) {
-													input.val(log);
-												} else {
-													if (log)
-														alert(log);
-												}
-
-											});
-						});
-
-	});
-
-	function permission() {
-		if (!(file1 == true && file2 == true)) {
-			alert("Select the files before submit.");
-			return false;
-		}
-		return true;
-	}
-	
-	function showIndexer() {
-		$('.nav-tabs a[href="#indexer_file"]').tab('show');
-		$('.nav li').not('.active').addClass('disabled');
-	$('.nav li').not('.active').find('a').removeAttr("data-toggle");
-	}
-	
-	function showImport() {
-		$('.nav-tabs a[href="#import_database"]').tab('show');
-		$('.nav li').not('.active').addClass('disabled');
-		$('.nav li').not('.active').find('a').removeAttr("data-toggle");
-	}
-	
-	$(document).ready(function() {
-		/*disable non active tabs*/
-		$('.nav li').not('.active').addClass('disabled');
-		$('.nav li').not('.active').find('a').removeAttr("data-toggle");
-	
-		$('gotoIndexer').click(function(){
-			/*enable next tab*/
-			$('.nav li.active').next('li').removeClass('disabled');
-			$('.nav li.active').next('li').find('a').attr("data-toggle","tab")
-		});
-		$('gotoImport').click(function(){
-			/*enable next tab*/
-			$('.nav li.active').next('li').removeClass('disabled');
-			$('.nav li.active').next('li').find('a').attr("data-toggle","tab")
-		});
-	});
-	
-	
-	jQuery(document).ready(function(){
-		jQuery('#index_file_form').submit(function(){
-			var dados = jQuery( this ).serialize();
-
-			jQuery.ajax({
-				type: "POST",
-				url: "ManagementAddNewFilePage?action=index",
-				data: dados,
-				success: function( data )
-				{
-					
-				}
-			});
-			
-			return false;
-		});
-	});
-	
-	function getIP() {
-		$(document).ready(function () {
-			$.getJSON("http://jsonip.com/?callback=?", function (data) {
-				console.log(data);
-
-				$("input[id|='ip']").each(function (i, el) {
-					el.value = data.ip;
-				});
-			});
-		});
-	}
-</script>
+<script src="./public/js/jquery/jquery-1.12.4.js"></script>
+<script src="./public/js/util/utilFile.js"></script>
+<script src="./public/js/util/util.js"></script>
+<script src="./public/js/addFile/moment.min.js"></script>
+<script src="./public/js/addFile/daterangepicker.js"></script>
+<script src="./public/js/vendor/bootstrap.min.js"></script>
 
 </head>
-<body onload="getIP();">
-	<!--[if lt IE 8]>
+<body onload="getIP(this);">
+	<!--[if lt IE 10]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 
@@ -174,7 +47,9 @@ var file2 = false;
 			<div class="vertical-top">
 				<img class="img-responsive left-block"
 					src="./public/images/cedim.jpg" style="width: 20%; height: 20%;">
-				<div align="center" style="font-size: 35pt; position: relative;">Management</div>
+				<div align="center">
+						<h2>Add New Files</h2>
+				</div>
 			</div>
 			<div>
 
@@ -199,7 +74,7 @@ var file2 = false;
 							<br>
 						</div>
 
-						<form method="POST" action="ManagementAddNewFilePage?action=upload" onsubmit="return permission();"
+						<form method="POST" action="ManagementAddNewFilePage?action=upload" onsubmit="return permissionFile();"
 							enctype="multipart/form-data">
 							<input id="ip" name="ip" hidden="true">
 							<table style="width: 100%;">
@@ -296,7 +171,7 @@ var file2 = false;
 							%>
 							<div align="center">
 								<br>
-								<a class="btn btn-warning" id="gotoIndexer" onclick="window.history.back();">Back</a> 
+								<a class="btn btn-warning" href="ManagementLoginPage?action=authenticate">Back</a> 
 								<input class="btn btn-primary" type="submit"
 									value="Add File" name="add_file" id="add_file" />
 								<%
@@ -325,38 +200,10 @@ var file2 = false;
 									<option value="execute" selected>Execute indexing now</option>
 									<option value="schedule">Schedule indexing</option>
 								</select>
-							
-								<script type="text/javascript">
 
-									function changeFuncIndexer() {
-										var selectBox = document.getElementById("selectBoxIndexer");
-										var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-										var div = document.getElementById('dateIndexer');
-										if(selectedValue == "schedule") {
-											div.style.display = 'block';
-										} else {
-											div.style.display = 'none';
-										}
-									}
-							
-								</script>
-							
 								<div id="dateIndexer" hidden="true"> <br>
 									<input class="form-control text-center" type="text"
 										name="birthdateIndexer" value="" style="width: 8em;" />
-	
-									<script type="text/javascript">
-									
-										$(function() {
-											$('input[name="birthdateIndexer"]').daterangepicker({
-												singleDatePicker: true,
-												showDropdowns: true
-											}, 
-											function(start, end, label) {
-												var years = moment().diff(start, 'years');
-											});
-										});
-									</script>
 								</div>
 
 								<div align="center">
@@ -380,38 +227,10 @@ var file2 = false;
 									<option value="execute" selected>Execute import now</option>
 									<option value="schedule">Schedule import</option>
 								</select>
-								
-								<script type="text/javascript">
-	
-									function changeFuncImport() {
-										var selectBox = document.getElementById("selectBoxImport");
-										var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-										var div = document.getElementById('dateImport');
-										if(selectedValue == "schedule") {
-											div.style.display = 'block';
-										} else {
-											div.style.display = 'none';
-										}
-									}
-								
-								</script>
-								
+
 								<div id="dateImport" hidden="true"> <br>
 									<input class="form-control text-center" type="text"
 										name="birthdateImport" value="" style="width: 8em;" />
-		
-									<script type="text/javascript">
-									
-										$(function() {
-											$('input[name="birthdateImport"]').daterangepicker({
-												singleDatePicker: true,
-												showDropdowns: true
-											}, 
-											function(start, end, label) {
-												var years = moment().diff(start, 'years');
-											});
-										});
-									</script>
 								</div>
 	
 	
@@ -428,8 +247,5 @@ var file2 = false;
 			</div>
 		</div>
 	</div>
-
-	<script src="./public/js/vendor/bootstrap.min.js"></script>
-	<script src="./public/js/main.js"></script>
 </body>
 </html>

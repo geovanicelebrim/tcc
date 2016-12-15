@@ -20,29 +20,17 @@
 	
 	<link rel="shortcut icon" href="./public/icons/icon.png">
 	
-	<link rel="stylesheet" href="public/css/bootstrap.min.css">
-	<link rel="stylesheet" href="public/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="public/css/main.css">
+	<link rel="stylesheet" href="./public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./public/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="./public/css/main.css">
+	<link rel="stylesheet" href="./public/css/results.css">
+	<link rel="stylesheet" href="./public/css/jquery-ui.css">
 	
-	<script type="text/javascript" src="public/js/results/util.js"></script>
-	
-	<!--[if lt IE 9]>
-	<script src="public/js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
-	<![endif]-->
-	
-	<script type="text/javascript">
-	function getIP() {
-		$(document).ready(function () {
-		$.getJSON("http://jsonip.com/?callback=?", function (data) {
-		console.log(data);
-		
-		$("input[id|='ip']").each(function (i, el) {
-		el.value = data.ip;
-		});
-		});
-		});
-	}
-	</script>
+	<script src="./public/js/jquery/jquery-1.12.4.js"></script>
+	<script src="./public/js/jquery/jquery-ui.js"></script>
+	<script src="./public/js/search/autocomplete.js"></script>
+	<script src="./public/js/results/util.js"></script>
+	<script src="./public/js/util/util.js"></script>
 	
 	<%
 		@SuppressWarnings("unchecked")
@@ -50,26 +38,20 @@
 		if (simpleResults == null) { simpleResults = new ArrayList<>();}
 		if (simpleResults != null && simpleResults.size() > 0) {
 	%>
-	<script type="text/javascript">
-	  window.onload = function() {
-		  document.activeElement.blur();
-	  scroll();
-	
-	  $(".scroll_to_tab").click(function () {
-	  	scroll();
-	  });
-	  }
-	</script>
+			<script type="text/javascript">
+				window.onload = function() {
+					document.activeElement.blur();
+					scroll();
+					$(".scroll_to_tab").click(function () {
+						scroll();
+					});
+				}
+			</script>
 	<%} %>
-		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		<script src="./public/js/search/autocomplete.js"></script>
-
 </head>
 
-<body style="padding-top: 40px;" onload="getIP();">
-	<!--[if lt IE 8]>
+<body style="padding-top: 40px;" onload="getIP(this);">
+	<!--[if lt IE 10]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 	
@@ -112,7 +94,7 @@
 
 							<div class="input-group-btn">
 								<select name="search-mode" class="form-control input-lg"
-									id="search-mode">
+									id="search-mode" onclick="$('#search-query').select();">
 									<option value="normal" selected>Normal search</option>
 									<option value="semantic">Semantic search</option>
 								</select>
@@ -204,50 +186,39 @@
 									
 									for (int i = begin; i < end; i++) {
 							%>
-										<form id="<%out.print(i);%>"
-											action="ResultsPage?action=<%out.println(simpleResults.get(i).getDocumentName());%>"
-											method="get">
-											<input type="hidden" name="viewDoc"
-												value="<%out.print(simpleResults.get(i).getDocumentName());%>" />
-											<input id="ip" name="ip" hidden="true">
-											<div class="panel panel-default list-group-item">
-												<div class="panel-body">
-													<div class="media">
-														<div class="media-left">
-															<a href="javascript:{}"
-																onclick="document.getElementById('<%out.print(i);%>').submit(); return false;"> <img class="media-object img-rounded"
-																src="<% out.println("public/images/docs/" + simpleResults.get(i).getDocumentName().replace(".txt", ".png"));%>" alt="..." width="90" height="120" >
+										<div class="panel panel-default list-group-item">
+											<div class="panel-body">
+												<div class="media">
+													<div class="media-left">
+														<a href="<% out.print("ResultsPage?" + "viewDoc=" + simpleResults.get(i).getDocumentName()); %>"> 
+														<img class="media-object img-rounded"
+															src="<% out.println("public/images/docs/" + simpleResults.get(i).getDocumentName().replace(".txt", ".png"));%>" alt="..." width="90" height="120" >
+														</a>
+													</div>
+													<div class="media-body">
+														<h4 class="media-heading">
+															<a href="<% out.print("ResultsPage?" + "viewDoc=" + simpleResults.get(i).getDocumentName()); %>">
+																<%
+																	out.println(simpleResults.get(i).getTitle());
+																%>
 															</a>
-														</div>
-														<div class="media-body">
-															<h4 class="media-heading">
-																<a href="javascript:{}"
-																	onclick="document.getElementById('<%out.print(i);%>').submit(); return false;">
-																	<%
-																		out.println(simpleResults.get(i).getTitle());
-																	%>
-																</a>
-															</h4>
+														</h4>
 															
-															<label class="reference">
-																<%
-																	out.print("(" + simpleResults.get(i).getAuthor()
-																																																													+ ", " + simpleResults.get(i).getSource() + ")");
-																%>
-															</label>
-															<div id="div<%out.print(i);%>">
-																<%
-																	out.println(simpleResults.get(i).getSlice() + " [...]");
-																															out.println("<br><br>");
-																%>
-
-															</div>
+														<label class="reference">
+														<%
+															out.print("(" + simpleResults.get(i).getAuthor()
+																+ ", " + simpleResults.get(i).getSource() + ")");
+														%>
+														</label>
+														<div id="div<%out.print(i);%>">
+														<%
+															out.println(simpleResults.get(i).getSlice() + " [...]");
+														%>
 														</div>
 													</div>
 												</div>
 											</div>
-										</form>
-										<br>
+										</div>
 								<% 	}
 								} %>
 						
@@ -304,26 +275,10 @@
 								</ul>
 							</div>
 						</div>
-						
-						<%
-							int size = 0;
-							if (simpleResults != null) {
-								size = simpleResults.size();
-							}
-							if(size < 3) {
-								for(int i = size; i < 3; i++) { 
-									out.print("<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>");
-								}
-							}
-						%>
-						
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<script src="./public/js/vendor/bootstrap.min.js"></script>
-	<script src="./public/js/main.js"></script>
 </body>
 </html>

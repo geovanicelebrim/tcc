@@ -16,86 +16,14 @@
 <link href="./public/icons/icon.png" rel="shortcut icon">
 
 <link rel="stylesheet" href="./public/css/bootstrap.min.css">
-<link rel="stylesheet" href="./public/css/bootstrap.css">
 <link rel="stylesheet" href="./public/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="./public/css/main.css">
 
-<!--[if lt IE 9]>
-<script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
-<![endif]-->
-
-
-<link rel="stylesheet"
-	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-<!-- Include Required Prerequisites -->
-<script type="text/javascript"
-	src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
-<script type="text/javascript"
-	src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
-
-<!-- Include Date Range Picker -->
-<script type="text/javascript"
-	src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-
-
-
-<script type="text/javascript">
-
-	$(document).ready(function() {
-	/*disable non active tabs*/
-	$('.nav li').not('.active').addClass('disabled');
-	$('.nav li').not('.active').find('a').removeAttr("data-toggle");
-	
-	$('gotoIndexer').click(function(){
-	/*enable next tab*/
-	$('.nav li.active').next('li').removeClass('disabled');
-	$('.nav li.active').next('li').find('a').attr("data-toggle","tab")
-	});
-	$('gotoImport').click(function(){
-	/*enable next tab*/
-	$('.nav li.active').next('li').removeClass('disabled');
-	$('.nav li.active').next('li').find('a').attr("data-toggle","tab")
-	});
-	});
-	
-	function checkPassword() {
-		var pass = $('#password').val();
-		var conf = $('#confirm_password').val();
-		
-		if(pass == conf) {
-			return true;
-		} else {
-			$('#error_password').show();
-			$('#password').val("");
-			$('#confirm_password').val("");
-			$('#password').focus();
-			return false;
-		}
-	}
-	
-	function getIP() {
-		$(document).ready(function () {
-		$.getJSON("http://jsonip.com/?callback=?", function (data) {
-		console.log(data);
-		
-		$("input[id|='ip']").each(function (i, el) {
-		el.value = data.ip;
-		});
-		});
-		});
-	}
-</script>
+<script src="./public/js/jquery/jquery-1.12.4.js"></script>
+<script src="./public/js/util/util.js"></script>
 
 </head>
-<body onload="getIP();">
-	<!--[if lt IE 8]>
+<body onload="getIP(this)">
+	<!--[if lt IE 10]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 
@@ -112,8 +40,9 @@
 			<div class="vertical-top">
 				<img class="img-responsive left-block"
 					src="./public/images/cedim.jpg" style="width: 20%; height: 20%;">
-				<div align="center" style="font-size: 35pt; position: relative;">Add
-					User</div>
+					<div align="center">
+						<h2>Add User</h2>
+					</div>
 			</div>
 			<div>
 
@@ -134,7 +63,7 @@
 						<form id="add_user_form" method="POST" action="ManagementAddNewUserPage?action=add_user"
 							onsubmit="return checkPassword();">
 							<input id="ip" name="ip" hidden="true">
-							<div align="center" style="width: 30%; margin: 0 auto;">
+							<div align="center" style="min-width: 20em; width: 40%; margin: 0 auto;">
 								<div class="form-group">
 									<label for="name">Name:</label> <input type="text" onkeypress="$('#error').hide();"
 										class="form-control" name="name" autofocus="autofocus"
@@ -143,7 +72,7 @@
 
 								<div class="form-group">
 									<label for="email">E-mail:</label> <input type="text" onkeypress="$('#error').hide();"
-										class="form-control" name="email" 
+										class="form-control" name="email" id="email"
 										placeholder="Inform the e-mail." required autocomplete="off">
 								</div>
 
@@ -177,8 +106,7 @@
 
 
 							<div align="center">
-								<br> <a class="btn btn-warning" id="gotoIndexer"
-									onclick="window.history.back();">Back</a> <input
+								<br> <a class="btn btn-warning" href="ManagementLoginPage?action=authenticate" >Back</a> <input
 									class="btn btn-primary" type="submit" value="Add User"
 									name="add_user" id="add_user"/>
 							</div>
@@ -188,8 +116,5 @@
 			</div>
 		</div>
 	</div>
-
-	<script src="./public/js/vendor/bootstrap.min.js"></script>
-	<script src="./public/js/main.js"></script>
 </body>
 </html>

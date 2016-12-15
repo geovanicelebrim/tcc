@@ -1,0 +1,43 @@
+.container {
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 6px;
+	padding-right: 6px;
+}
+
+.container:before, .container:after {
+	content: " ";
+	display: table;
+}
+
+.container:after {
+	clear: both;
+}
+
+@media ( min-width : 768px) {
+	.container {
+		width: 732px;
+	}
+}
+
+@media ( min-width : 992px) {
+	.container {
+		width: 952px;
+	}
+}
+
+@media ( min-width : 1200px) {
+	.container {
+		width: 1300px;
+	}
+}
+
+#mynetwork {
+	height: 86vh;
+	width: 98%;
+	border: 1px solid lightgrey;
+}
+
+p {
+	max-width: 700px;
+}
