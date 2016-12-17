@@ -41,7 +41,7 @@
 				<form id="login_form" class="modal-content animate" action="ManagementLoginPage?action=authenticate" method="post" onsubmit="return validateEmail('#email');">
 					<div class="imgcontainer">
 						<span onclick="$( '#id01' ).fadeOut( 'mediun' );" class="close"
-							title="Close Modal">&times;</span> <img
+							title="Close Modal">&times;</span> <img id="avatar"
 							src="./public/images/cedim.jpg" alt="Avatar" class="avatar">
 					</div>
 			
@@ -72,7 +72,7 @@
 				<form id="login_form" class="modal-content" action="ManagementLoginPage?action=authenticate" method="post" onsubmit="return validateEmail('#email');">
 					<div class="imgcontainer">
 						<span onclick="$( '#id01' ).fadeOut( 'mediun' );" class="close"
-							title="Close Modal">&times;</span> <img
+							title="Close Modal">&times;</span> <img id="avatar"
 							src="./public/images/cedim.jpg" alt="Avatar" class="avatar">
 					</div>
 		
@@ -107,6 +107,7 @@
 	%>
 	
 	<script>
+		document.getElementById('avatar').ondragstart = function() { return false; };
 		// Get the modal
 		var modal = document.getElementById('id01');
 		
@@ -152,8 +153,11 @@
 
 				<form action="MainPage?action=search" method="get">
 					<div class="form-group text-center">
-						<img class="img-responsive center-block"
+						<img id="logo" class="img-responsive center-block"
 							src="./public/images/cedim.jpg" style="width: 70%; height: 70%;">
+						<script type="text/javascript">
+							document.getElementById('logo').ondragstart = function() { return false; };
+						</script>
 
 						<div class="input-group">
 							<input id="ip" name="ip" hidden="true">

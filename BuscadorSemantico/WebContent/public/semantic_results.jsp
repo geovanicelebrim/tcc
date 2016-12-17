@@ -117,9 +117,11 @@
 
 				<form action="ResultsPage?action=buscar" method="get">
 					<div class="form-group text-center">
-						<img class="img-responsive center-block" src="public/images/cedim.jpg"
+						<img class="img-responsive center-block" src="public/images/cedim.jpg" id="logo"
 							style="width: 40%; height: 40%;">
-
+						<script type="text/javascript">
+							document.getElementById('logo').ondragstart = function() { return false; };
+						</script>
 						<div class="input-group">
 							<input id="ip" name="ip" hidden="true" onload="getIP();">
 							<input type="text" class="form-control input-lg" id="search-query" name="search-query"

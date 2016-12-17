@@ -19,9 +19,10 @@
 
 <link rel="stylesheet" href="./public/css/bootstrap.min.css">
 <link rel="stylesheet" href="./public/css/bootstrap.css">
+
 <link rel="stylesheet" href="./public/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="./public/css/main.css">
-<link href="public/js/vis/dist/vis.css" rel="stylesheet" type="text/css" />
+<link href="./public/js/vis/dist/vis.css" rel="stylesheet" type="text/css" />
 
 <link rel="stylesheet" href="./public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./public/fonts/font-awesome-4.7.0/css/font-awesome.css">
@@ -36,14 +37,17 @@
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 
-	<div class="container">
+	<div class="container" style="padding-bottom: 3em;">
 		<div class="row">
 			<div class="vertical-top">
-				<img class="img-responsive left-block"
+				<img class="img-responsive left-block" id="logo"
 					src="./public/images/cedim.jpg" style="width: 20%; height: 20%;">
 				<div align="center">
 						<h2>Status of system</h2>
 				</div>
+				<script type="text/javascript">
+					document.getElementById('logo').ondragstart = function() { return false; };
+				</script>
 			</div>
 			<div>
 
@@ -76,8 +80,8 @@
 
 										<table class="table">
 											<tr>
-												<td style="width: 30%;"><span style="color: gray;"
-													class="glyphicon glyphicon-console"></span> System boot </td>
+												<td style="width: 30%;"><span style="color: gray;" 
+													class="glyphicon glyphicon-cog"></span> System boot </td>
 													<%
 														String systemBoot = (String) request.getAttribute("systemBoot");
 														if(systemBoot.contains("error:\t")) {
@@ -258,7 +262,7 @@
 								<h4 class="panel-title">
 									<a style="width: 100%; color: white;" class="btn btn-info" data-toggle="collapse" data-parent="#accordion"
 										href="#collapseFour" onclick="setTimeout(scrollTo('#collapseFour'), 3);"><span
-										class="glyphicon glyphicon-equalizer"> </span> Access</a>
+										class="glyphicon glyphicon-globe"> </span> Access</a>
 								</h4>
 								<div id="collapseFour" class="panel-collapse collapse">
 									<div class="panel-body">

@@ -48,11 +48,14 @@
 		
 		<div class="row">
 			<div class="vertical-top">
-				<img class="img-responsive left-block"
+				<img class="img-responsive left-block" id="logo"
 					src="./public/images/cedim.jpg" style="width: 20%; height: 20%;">
 			</div>
+			<script type="text/javascript">
+				document.getElementById('logo').ondragstart = function() { return false; };
+			</script>
 		</div>
-
+		
 		<div style="padding-bottom: 2em;">
 			<table class="text-center" style="width: 100%;">
 				<tr>

@@ -27,11 +27,14 @@
 	<div class="container">
 		<div class="row">
 			<div class="vertical-top">
-				<img class="img-responsive left-block"
+				<img class="img-responsive left-block" id="logo"
 					src="./public/images/cedim.jpg" style="width: 20%; height: 20%;">
 				<div align="center">
 						<h2>View Scheduled Task</h2>
 				</div>
+				<script type="text/javascript">
+					document.getElementById('logo').ondragstart = function() { return false; };
+				</script>
 			</div>
 			<div>
 

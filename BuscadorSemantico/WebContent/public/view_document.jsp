@@ -40,7 +40,7 @@
 
 </head>
 
-<body>
+<body onload="showSlice();">
 	<!--[if lt IE 10]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
@@ -48,12 +48,13 @@
 	<div id="menu" hidden="true">
 		<table class="tableViewDocument menuViewDocument">
 		  <tr>
-		    <th class="VDth"><a class="menu-bar VDbutton" href="javascript:goBack()"> <i class="fa fa-arrow-left" aria-hidden="true"></i> </a></th>
-		    <th class="VDth"><a class="menu-bar VDbutton" href="javascript:downloadDocument()"> <i class="fa fa-download" aria-hidden="true"></i> </a></th>
-			<th class="VDth"><a class="menu-bar VDbutton" href="javascript:printDocument('document')"> <i class="fa fa-print" aria-hidden="true"></i> </a></th>
-			<th class="VDth"><a class="menu-bar VDbutton" href="javascript:trustworthy('#thanks-message')"> <i class="fa fa-thumbs-up" aria-hidden="true"></i> </a></th>
-			<th class="VDth"><a class="menu-bar VDbutton" href="javascript:unreliable('#thanks-message')"> <i class="fa fa-thumbs-down" aria-hidden="true"></i> </a></th>
-			<th class="VDth"><a class="menu-bar VDbutton" href="javascript:cite('#citation')"> <i class="fa fa-quote-right fa-1x fa-pull-left" aria-hidden="true"></i> </a></th>
+		    <th class="VDth"><a title="Back" class="menu-bar VDbutton" href="javascript:goBack()"> <i class="fa fa-arrow-left" aria-hidden="true"></i> </a></th>
+		    <th class="VDth"><a title="Download" class="menu-bar VDbutton" href="javascript:downloadDocument()"> <i class="fa fa-download" aria-hidden="true"></i> </a></th>
+			<th class="VDth"><a title="Print" class="menu-bar VDbutton" href="javascript:printDocument('document')"> <i class="fa fa-print" aria-hidden="true"></i> </a></th>
+			<th class="VDth"><a title="Like" class="menu-bar VDbutton" href="javascript:trustworthy('#thanks-message')"> <i class="fa fa-thumbs-up" aria-hidden="true"></i> </a></th>
+			<th class="VDth"><a title="Non Like" class="menu-bar VDbutton" href="javascript:unreliable('#thanks-message')"> <i class="fa fa-thumbs-down" aria-hidden="true"></i> </a></th>
+			<th class="VDth"><a title="Show Slice" class="menu-bar VDbutton" href="javascript:showSlice()"> <i class="fa fa-magic" aria-hidden="true"></i> </a></th>
+			<!-- <th class="VDth"><a title="Back" class="menu-bar VDbutton" href="javascript:cite('#citation')"> <i class="fa fa-quote-right fa-1x fa-pull-left" aria-hidden="true"></i> </a></th> -->
 		  </tr>
 		</table>
 	</div>
@@ -116,20 +117,29 @@
 				%>
 				
 				<script>
-					$( "#slice1" ).animate({
-						backgroundColor: "rgb( 255, 255, 255 )"
-					}, 10000);
-					$( "#slice2" ).animate({
-						backgroundColor: "rgb( 255, 255, 255 )"
-					}, 10000);
-					
-					var container = $('div'),
-					scrollTo = $('#slice1');
-
-					$('html, body').animate({
-						scrollTop : scrollTo.offset().top - container.offset().top + container.scrollTop()
-					}, 1000);
-					
+					function showSlice() {
+						
+						$( "#slice1" ).animate({
+							backgroundColor: "#33cccc"
+						}, 0);
+						$( "#slice2" ).animate({
+							backgroundColor: "#33cccc"
+						}, 0);
+						
+						$( "#slice1" ).animate({
+							backgroundColor: "rgb( 255, 255, 255 )"
+						}, 10000);
+						$( "#slice2" ).animate({
+							backgroundColor: "rgb( 255, 255, 255 )"
+						}, 10000);
+						
+						var container = $('div'),
+						scrollTo = $('#slice1');
+	
+						$('html, body').animate({
+							scrollTop : scrollTo.offset().top - container.offset().top + container.scrollTop()
+						}, 1000);
+					}
 				</script>
 				
 			</div>
