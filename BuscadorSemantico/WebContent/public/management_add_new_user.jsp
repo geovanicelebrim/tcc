@@ -22,7 +22,7 @@
 <script src="./public/js/util/util.js"></script>
 
 </head>
-<body onload="getIP(this)">
+<body>
 	<!--[if lt IE 10]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
@@ -57,7 +57,6 @@
 
 						<form id="add_user_form" method="POST" action="ManagementAddNewUserPage?action=add_user"
 							onsubmit="return checkPassword();">
-							<input id="ip" name="ip" hidden="true">
 							<div align="center" style="min-width: 20em; width: 40%; margin: 0 auto;">
 								<div class="form-group">
 									<label for="name">Name:</label> <input type="text" onkeypress="$('#error').hide();"
@@ -100,7 +99,7 @@
 							</div>
 
 
-							<div align="center">
+							<div align="center" style="padding-bottom: 2em;">
 								<br> <a class="btn btn-warning" href="ManagementLoginPage?action=authenticate" >Back</a> <input
 									class="btn btn-primary" type="submit" value="Add User"
 									name="add_user" id="add_user"/>

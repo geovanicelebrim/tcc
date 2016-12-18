@@ -123,7 +123,6 @@
 							document.getElementById('logo').ondragstart = function() { return false; };
 						</script>
 						<div class="input-group">
-							<input id="ip" name="ip" hidden="true" onload="getIP();">
 							<input type="text" class="form-control input-lg" id="search-query" name="search-query"
 								placeholder="Type your query" required autocomplete="off"
 								<%String query = (String) request.getAttribute("query");

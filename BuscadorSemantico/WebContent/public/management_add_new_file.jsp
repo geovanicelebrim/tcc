@@ -29,7 +29,7 @@
 <script src="./public/js/vendor/bootstrap.min.js"></script>
 
 </head>
-<body onload="getIP(this);">
+<body>
 	<!--[if lt IE 10]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
@@ -71,7 +71,6 @@
 
 						<form method="POST" action="ManagementAddNewFilePage?action=upload" onsubmit="return permissionFile();"
 							enctype="multipart/form-data">
-							<input id="ip" name="ip" hidden="true">
 							<table style="width: 100%;">
 								<tr>
 									<td style="padding: 0 15px 0 15px;">
@@ -164,7 +163,7 @@
 							<%
 								}
 							%>
-							<div align="center">
+							<div align="center" style="padding-bottom: 2em;">
 								<br>
 								<a class="btn btn-warning" href="ManagementLoginPage?action=authenticate">Back</a> 
 								<input class="btn btn-primary" type="submit"
@@ -190,7 +189,6 @@
 						</div>
 						<div align="center">
 							<form id="index_file_form" method="POST" action="ManagementAddNewFilePage?action=index">
-								<input id="ip" name="ip" hidden="true">
 								<select id="selectBoxIndexer" name="selectBoxIndexer" onchange="changeFuncIndexer();" class="form-control text-center" style="width: 15em;">
 									<option value="execute" selected>Execute indexing now</option>
 									<option value="schedule">Schedule indexing</option>
@@ -201,7 +199,7 @@
 										name="birthdateIndexer" value="" style="width: 8em;" />
 								</div>
 
-								<div align="center">
+								<div align="center" style="padding-bottom: 2em;">
 									<br> <input class="btn btn-primary" id="gotoImport" onclick="showImport();"
 										value="Next Step" type="submit" />
 								</div>
@@ -217,7 +215,6 @@
 						</div>
 						<div align="center">
 							<form id="import_file_form" method="POST" action="ManagementAddNewFilePage?action=import">
-								<input id="ip" name="ip" hidden="true">
 								<select id="selectBoxImport" name="selectBoxImport" onchange="changeFuncImport();" class="form-control text-center" style="width: 15em;">
 									<option value="execute" selected>Execute import now</option>
 									<option value="schedule">Schedule import</option>
@@ -229,7 +226,7 @@
 								</div>
 	
 	
-								<div align="center">
+								<div align="center" style="padding-bottom: 2em;">
 									<br> <input class="btn btn-primary" type="submit"
 										value="Conclude" name="conclude" id="conclude" />
 								</div>

@@ -88,7 +88,7 @@
 					</div>
 				</div>
 			</div>
-			<div align="center">
+			<div align="center" style="padding-bottom: 2em;">
 				<a class="btn btn-warning" href="ManagementLoginPage?action=authenticate" >Back</a>
 			</div>
 		</div>

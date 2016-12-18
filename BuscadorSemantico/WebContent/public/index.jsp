@@ -28,84 +28,54 @@
 <script src="./public/js/util/util.js"></script>
 
 </head>
-<body onload="getIP(this);">
+<body>
 	<!--[if lt IE 10]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
-    	
-	<%
-		String errorLogin = (String) request.getAttribute("errorLogin");
-		if (errorLogin == null) {
-	%>
-			<div id="id01" class="modal" style="position: absolute;">
-				<form id="login_form" class="modal-content animate" action="ManagementLoginPage?action=authenticate" method="post" onsubmit="return validateEmail('#email');">
-					<div class="imgcontainer">
-						<span onclick="$( '#id01' ).fadeOut( 'mediun' );" class="close"
-							title="Close Modal">&times;</span> <img id="avatar"
-							src="./public/images/cedim.jpg" alt="Avatar" class="avatar">
-					</div>
-			
-					<div style="padding: 16px;">
-						<input id="ip" name="ip" hidden="true">
-						<label><b>E-mail</b></label> <input class="in" type="text" onkeypress="document.getElementById('error_email').style.display='none';"
-							placeholder="Enter your e-mail" name="email" id="email" required> <label><b>Password</b></label>
-						<input class="in" type="password" placeholder="Enter Password" name="password" id="password" onkeypress="document.getElementById('error_email').style.display='none';"
-							required>
 
-						<div id="error_email" class="alert alert-warning" hidden="true">
-							<strong>Warning!</strong> E-mail is incorrect.
-						</div>
-						
-						<button class="btnPer btn btn-primary" type="submit">Login</button>
-						<input type="checkbox" checked="checked"> Remember me
-					</div>
-			
-					<div style="padding: 16px;" style="background-color:#f1f1f1">
-						<a href="#">Forgot password?</a>
-					</div>
-				</form>
+	<div id="id01" style="position: absolute;" class="modal">
+		<form id="login_form" class="modal-content animate" action="ManagementLoginPage?action=authenticate" method="post" onsubmit="return validateEmail('#email');">
+			<div class="imgcontainer">
+				<span onclick="$( '#id01' ).fadeOut( 'mediun' );" class="close"
+					title="Close Modal">&times;</span> <img id="avatar"
+					src="./public/images/cedim.jpg" alt="Avatar" class="avatar">
 			</div>
-	<%
-		} else {
-	%>
-			<div id="id01" style="position: absolute; display: block;" class="modal">
-				<form id="login_form" class="modal-content" action="ManagementLoginPage?action=authenticate" method="post" onsubmit="return validateEmail('#email');">
-					<div class="imgcontainer">
-						<span onclick="$( '#id01' ).fadeOut( 'mediun' );" class="close"
-							title="Close Modal">&times;</span> <img id="avatar"
-							src="./public/images/cedim.jpg" alt="Avatar" class="avatar">
-					</div>
-		
-					<div style="padding: 16px;">
-						<input id="ip" name="ip" hidden="true">
-						<label><b>E-mail</b></label> 
-						<input class="in" type="text" onkeypress="document.getElementById('error_password').style.display='none';"
-							placeholder="Enter your e-mail" name="email" id="email" value="${email}" required> 
-						<label><b>Password</b></label>
-						<input class="in" type="password" placeholder="Enter Password" name="password" id="password" 
-						onkeypress="document.getElementById('error_password').style.display='none';"
-							required>
 
+			<div style="padding: 16px;">
+				<label><b>E-mail</b></label> 
+				<input class="in" type="text" onkeypress="document.getElementById('error_password').style.display='none'; document.getElementById('error_email').style.display='none';" autofocus="autofocus"
+					placeholder="Enter your e-mail" name="email" id="email" value="${email}" required>
+				<label><b>Password</b></label>
+				<input class="in" type="password" placeholder="Enter Password" name="password" id="password" 
+				onkeypress="document.getElementById('error_password').style.display='none'; document.getElementById('error_email').style.display='none';"
+					required>
+				<%
+					String errorLogin = (String) request.getAttribute("errorLogin");	
+					if (errorLogin != null) {
+				%>
+						<script type="text/javascript">
+							$('#login_form').removeClass('animate');
+							$('#id01').show();
+						</script>
 						<div id="error_password" class="alert alert-warning">
-							<strong>Warning!</strong> E-mail or password incorrect.
+							<strong>Warning!</strong> <% out.print(errorLogin); %>
 						</div>
-						<div id="error_email" class="alert alert-warning" hidden="true">
-							<strong>Warning!</strong> E-mail is incorrect.
-						</div>
+				<%
+					}
+				%>
+				<div id="error_email" class="alert alert-warning" hidden="true">
+					<strong>Warning!</strong> E-mail is incorrect.
+				</div>
 
-						<button class="btnPer btn btn-primary" type="submit">Login</button>
-						<input type="checkbox" checked="checked"> Remember me
-					</div>
-		
-					<div style="padding: 16px;" style="background-color:#f1f1f1">
-						<a href="#">Forgot password?</a>
-					</div>
-				</form>
+				<button class="btnPer btn btn-primary" type="submit">Login</button>
+				<input type="checkbox" checked="checked"> Remember me
 			</div>
-	<%
-		}
-	%>
-	
+
+			<div style="padding: 16px;" style="background-color:#f1f1f1">
+				<a href="#">Forgot password?</a>
+			</div>
+		</form>
+	</div>	
 	<script>
 		document.getElementById('avatar').ondragstart = function() { return false; };
 		// Get the modal
@@ -160,7 +130,6 @@
 						</script>
 
 						<div class="input-group">
-							<input id="ip" name="ip" hidden="true">
 							<input type="text" style="position: static;" class="form-control input-lg"
 								id="search-query" name="search-query" autofocus="autofocus"
 								placeholder="Type your query" required autocomplete="off">

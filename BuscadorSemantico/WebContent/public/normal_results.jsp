@@ -50,7 +50,7 @@
 	<%} %>
 </head>
 
-<body style="padding-top: 40px;" onload="getIP(this);">
+<body style="padding-top: 40px;">
 	<!--[if lt IE 10]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
@@ -79,7 +79,6 @@
 							document.getElementById('logo').ondragstart = function() { return false; };
 						</script>
 						<div class="input-group">
-							<input id="ip" name="ip" hidden="true">
 							<input type="text" autocomplete="off" class="form-control input-lg"
 								id="search-query" name="search-query"
 								placeholder="Type your query" required autocomplete="off"
@@ -154,8 +153,7 @@
 								else if (suggestion != null && (simpleResults == null | simpleResults.size() == 0)) {
 							%> 
 							<div style="margin-left: 15px;">
-								<form id="sugg" action="ResultsPage?action=buscar" method="get"> 
-									<input id="ip" name="ip" hidden="true">
+								<form id="sugg" action="ResultsPage?action=buscar" method="get">
 									<div hidden="true">
 										<input type="text" autocomplete="off" id="search-query" name="search-query"
 										placeholder="Type your query" required autocomplete="off" 

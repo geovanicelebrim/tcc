@@ -65,8 +65,7 @@ public class ResultsPage extends HttpServlet {
 			try {
 				text = File.readPrefixedFile(viewDoc);
 			} catch (ErrorFileException e) {
-				String ip = (String) request.getParameter("ip");
-				util.Log.getInstance().addSystemEntry(ip, e.toString());
+				util.Log.getInstance().addSystemEntry(request.getRemoteAddr(), e.toString());
 			}
 	
 			//TODO acrescentar título e autor para a função de citar
@@ -110,8 +109,7 @@ public class ResultsPage extends HttpServlet {
 						}
 					} catch (Exception e) {
 						if (!e.getMessage().equals("1")) {
-							String ip = (String) request.getParameter("ip");
-							util.Log.getInstance().addSystemEntry(ip, "Normal Search: " + e);
+							util.Log.getInstance().addSystemEntry(request.getRemoteAddr(), "Normal Search: " + e);
 							request.setAttribute("errorMessage", e.getMessage());
 						}
 					}
@@ -147,8 +145,7 @@ public class ResultsPage extends HttpServlet {
 						graph = SemanticSearch.buscaCypherRest(newQuery);
 					} catch (InvalidQueryException | DatabaseConnectionException | ErrorFileException e) {
 						if (!e.getMessage().equals("1")) {
-							String ip = (String) request.getParameter("ip");
-							util.Log.getInstance().addSystemEntry(ip, "Semantic Search: " + e);
+							util.Log.getInstance().addSystemEntry(request.getRemoteAddr(), "Semantic Search: " + e);
 							request.setAttribute("errorMessage", e.getMessage());
 						}
 					}
@@ -182,9 +179,7 @@ public class ResultsPage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			String ip = (String) request.getParameter("ip");
-			util.Log.getInstance().addSystemEntry(ip, e.toString());
-			e.printStackTrace();
+			util.Log.getInstance().addSystemEntry(request.getRemoteAddr(), e.toString());
 		}
 	}
 
@@ -203,9 +198,7 @@ public class ResultsPage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			String ip = (String) request.getParameter("ip");
-			util.Log.getInstance().addSystemEntry(ip, e.toString());
-			e.printStackTrace();
+			util.Log.getInstance().addSystemEntry(request.getRemoteAddr(), e.toString());
 		}
 	}
 
@@ -224,8 +217,7 @@ public class ResultsPage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			String ip = (String) request.getParameter("ip");
-			util.Log.getInstance().addSystemEntry(ip, e.toString());
+			util.Log.getInstance().addSystemEntry(request.getRemoteAddr(), e.toString());
 			e.printStackTrace();
 		}
 	}

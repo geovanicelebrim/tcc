@@ -54,25 +54,14 @@ public class MainPage extends HttpServlet {
 		}
 		
 		String query = null;
-		String searchType = null;
+		String searchMode = null;
+
+		query = (String) request.getParameter("search-query");
+		searchMode = (String) request.getParameter("search-mode");
 		
-		try {
-			String queryString = java.net.URLDecoder.decode(
-					request.getQueryString(), "UTF-8");
+		if (searchMode != null) {
 
-			query = queryString.split("&search-mode=")[0].split("query=")[1];
-
-			searchType = queryString.split("&search-mode=")[1];
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			String ip = (String) request.getParameter("ip");
-			util.Log.getInstance().addSystemEntry(ip, "Error: QueryString builder. " + e);
-		}
-
-		if (searchType != null) {
-
-			switch (searchType) {
+			switch (searchMode) {
 			case "normal":
 				if (query != null) {
 
@@ -92,8 +81,7 @@ public class MainPage extends HttpServlet {
 						}
 					} catch (Exception e) {
 						if (!e.getMessage().equals("1")) {
-							String ip = (String) request.getParameter("ip");
-							util.Log.getInstance().addSystemEntry(ip, "Normal Search: " + e);
+							util.Log.getInstance().addSystemEntry(request.getRemoteAddr(), "Normal Search: " + e);
 							request.setAttribute("errorMessage", e.getMessage());
 						}
 					}
@@ -122,8 +110,7 @@ public class MainPage extends HttpServlet {
 							graph = SemanticSearch.buscaCypherRest(newQuery);
 						} catch (InvalidQueryException | ErrorFileException | DatabaseConnectionException e) {
 							if (!e.getMessage().equals("1")) {
-								String ip = (String) request.getParameter("ip");
-								util.Log.getInstance().addSystemEntry(ip, "Semantic Search: " + e);
+								util.Log.getInstance().addSystemEntry(request.getRemoteAddr(), "Semantic Search: " + e);
 								request.setAttribute("errorMessage", e.getMessage());
 							}
 						}
@@ -157,8 +144,7 @@ public class MainPage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			String ip = (String) request.getParameter("ip");
-			util.Log.getInstance().addSystemEntry(ip, e.toString());
+			util.Log.getInstance().addSystemEntry(request.getRemoteAddr(), e.toString());
 			e.printStackTrace();
 		}
 	}
@@ -179,8 +165,7 @@ public class MainPage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			String ip = (String) request.getParameter("ip");
-			util.Log.getInstance().addSystemEntry(ip, e.toString());
+			util.Log.getInstance().addSystemEntry(request.getRemoteAddr(), e.toString());
 			e.printStackTrace();
 		}
 	}
