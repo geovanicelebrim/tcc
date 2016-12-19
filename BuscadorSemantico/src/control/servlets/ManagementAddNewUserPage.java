@@ -41,6 +41,8 @@ public class ManagementAddNewUserPage extends HttpServlet {
 		String ip = request.getRemoteAddr();
 
 		if (user == null) {
+			String errorLogin = "Entry your e-mail and password.";
+			request.setAttribute("errorLogin", errorLogin);
 			gotoIndex(request, response);
 			return;
 		}

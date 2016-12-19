@@ -23,7 +23,6 @@
 
 <script src="./public/js/jquery/jquery-1.12.4.js"></script>
 <script src="./public/js/util/utilFile.js"></script>
-<script src="./public/js/util/util.js"></script>
 <script src="./public/js/addFile/moment.min.js"></script>
 <script src="./public/js/addFile/daterangepicker.js"></script>
 <script src="./public/js/vendor/bootstrap.min.js"></script>
@@ -69,7 +68,7 @@
 							<br>
 						</div>
 
-						<form method="POST" action="ManagementAddNewFilePage?action=upload" onsubmit="return permissionFile();"
+						<form method="POST" action="ManagementAddNewFilePage?action=upload" onsubmit="return permissionFile('#selectBoxExtraction');"
 							enctype="multipart/form-data">
 							<table style="width: 100%;">
 								<tr>
@@ -114,22 +113,44 @@
 										for="source">Select the text file</label>
 										<div class="input-group">
 											<label class="input-group-btn"> <span
-												class="btn btn-primary"> Text File&hellip; <input
+												class="btn btn-primary"> Text File&hellip; <input accept="text/*"
 													name="textFile" type="file" style="display: none;">
 											</span>
 											</label> <input type="text" class="form-control" readonly>
 										</div></td>
 									<td align="center" style="padding: 0 15px 0 15px;"><label
-										for="source">Select the annotation file</label>
+										for="source">Select the image</label>
 										<div class="input-group">
 											<label class="input-group-btn"> <span
-												class="btn btn-primary"> Ann File&hellip; <input
+												class="btn btn-primary"> Image&hellip; <input accept="image/*"
+													name="imageFile" type="file" style="display: none;">
+											</span>
+											</label> <input type="text" class="form-control" readonly>
+										</div></td>
+								</tr>
+								<tr>
+									<td id="modeExtractionTD" colspan="2" align="center" style="padding: 0 15px 0 15px; padding-top: 15px;"><label
+										for="source">Select the extraction mode</label>
+										
+										<select id="selectBoxExtraction" name="selectBoxExtraction" class="form-control text-center" style="width: auto;"
+											onchange="changeModeExtraction('#selectBoxExtraction');">
+											<option value="automatic" selected>Automatic extraction with OpenNLP</option>
+											<option value="withFile">With annotation file, in brat output format</option>
+										</select>
+
+									</td>
+									
+									<td id="annotationFileTD" align="center" style="padding: 0 15px 0 15px; padding-top: 15px;" hidden="true">
+										<label for="source">Select the annotation file</label>
+										<div class="input-group">
+											<label class="input-group-btn"> <span
+												class="btn btn-primary"> Ann File&hellip; <input accept=".ann"
 													name="annFile" type="file" style="display: none;">
 											</span>
 											</label> <input type="text" class="form-control" readonly>
 										</div></td>
 								</tr>
-							</table> <br> 
+							</table> 
 							
 							<%
 								@SuppressWarnings("unchecked")

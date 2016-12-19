@@ -1,15 +1,3 @@
-function getIP(document) {
-	$(document).ready(function () {
-	    $.getJSON("http://jsonip.com/?callback=?", function (data) {
-	        console.log(data);
-	        
-	        $("input[id|='ip']").each(function (i, el) {
-	            el.value = data.ip;
-	        });
-	    });
-	});
-}
-
 function checkPassword() {
 	var pass = $('#password').val();
 	var conf = $('#confirm_password').val();
@@ -35,14 +23,6 @@ function validateEmail(idEmail) {
     }
     
     return re.test(email);
-}
-
-function permissionFile() {
-	if (!(file1 == true && file2 == true)) {
-		alert("Select the files before submit.");
-		return false;
-	}
-	return true;
 }
 
 function scrollTo(element) {

@@ -1,5 +1,6 @@
 var file1 = false;
 var file2 = false;
+var file3 = false;
 $(function() {
 
 	// We can attach the `fileselect` event to all file inputs on the page
@@ -23,11 +24,14 @@ $(function() {
 							var input = $(this).parents('.input-group').find(
 									':text'), log = numFiles > 1 ? numFiles
 									+ ' files selected' : label;
-							if (file1) {
-								file2 = true;
-							} else {
+							if (!file1) {
 								file1 = true;
+							} else if (!file2){
+								file2 = true;
+							} else if (!file3){
+								file3 = true;
 							}
+							
 							if (input.length) {
 								input.val(log);
 							} else {
@@ -39,6 +43,35 @@ $(function() {
 			});
 
 });
+
+function permissionFile(mode) {
+	if ($(mode).val() == 'withFile') {
+		if (!(file1 == true && file2 == true && file3 == true)) {
+			alert("Select the files before submit.");
+			return false;
+		}
+		return true;
+	} else {
+		if (!(file1 == true && file2 == true)) {
+			alert("Select the files before submit.");
+			return false;
+		}
+		return true;
+	}
+}
+
+function changeModeExtraction(mode) {
+
+	if ($(mode).val() == 'withFile') {
+		$('#modeExtractionTD').removeAttr('colspan');
+		$('#selectBoxExtraction').removeAttr('style');
+		$('#annotationFileTD').show();
+	} else {
+		$('#annotationFileTD').hide();
+		$('#modeExtractionTD').attr('colspan', '2');
+		$('#selectBoxExtraction').attr('style', 'width: auto;');
+	}
+}
 
 function showIndexer() {
 	$('.nav-tabs a[href="#indexer_file"]').tab('show');
