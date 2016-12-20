@@ -66,15 +66,17 @@ public class ManagementAddNewFilePage extends HttpServlet {
 
 			String option = request.getParameter("selectBoxExtraction");
 			
+			final String pathTextFile = Paths.REPOSITORY.toString() + "data";
+			final String pathImageFile = request.getServletContext().getRealPath("/public/images/docs");
+			
+			final Part textFilePart = request.getPart("textFile");
+			final Part imageFilePart = request.getPart("imageFile");
+			
 			if (option.equals("withFile")) {
-				final String pathTextFile = Paths.REPOSITORY.toString() + "data";
-				final String pathAnnFile = Paths.REPOSITORY.toString() + "ann";
-				final String pathImageFile = request.getServletContext().getRealPath("/public/images/docs");
 				
-				final Part textFilePart = request.getPart("textFile");
+				final String pathAnnFile = Paths.REPOSITORY.toString() + "ann";
 				final Part annFilePart = request.getPart("annFile");
-				final Part imageFilePart = request.getPart("imageFile");
-	
+
 				try {
 					ManagementAddNewFile.addFile(pathTextFile, textFilePart, "txt");
 					ManagementAddNewFile.addFile(pathAnnFile, annFilePart, "ann");
@@ -108,8 +110,37 @@ public class ManagementAddNewFilePage extends HttpServlet {
 					return;
 				}
 			} else if (option.equals("automatic")) {
-				//TODO Implementar (Talvez, diferente de agir na hora da importaçao, pode ser disparada uma thread que faz essa extração.
-				System.out.println("Método de insersão de arquivos para extração automática.");
+				try {
+					ManagementAddNewFile.addFile(pathTextFile, textFilePart, "txt");
+					ManagementAddNewFile.addFile(pathImageFile, imageFilePart, ".");
+					ManagementAddNewFile.createMetaFile(textFilePart, title, author, year, source);
+					
+					@SuppressWarnings("unchecked")
+					ArrayList<String> files = (ArrayList<String>) request.getSession().getAttribute("files");
+	
+					if (files != null) {
+						if (!files.contains(title)) {
+							files.add(title);
+						}
+					} else {
+						files = new ArrayList<>();
+						files.add(title);
+					}
+					util.Log.getInstance().addManagementEntry(util.Log.ACTIVITY_TYPE, ip, user.getEmail(), "Add new file.");
+					request.getSession().setAttribute("files", files);
+					redirectToManagementAddNewFile(request, response);
+					return;
+					
+				} catch (Exception e) {
+					String error = e.getMessage();
+					request.setAttribute("error", error);
+					request.setAttribute("title", title);
+					User ur = (User) request.getAttribute("user");
+					String email = ur == null ? "" : ur.getEmail();
+					util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
+					gotoManagementAddNewFile(request, response);
+					return;
+				}
 			}
 			
 		} else if (action.equals("index")) {

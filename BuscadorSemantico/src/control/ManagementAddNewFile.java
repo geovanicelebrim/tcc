@@ -36,7 +36,7 @@ public class ManagementAddNewFile {
 		indexer.buildDictionary(Paths.REPOSITORY.toString() + "dictionary");
 	}
 
-	public static void importAnn() throws IOException, DatabaseConnectionException {
+	public static void importAnn() throws Exception, IOException, DatabaseConnectionException {
 		Importation.importOf(Paths.REPOSITORY.toString());
 	}
 
