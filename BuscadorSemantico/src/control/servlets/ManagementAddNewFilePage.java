@@ -69,18 +69,16 @@ public class ManagementAddNewFilePage extends HttpServlet {
 			if (option.equals("withFile")) {
 				final String pathTextFile = Paths.REPOSITORY.toString() + "data";
 				final String pathAnnFile = Paths.REPOSITORY.toString() + "ann";
-				
-//				Colocar as imagens na raiz do web content.
-//				final String pathImageFile = "/";
+				final String pathImageFile = request.getServletContext().getRealPath("/public/images/docs");
 				
 				final Part textFilePart = request.getPart("textFile");
 				final Part annFilePart = request.getPart("annFile");
-//				final Part imageFilePart = request.getPart("imageFile");
+				final Part imageFilePart = request.getPart("imageFile");
 	
 				try {
 					ManagementAddNewFile.addFile(pathTextFile, textFilePart, "txt");
 					ManagementAddNewFile.addFile(pathAnnFile, annFilePart, "ann");
-//					ManagementAddNewFile.addFile(pathImageFile, imageFilePart, ".");
+					ManagementAddNewFile.addFile(pathImageFile, imageFilePart, ".");
 					ManagementAddNewFile.createMetaFile(textFilePart, title, author, year, source);
 					
 					@SuppressWarnings("unchecked")
@@ -123,6 +121,7 @@ public class ManagementAddNewFilePage extends HttpServlet {
 			if (option.equals("execute")) {
 				try {
 					ManagementAddNewFile.indexerData(OpenMode.CREATE_OR_APPEND);
+					ManagementAddNewFile.buildDictionary();
 					util.Log.getInstance().addManagementEntry(util.Log.ACTIVITY_TYPE, ip, user.getEmail(), "Indexing executed.");
 				} catch (Exception e) {
 					User ur = (User) request.getAttribute("user");
