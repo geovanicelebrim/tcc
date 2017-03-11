@@ -46,6 +46,14 @@ public class ResultsPage extends HttpServlet {
 	private void processRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException {
 
+		Boolean accessed = (Boolean) request.getSession().getAttribute("accessed");
+		
+		if (accessed == null) {
+			accessed = new Boolean(true);
+			request.getSession().setAttribute("accessed", accessed);
+			util.Log.getInstance().addAccess();
+		}
+		
 		String viewDoc = request.getParameter("viewDoc");
 		
 		if(viewDoc != null) {
@@ -57,8 +65,7 @@ public class ResultsPage extends HttpServlet {
 			try {
 				text = File.readPrefixedFile(viewDoc);
 			} catch (ErrorFileException e) {
-				String ip = (String) request.getParameter("ip");
-				util.Log.getInstance().addSystemEntry(ip, e.toString());
+				util.Log.getInstance().addSystemEntry(request.getRemoteAddr(), e.toString());
 			}
 	
 			//TODO acrescentar título e autor para a função de citar
@@ -91,22 +98,25 @@ public class ResultsPage extends HttpServlet {
 
 					ArrayList<SimpleResults> simpleResults = null;
 					String suggestion = null;
-					
-						try {
-							if(query.trim().length() == 0) {
-								throw new Exception("The query can not be empty.");
-							}
-							simpleResults = SimpleSearch.simpleSearch(query.trim());
-							if (simpleResults.size() == 0) {
-								suggestion = SimpleSearch.getSuggestion(query.trim());
-							}
-						} catch (Exception e) {
-							if (!e.getMessage().equals("1")) {
-								String ip = (String) request.getParameter("ip");
-								util.Log.getInstance().addSystemEntry(ip, "Normal Search: " + e);
-								request.setAttribute("errorMessage", e.getMessage());
-							}
+				
+					try {
+						if(query.trim().length() == 0) {
+							throw new Exception("The query can not be empty.");
 						}
+						simpleResults = SimpleSearch.simpleSearch(query.trim());
+						if (simpleResults.size() == 0) {
+							suggestion = SimpleSearch.getSuggestion(query.trim());
+						}
+					} catch (Exception e) {
+						if (!e.getMessage().equals("1")) {
+							util.Log.getInstance().addSystemEntry(request.getRemoteAddr(), "Normal Search: " + e);
+							request.setAttribute("errorMessage", e.getMessage());
+						}
+					}
+					
+					String page = (String) request.getParameter("page");	
+					
+					request.setAttribute("page", page);
 					request.setAttribute("suggestion", suggestion);
 					request.setAttribute("simpleResults", simpleResults);
 
@@ -124,23 +134,25 @@ public class ResultsPage extends HttpServlet {
 					ArrayList<DocumentResult> documentResults = new ArrayList<>();
 					Graph graph = null;
 					
-						String newQuery;
-						try {
-							newQuery = Syntactic
-									.translateToCypherQuery(query);
-							cypherResults = SemanticSearch
-									.cypherSearchBolt(newQuery);
-							documentResults = SemanticSearch
-									.documentSearch(newQuery);
-							graph = SemanticSearch.buscaCypherRest(newQuery);
-						} catch (InvalidQueryException | DatabaseConnectionException | ErrorFileException e) {
-							if (!e.getMessage().equals("1")) {
-								String ip = (String) request.getParameter("ip");
-								util.Log.getInstance().addSystemEntry(ip, "Semantic Search: " + e);
-								request.setAttribute("errorMessage", e.getMessage());
-							}
+					String newQuery;
+					try {
+						newQuery = Syntactic
+								.translateToCypherQuery(query);
+						cypherResults = SemanticSearch
+								.cypherSearchBolt(newQuery);
+						documentResults = SemanticSearch
+								.documentSearch(newQuery);
+						graph = SemanticSearch.buscaCypherRest(newQuery);
+					} catch (InvalidQueryException | DatabaseConnectionException | ErrorFileException e) {
+						if (!e.getMessage().equals("1")) {
+							util.Log.getInstance().addSystemEntry(request.getRemoteAddr(), "Semantic Search: " + e);
+							request.setAttribute("errorMessage", e.getMessage());
 						}
-
+					}
+					
+					String page = (String) request.getParameter("page");	
+					
+					request.setAttribute("page", page);
 					request.setAttribute("cypherResults", cypherResults);
 					request.setAttribute("documentResults", documentResults);
 					request.setAttribute("graph", graph);
@@ -167,9 +179,7 @@ public class ResultsPage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			String ip = (String) request.getParameter("ip");
-			util.Log.getInstance().addSystemEntry(ip, e.toString());
-			e.printStackTrace();
+			util.Log.getInstance().addSystemEntry(request.getRemoteAddr(), e.toString());
 		}
 	}
 
@@ -188,9 +198,7 @@ public class ResultsPage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			String ip = (String) request.getParameter("ip");
-			util.Log.getInstance().addSystemEntry(ip, e.toString());
-			e.printStackTrace();
+			util.Log.getInstance().addSystemEntry(request.getRemoteAddr(), e.toString());
 		}
 	}
 
@@ -209,8 +217,7 @@ public class ResultsPage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			String ip = (String) request.getParameter("ip");
-			util.Log.getInstance().addSystemEntry(ip, e.toString());
+			util.Log.getInstance().addSystemEntry(request.getRemoteAddr(), e.toString());
 			e.printStackTrace();
 		}
 	}

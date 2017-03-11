@@ -45,9 +45,11 @@ public class ManagementAddNewFilePage extends HttpServlet {
 			throws ServletException, IOException {
 
 		User user = (User) request.getSession().getAttribute("user");
-		String ip = (String) request.getParameter("ip");
+		String ip = request.getRemoteAddr();
 		
 		if (user == null) {
+			String errorLogin = "Entry your e-mail and password.";
+			request.setAttribute("errorLogin", errorLogin);
 			gotoIndex(request, response);
 			return;
 		}
@@ -62,43 +64,84 @@ public class ManagementAddNewFilePage extends HttpServlet {
 			String year = (String) request.getParameter("year");
 			String source = (String) request.getParameter("source");
 
+			String option = request.getParameter("selectBoxExtraction");
+			
 			final String pathTextFile = Paths.REPOSITORY.toString() + "data";
-			final String pathAnnFile = Paths.REPOSITORY.toString() + "ann";
+			final String pathImageFile = request.getServletContext().getRealPath("/public/images/docs");
+			
 			final Part textFilePart = request.getPart("textFile");
-			final Part annFilePart = request.getPart("annFile");
-
-			try {
-				ManagementAddNewFile.addFile(pathTextFile, textFilePart, "txt");
-				ManagementAddNewFile.addFile(pathAnnFile, annFilePart, "ann");
-				ManagementAddNewFile.createMetaFile(textFilePart, title, author, year, source);
+			final Part imageFilePart = request.getPart("imageFile");
+			
+			if (option.equals("withFile")) {
 				
-				@SuppressWarnings("unchecked")
-				ArrayList<String> files = (ArrayList<String>) request.getSession().getAttribute("files");
+				final String pathAnnFile = Paths.REPOSITORY.toString() + "ann";
+				final Part annFilePart = request.getPart("annFile");
 
-				if (files != null) {
-					if (!files.contains(title)) {
+				try {
+					ManagementAddNewFile.addFile(pathTextFile, textFilePart, "txt");
+					ManagementAddNewFile.addFile(pathAnnFile, annFilePart, "ann");
+					ManagementAddNewFile.addFile(pathImageFile, imageFilePart, ".");
+					ManagementAddNewFile.createMetaFile(textFilePart, title, author, year, source);
+					
+					@SuppressWarnings("unchecked")
+					ArrayList<String> files = (ArrayList<String>) request.getSession().getAttribute("files");
+	
+					if (files != null) {
+						if (!files.contains(title)) {
+							files.add(title);
+						}
+					} else {
+						files = new ArrayList<>();
 						files.add(title);
 					}
-				} else {
-					files = new ArrayList<>();
-					files.add(title);
+					util.Log.getInstance().addManagementEntry(util.Log.ACTIVITY_TYPE, ip, user.getEmail(), "Add new file.");
+					request.getSession().setAttribute("files", files);
+					redirectToManagementAddNewFile(request, response);
+					return;
+					
+				} catch (Exception e) {
+					String error = e.getMessage();
+					request.setAttribute("error", error);
+					request.setAttribute("title", title);
+					User ur = (User) request.getAttribute("user");
+					String email = ur == null ? "" : ur.getEmail();
+					util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
+					gotoManagementAddNewFile(request, response);
+					return;
 				}
-				util.Log.getInstance().addManagementEntry(util.Log.ACTIVITY_TYPE, ip, user.getEmail(), "Add new file.");
-				request.getSession().setAttribute("files", files);
-				redirectToManagementAddNewFile(request, response);
-				return;
-				
-			} catch (Exception e) {
-				String error = e.getMessage();
-				request.setAttribute("error", error);
-				request.setAttribute("title", title);
-				User ur = (User) request.getAttribute("user");
-				String email = ur == null ? "" : ur.getEmail();
-				util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
-				gotoManagementAddNewFile(request, response);
-				return;
+			} else if (option.equals("automatic")) {
+				try {
+					ManagementAddNewFile.addFile(pathTextFile, textFilePart, "txt");
+					ManagementAddNewFile.addFile(pathImageFile, imageFilePart, ".");
+					ManagementAddNewFile.createMetaFile(textFilePart, title, author, year, source);
+					
+					@SuppressWarnings("unchecked")
+					ArrayList<String> files = (ArrayList<String>) request.getSession().getAttribute("files");
+	
+					if (files != null) {
+						if (!files.contains(title)) {
+							files.add(title);
+						}
+					} else {
+						files = new ArrayList<>();
+						files.add(title);
+					}
+					util.Log.getInstance().addManagementEntry(util.Log.ACTIVITY_TYPE, ip, user.getEmail(), "Add new file.");
+					request.getSession().setAttribute("files", files);
+					redirectToManagementAddNewFile(request, response);
+					return;
+					
+				} catch (Exception e) {
+					String error = e.getMessage();
+					request.setAttribute("error", error);
+					request.setAttribute("title", title);
+					User ur = (User) request.getAttribute("user");
+					String email = ur == null ? "" : ur.getEmail();
+					util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
+					gotoManagementAddNewFile(request, response);
+					return;
+				}
 			}
-
 			
 		} else if (action.equals("index")) {
 			String option = request.getParameter("selectBoxIndexer");
@@ -109,6 +152,7 @@ public class ManagementAddNewFilePage extends HttpServlet {
 			if (option.equals("execute")) {
 				try {
 					ManagementAddNewFile.indexerData(OpenMode.CREATE_OR_APPEND);
+					ManagementAddNewFile.buildDictionary();
 					util.Log.getInstance().addManagementEntry(util.Log.ACTIVITY_TYPE, ip, user.getEmail(), "Indexing executed.");
 				} catch (Exception e) {
 					User ur = (User) request.getAttribute("user");
@@ -166,10 +210,9 @@ public class ManagementAddNewFilePage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			String ip = (String) request.getParameter("ip");
 			User ur = (User) request.getAttribute("user");
 			String email = ur == null ? "" : ur.getEmail();
-			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
+			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, request.getRemoteAddr(), email, e.toString());
 		}
 	}
 	
@@ -183,10 +226,9 @@ public class ManagementAddNewFilePage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			String ip = (String) request.getParameter("ip");
 			User ur = (User) request.getAttribute("user");
 			String email = ur == null ? "" : ur.getEmail();
-			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
+			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, request.getRemoteAddr(), email, e.toString());
 		}
 	}
 
@@ -199,10 +241,9 @@ public class ManagementAddNewFilePage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			String ip = (String) request.getParameter("ip");
 			User ur = (User) request.getAttribute("user");
 			String email = ur == null ? "" : ur.getEmail();
-			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
+			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, request.getRemoteAddr(), email, e.toString());
 		}
 	}
 
@@ -215,10 +256,9 @@ public class ManagementAddNewFilePage extends HttpServlet {
 		try {
 			rd.forward(request, response);
 		} catch (Exception e) {
-			String ip = (String) request.getParameter("ip");
 			User ur = (User) request.getAttribute("user");
 			String email = ur == null ? "" : ur.getEmail();
-			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, ip, email, e.toString());
+			util.Log.getInstance().addManagementEntry(util.Log.ERROR_TYPE, request.getRemoteAddr(), email, e.toString());
 		}
 	}
 

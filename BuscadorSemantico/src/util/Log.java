@@ -26,32 +26,32 @@ public class Log {
 	private static boolean blockManagement = false;
 	private static boolean blockAccessCount = false;
 	
-	private static Integer accessCount = 0; // Contador de acessos
+	private static boolean writeAccess = false;
+	
+	private static Integer accessCount = 0;
 	
 	private Log () {
 		Thread t = new Thread(new Runnable() {
 			@SuppressWarnings("deprecation")
 			public void run() {
 				while(true) {
-					Date scheduled = new Date();
-					Date now = new Date();
-					scheduled.setHours(23); scheduled.setMinutes(59);
-					
-					if(logSystemBuffer.size() > 20 || now.after(scheduled)) {
+					if(logSystemBuffer.size() > 20) {
 						while (blockSystem) {};
 						blockSystem = true;
 						freeLogSystemBuffer();
 						blockSystem = false;
 					}
 					
-					if(logManagementBuffer.size() > 20 || now.after(scheduled)) {
+					if(logManagementBuffer.size() > 20) {
 						while (blockManagement) {};
 						blockManagement = true;
 						freeLogManagementBuffer();
 						blockManagement = false;
 					}
 					
-					if(now.after(scheduled)) {
+					Date now = new Date();
+
+					if(now.getHours() == 0 && now.getMinutes() < 5 && !writeAccess) {
 						while (blockAccessCount) {};
 						blockAccessCount = true;
 						Date date = new Date(); 
@@ -60,6 +60,11 @@ public class Log {
 						write(pathAccessCount, text);
 						accessCount = 0;
 						blockAccessCount = false;
+						writeAccess = true;
+					}
+
+					if(now.getHours() >= 0 && now.getMinutes() >= 5 && writeAccess) {
+						writeAccess = false;
 					}
 					
 					try {
@@ -121,7 +126,7 @@ public class Log {
 		try {
 			logSystem = DAO.File.readLinesFile(pathLogSystem);
 		} catch (IOException e) {
-			e.printStackTrace();
+			logSystem = new ArrayList<>();
 		}
 		
 		blockSystem = false;
@@ -140,7 +145,7 @@ public class Log {
 		try {
 			logManagement = DAO.File.readLinesFile(pathLogManagement);
 		} catch (IOException e) {
-			e.printStackTrace();
+			logManagement = new ArrayList<>();
 		}
 		blockManagement = false;
 		
@@ -177,17 +182,26 @@ public class Log {
 	
 	public String getSystemBoot() {
 		File[] files = DAO.File.listFilesOfType(DAO.Paths.REPOSITORY.toString() + "dictionary/", ".txt");
-		return files.length > 0 ? "Was executed." : "error:\tIt was not executed.";
+		if(files != null)
+			return files.length > 0 ? "Was executed." : "error:\tIt was not executed.";
+		else
+			return "error:\tIt was not executed.";
 	}
 	
 	public String getIndex() {
 		File[] files = DAO.File.listFilesOfType(DAO.Paths.REPOSITORY.toString() + "index/", "");
-		return files.length > 0 ? "Is created." : "error:\tNot created.";
+		if(files != null)
+			return files.length > 0 ? "Is created." : "error:\tNot created.";
+		else
+			return "error:\tNot created.";
 	}
 	
 	public String getDictionary() {
 		File[] files = DAO.File.listFilesOfType(DAO.Paths.REPOSITORY.toString() + "dictionary/index/", "");
-		return files.length > 0 ? "Is created." : "error:\tNot created.";
+		if (files != null)
+			return files.length > 0 ? "Is created." : "error:\tNot created.";
+		else
+			return "error:\tNot created.";
 	}
 	
 	public String getDatabase() {
@@ -200,8 +214,10 @@ public class Log {
 		}
 		
 		File[] files = DAO.File.listFilesOfType(DAO.Paths.REPOSITORY.toString() + "ann/", ".ann");
-		
-		return files.length > 0 ? "error:\tOutdated database." : "Database updated.";
+		if(files != null)
+			return files.length > 0 ? "error:\tOutdated database." : "Database updated.";
+		else
+			return "Database updated.";
 
 	}
 	
@@ -217,12 +233,12 @@ public class Log {
 	public String getSemanticEngine() {
 		String newQuery = null;
 		try {
-			newQuery = Syntactic.translateToCypherQuery("Pessoa--Grupo");
+			newQuery = Syntactic.translateToCypherQuery("Pessoa");
 		} catch (InvalidQueryException e) {
 		}
 		
 		try {
-			SemanticSearch.cypherSearchBolt(newQuery);
+			if(SemanticSearch.cypherSearchBolt(newQuery).size() == 0) { return "error:\tThe database is empty."; }
 			SemanticSearch.documentSearch(newQuery);
 			SemanticSearch.buscaCypherRest(newQuery);
 		} catch (Exception e) {
@@ -247,7 +263,7 @@ public class Log {
 		try {
 			accessCountList = DAO.File.readLinesFile(pathAccessCount);
 		} catch (IOException e) {
-			e.printStackTrace();
+			accessCountList = new ArrayList<>();
 		}
 		blockAccessCount = false;
 		

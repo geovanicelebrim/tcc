@@ -24,47 +24,37 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<link rel="apple-touch-icon" href="public/icons/apple-touch-icon.png">
-	<link rel="shortcut icon" href="public/icons/icon.png">
+	<link rel="shortcut icon" href="./public/icons/icon.png">
 	
-	<link rel="stylesheet" href="public/css/bootstrap.min.css">
-	<link rel="stylesheet" href="public/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="public/css/main.css">
-	<link rel="stylesheet" href="public/css/util.css">
-	<link rel="stylesheet" href="public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="public/fonts/font-awesome-4.7.0/css/font-awesome.css">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="./public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./public/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="./public/css/main.css">
+	<link rel="stylesheet" href="./public/css/util.css">
+	<link rel="stylesheet" href="./public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./public/fonts/font-awesome-4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="./public/css/jquery-ui.css">
 	
-	<script src="https://code.jquery.com/jquery-1.12.1.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script type="text/javascript" src="public/js/viewDocument/actions.js"></script>
-	
-	<!--[if lt IE 9]>
-		<script src="public/js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
-	<![endif]-->
-	
+	<script src="./public/js/jquery/jquery-1.12.4.js"></script>
+	<script src="./public/js/jquery/jquery-ui.js"></script>
+	<script src="./public/js/viewDocument/actions.js"></script>
+
 </head>
 
-<body>
-	<!--[if lt IE 8]>
+<body onload="showSlice();">
+	<!--[if lt IE 10]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
-	<%
-		Boolean accessed = (Boolean) request.getSession().getAttribute("accessed");
-		if (accessed == null) {
-			request.getSession().setAttribute("accessed", accessed);
-			util.Log.getInstance().addAccess();
-		}
-	%>
+
 	<div id="menu" hidden="true">
 		<table class="tableViewDocument menuViewDocument">
 		  <tr>
-		    <th class="VDth"><a class="menu-bar VDbutton" href="javascript:goBack()"> <i class="fa fa-arrow-left" aria-hidden="true"></i> </a></th>
-		    <th class="VDth"><a class="menu-bar VDbutton" href="javascript:downloadDocument()"> <i class="fa fa-download" aria-hidden="true"></i> </a></th>
-			<th class="VDth"><a class="menu-bar VDbutton" href="javascript:printDocument('document')"> <i class="fa fa-print" aria-hidden="true"></i> </a></th>
-			<th class="VDth"><a class="menu-bar VDbutton" href="javascript:trustworthy('#thanks-message')"> <i class="fa fa-thumbs-up" aria-hidden="true"></i> </a></th>
-			<th class="VDth"><a class="menu-bar VDbutton" href="javascript:unreliable('#thanks-message')"> <i class="fa fa-thumbs-down" aria-hidden="true"></i> </a></th>
-			<th class="VDth"><a class="menu-bar VDbutton" href="javascript:cite('#citation')"> <i class="fa fa-quote-right fa-1x fa-pull-left" aria-hidden="true"></i> </a></th>
+		    <th class="VDth"><a title="Back" class="menu-bar VDbutton" href="javascript:goBack()"> <i class="fa fa-arrow-left" aria-hidden="true"></i> </a></th>
+		    <th class="VDth"><a title="Download" class="menu-bar VDbutton" href="javascript:downloadDocument()"> <i class="fa fa-download" aria-hidden="true"></i> </a></th>
+			<th class="VDth"><a title="Print" class="menu-bar VDbutton" href="javascript:printDocument('document')"> <i class="fa fa-print" aria-hidden="true"></i> </a></th>
+			<th class="VDth"><a title="Like" class="menu-bar VDbutton" href="javascript:trustworthy('#thanks-message')"> <i class="fa fa-thumbs-up" aria-hidden="true"></i> </a></th>
+			<th class="VDth"><a title="Non Like" class="menu-bar VDbutton" href="javascript:unreliable('#thanks-message')"> <i class="fa fa-thumbs-down" aria-hidden="true"></i> </a></th>
+			<th class="VDth"><a title="Show Slice" class="menu-bar VDbutton" href="javascript:showSlice()"> <i class="fa fa-magic" aria-hidden="true"></i> </a></th>
+			<!-- <th class="VDth"><a title="Back" class="menu-bar VDbutton" href="javascript:cite('#citation')"> <i class="fa fa-quote-right fa-1x fa-pull-left" aria-hidden="true"></i> </a></th> -->
 		  </tr>
 		</table>
 	</div>
@@ -127,20 +117,29 @@
 				%>
 				
 				<script>
-					$( "#slice1" ).animate({
-						backgroundColor: "rgb( 255, 255, 255 )"
-					}, 10000);
-					$( "#slice2" ).animate({
-						backgroundColor: "rgb( 255, 255, 255 )"
-					}, 10000);
-					
-					var container = $('div'),
-					scrollTo = $('#slice1');
-
-					$('html, body').animate({
-						scrollTop : scrollTo.offset().top - container.offset().top + container.scrollTop()
-					}, 1000);
-					
+					function showSlice() {
+						
+						$( "#slice1" ).animate({
+							backgroundColor: "#33cccc"
+						}, 0);
+						$( "#slice2" ).animate({
+							backgroundColor: "#33cccc"
+						}, 0);
+						
+						$( "#slice1" ).animate({
+							backgroundColor: "rgb( 255, 255, 255 )"
+						}, 10000);
+						$( "#slice2" ).animate({
+							backgroundColor: "rgb( 255, 255, 255 )"
+						}, 10000);
+						
+						var container = $('div'),
+						scrollTo = $('#slice1');
+	
+						$('html, body').animate({
+							scrollTop : scrollTo.offset().top - container.offset().top + container.scrollTop()
+						}, 1000);
+					}
 				</script>
 				
 			</div>
