@@ -1,0 +1,184 @@
+T1	Data 64 74	7 de abril
+T4	Pessoa 1098 1132	Humberto de Alencar Castelo Branco
+T5	Data 1134 1138	1964
+T6	Pessoa 1147 1169	Artur da Costa e Silva
+T7	Data 1176 1180	1969
+T9	Evento 1266 1285	período da ditadura
+T10	Data 588 592	1968
+T11	Evento 663 677	anos de chumbo
+T15	Data 1363 1374	1o de abril
+T16	Pessoa 1511 1532	Auro de Moura Andrade
+T17	Pessoa 1615 1631	Ranieri Mazzilli
+T18	Pessoa 1668 1702	Humberto de Alencar Castelo Branco
+T19	Organizacao 1732 1750	Congresso Nacional
+T20	Data 1754 1765	11 de abril
+T21	Data 1801 1820	15 de abril de 1964
+T22	Pessoa 1849 1862	Jânio Quadros
+T23	Data 1876 1897	31 de janeiro de 1961
+T24	Data 1902 1924	31 de janeiro de 1966.
+T25	Local 1971 1979	Brasília
+T26	Organizacao 1991 2009	Congresso Nacional
+T27	Evento 1957 1967	Diretas Já
+T28	Pessoa 2011 2028	Ulysses Guimarães
+T31	Organizacao 1548 1561	Senado Federa
+T32	Organizacao 1593 1613	Câmara dos Deputados
+T33	Pessoa 2072 2090	General Figueiredo
+T34	Data 2112 2122	9 de abril
+T36	Pessoa 2172 2188	Francisco Campos
+T37	Evento 2245 2262	revolução de 1964
+T40	Quantidade 288 317	dezessete atos institucionais
+T41	Quantidade 321 350	cento e quatro complementares
+T42	Local 1417 1423	Brasil
+R1	Relacao Arg1:T5 Arg2:T7	
+R2	Relacao Arg1:T16 Arg2:T31	
+R3	Relacao Arg1:T10 Arg2:T11	
+R5	Relacao Arg1:T40 Arg2:T41	
+R6	Relacao Arg1:T23 Arg2:T24	
+T45	Data 2522 2537	outubro de 1965
+T46	Organizacao 2551 2556	Junta
+T47	Pessoa 2650 2664	Castelo Branco
+T48	Organizacao 2676 2688	Estado-Maior
+R8	Relacao Arg1:T47 Arg2:T48	
+T49	Evento 2706 2724	golpe contra Jango
+T50	Grupo 3172 3181	militares
+T51	Organizacao 2754 2763	Congresso
+T52	Local 3580 3584	Cuba
+T53	Evento 3634 3653	intervenção militar
+T54	Local 3702 3708	Brasil
+T55	Pessoa 3817 3825	Lúis Mir
+T56	Local 3885 3889	Cuba
+T57	Local 3895 3900	China
+T58	Local 3933 3939	Brasil
+T59	Organizacao 4009 4043	Partido Comunista Brasileiro (PCB)
+T60	Pessoa 4100 4115	Alberto Goldman
+T61	Pessoa 4118 4132	Roberto Freire
+T62	Organizacao 4136 4174	Movimento Democrático Brasileiro (MDB)
+T64	Data 4268 4290	13 de dezembro de 1968
+T65	Pessoa 4305 4318	Costa e Silva
+T69	Organizacao 369 384	governo militar
+T12	Organizacao 516 531	governo militar
+T71	Papel 1534 1544	presidente
+R10	Relacao Arg1:T16 Arg2:T71	
+R11	Relacao Arg1:T71 Arg2:T31	
+T73	Papel 4294 4304	presidente
+R12	Relacao Arg1:T73 Arg2:T65	
+R14	Relacao Arg1:T56 Arg2:T57	
+T74	Evento 4511 4541	cassação de direitos políticos
+T76	Organizacao 5079 5110	Escola Superior de Guerra (ESG)
+T79	Data 5251 5269	9 de abril de 1964
+T81	Evento 5271 5290	o movimento de 1964
+T75	Grupo 4926 4935	militares
+R17	Relacao Arg1:T47 Arg2:T49	
+R18	Relacao Arg1:T22 Arg2:T23	
+R19	Relacao Arg1:T27 Arg2:T25	
+R20	Relacao Arg1:T27 Arg2:T26	
+T82	Papel 1635 1646	presidência
+R21	Relacao Arg1:T17 Arg2:T82	
+T83	Papel 1703 1726	presidente da república
+R22	Relacao Arg1:T18 Arg2:T83	
+R23	Relacao Arg1:T83 Arg2:T19	
+T84	Grupo 1051 1061	comunistas
+T85	Papel 2738 2748	presidente
+R24	Relacao Arg1:T85 Arg2:T47	
+T87	Evento 3232 3237	golpe
+R25	Relacao Arg1:T50 Arg2:T87	
+T88	Grupo 3988 3998	comunistas
+R26	Relacao Arg1:T88 Arg2:T59	
+R27	Relacao Arg1:T60 Arg2:T61	
+R28	Relacao Arg1:T61 Arg2:T62	
+R29	Relacao Arg1:T60 Arg2:T62	
+T89	Evento 3312 3320	ditadura
+T90	Evento 5023 5031	ditadura
+R30	Relacao Arg1:T90 Arg2:T75	
+R31	Relacao Arg1:T90 Arg2:T76	
+T91	Local 5584 5590	Brasil
+T98	Evento 5307 5326	revolução vitoriosa
+T103	Organizacao 6540 6554	Forças Armadas
+T105	Grupo 951 960	políticos
+T106	Grupo 963 972	militares
+T107	Data 21799 21817	1 de julho de 1969
+T108	Papel 21821 21831	governador
+T109	Local 21835 21844	São Paulo
+T110	Pessoa 21846 21857	Abreu Sodré
+T111	Organizacao 21867 21873	Recife
+T112	Organizacao 21875 21902	Operação Bandeirante (OBAN)
+T113	Evento 21969 21977	ditadura
+T114	Data 21986 22007	25 de janeiro de 1969
+T115	Pessoa 22009 22023	Carlos Lamarca
+T116	Papel 22025 22032	capitão
+T117	Organizacao 22036 22055	Exército Brasileiro
+T120	Artefato 22117 22157	metralhadoras INA ponto quarenta e cinco
+T122	Artefato 22177 22207	fuzis automáticos leves FN FAL
+T124	Pessoa 22223 22230	Lamarca
+T125	Papel 22253 22263	Embaixador
+T126	Grupo 22295 22304	militares
+T127	Local 22391 22396	Brasi
+T128	Evento 22369 22387	resistência armada
+T129	Grupo 22402 22412	comunistas
+T130	Grupo 22415 22424	delatores
+T131	Grupo 22458 22466	exército
+T132	Grupo 22525 22544	esquadrões da morte
+R34	Relacao Arg1:T108 Arg2:T110	
+R35	Relacao Arg1:T107 Arg2:T111	
+R36	Relacao Arg1:T112 Arg2:T113	
+R37	Relacao Arg1:T115 Arg2:T116	
+R38	Relacao Arg1:T116 Arg2:T117	
+R42	Relacao Arg1:T129 Arg2:T130	
+R44	Relacao Arg1:T128 Arg2:T126	
+R4	Relacao Arg1:T40 Arg2:T69	
+R46	Relacao Arg1:T41 Arg2:T69	
+T2	Data 595 599	1975
+R47	Relacao Arg1:T10 Arg2:T2	
+R48	Relacao Arg1:T2 Arg2:T11	
+T3	Organizacao 837 843	Estado
+T13	Data 1139 1143	1967
+R49	Relacao Arg1:T5 Arg2:T13	
+R50	Relacao Arg1:T5 Arg2:T4	
+R51	Relacao Arg1:T13 Arg2:T4	
+T38	Data 1171 1175	1967
+R52	Relacao Arg1:T38 Arg2:T7	
+R53	Relacao Arg1:T6 Arg2:T38	
+R54	Relacao Arg1:T6 Arg2:T7	
+T8	Papel 1503 1510	senador
+R55	Relacao Arg1:T8 Arg2:T16	
+T70	Papel 1579 1589	presidente
+R56	Relacao Arg1:T70 Arg2:T32	
+R57	Relacao Arg1:T32 Arg2:T17	
+R58	Relacao Arg1:T70 Arg2:T17	
+R59	Relacao Arg1:T83 Arg2:T20	
+R60	Relacao Arg1:T18 Arg2:T20	
+R61	Relacao Arg1:T18 Arg2:T21	
+R62	Relacao Arg1:T18 Arg2:T22	
+R63	Relacao Arg1:T22 Arg2:T24	
+R64	Relacao Arg1:T25 Arg2:T26	
+R7	Relacao Arg1:T34 Arg2:T36	
+R9	Relacao Arg1:T36 Arg2:T37	
+R16	Relacao Arg1:T45 Arg2:T46	
+T14	Papel 2641 2649	marechal
+R65	Relacao Arg1:T14 Arg2:T47	
+T29	Papel 2667 2672	chefe
+R66	Relacao Arg1:T47 Arg2:T29	
+R67	Relacao Arg1:T29 Arg2:T48	
+R68	Relacao Arg1:T53 Arg2:T54	
+R69	Relacao Arg1:T55 Arg2:T56	
+R70	Relacao Arg1:T55 Arg2:T57	
+R71	Relacao Arg1:T55 Arg2:T58	
+R72	Relacao Arg1:T56 Arg2:T58	
+R73	Relacao Arg1:T57 Arg2:T58	
+R74	Relacao Arg1:T64 Arg2:T73	
+R13	Relacao Arg1:T64 Arg2:T65	
+R15	Relacao Arg1:T79 Arg2:T81	
+R75	Relacao Arg1:T79 Arg2:T98	
+R76	Relacao Arg1:T81 Arg2:T98	
+T30	Grupo 6601 6605	Povo
+T35	Grupo 6659 6663	Povo
+R32	Relacao Arg1:T108 Arg2:T109	
+R33	Relacao Arg1:T110 Arg2:T111	
+R39	Relacao Arg1:T114 Arg2:T115	
+T39	Organizacao 22072 22095	Regimento de Infantaria
+R40	Relacao Arg1:T115 Arg2:T39	
+R45	Relacao Arg1:T115 Arg2:T120	
+R77	Relacao Arg1:T115 Arg2:T122	
+R41	Relacao Arg1:T128 Arg2:T127	
+T43	Organizacao 22579 22631	Comissão do Exército Brasileiro em Washington (CEEW)
+R43	Relacao Arg1:T132 Arg2:T43	

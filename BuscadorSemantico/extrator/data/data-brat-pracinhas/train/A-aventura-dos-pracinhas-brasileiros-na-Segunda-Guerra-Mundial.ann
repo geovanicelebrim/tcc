@@ -1,0 +1,169 @@
+T1	Local 162 168	Itália
+T2	Evento 40 62	Segunda Guerra Mundial
+T3	Evento 103 125	Segunda Guerra Mundial
+T4	Quantidade 237 248	600 pessoas
+T5	Pessoa 354 368	Julio do Valle
+T6	Pessoa 502 507	Julio
+T7	Organizacao 535 566	Força Expedicionária Brasileira
+T8	Organizacao 568 571	FEB
+R1	Relacao Arg1:T7 Arg2:T8	
+R2	Relacao Arg1:T5 Arg2:T7	
+T9	Local 576 583	Montese
+R3	Relacao Arg1:T8 Arg2:T9	
+T10	Local 597 603	Itália
+R4	Relacao Arg1:T9 Arg2:T10	
+T11	Pessoa 938 943	Valle
+T12	Quantidade 1007 1035	25.000 pracinhas brasileiros
+T13	Local 1052 1058	Itália
+T14	Local 1077 1091	América do Sul
+R5	Relacao Arg1:T12 Arg2:T13	
+T15	Local 1117 1123	Europa
+T16	Evento 1134 1156	Segunda Guerra Mundial
+T17	Data 1158 1162	1939
+T18	Data 1163 1167	1945
+T19	Organizacao 1372 1375	FEB
+T20	Pessoa 1377 1382	Julio
+T21	Fonte 1393 1400	EL PAÍS
+T22	Local 1444 1453	São Paulo
+T23	Pessoa 1634 1648	Julio do Valle
+T24	AutorReporter 1650 1662	BOSCO MARTÍN
+T25	Local 1666 1672	Brasil
+T26	Data 1695 1709	agosto de 1942
+R6	Relacao Arg1:T25 Arg2:T26	
+T27	Local 1740 1748	Alemanha
+R7	Relacao Arg1:T26 Arg2:T27	
+T28	Local 1761 1767	Itália
+R8	Relacao Arg1:T26 Arg2:T28	
+T29	Quantidade 1784 1804	morte de 607 pessoas
+T30	Local 1878 1887	Atlântico
+T31	Local 1899 1926	costa leste norte-americana
+T32	Local 1930 1951	Cabo da Boa Esperança
+T33	Local 1971 1977	África
+T34	Pessoa 2010 2024	Getúlio Vargas
+T35	Data 2061 2065	1930
+T36	Data 2066 2070	1945
+T37	Data 2118 2122	1939
+T38	Local 2180 2185	Japão
+T39	Local 2207 2213	Brasil
+T40	Data 2224 2237	junho de 1945
+T41	Local 2343 2357	Estados Unidos
+T42	Local 2362 2379	Império Britânico
+T43	Local 2396 2411	União Soviética
+T44	Local 2509 2515	Brasil
+T45	Organizacao 2548 2551	FEB
+T46	Pessoa 2849 2854	Valle
+T47	Local 3009 3017	Apeninos
+T48	Data 3031 3035	1944
+T49	Organizacao 3343 3346	FEB
+T50	Local 3607 3614	Nápoles
+T51	Local 3703 3709	Itália
+T52	Data 3713 3732	16 de julho de 1944
+R9	Relacao Arg1:T51 Arg2:T52	
+T53	Local 3756 3770	Rio de Janeiro
+R10	Relacao Arg1:T52 Arg2:T53	
+T54	Local 3841 3847	Itália
+T55	Organizacao 3918 3929	5º Exército
+T56	Local 3934 3937	EUA
+T57	Local 3957 3964	Nápoles
+T58	Pessoa 4320 4348	João Ferreira de Albuquerque
+T59	AutorReporter 4350 4362	BOSCO MARTÍN
+T60	Pessoa 4633 4638	Valle
+T61	Organizacao 4653 4670	Batalhão de Saúde
+T62	Evento 4903 4917	Segunda Guerra
+T63	Local 4929 4942	Monte Castelo
+T64	Data 5027 5044	fevereiro de 1945
+T65	Local 5072 5079	Bolonha
+T66	Quantidade 5347 5366	450 soldados mortos
+T67	Evento 5377 5391	Segunda Guerra
+T68	Quantidade 5515 5534	14.799 prisioneiros
+T69	Quantidade 5561 5574	4.000 cavalos
+T70	Quantidade 5576 5607	80 canhões de diversos calibres
+T71	Quantidade 5610 5624	1.500 viaturas
+T72	Data 5652 5665	abril de 1945
+T73	Organizacao 5688 5691	FEB
+T74	Local 5915 5922	Montese
+T75	Local 5924 5935	Castelnuovo
+T76	Local 5937 5942	Zocca
+T77	Local 5944 5951	Monalto
+T78	Local 5954 5959	Barga
+T79	Local 5965 5971	Itália
+T80	Local 6020 6027	Nápoles
+T81	Organizacao 6294 6297	FEB
+T82	Local 6453 6459	Itália
+T83	Local 6747 6756	São Paulo
+T84	Pessoa 6758 6786	João Ferreira de Albuquerque
+T85	Local 6919 6925	Itália
+T86	Local 6961 6968	Toscana
+T87	Evento 7188 7202	Segunda Guerra
+T88	Pessoa 7238 7249	Albuquerque
+T89	Pessoa 7251 7265	Julio do Valle
+T90	Evento 7436 7450	Segunda Guerra
+T91	Pessoa 8040 8054	GETÚLIO VARGAS
+T92	Pessoa 8055 8070	FREDERICO ROSAS
+T93	Pessoa 8150 8164	Getúlio Vargas
+T94	Data 8166 8170	1882
+T95	Data 8171 8175	1954
+T96	Local 8458 8466	Alemanha
+T97	Evento 8528 8550	Segunda Guerra Mundial
+T98	Pessoa 8564 8570	Vargas
+T99	Data 8782 8786	1950
+T100	Data 8789 8793	1954
+T101	Local 9003 9006	EUA
+T102	Data 9018 9033	janeiro de 1943
+T103	Pessoa 9091 9109	Franklin Roosevelt
+T104	Local 9122 9127	Natal
+T105	Local 9132 9151	Nordeste brasileiro
+T106	Pessoa 9165 9174	Roosevelt
+T107	Pessoa 9197 9203	Vargas
+T108	Organizacao 9217 9248	Força Expedicionária Brasileira
+T109	Organizacao 9250 9253	FEB
+T110	Organizacao 9375 9405	Companhia Siderúrgica Nacional
+T111	Organizacao 9407 9410	CSN
+T112	Local 9498 9504	Brasil
+R11	Relacao Arg1:T5 Arg2:T6	
+R12	Relacao Arg1:T5 Arg2:T11	
+R13	Relacao Arg1:T12 Arg2:T14	
+R14	Relacao Arg1:T12 Arg2:T15	
+R15	Relacao Arg1:T12 Arg2:T16	
+R16	Relacao Arg1:T17 Arg2:T18	
+R17	Relacao Arg1:T16 Arg2:T17	
+R18	Relacao Arg1:T26 Arg2:T29	
+R19	Relacao Arg1:T31 Arg2:T30	
+R20	Relacao Arg1:T32 Arg2:T30	
+R21	Relacao Arg1:T33 Arg2:T32	
+R22	Relacao Arg1:T35 Arg2:T36	
+R23	Relacao Arg1:T34 Arg2:T35	
+R24	Relacao Arg1:T34 Arg2:T37	
+R25	Relacao Arg1:T38 Arg2:T39	
+R26	Relacao Arg1:T40 Arg2:T38	
+R27	Relacao Arg1:T40 Arg2:T39	
+R28	Relacao Arg1:T47 Arg2:T48	
+R29	Relacao Arg1:T55 Arg2:T56	
+R30	Relacao Arg1:T60 Arg2:T61	
+R31	Relacao Arg1:T62 Arg2:T63	
+R32	Relacao Arg1:T66 Arg2:T67	
+R33	Relacao Arg1:T68 Arg2:T72	
+R34	Relacao Arg1:T69 Arg2:T72	
+R35	Relacao Arg1:T70 Arg2:T72	
+R36	Relacao Arg1:T71 Arg2:T72	
+R37	Relacao Arg1:T80 Arg2:T79	
+R38	Relacao Arg1:T86 Arg2:T85	
+R39	Relacao Arg1:T94 Arg2:T95	
+R40	Relacao Arg1:T93 Arg2:T94	
+R41	Relacao Arg1:T99 Arg2:T100	
+R42	Relacao Arg1:T108 Arg2:T109	
+R43	Relacao Arg1:T110 Arg2:T111	
+T113	Grupo 15 24	pracinhas
+R44	Relacao Arg1:T113 Arg2:T2	
+T114	Grupo 78 87	pracinhas
+R45	Relacao Arg1:T114 Arg2:T3	
+T115	Artefato 667 672	bomba
+T117	Grupo 2781 2789	soldados
+T118	Grupo 2914 2920	tropas
+T119	Duvida 3554 3569	Exército alemão
+T121	Grupo 4890 4899	pracinhas
+T122	Grupo 5151 5164	tropas alemãs
+T123	Grupo 6107 6125	forças brasileiras
+T124	Grupo 6355 6361	tropas
+T125	Grupo 6874 6889	Exército alemão
+T126	Grupo 2768 2776	generais
