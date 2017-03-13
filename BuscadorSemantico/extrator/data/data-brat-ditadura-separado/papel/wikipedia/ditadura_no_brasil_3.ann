@@ -1,0 +1,322 @@
+R1	Relacao Arg1:T5 Arg2:T7	
+R2	Relacao Arg1:T16 Arg2:T31	
+R3	Relacao Arg1:T10 Arg2:T11	
+R6	Relacao Arg1:T23 Arg2:T24	
+R8	Relacao Arg1:T47 Arg2:T48	
+T71	Papel 1534 1544	presidente
+R10	Relacao Arg1:T16 Arg2:T71	
+R11	Relacao Arg1:T71 Arg2:T31	
+T73	Papel 4294 4304	presidente
+R12	Relacao Arg1:T73 Arg2:T65	
+R14	Relacao Arg1:T56 Arg2:T57	
+R17	Relacao Arg1:T47 Arg2:T49	
+R18	Relacao Arg1:T22 Arg2:T23	
+R19	Relacao Arg1:T27 Arg2:T25	
+R20	Relacao Arg1:T27 Arg2:T26	
+T82	Papel 1635 1646	presidência
+R21	Relacao Arg1:T17 Arg2:T82	
+T83	Papel 1703 1713	presidente
+R22	Relacao Arg1:T18 Arg2:T83	
+R23	Relacao Arg1:T83 Arg2:T19	
+T85	Papel 2738 2748	presidente
+R24	Relacao Arg1:T85 Arg2:T47	
+R25	Relacao Arg1:T50 Arg2:T87	
+R26	Relacao Arg1:T88 Arg2:T59	
+R27	Relacao Arg1:T60 Arg2:T61	
+R28	Relacao Arg1:T61 Arg2:T62	
+R29	Relacao Arg1:T60 Arg2:T62	
+R30	Relacao Arg1:T90 Arg2:T75	
+R31	Relacao Arg1:T90 Arg2:T76	
+T108	Papel 21821 21831	governador
+T116	Papel 22025 22032	capitão
+T125	Papel 22253 22263	Embaixador
+R34	Relacao Arg1:T108 Arg2:T110	
+R35	Relacao Arg1:T107 Arg2:T111	
+R37	Relacao Arg1:T115 Arg2:T116	
+R38	Relacao Arg1:T116 Arg2:T117	
+R42	Relacao Arg1:T129 Arg2:T130	
+R47	Relacao Arg1:T10 Arg2:T2	
+R48	Relacao Arg1:T2 Arg2:T11	
+R49	Relacao Arg1:T5 Arg2:T13	
+R50	Relacao Arg1:T5 Arg2:T4	
+R51	Relacao Arg1:T13 Arg2:T4	
+R52	Relacao Arg1:T38 Arg2:T7	
+R53	Relacao Arg1:T6 Arg2:T38	
+R54	Relacao Arg1:T6 Arg2:T7	
+T8	Papel 1503 1510	senador
+R55	Relacao Arg1:T8 Arg2:T16	
+T70	Papel 1579 1589	presidente
+R56	Relacao Arg1:T70 Arg2:T32	
+R57	Relacao Arg1:T32 Arg2:T17	
+R58	Relacao Arg1:T70 Arg2:T17	
+R59	Relacao Arg1:T83 Arg2:T20	
+R60	Relacao Arg1:T18 Arg2:T20	
+R61	Relacao Arg1:T18 Arg2:T21	
+R62	Relacao Arg1:T18 Arg2:T22	
+R63	Relacao Arg1:T22 Arg2:T24	
+R64	Relacao Arg1:T25 Arg2:T26	
+R7	Relacao Arg1:T34 Arg2:T36	
+R9	Relacao Arg1:T36 Arg2:T37	
+R16	Relacao Arg1:T45 Arg2:T46	
+T14	Papel 2641 2649	marechal
+R65	Relacao Arg1:T14 Arg2:T47	
+T29	Papel 2667 2672	chefe
+R66	Relacao Arg1:T47 Arg2:T29	
+R67	Relacao Arg1:T29 Arg2:T48	
+R68	Relacao Arg1:T53 Arg2:T54	
+R69	Relacao Arg1:T55 Arg2:T56	
+R70	Relacao Arg1:T55 Arg2:T57	
+R71	Relacao Arg1:T55 Arg2:T58	
+R72	Relacao Arg1:T56 Arg2:T58	
+R73	Relacao Arg1:T57 Arg2:T58	
+R74	Relacao Arg1:T64 Arg2:T73	
+R13	Relacao Arg1:T64 Arg2:T65	
+R76	Relacao Arg1:T81 Arg2:T98	
+R32	Relacao Arg1:T108 Arg2:T109	
+R33	Relacao Arg1:T110 Arg2:T111	
+R39	Relacao Arg1:T114 Arg2:T115	
+R40	Relacao Arg1:T115 Arg2:T39	
+R80	Relacao Arg1:T67 Arg2:T68	
+T123	Papel 6852 6857	Chefe
+T133	Papel 6871 6878	General
+R85	Relacao Arg1:T119 Arg2:T121	
+R86	Relacao Arg1:T137 Arg2:T134	
+R88	Relacao Arg1:T134 Arg2:T140	
+T141	Papel 6929 6943	Vice-Almirante
+T145	Papel 6998 7005	Tenente
+T147	Papel 7072 7081	ministros
+T157	Papel 7483 7493	presidente
+T159	Papel 7519 7532	ex-presidente
+T161	Papel 7550 7566	secretário-geral
+T167	Papel 7684 7700	deputado federal
+T168	Papel 7703 7716	ex-governador
+T171	Papel 7756 7772	deputado federal
+T173	Papel 7787 7800	ex-governador
+T176	Papel 7835 7848	desembargador
+T178	Papel 7872 7882	economista
+T180	Papel 7900 7910	embaixador
+T182	Papel 7930 7949	ministro da Justiça
+T184	Papel 8000 8012	ex-ministros
+T187	Papel 8074 8084	presidente
+T192	Papel 8228 8248	assessor de imprensa
+T195	Papel 8274 8284	jornalista
+T197	Papel 8303 8311	marechal
+T199	Papel 8335 8345	presidente
+T203	Papel 8411 8421	presidente
+T208	Papel 8538 8553	vice-presidente
+T212	Papel 8588 8604	secretário-geral
+T253	Papel 9677 9687	presidente
+T268	Papel 10287 10301	ex- presidente
+T284	Papel 11266 11285	Ministro da Justiça
+T288	Papel 11901 11911	jornalista
+T293	Papel 12034 12042	operário
+T296	Papel 12089 12099	comandante
+T299	Papel 12152 12159	general
+T282	Papel 14964 14974	Dirigentes
+T318	Papel 15808 15815	general
+T320	Papel 15845 15852	diretor
+T322	Papel 16154 16164	Presidente
+T347	Papel 18174 18184	presidente
+T366	Papel 19480 19488	Repórter
+T69	Papel 3806 3816	jornalista
+R4	Relacao Arg1:T74 Arg2:T90	
+R46	Relacao Arg1:T118 Arg2:T119	
+R79	Relacao Arg1:T123 Arg2:T133	
+R81	Relacao Arg1:T141 Arg2:T142	
+R83	Relacao Arg1:T143 Arg2:T146	
+R84	Relacao Arg1:T147 Arg2:T148	
+R87	Relacao Arg1:T150 Arg2:T153	
+R89	Relacao Arg1:T150 Arg2:T151	
+R91	Relacao Arg1:T157 Arg2:T158	
+R92	Relacao Arg1:T159 Arg2:T160	
+R93	Relacao Arg1:T163 Arg2:T162	
+R94	Relacao Arg1:T166 Arg2:T164	
+R95	Relacao Arg1:T165 Arg2:T166	
+R96	Relacao Arg1:T167 Arg2:T168	
+R97	Relacao Arg1:T169 Arg2:T167	
+R98	Relacao Arg1:T170 Arg2:T167	
+R99	Relacao Arg1:T161 Arg2:T162	
+R100	Relacao Arg1:T145 Arg2:T146	
+R101	Relacao Arg1:T171 Arg2:T173	
+R102	Relacao Arg1:T172 Arg2:T174	
+R103	Relacao Arg1:T175 Arg2:T171	
+R104	Relacao Arg1:T176 Arg2:T178	
+R105	Relacao Arg1:T178 Arg2:T180	
+R106	Relacao Arg1:T180 Arg2:T182	
+R107	Relacao Arg1:T182 Arg2:T184	
+R108	Relacao Arg1:T185 Arg2:T186	
+R109	Relacao Arg1:T187 Arg2:T188	
+T35	Papel 8175 8181	reitor
+R110	Relacao Arg1:T35 Arg2:T190	
+R111	Relacao Arg1:T189 Arg2:T187	
+R112	Relacao Arg1:T191 Arg2:T35	
+R113	Relacao Arg1:T192 Arg2:T195	
+R114	Relacao Arg1:T194 Arg2:T192	
+R115	Relacao Arg1:T197 Arg2:T195	
+R116	Relacao Arg1:T197 Arg2:T199	
+R117	Relacao Arg1:T196 Arg2:T198	
+R118	Relacao Arg1:T193 Arg2:T194	
+R119	Relacao Arg1:T195 Arg2:T196	
+R120	Relacao Arg1:T197 Arg2:T198	
+R121	Relacao Arg1:T200 Arg2:T198	
+R123	Relacao Arg1:T204 Arg2:T205	
+R124	Relacao Arg1:T206 Arg2:T207	
+R125	Relacao Arg1:T209 Arg2:T210	
+R126	Relacao Arg1:T209 Arg2:T204	
+R127	Relacao Arg1:T211 Arg2:T214	
+R128	Relacao Arg1:T200 Arg2:T209	
+R129	Relacao Arg1:T200 Arg2:T210	
+R130	Relacao Arg1:T212 Arg2:T214	
+R131	Relacao Arg1:T208 Arg2:T212	
+R132	Relacao Arg1:T181 Arg2:T183	
+R133	Relacao Arg1:T177 Arg2:T179	
+R134	Relacao Arg1:T175 Arg2:T177	
+R145	Relacao Arg1:T232 Arg2:T239	
+R152	Relacao Arg1:T248 Arg2:T249	
+R154	Relacao Arg1:T259 Arg2:T260	
+R155	Relacao Arg1:T260 Arg2:T261	
+R156	Relacao Arg1:T261 Arg2:T262	
+R165	Relacao Arg1:T269 Arg2:T270	
+R166	Relacao Arg1:T267 Arg2:T268	
+R167	Relacao Arg1:T272 Arg2:T273	
+R168	Relacao Arg1:T274 Arg2:T272	
+R171	Relacao Arg1:T285 Arg2:T281	
+R172	Relacao Arg1:T284 Arg2:T285	
+R175	Relacao Arg1:T297 Arg2:T298	
+R178	Relacao Arg1:T299 Arg2:T300	
+R179	Relacao Arg1:T294 Arg2:T289	
+R180	Relacao Arg1:T301 Arg2:T302	
+R181	Relacao Arg1:T302 Arg2:T303	
+R182	Relacao Arg1:T303 Arg2:T304	
+R185	Relacao Arg1:T92 Arg2:T93	
+R187	Relacao Arg1:T86 Arg2:T92	
+R189	Relacao Arg1:T220 Arg2:T231	
+R192	Relacao Arg1:T152 Arg2:T144	
+R193	Relacao Arg1:T279 Arg2:T278	
+R195	Relacao Arg1:T308 Arg2:T309	
+R196	Relacao Arg1:T313 Arg2:T314	
+R197	Relacao Arg1:T242 Arg2:T250	
+R198	Relacao Arg1:T311 Arg2:T313	
+R199	Relacao Arg1:T310 Arg2:T309	
+R200	Relacao Arg1:T282 Arg2:T279	
+R201	Relacao Arg1:T315 Arg2:T317	
+R202	Relacao Arg1:T320 Arg2:T318	
+R204	Relacao Arg1:T318 Arg2:T319	
+R205	Relacao Arg1:T322 Arg2:T340	
+R206	Relacao Arg1:T322 Arg2:T323	
+R207	Relacao Arg1:T326 Arg2:T327	
+R208	Relacao Arg1:T338 Arg2:T339	
+R209	Relacao Arg1:T328 Arg2:T339	
+R210	Relacao Arg1:T334 Arg2:T335	
+R216	Relacao Arg1:T352 Arg2:T353	
+R218	Relacao Arg1:T345 Arg2:T343	
+R220	Relacao Arg1:T347 Arg2:T348	
+R222	Relacao Arg1:T351 Arg2:T355	
+R223	Relacao Arg1:T349 Arg2:T350	
+R226	Relacao Arg1:T359 Arg2:T361	
+R227	Relacao Arg1:T365 Arg2:T367	
+R229	Relacao Arg1:T366 Arg2:T367	
+R230	Relacao Arg1:T370 Arg2:T371	
+R232	Relacao Arg1:T374 Arg2:T375	
+R233	Relacao Arg1:T377 Arg2:T378	
+R240	Relacao Arg1:T109 Arg2:T111	
+R36	Relacao Arg1:T112 Arg2:T117	
+T3	Papel 1089 1097	generais
+R5	Relacao Arg1:T3 Arg2:T4	
+R241	Relacao Arg1:T3 Arg2:T6	
+R242	Relacao Arg1:T8 Arg2:T31	
+R243	Relacao Arg1:T16 Arg2:T17	
+R244	Relacao Arg1:T1 Arg2:T12	
+R245	Relacao Arg1:T12 Arg2:T40	
+R246	Relacao Arg1:T97 Arg2:T100	
+R247	Relacao Arg1:T28 Arg2:T101	
+R248	Relacao Arg1:T34 Arg2:T102	
+R249	Relacao Arg1:T102 Arg2:T36	
+R250	Relacao Arg1:T105 Arg2:T106	
+R251	Relacao Arg1:T382 Arg2:T106	
+R252	Relacao Arg1:T384 Arg2:T45	
+R144	Relacao Arg1:T85 Arg2:T51	
+R78	Relacao Arg1:T69 Arg2:T55	
+R253	Relacao Arg1:T55 Arg2:T63	
+R254	Relacao Arg1:T63 Arg2:T56	
+R255	Relacao Arg1:T63 Arg2:T57	
+R256	Relacao Arg1:T63 Arg2:T58	
+R257	Relacao Arg1:T65 Arg2:T139	
+R258	Relacao Arg1:T64 Arg2:T139	
+R259	Relacao Arg1:T139 Arg2:T386	
+R260	Relacao Arg1:T65 Arg2:T386	
+R261	Relacao Arg1:T386 Arg2:T95	
+R262	Relacao Arg1:T139 Arg2:T95	
+R263	Relacao Arg1:T387 Arg2:T388	
+R264	Relacao Arg1:T388 Arg2:T79	
+R15	Relacao Arg1:T44 Arg2:T389	
+T392	Papel 6491 6497	Chefes
+R75	Relacao Arg1:T392 Arg2:T30	
+R82	Relacao Arg1:T30 Arg2:T103	
+R265	Relacao Arg1:T394 Arg2:T118	
+R266	Relacao Arg1:T123 Arg2:T395	
+R267	Relacao Arg1:T133 Arg2:T134	
+R268	Relacao Arg1:T146 Arg2:T148	
+R269	Relacao Arg1:T151 Arg2:T396	
+R270	Relacao Arg1:T396 Arg2:T397	
+R90	Relacao Arg1:T219 Arg2:T156	
+R122	Relacao Arg1:T155 Arg2:T218	
+R135	Relacao Arg1:T201 Arg2:T232	
+R136	Relacao Arg1:T241 Arg2:T217	
+R137	Relacao Arg1:T217 Arg2:T244	
+R139	Relacao Arg1:T221 Arg2:T252	
+R138	Relacao Arg1:T263 Arg2:T264	
+R140	Relacao Arg1:T281 Arg2:T227	
+R141	Relacao Arg1:T227 Arg2:T283	
+R142	Relacao Arg1:T287 Arg2:T289	
+R143	Relacao Arg1:T287 Arg2:T288	
+R146	Relacao Arg1:T288 Arg2:T289	
+R147	Relacao Arg1:T289 Arg2:T290	
+R148	Relacao Arg1:T289 Arg2:T291	
+R149	Relacao Arg1:T290 Arg2:T291	
+R150	Relacao Arg1:T293 Arg2:T294	
+R151	Relacao Arg1:T296 Arg2:T297	
+R153	Relacao Arg1:T306 Arg2:T307	
+R157	Relacao Arg1:T307 Arg2:T233	
+R158	Relacao Arg1:T306 Arg2:T233	
+R159	Relacao Arg1:T233 Arg2:T234	
+R160	Relacao Arg1:T77 Arg2:T80	
+R161	Relacao Arg1:T94 Arg2:T235	
+R162	Relacao Arg1:T236 Arg2:T96	
+R163	Relacao Arg1:T99 Arg2:T104	
+R164	Relacao Arg1:T215 Arg2:T220	
+R169	Relacao Arg1:T215 Arg2:T231	
+R170	Relacao Arg1:T154 Arg2:T238	
+R173	Relacao Arg1:T154 Arg2:T237	
+R174	Relacao Arg1:T238 Arg2:T237	
+R176	Relacao Arg1:T250 Arg2:T278	
+R177	Relacao Arg1:T312 Arg2:T311	
+R183	Relacao Arg1:T312 Arg2:T313	
+R184	Relacao Arg1:T315 Arg2:T316	
+R186	Relacao Arg1:T320 Arg2:T315	
+R188	Relacao Arg1:T323 Arg2:T243	
+R190	Relacao Arg1:T322 Arg2:T243	
+R191	Relacao Arg1:T340 Arg2:T323	
+R194	Relacao Arg1:T340 Arg2:T243	
+R203	Relacao Arg1:T324 Arg2:T325	
+R271	Relacao Arg1:T328 Arg2:T246	
+R211	Relacao Arg1:T332 Arg2:T247	
+R212	Relacao Arg1:T247 Arg2:T334	
+R215	Relacao Arg1:T332 Arg2:T334	
+R213	Relacao Arg1:T344 Arg2:T345	
+R214	Relacao Arg1:T346 Arg2:T347	
+R219	Relacao Arg1:T346 Arg2:T348	
+R272	Relacao Arg1:T351 Arg2:T352	
+R273	Relacao Arg1:T351 Arg2:T353	
+R217	Relacao Arg1:T354 Arg2:T355	
+R274	Relacao Arg1:T354 Arg2:T356	
+R221	Relacao Arg1:T376 Arg2:T251	
+R224	Relacao Arg1:T377 Arg2:T254	
+R225	Relacao Arg1:T378 Arg2:T254	
+R228	Relacao Arg1:T254 Arg2:T379	
+R231	Relacao Arg1:T377 Arg2:T379	
+R234	Relacao Arg1:T378 Arg2:T379	
+R235	Relacao Arg1:T381 Arg2:T72	
+R236	Relacao Arg1:T107 Arg2:T108	
+R275	Relacao Arg1:T107 Arg2:T110	
+R45	Relacao Arg1:T124 Arg2:T125	

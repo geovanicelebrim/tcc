@@ -1,0 +1,236 @@
+T14	Organizacao 885 903	Congresso Nacional
+T16	Organizacao 1022 1041	Exército brasileiro
+R1	Relacao Arg1:T1 Arg2:T3	
+R2	Relacao Arg1:T1 Arg2:T4	
+T20	Organizacao 380 387	governo
+R3	Sofreu Arg1:T20 Arg2:T7	
+R4	Relacao Arg1:T8 Arg2:T20	
+T26	Organizacao 1599 1606	governo
+T29	Organizacao 1823 1830	governo
+R5	Causou Arg1:T29 Arg2:T27	
+R6	Relacao Arg1:T30 Arg2:T31	
+T32	Organizacao 2449 2463	Forças Armadas
+T33	Organizacao 2712 2726	Forças Armadas
+T36	Organizacao 2511 2517	Estado
+T42	Organizacao 2956 2973	Estado brasileiro
+T43	Organizacao 3138 3154	Marinha do Brasi
+T44	Organizacao 3160 3179	Exército Brasileiro
+T45	Organizacao 3185 3207	Força Aérea Brasileira
+R7	Relacao Arg1:T46 Arg2:T43	
+R8	Relacao Arg1:T46 Arg2:T44	
+R9	Relacao Arg1:T46 Arg2:T45	
+R10	Sofreu Arg1:T50 Arg2:T49	
+R11	Relacao Arg1:T51 Arg2:T49	
+R12	Relacao Arg1:T51 Arg2:T50	
+T52	Organizacao 3549 3575	Forças Armadas Brasileiras
+R13	Relacao Arg1:T52 Arg2:T53	
+T66	Organizacao 4936 4945	Congresso
+R14	Relacao Arg1:T67 Arg2:T70	
+R15	Relacao Arg1:T68 Arg2:T70	
+T76	Organizacao 5317 5332	Igreja Católica
+R16	Relacao Arg1:T79 Arg2:T73	
+R17	Relacao Arg1:T79 Arg2:T74	
+R18	Relacao Arg1:T79 Arg2:T75	
+T81	Organizacao 5448 5462	Forças Armadas
+R19	Relacao Arg1:T84 Arg2:T82	
+R20	Relacao Arg1:T84 Arg2:T83	
+R21	Sofreu Arg1:T85 Arg2:T87	
+R22	Relacao Arg1:T87 Arg2:T86	
+R23	Relacao Arg1:T87 Arg2:T88	
+R24	Relacao Arg1:T90 Arg2:T91	
+T95	Organizacao 5932 5947	União Soviética
+R25	Relacao Arg1:T97 Arg2:T98	
+T99	Organizacao 6217 6236	Editora Best Seller
+R26	Relacao Arg1:T123 Arg2:T122	
+R27	Relacao Arg1:T12 Arg2:T13	
+R28	Relacao Arg1:T14 Arg2:T15	
+R29	Relacao Arg1:T15 Arg2:T16	
+R30	Relacao Arg1:T15 Arg2:T17	
+R31	Relacao Arg1:T127 Arg2:T129	
+R32	Relacao Arg1:T128 Arg2:T129	
+T130	Organizacao 8220 8234	Forças Armadas
+T133	Organizacao 8313 8339	governo dos Estados Unidos
+T141	Organizacao 8944 8958	governo cubano
+R34	Relacao Arg1:T141 Arg2:T142	
+R35	Relacao Arg1:T145 Arg2:T146	
+R36	Relacao Arg1:T144 Arg2:T146	
+T147	Organizacao 9152 9206	Escola Superior de Guerra das Forças Armadas do Brasil
+T151	Organizacao 9668 9672	URSS
+R37	Relacao Arg1:T151 Arg2:T152	
+R38	Relacao Arg1:T154 Arg2:T153	
+R39	Relacao Arg1:T155 Arg2:T153	
+R40	Relacao Arg1:T159 Arg2:T160	
+R41	Relacao Arg1:T157 Arg2:T159	
+R42	Relacao Arg1:T158 Arg2:T159	
+R43	Relacao Arg1:T156 Arg2:T159	
+R44	Relacao Arg1:T162 Arg2:T161	
+R45	Relacao Arg1:T162 Arg2:T163	
+R46	Relacao Arg1:T162 Arg2:T164	
+T166	Organizacao 10678 10701	Petróleo Brasileiro S A
+T167	Organizacao 10704 10713	PETROBRÁS
+R47	Relacao Arg1:T166 Arg2:T167	
+R48	Relacao Arg1:T165 Arg2:T167	
+T170	Organizacao 11018 11037	Exército Brasileiro
+R49	Causou Arg1:T170 Arg2:T169	
+R50	Relacao Arg1:T172 Arg2:T173	
+R51	Relacao Arg1:T173 Arg2:T174	
+T178	Organizacao 11536 11555	Exército Brasileiro
+R52	Relacao Arg1:T178 Arg2:T177	
+T179	Organizacao 11615 11619	AMAN
+R53	Relacao Arg1:T177 Arg2:T179	
+R54	Relacao Arg1:T177 Arg2:T180	
+R55	Relacao Arg1:T177 Arg2:T181	
+R56	Relacao Arg1:T181 Arg2:T182	
+T185	Organizacao 11885 11917	Assembleia Nacional Constituinte
+T186	Organizacao 11932 11946	Forças Armadas
+T187	Organizacao 12014 12042	Aliança Nacional Libertadora
+T188	Organizacao 12047 12075	Ação Integralista Brasileira
+R57	Relacao Arg1:T186 Arg2:T187	
+R58	Relacao Arg1:T186 Arg2:T188	
+T189	Organizacao 12190 12216	forças armadas brasileiras
+T198	Organizacao 13914 13928	Forças Armadas
+T200	Organizacao 14087 14106	Exército Brasileiro
+T204	Organizacao 14827 14842	Igreja Católica
+R59	Relacao Arg1:T205 Arg2:T206	
+R60	Causou Arg1:T204 Arg2:T205	
+R61	Relacao Arg1:T210 Arg2:T211	
+R62	Relacao Arg1:T212 Arg2:T213	
+R63	Relacao Arg1:T219 Arg2:T218	
+R64	Relacao Arg1:T218 Arg2:T216	
+R65	Relacao Arg1:T217 Arg2:T220	
+R66	Relacao Arg1:T217 Arg2:T205	
+T223	Organizacao 16085 16092	O Globo
+T224	Organizacao 16094 16104	Rede Globo
+T225	Organizacao 16106 16123	Folha de S. Paulo
+T226	Organizacao 16125 16141	Correio da Manhã
+T227	Organizacao 16143 16159	Jornal do Brasil
+T228	Organizacao 16162 16182	O Estado de S. Paulo
+R67	Relacao Arg1:T229 Arg2:T223	
+R68	Relacao Arg1:T229 Arg2:T224	
+R69	Relacao Arg1:T229 Arg2:T225	
+R70	Relacao Arg1:T229 Arg2:T226	
+R71	Relacao Arg1:T229 Arg2:T227	
+R72	Relacao Arg1:T229 Arg2:T228	
+R73	Relacao Arg1:T214 Arg2:T215	
+T230	Organizacao 16274 16285	Última Hora
+R74	Relacao Arg1:T230 Arg2:T231	
+T233	Organizacao 16389 16409	O Estado de S. Paulo
+T234	Organizacao 17003 17010	O Globo
+T236	Organizacao 17184 17201	O Estado de Minas
+T239	Organizacao 17723 17746	Fundação Getúlio Vargas
+T247	Organizacao 18616 18628	Casa Militar
+R75	Relacao Arg1:T246 Arg2:T247	
+R76	Relacao Arg1:T250 Arg2:T251	
+T256	Organizacao 19209 19229	Câmara dos Deputados
+R77	Relacao Arg1:T256 Arg2:T255	
+R78	Relacao Arg1:T250 Arg2:T252	
+R79	Relacao Arg1:T250 Arg2:T253	
+R80	Relacao Arg1:T262 Arg2:T263	
+T264	Organizacao 19786 19815	União Nacional dos Estudantes
+T265	Organizacao 19817 19820	UNE
+R81	Relacao Arg1:T259 Arg2:T258	
+R82	Relacao Arg1:T259 Arg2:T260	
+T266	Organizacao 19101 19115	Senado Federal
+R83	Relacao Arg1:T259 Arg2:T261	
+R84	Relacao Arg1:T264 Arg2:T265	
+T267	Organizacao 19848 19871	Fundação Getúlio Vargas
+T273	Organizacao 20956 20973	Marinha Americana
+R85	Relacao Arg1:T273 Arg2:T274	
+R86	Relacao Arg1:T273 Arg2:T276	
+R87	Relacao Arg1:T273 Arg2:T278	
+R88	Relacao Arg1:T276 Arg2:T275	
+R89	Relacao Arg1:T278 Arg2:T277	
+R90	Relacao Arg1:T280 Arg2:T279	
+T281	Organizacao 15855 15870	Igreja Católica
+T282	Organizacao 16694 16710	Jornal do Brasil
+R91	Relacao Arg1:T273 Arg2:T280	
+R92	Relacao Arg1:T273 Arg2:T284	
+R93	Relacao Arg1:T284 Arg2:T285	
+R94	Relacao Arg1:T273 Arg2:T268	
+R95	Relacao Arg1:T285 Arg2:T286	
+R96	Relacao Arg1:T285 Arg2:T287	
+R97	Relacao Arg1:T292 Arg2:T293	
+T295	Organizacao 21502 21520	Congresso Nacional
+R98	Relacao Arg1:T296 Arg2:T297	
+R99	Relacao Arg1:T298 Arg2:T299	
+R100	Relacao Arg1:T300 Arg2:T301	
+T306	Organizacao 21580 21604	Presidência da República
+T307	Organizacao 21646 21666	Câmara dos Deputados
+R101	Relacao Arg1:T308 Arg2:T307	
+R102	Sofreu Arg1:T311 Arg2:T313	
+R103	Relacao Arg1:T313 Arg2:T312	
+T316	Organizacao 22178 22196	Congresso Nacional
+T318	Organizacao 22335 22359	Estado-Maior do Exército
+R104	Relacao Arg1:T317 Arg2:T318	
+T319	Organizacao 22399 22402	PSD
+R105	Relacao Arg1:T319 Arg2:T320	
+R106	Relacao Arg1:T317 Arg2:T320	
+R107	Relacao Arg1:T321 Arg2:T323	
+R108	Relacao Arg1:T323 Arg2:T322	
+T326	Organizacao 22767 22770	UDN
+T327	Organizacao 22848 22862	Forças Armadas
+T328	Organizacao 22887 22900	Costa e Silva
+R109	Relacao Arg1:T327 Arg2:T328	
+R110	Relacao Arg1:T329 Arg2:T326	
+R111	Relacao Arg1:T325 Arg2:T326	
+R112	Relacao Arg1:T330 Arg2:T331	
+T334	Organizacao 23253 23256	FAB
+R113	Relacao Arg1:T333 Arg2:T334	
+R114	Relacao Arg1:T336 Arg2:T335	
+R115	Relacao Arg1:T340 Arg2:T339	
+R116	Relacao Arg1:T8 Arg2:T349	
+R117	Causou Arg1:T22 Arg2:T351	
+R118	Relacao Arg1:T351 Arg2:T23	
+R119	Relacao Arg1:T41 Arg2:T352	
+R120	Relacao Arg1:T353 Arg2:T47	
+R121	Relacao Arg1:T48 Arg2:T353	
+R122	Relacao Arg1:T57 Arg2:T354	
+R123	Relacao Arg1:T58 Arg2:T354	
+R124	Relacao Arg1:T71 Arg2:T355	
+R125	Relacao Arg1:T72 Arg2:T355	
+T357	Organizacao 5478 5485	governo
+R126	Causou Arg1:T81 Arg2:T356	
+R127	Sofreu Arg1:T356 Arg2:T357	
+R128	Relacao Arg1:T85 Arg2:T358	
+T360	Organizacao 7228 7231	PTB
+R129	Relacao Arg1:T123 Arg2:T361	
+R130	Relacao Arg1:T122 Arg2:T362	
+R131	Relacao Arg1:T113 Arg2:T363	
+R132	Relacao Arg1:T134 Arg2:T364	
+R133	Relacao Arg1:T135 Arg2:T365	
+R33	Relacao Arg1:T365 Arg2:T136	
+R134	Relacao Arg1:T148 Arg2:T366	
+R135	Relacao Arg1:T178 Arg2:T367	
+R136	Relacao Arg1:T182 Arg2:T368	
+R137	Relacao Arg1:T196 Arg2:T369	
+R138	Relacao Arg1:T197 Arg2:T370	
+R139	Relacao Arg1:T202 Arg2:T371	
+R140	Relacao Arg1:T209 Arg2:T374	
+R141	Relacao Arg1:T209 Arg2:T208	
+R142	Relacao Arg1:T208 Arg2:T375	
+R143	Relacao Arg1:T375 Arg2:T376	
+R144	Relacao Arg1:T212 Arg2:T377	
+R145	Relacao Arg1:T214 Arg2:T377	
+R146	Relacao Arg1:T216 Arg2:T377	
+R147	Relacao Arg1:T231 Arg2:T378	
+T380	Organizacao 17904 17919	Igreja católica
+R148	Relacao Arg1:T240 Arg2:T381	
+R149	Relacao Arg1:T246 Arg2:T384	
+R150	Relacao Arg1:T244 Arg2:T385	
+R151	Relacao Arg1:T250 Arg2:T386	
+R152	Relacao Arg1:T250 Arg2:T386	
+R153	Relacao Arg1:T251 Arg2:T386	
+R154	Relacao Arg1:T255 Arg2:T389	
+R155	Relacao Arg1:T269 Arg2:T303	
+R156	Relacao Arg1:T269 Arg2:T390	
+R157	Relacao Arg1:T270 Arg2:T391	
+R158	Relacao Arg1:T272 Arg2:T392	
+R159	Relacao Arg1:T290 Arg2:T394	
+R160	Relacao Arg1:T305 Arg2:T393	
+R161	Relacao Arg1:T308 Arg2:T395	
+R162	Relacao Arg1:T317 Arg2:T396	
+R163	Relacao Arg1:T317 Arg2:T397	
+R164	Relacao Arg1:T320 Arg2:T398	
+R165	Relacao Arg1:T320 Arg2:T399	
+R166	Relacao Arg1:T340 Arg2:T400	
+R167	Relacao Arg1:T325 Arg2:T401	

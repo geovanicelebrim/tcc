@@ -1,0 +1,384 @@
+T1	Grupo 120 141	militantes comunistas
+R1	Relacao Arg1:T5 Arg2:T3	
+R4	Relacao Arg1:T15 Arg2:T16	
+R5	Relacao Arg1:T14 Arg2:T13	
+R6	Relacao Arg1:T14 Arg2:T18	
+R7	Relacao Arg1:T14 Arg2:T17	
+R9	Relacao Arg1:T20 Arg2:T21	
+R11	Relacao Arg1:T23 Arg2:T24	
+R12	Relacao Arg1:T22 Arg2:T24	
+R13	Relacao Arg1:T29 Arg2:T30	
+R14	Relacao Arg1:T30 Arg2:T31	
+R15	Relacao Arg1:T29 Arg2:T32	
+R16	Relacao Arg1:T27 Arg2:T28	
+R17	Relacao Arg1:T35 Arg2:T36	
+R18	Relacao Arg1:T33 Arg2:T34	
+R19	Relacao Arg1:T24 Arg2:T25	
+R21	Relacao Arg1:T37 Arg2:T40	
+R22	Relacao Arg1:T38 Arg2:T40	
+T43	Grupo 2080 2089	militares
+R23	Relacao Arg1:T40 Arg2:T41	
+R24	Relacao Arg1:T37 Arg2:T42	
+R25	Relacao Arg1:T45 Arg2:T46	
+R26	Relacao Arg1:T50 Arg2:T52	
+R27	Relacao Arg1:T50 Arg2:T53	
+R29	Relacao Arg1:T51 Arg2:T50	
+R30	Relacao Arg1:T51 Arg2:T52	
+R31	Relacao Arg1:T51 Arg2:T53	
+R33	Relacao Arg1:T56 Arg2:T60	
+R34	Relacao Arg1:T59 Arg2:T56	
+R35	Relacao Arg1:T57 Arg2:T59	
+R36	Relacao Arg1:T62 Arg2:T63	
+R37	Relacao Arg1:T61 Arg2:T63	
+R38	Relacao Arg1:T76 Arg2:T65	
+R39	Relacao Arg1:T71 Arg2:T72	
+R40	Relacao Arg1:T67 Arg2:T68	
+R41	Relacao Arg1:T73 Arg2:T70	
+R42	Relacao Arg1:T77 Arg2:T78	
+R43	Relacao Arg1:T78 Arg2:T79	
+R44	Relacao Arg1:T77 Arg2:T79	
+R45	Relacao Arg1:T74 Arg2:T75	
+R46	Relacao Arg1:T80 Arg2:T81	
+R47	Causou Arg1:T85 Arg2:T82	
+R48	Causou Arg1:T85 Arg2:T83	
+R49	Causou Arg1:T84 Arg2:T85	
+R50	Relacao Arg1:T86 Arg2:T87	
+R51	Relacao Arg1:T87 Arg2:T88	
+R52	Causou Arg1:T90 Arg2:T89	
+R53	Causou Arg1:T90 Arg2:T86	
+R54	Relacao Arg1:T93 Arg2:T94	
+R55	Relacao Arg1:T95 Arg2:T96	
+R56	Relacao Arg1:T97 Arg2:T98	
+R57	Relacao Arg1:T102 Arg2:T103	
+R58	Relacao Arg1:T106 Arg2:T107	
+R60	Relacao Arg1:T104 Arg2:T103	
+T110	Grupo 5504 5522	agentes comunistas
+R61	Relacao Arg1:T112 Arg2:T113	
+R62	Relacao Arg1:T113 Arg2:T114	
+R63	Relacao Arg1:T117 Arg2:T118	
+R64	Relacao Arg1:T115 Arg2:T116	
+R65	Relacao Arg1:T117 Arg2:T116	
+R67	Relacao Arg1:T131 Arg2:T130	
+R68	Relacao Arg1:T122 Arg2:T123	
+R69	Relacao Arg1:T123 Arg2:T124	
+R70	Relacao Arg1:T124 Arg2:T125	
+R74	Relacao Arg1:T127 Arg2:T128	
+T140	Grupo 7604 7615	professores
+T141	Grupo 7652 7658	alunos
+T145	Grupo 7969 7979	estudantes
+R79	Relacao Arg1:T139 Arg2:T140	
+R80	Relacao Arg1:T143 Arg2:T144	
+R81	Relacao Arg1:T142 Arg2:T143	
+R82	Relacao Arg1:T142 Arg2:T144	
+R83	Relacao Arg1:T140 Arg2:T141	
+T148	Grupo 8082 8091	comunismo
+T149	Grupo 8093 8103	socialismo
+R87	Relacao Arg1:T150 Arg2:T151	
+T154	Grupo 8489 8500	jornalistas
+T155	Grupo 8503 8512	políticos
+T161	Grupo 8673 8682	deputados
+R88	Relacao Arg1:T156 Arg2:T158	
+R89	Relacao Arg1:T156 Arg2:T160	
+R90	Relacao Arg1:T162 Arg2:T163	
+R91	Relacao Arg1:T165 Arg2:T167	
+R92	Relacao Arg1:T153 Arg2:T156	
+R93	Relacao Arg1:T156 Arg2:T161	
+R94	Relacao Arg1:T168 Arg2:T169	
+R95	Relacao Arg1:T170 Arg2:T171	
+R96	Relacao Arg1:T171 Arg2:T172	
+T178	Grupo 9649 9659	estudantes
+T191	Grupo 10239 10250	comunistas"
+T194	Grupo 10300 10310	estudantes
+T196	Grupo 10536 10546	estudantes
+T197	Grupo 10596 10606	estudantes
+R97	Relacao Arg1:T173 Arg2:T172	
+R98	Relacao Arg1:T176 Arg2:T177	
+R99	Relacao Arg1:T175 Arg2:T176	
+R101	Relacao Arg1:T192 Arg2:T193	
+R102	Relacao Arg1:T182 Arg2:T183	
+R103	Relacao Arg1:T186 Arg2:T187	
+R104	Relacao Arg1:T182 Arg2:T184	
+R105	Relacao Arg1:T183 Arg2:T184	
+R106	Relacao Arg1:T189 Arg2:T190	
+R107	Relacao Arg1:T195 Arg2:T190	
+R108	Relacao Arg1:T191 Arg2:T190	
+T205	Grupo 11210 11217	polícia
+T208	Grupo 11349 11355	Alunos
+T206	Grupo 11219 11230	Professores
+R109	Relacao Arg1:T196 Arg2:T198	
+R110	Relacao Arg1:T202 Arg2:T203	
+R111	Relacao Arg1:T200 Arg2:T199	
+R112	Relacao Arg1:T205 Arg2:T207	
+R113	Relacao Arg1:T206 Arg2:T207	
+R114	Relacao Arg1:T209 Arg2:T210	
+R115	Relacao Arg1:T210 Arg2:T211	
+R116	Relacao Arg1:T212 Arg2:T211	
+T213	Grupo 11538 11551	Manifestantes
+R117	Relacao Arg1:T213 Arg2:T214	
+R118	Relacao Arg1:T215 Arg2:T216	
+R119	Relacao Arg1:T216 Arg2:T217	
+R120	Relacao Arg1:T218 Arg2:T219	
+R121	Relacao Arg1:T220 Arg2:T221	
+T223	Grupo 12157 12179	profissionais liberais
+T224	Grupo 12181 12190	artistas,
+T225	Grupo 12191 12201	religiosos
+T226	Grupo 12203 12212	operários
+T227	Grupo 12214 12228	donas-de-casa.
+R122	Relacao Arg1:T222 Arg2:T228	
+R123	Relacao Arg1:T223 Arg2:T224	
+R124	Relacao Arg1:T224 Arg2:T225	
+R125	Relacao Arg1:T225 Arg2:T226	
+R126	Relacao Arg1:T226 Arg2:T227	
+R127	Relacao Arg1:T217 Arg2:T218	
+R128	Relacao Arg1:T229 Arg2:T230	
+T232	Grupo 12516 12523	polícia
+R129	Relacao Arg1:T231 Arg2:T233	
+T238	Grupo 12807 12814	polícia
+T241	Grupo 12887 12897	estudantes
+R130	Relacao Arg1:T236 Arg2:T237	
+R131	Relacao Arg1:T238 Arg2:T239	
+R132	Relacao Arg1:T239 Arg2:T240	
+R133	Relacao Arg1:T242 Arg2:T243	
+T256	Grupo 13521 13528	polícia
+T258	Grupo 13698 13707	policiais
+T261	Grupo 14045 14055	repórteres
+T262	Grupo 14133 14142	policiais
+R135	Relacao Arg1:T245 Arg2:T246	
+R136	Sofreu Arg1:T246 Arg2:T247	
+R137	Relacao Arg1:T249 Arg2:T248	
+R138	Relacao Arg1:T250 Arg2:T245	
+R139	Relacao Arg1:T252 Arg2:T253	
+R140	Relacao Arg1:T253 Arg2:T254	
+R141	Relacao Arg1:T255 Arg2:T254	
+R142	Relacao Arg1:T256 Arg2:T257	
+R143	Relacao Arg1:T259 Arg2:T260	
+R144	Relacao Arg1:T260 Arg2:T261	
+T265	Grupo 14224 14233	políticos
+R145	Relacao Arg1:T263 Arg2:T265	
+R147	Relacao Arg1:T267 Arg2:T264	
+R149	Relacao Arg1:T269 Arg2:T271	
+R150	Relacao Arg1:T271 Arg2:T272	
+R151	Relacao Arg1:T273 Arg2:T274	
+R154	Relacao Arg1:T276 Arg2:T279	
+T285	Grupo 15478 15488	comunistas
+R156	Relacao Arg1:T282 Arg2:T283	
+R157	Relacao Arg1:T284 Arg2:T285	
+R162	Relacao Arg1:T299 Arg2:T296	
+R163	Relacao Arg1:T295 Arg2:T299	
+R164	Relacao Arg1:T300 Arg2:T301	
+R165	Relacao Arg1:T301 Arg2:T303	
+R166	Relacao Arg1:T302 Arg2:T303	
+R167	Relacao Arg1:T288 Arg2:T290	
+R169	Relacao Arg1:T304 Arg2:T305	
+R170	Relacao Arg1:T305 Arg2:T306	
+T310	Grupo 24743 24756	guerrilheiros
+R171	Relacao Arg1:T309 Arg2:T310	
+R172	Relacao Arg1:T310 Arg2:T311	
+R173	Relacao Arg1:T311 Arg2:T312	
+R176	Relacao Arg1:T318 Arg2:T317	
+R177	Relacao Arg1:T319 Arg2:T308	
+T321	Grupo 24324 24339	revolucionários
+R178	Relacao Arg1:T320 Arg2:T321	
+R179	Relacao Arg1:T322 Arg2:T324	
+R180	Relacao Arg1:T323 Arg2:T320	
+R181	Relacao Arg1:T325 Arg2:T326	
+R182	Relacao Arg1:T325 Arg2:T328	
+T329	Grupo 15537 15550	congressistas
+R183	Relacao Arg1:T335 Arg2:T330	
+T338	Grupo 16154 16163	deputados
+R187	Relacao Arg1:T337 Arg2:T340	
+T342	Grupo 16239 16248	deputados
+R188	Relacao Arg1:T339 Arg2:T340	
+R189	Relacao Arg1:T341 Arg2:T342	
+T345	Grupo 16479 16488	políticos
+R193	Relacao Arg1:T348 Arg2:T349	
+R194	Relacao Arg1:T350 Arg2:T351	
+T357	Grupo 17284 17293	políticos
+T358	Grupo 17301 17310	militares
+T360	Grupo 17372 17382	comunistas
+R201	Relacao Arg1:T367 Arg2:T368	
+R203	Relacao Arg1:T369 Arg2:T370	
+R204	Relacao Arg1:T369 Arg2:T371	
+R205	Relacao Arg1:T372 Arg2:T373	
+R206	Relacao Arg1:T376 Arg2:T377	
+T380	Grupo 18099 18109	diretorias
+T381	Grupo 18130 18143	interventores
+R207	Relacao Arg1:T383 Arg2:T382	
+R208	Relacao Arg1:T380 Arg2:T381	
+R209	Relacao Arg1:T379 Arg2:T382	
+R211	Relacao Arg1:T389 Arg2:T390	
+R212	Relacao Arg1:T385 Arg2:T386	
+R213	Relacao Arg1:T392 Arg2:T393	
+R214	Relacao Arg1:T395 Arg2:T394	
+T396	Grupo 18718 18732	trabalhadores,
+T400	Grupo 18917 18930	trabalhadores
+T401	Grupo 18975 18992	líderes sindicais
+R218	Relacao Arg1:T399 Arg2:T401	
+T406	Grupo 19099 19107	oposição
+T409	Grupo 19193 19206	trabalhadores
+T417	Grupo 19507 19529	movimentos de esquerda
+R221	Relacao Arg1:T407 Arg2:T408	
+R222	Relacao Arg1:T409 Arg2:T408	
+R224	Relacao Arg1:T412 Arg2:T413	
+R225	Relacao Arg1:T416 Arg2:T415	
+R226	Relacao Arg1:T415 Arg2:T413	
+R227	Relacao Arg1:T416 Arg2:T413	
+R231	Relacao Arg1:T422 Arg2:T417	
+R232	Relacao Arg1:T418 Arg2:T419	
+R233	Relacao Arg1:T419 Arg2:T420	
+R234	Relacao Arg1:T421 Arg2:T419	
+R235	Relacao Arg1:T420 Arg2:T421	
+T424	Grupo 19813 19833	oposição esquerdista
+R236	Relacao Arg1:T424 Arg2:T423	
+R237	Relacao Arg1:T424 Arg2:T425	
+R238	Relacao Arg1:T425 Arg2:T426	
+R239	Relacao Arg1:T427 Arg2:T426	
+T433	Grupo 20480 20494	forças armadas
+T438	Grupo 20712 20725	guerrilheiros
+T446	Grupo 20921 20933	Ação Popular
+R242	Relacao Arg1:T431 Arg2:T432	
+R243	Relacao Arg1:T433 Arg2:T432	
+R244	Relacao Arg1:T434 Arg2:T433	
+R245	Relacao Arg1:T435 Arg2:T436	
+R246	Causou Arg1:T438 Arg2:T437	
+R247	Relacao Arg1:T440 Arg2:T441	
+R249	Relacao Arg1:T442 Arg2:T441	
+R250	Relacao Arg1:T443 Arg2:T442	
+R251	Relacao Arg1:T444 Arg2:T443	
+R252	Relacao Arg1:T446 Arg2:T444	
+R253	Relacao Arg1:T447 Arg2:T446	
+R255	Relacao Arg1:T458 Arg2:T459	
+R256	Relacao Arg1:T448 Arg2:T449	
+R257	Relacao Arg1:T451 Arg2:T452	
+R258	Relacao Arg1:T451 Arg2:T450	
+T464	Grupo 23719 23732	guerrilheiros
+T470	Grupo 23932 23948	presos políticos
+T471	Grupo 23951 23961	estudantes
+T473	Grupo 24018 24031	guerrilheiros
+T475	Grupo 24097 24113	revolucionários,
+R259	Relacao Arg1:T460 Arg2:T462	
+T479	Grupo 23764 23774	militantes
+R261	Relacao Arg1:T479 Arg2:T466	
+R262	Relacao Arg1:T466 Arg2:T467	
+R263	Relacao Arg1:T468 Arg2:T469	
+R266	Relacao Arg1:T470 Arg2:T471	
+R269	Relacao Arg1:T472 Arg2:T473	
+T501	Grupo 23275 23287	torturadores
+R271	Relacao Arg1:T490 Arg2:T485	
+R272	Relacao Arg1:T488 Arg2:T487	
+R273	Relacao Arg1:T488 Arg2:T492	
+R276	Relacao Arg1:T482 Arg2:T484	
+R277	Relacao Arg1:T497 Arg2:T498	
+R278	Relacao Arg1:T480 Arg2:T498	
+R279	Relacao Arg1:T500 Arg2:T501	
+R280	Relacao Arg1:T503 Arg2:T504	
+R281	Relacao Arg1:T505 Arg2:T506	
+R282	Relacao Arg1:T508 Arg2:T504	
+T513	Grupo 22579 22591	guerrilheiro
+T516	Grupo 22672 22685	guerrilheiros
+T518	Grupo 22377 22390	guerrilheiros
+R283	Relacao Arg1:T510 Arg2:T511	
+R284	Relacao Arg1:T512 Arg2:T514	
+R285	Relacao Arg1:T515 Arg2:T516	
+R286	Relacao Arg1:T517 Arg2:T515	
+R287	Relacao Arg1:T509 Arg2:T510	
+T525	Grupo 21646 21652	presos
+T526	Grupo 21654 21660	mortos
+T527	Grupo 21663 21676	desaparecidos
+T537	Grupo 22266 22279	guerrilheiros
+R288	Relacao Arg1:T520 Arg2:T522	
+R289	Relacao Arg1:T523 Arg2:T524	
+R290	Relacao Arg1:T525 Arg2:T526	
+R291	Relacao Arg1:T526 Arg2:T527	
+R292	Relacao Arg1:T525 Arg2:T527	
+R296	Relacao Arg1:T534 Arg2:T533	
+R297	Relacao Arg1:T535 Arg2:T536	
+R298	Relacao Arg1:T519 Arg2:T537	
+R299	Relacao Arg1:T538 Arg2:T539	
+R300	Relacao Arg1:T519 Arg2:T535	
+R301	Relacao Arg1:T518 Arg2:T510	
+T541	Grupo 16323 16344	partido oposicionista
+R8	Relacao Arg1:T5 Arg2:T4	
+R2	Relacao Arg1:T29 Arg2:T34	
+R3	Relacao Arg1:T51 Arg2:T54	
+R10	Relacao Arg1:T544 Arg2:T64	
+R28	Relacao Arg1:T65 Arg2:T66	
+R32	Relacao Arg1:T72 Arg2:T546	
+R302	Relacao Arg1:T71 Arg2:T546	
+R59	Relacao Arg1:T127 Arg2:T129	
+R66	Relacao Arg1:T128 Arg2:T129	
+R71	Relacao Arg1:T127 Arg2:T130	
+R73	Relacao Arg1:T127 Arg2:T131	
+R77	Relacao Arg1:T128 Arg2:T130	
+R78	Relacao Arg1:T128 Arg2:T131	
+R72	Sofreu Arg1:T121 Arg2:T249	
+R20	Relacao Arg1:T358 Arg2:T359	
+R75	Relacao Arg1:T384 Arg2:T385	
+R76	Relacao Arg1:T385 Arg2:T387	
+R84	Relacao Arg1:T385 Arg2:T388	
+R85	Relacao Arg1:T391 Arg2:T390	
+R86	Relacao Arg1:T39 Arg2:T391	
+R100	Relacao Arg1:T389 Arg2:T39	
+R134	Relacao Arg1:T395 Arg2:T393	
+R146	Relacao Arg1:T101 Arg2:T412	
+R148	Relacao Arg1:T413 Arg2:T414	
+R152	Relacao Arg1:T414 Arg2:T415	
+T146	Grupo 20935 20950	esquerda cristã
+R153	Relacao Arg1:T459 Arg2:T147	
+R155	Relacao Arg1:T458 Arg2:T147	
+R184	Relacao Arg1:T520 Arg2:T521	
+R185	Relacao Arg1:T521 Arg2:T522	
+R186	Relacao Arg1:T528 Arg2:T525	
+R190	Relacao Arg1:T528 Arg2:T526	
+R191	Relacao Arg1:T528 Arg2:T527	
+R192	Relacao Arg1:T529 Arg2:T530	
+R195	Relacao Arg1:T530 Arg2:T532	
+R196	Relacao Arg1:T513 Arg2:T514	
+R197	Relacao Arg1:T488 Arg2:T490	
+R198	Relacao Arg1:T488 Arg2:T485	
+R199	Relacao Arg1:T496 Arg2:T486	
+R200	Relacao Arg1:T496 Arg2:T487	
+R202	Relacao Arg1:T491 Arg2:T492	
+R210	Relacao Arg1:T493 Arg2:T494	
+R215	Relacao Arg1:T488 Arg2:T494	
+R216	Relacao Arg1:T488 Arg2:T495	
+R217	Relacao Arg1:T480 Arg2:T481	
+R219	Relacao Arg1:T480 Arg2:T482	
+R220	Relacao Arg1:T481 Arg2:T482	
+R223	Relacao Arg1:T483 Arg2:T482	
+R228	Relacao Arg1:T483 Arg2:T484	
+R229	Relacao Arg1:T482 Arg2:T497	
+R230	Relacao Arg1:T499 Arg2:T500	
+R240	Relacao Arg1:T502 Arg2:T503	
+R241	Relacao Arg1:T506 Arg2:T507	
+R248	Relacao Arg1:T507 Arg2:T508	
+R254	Relacao Arg1:T506 Arg2:T508	
+R270	Relacao Arg1:T460 Arg2:T461	
+R260	Relacao Arg1:T466 Arg2:T468	
+R268	Relacao Arg1:T466 Arg2:T469	
+R274	Relacao Arg1:T467 Arg2:T468	
+R275	Relacao Arg1:T467 Arg2:T469	
+R267	Relacao Arg1:T468 Arg2:T470	
+R293	Relacao Arg1:T468 Arg2:T471	
+R264	Relacao Arg1:T321 Arg2:T322	
+R265	Relacao Arg1:T322 Arg2:T323	
+R294	Relacao Arg1:T320 Arg2:T322	
+R295	Relacao Arg1:T320 Arg2:T324	
+R303	Relacao Arg1:T321 Arg2:T323	
+R304	Relacao Arg1:T321 Arg2:T324	
+T157	Grupo 24437 24453	presos políticos
+R305	Relacao Arg1:T324 Arg2:T157	
+R306	Relacao Arg1:T322 Arg2:T157	
+R307	Relacao Arg1:T326 Arg2:T327	
+R308	Relacao Arg1:T327 Arg2:T328	
+R309	Relacao Arg1:T304 Arg2:T306	
+R310	Relacao Arg1:T309 Arg2:T311	
+R311	Relacao Arg1:T309 Arg2:T312	
+R312	Relacao Arg1:T309 Arg2:T313	
+R174	Relacao Arg1:T313 Arg2:T308	
+R175	Relacao Arg1:T315 Arg2:T316	
+R158	Relacao Arg1:T286 Arg2:T288	
+R159	Relacao Arg1:T288 Arg2:T289	
+R313	Relacao Arg1:T289 Arg2:T290	
+R160	Relacao Arg1:T296 Arg2:T298	
+R161	Relacao Arg1:T299 Arg2:T298	

@@ -1,0 +1,248 @@
+T61	Papel 180 187	Senador
+R1	Relacao Arg1:T3 Arg2:T61	
+T62	Papel 106 113	general
+R2	Relacao Arg1:T2 Arg2:T62	
+T63	Papel 546 559	ex-presidente
+R3	Relacao Arg1:T63 Arg2:T6	
+R4	Relacao Arg1:T64 Arg2:T19	
+R5	Relacao Arg1:T65 Arg2:T20	
+R6	Relacao Arg1:T66 Arg2:T18	
+R7	Relacao Arg1:T49 Arg2:T50	
+R8	Relacao Arg1:T51 Arg2:T52	
+R9	Relacao Arg1:T53 Arg2:T54	
+R10	Causou Arg1:T49 Arg2:T68	
+R11	Sofreu Arg1:T51 Arg2:T68	
+T69	Papel 3641 3651	presidente
+R12	Relacao Arg1:T56 Arg2:T69	
+R13	Causou Arg1:T56 Arg2:T70	
+R14	Sofreu Arg1:T57 Arg2:T70	
+R15	Relacao Arg1:T70 Arg2:T58	
+T72	Papel 3873 3883	presidente
+R16	Relacao Arg1:T71 Arg2:T72	
+R17	Relacao Arg1:T71 Arg2:T73	
+T74	Papel 4207 4215	marechal
+R18	Relacao Arg1:T75 Arg2:T74	
+R19	Relacao Arg1:T76 Arg2:T77	
+R20	Relacao Arg1:T75 Arg2:T76	
+R21	Relacao Arg1:T78 Arg2:T79	
+T82	Papel 4310 4331	Ex-ministro da Guerra
+T83	Papel 4335 4343	marechal
+R22	Relacao Arg1:T84 Arg2:T83	
+R23	Relacao Arg1:T84 Arg2:T82	
+R24	Relacao Arg1:T84 Arg2:T85	
+R25	Relacao Arg1:T84 Arg2:T86	
+T88	Papel 4473 4481	marechal
+R26	Relacao Arg1:T89 Arg2:T88	
+T91	Papel 4526 4549	Presidente da República
+R27	Relacao Arg1:T90 Arg2:T87	
+R28	Sofreu Arg1:T89 Arg2:T90	
+R29	Relacao Arg1:T90 Arg2:T91	
+T92	Papel 4562 4566	vice
+R30	Relacao Arg1:T93 Arg2:T92	
+R31	Relacao Arg1:T93 Arg2:T89	
+T95	Papel 4638 4648	Presidente
+T98	Papel 4781 4800	ministro da Fazenda
+R32	Relacao Arg1:T97 Arg2:T98	
+R33	Relacao Arg1:T101 Arg2:T103	
+R34	Relacao Arg1:T102 Arg2:T103	
+R35	Relacao Arg1:T108 Arg2:T109	
+R36	Relacao Arg1:T107 Arg2:T109	
+R37	Relacao Arg1:T106 Arg2:T109	
+R38	Relacao Arg1:T112 Arg2:T110	
+R39	Relacao Arg1:T111 Arg2:T110	
+T115	Papel 7131 7141	presidente
+R40	Relacao Arg1:T114 Arg2:T115	
+R41	Relacao Arg1:T24 Arg2:T25	
+R42	Relacao Arg1:T116 Arg2:T113	
+R43	Sofreu Arg1:T114 Arg2:T116	
+T118	Papel 7331 7346	Vice-Presidente
+R44	Relacao Arg1:T119 Arg2:T118	
+T122	Papel 7568 7577	ministros
+R45	Relacao Arg1:T124 Arg2:T123	
+R46	Relacao Arg1:T124 Arg2:T122	
+R47	Relacao Arg1:T126 Arg2:T125	
+R48	Relacao Arg1:T126 Arg2:T122	
+R49	Relacao Arg1:T128 Arg2:T127	
+R50	Relacao Arg1:T127 Arg2:T122	
+R51	Relacao Arg1:T122 Arg2:T121	
+T131	Papel 8096 8103	general
+R52	Relacao Arg1:T130 Arg2:T131	
+T137	Papel 8906 8915	estudante
+R53	Relacao Arg1:T136 Arg2:T137	
+R54	Relacao Arg1:T138 Arg2:T139	
+T140	Papel 9013 9020	tenente
+R55	Relacao Arg1:T139 Arg2:T140	
+R56	Sofreu Arg1:T136 Arg2:T141	
+R57	Relacao Arg1:T141 Arg2:T142	
+R58	Sofreu Arg1:T141 Arg2:T143	
+R59	Relacao Arg1:T143 Arg2:T142	
+R60	Causou Arg1:T145 Arg2:T147	
+R61	Sofreu Arg1:T144 Arg2:T147	
+R62	Causou Arg1:T145 Arg2:T148	
+R63	Sofreu Arg1:T146 Arg2:T148	
+R64	Sofreu Arg1:T155 Arg2:T158	
+R65	Sofreu Arg1:T156 Arg2:T158	
+R66	Sofreu Arg1:T157 Arg2:T158	
+R67	Relacao Arg1:T158 Arg2:T149	
+R68	Sofreu Arg1:T155 Arg2:T159	
+R69	Sofreu Arg1:T156 Arg2:T159	
+R70	Sofreu Arg1:T157 Arg2:T159	
+R71	Relacao Arg1:T159 Arg2:T150	
+R72	Relacao Arg1:T159 Arg2:T151	
+R73	Sofreu Arg1:T155 Arg2:T160	
+R74	Sofreu Arg1:T156 Arg2:T160	
+R75	Sofreu Arg1:T157 Arg2:T160	
+R76	Relacao Arg1:T160 Arg2:T152	
+R77	Relacao Arg1:T160 Arg2:T153	
+R78	Relacao Arg1:T170 Arg2:T172	
+R79	Relacao Arg1:T171 Arg2:T172	
+R80	Relacao Arg1:T170 Arg2:T161	
+R81	Relacao Arg1:T170 Arg2:T162	
+R82	Relacao Arg1:T170 Arg2:T163	
+R83	Relacao Arg1:T170 Arg2:T164	
+R84	Sofreu Arg1:T170 Arg2:T165	
+R85	Relacao Arg1:T170 Arg2:T166	
+R86	Relacao Arg1:T170 Arg2:T167	
+R87	Relacao Arg1:T170 Arg2:T168	
+R88	Relacao Arg1:T170 Arg2:T169	
+R89	Relacao Arg1:T176 Arg2:T175	
+R90	Relacao Arg1:T177 Arg2:T175	
+R91	Relacao Arg1:T171 Arg2:T173	
+R92	Relacao Arg1:T171 Arg2:T174	
+R93	Relacao Arg1:T171 Arg2:T175	
+R94	Relacao Arg1:T171 Arg2:T178	
+R95	Relacao Arg1:T179 Arg2:T180	
+R96	Sofreu Arg1:T181 Arg2:T180	
+R97	Relacao Arg1:T183 Arg2:T182	
+R98	Relacao Arg1:T184 Arg2:T183	
+R99	Relacao Arg1:T185 Arg2:T184	
+R100	Relacao Arg1:T186 Arg2:T184	
+R101	Sofreu Arg1:T183 Arg2:T180	
+R102	Relacao Arg1:T189 Arg2:T187	
+R103	Relacao Arg1:T189 Arg2:T188	
+T190	Papel 10332 10339	tenente
+R104	Relacao Arg1:T192 Arg2:T193	
+R105	Relacao Arg1:T196 Arg2:T194	
+R106	Relacao Arg1:T195 Arg2:T193	
+R107	Relacao Arg1:T191 Arg2:T193	
+R108	Relacao Arg1:T196 Arg2:T193	
+R112	Relacao Arg1:T201 Arg2:T200	
+R113	Relacao Arg1:T202 Arg2:T201	
+R114	Relacao Arg1:T203 Arg2:T201	
+R115	Relacao Arg1:T204 Arg2:T201	
+R109	Relacao Arg1:T199 Arg2:T201	
+R110	Relacao Arg1:T197 Arg2:T201	
+R111	Relacao Arg1:T198 Arg2:T201	
+R116	Relacao Arg1:T207 Arg2:T208	
+T217	Papel 11854 11862	Marechal
+R117	Relacao Arg1:T218 Arg2:T217	
+R118	Relacao Arg1:T220 Arg2:T221	
+R119	Relacao Arg1:T219 Arg2:T220	
+T224	Papel 11961 11968	general
+R120	Relacao Arg1:T223 Arg2:T224	
+R121	Relacao Arg1:T223 Arg2:T225	
+R122	Relacao Arg1:T222 Arg2:T225	
+T226	Papel 12047 12054	general
+T232	Papel 13275 13285	presidente
+R123	Relacao Arg1:T231 Arg2:T232	
+T236	Papel 13881 13900	Ministro da Fazenda
+R124	Relacao Arg1:T237 Arg2:T236	
+R125	Relacao Arg1:T241 Arg2:T242	
+R126	Relacao Arg1:T239 Arg2:T240	
+R127	Relacao Arg1:T242 Arg2:T239	
+T244	Papel 14776 14795	Ministro da Fazenda
+R128	Relacao Arg1:T245 Arg2:T244	
+T251	Papel 15631 15641	empresário
+R129	Relacao Arg1:T252 Arg2:T251	
+R130	Relacao Arg1:T253 Arg2:T254	
+R131	Relacao Arg1:T255 Arg2:T253	
+R132	Causou Arg1:T255 Arg2:T256	
+R133	Causou Arg1:T256 Arg2:T257	
+R134	Relacao Arg1:T257 Arg2:T258	
+T261	Papel 16012 16019	senador
+R135	Relacao Arg1:T260 Arg2:T261	
+T266	Papel 16354 16374	ministro do exército
+R136	Relacao Arg1:T265 Arg2:T266	
+R137	Relacao Arg1:T271 Arg2:T272	
+R138	Relacao Arg1:T270 Arg2:T271	
+R139	Relacao Arg1:T273 Arg2:T274	
+R140	Relacao Arg1:T277 Arg2:T279	
+R141	Relacao Arg1:T278 Arg2:T279	
+R142	Relacao Arg1:T276 Arg2:T279	
+R143	Relacao Arg1:T280 Arg2:T279	
+R144	Relacao Arg1:T283 Arg2:T282	
+R145	Relacao Arg1:T284 Arg2:T282	
+R146	Relacao Arg1:T286 Arg2:T287	
+R147	Relacao Arg1:T285 Arg2:T287	
+R148	Relacao Arg1:T288 Arg2:T289	
+R149	Relacao Arg1:T288 Arg2:T287	
+R150	Relacao Arg1:T290 Arg2:T291	
+R151	Relacao Arg1:T291 Arg2:T292	
+T294	Papel 18006 18016	presidente
+R152	Relacao Arg1:T293 Arg2:T294	
+R153	Relacao Arg1:T297 Arg2:T296	
+R154	Relacao Arg1:T295 Arg2:T296	
+R155	Relacao Arg1:T301 Arg2:T303	
+R156	Relacao Arg1:T302 Arg2:T303	
+R157	Causou Arg1:T305 Arg2:T306	
+R158	Relacao Arg1:T307 Arg2:T308	
+R159	Relacao Arg1:T309 Arg2:T310	
+R160	Relacao Arg1:T308 Arg2:T309	
+T316	Papel 19606 19616	presidente
+R161	Relacao Arg1:T315 Arg2:T316	
+R162	Relacao Arg1:T315 Arg2:T314	
+R163	Relacao Arg1:T315 Arg2:T317	
+T318	Papel 19672 19679	General
+R164	Relacao Arg1:T319 Arg2:T318	
+R165	Relacao Arg1:T323 Arg2:T324	
+R166	Relacao Arg1:T322 Arg2:T323	
+T326	Papel 20146 20153	general
+R167	Relacao Arg1:T325 Arg2:T326	
+T327	Papel 20225 20247	Ministério do Exército
+T328	Papel 20334 20354	Ministro do Exército
+R168	Sofreu Arg1:T326 Arg2:T329	
+R169	Relacao Arg1:T329 Arg2:T328	
+T331	Papel 20404 20427	Presidente da República
+T338	Papel 21219 21226	General
+R170	Relacao Arg1:T339 Arg2:T338	
+T341	Papel 21253 21260	senador
+R171	Relacao Arg1:T340 Arg2:T341	
+R172	Relacao Arg1:T337 Arg2:T339	
+R173	Relacao Arg1:T337 Arg2:T340	
+R174	Relacao Arg1:T337 Arg2:T336	
+T345	Papel 21363 21370	general
+R175	Relacao Arg1:T344 Arg2:T345	
+T346	Papel 21437 21447	presidente
+R176	Relacao Arg1:T347 Arg2:T346	
+T348	Papel 21461 21471	presidente
+R177	Relacao Arg1:T344 Arg2:T348	
+R178	Causou Arg1:T343 Arg2:T349	
+R179	Relacao Arg1:T349 Arg2:T344	
+R180	Relacao Arg1:T349 Arg2:T346	
+T351	Papel 21502 21509	general
+R181	Relacao Arg1:T350 Arg2:T351	
+R182	Causou Arg1:T353 Arg2:T354	
+R183	Sofreu Arg1:T354 Arg2:T355	
+R184	Relacao Arg1:T352 Arg2:T354	
+R185	Relacao Arg1:T357 Arg2:T356	
+R186	Relacao Arg1:T368 Arg2:T367	
+R187	Causou Arg1:T365 Arg2:T369	
+R188	Causou Arg1:T366 Arg2:T369	
+R189	Relacao Arg1:T369 Arg2:T367	
+R190	Relacao Arg1:T373 Arg2:T374	
+R191	Relacao Arg1:T373 Arg2:T376	
+R192	Relacao Arg1:T375 Arg2:T376	
+R193	Relacao Arg1:T378 Arg2:T376	
+R194	Relacao Arg1:T377 Arg2:T376	
+T379	Papel 22805 22829	Presidência da República
+T381	Papel 22884 22923	Emenda Constitucional Dante de Oliveira
+T385	Papel 23168 23178	presidente
+R195	Relacao Arg1:T384 Arg2:T385	
+R196	Causou Arg1:T387 Arg2:T386	
+R197	Sofreu Arg1:T386 Arg2:T384	
+R198	Relacao Arg1:T390 Arg2:T389	
+R199	Relacao Arg1:T389 Arg2:T391	
+R200	Causou Arg1:T391 Arg2:T392	
+R201	Causou Arg1:T391 Arg2:T393	
+R202	Relacao Arg1:T399 Arg2:T397	
+R203	Relacao Arg1:T400 Arg2:T398	

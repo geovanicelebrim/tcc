@@ -1,0 +1,243 @@
+T8	Pessoa 391 403	João Goulart
+T9	Pessoa 473 484	José Sarney
+R1	Relacao Arg1:T1 Arg2:T3	
+R2	Relacao Arg1:T1 Arg2:T4	
+R3	Sofreu Arg1:T20 Arg2:T7	
+R4	Relacao Arg1:T8 Arg2:T20	
+R5	Causou Arg1:T29 Arg2:T27	
+R6	Relacao Arg1:T30 Arg2:T31	
+T41	Pessoa 2926 2938	Celso Amorim
+R7	Relacao Arg1:T46 Arg2:T43	
+R8	Relacao Arg1:T46 Arg2:T44	
+R9	Relacao Arg1:T46 Arg2:T45	
+T48	Pessoa 3426 3433	pessoas
+R10	Sofreu Arg1:T50 Arg2:T49	
+R11	Relacao Arg1:T51 Arg2:T49	
+R12	Relacao Arg1:T51 Arg2:T50	
+R13	Relacao Arg1:T52 Arg2:T53	
+T57	Pessoa 3999 4019	Juscelino Kubitschek
+T58	Pessoa 4022 4034	João Goulart
+T59	Pessoa 4121 4131	Kubitschek
+T60	Pessoa 4183 4190	Goulart
+T61	Pessoa 4346 4359	Jânio Quadros
+T64	Pessoa 4469 4476	Goulart
+T65	Pessoa 4683 4690	Goulart
+T69	Pessoa 5128 5135	Goulart
+R14	Relacao Arg1:T67 Arg2:T70	
+R15	Relacao Arg1:T68 Arg2:T70	
+T71	Pessoa 5164 5178	Carlos Lacerda
+T72	Pessoa 5191 5201	Kubitschek
+T73	Pessoa 5222 5237	Roberto Marinho
+T74	Pessoa 5239 5264	Octávio Frias de Oliveira
+T75	Pessoa 5266 5289	Júlio de Mesquita Filho
+R16	Relacao Arg1:T79 Arg2:T73	
+R17	Relacao Arg1:T79 Arg2:T74	
+R18	Relacao Arg1:T79 Arg2:T75	
+R19	Relacao Arg1:T84 Arg2:T82	
+R20	Relacao Arg1:T84 Arg2:T83	
+T85	Pessoa 5571 5583	João Goulart
+R21	Sofreu Arg1:T85 Arg2:T87	
+R22	Relacao Arg1:T87 Arg2:T86	
+R23	Relacao Arg1:T87 Arg2:T88	
+R24	Relacao Arg1:T90 Arg2:T91	
+T94	Pessoa 5867 5879	João Goulart
+R25	Relacao Arg1:T97 Arg2:T98	
+T101	Pessoa 6335 6348	Jânio Quadros
+T113	Pessoa 7045 7059	Castelo Branco
+T115	Pessoa 7210 7215	Jango
+T122	Pessoa 7765 7778	Jânio Quadros
+T123	Pessoa 7694 7706	João Goulart
+R26	Relacao Arg1:T123 Arg2:T122	
+T126	Pessoa 7781 7788	Goulart
+R27	Relacao Arg1:T12 Arg2:T13	
+R28	Relacao Arg1:T14 Arg2:T15	
+R29	Relacao Arg1:T15 Arg2:T16	
+R30	Relacao Arg1:T15 Arg2:T17	
+T127	Pessoa 8018 8023	Jango
+R31	Relacao Arg1:T127 Arg2:T129	
+R32	Relacao Arg1:T128 Arg2:T129	
+T131	Pessoa 8261 8266	Jango
+T134	Pessoa 8433 8445	João Goulart
+T135	Pessoa 8480 8494	Leonel Brizola
+T137	Pessoa 8719 8732	Jânio Quadros
+T138	Pessoa 8734 8739	Jango
+T140	Pessoa 8822 8835	Jânio Quadros
+T142	Pessoa 8960 8979	Ernesto Che Guevara
+R34	Relacao Arg1:T141 Arg2:T142	
+R35	Relacao Arg1:T145 Arg2:T146	
+R36	Relacao Arg1:T144 Arg2:T146	
+T148	Pessoa 9264 9269	Jango
+R37	Relacao Arg1:T151 Arg2:T152	
+T154	Pessoa 9779 9791	João Goulart
+R38	Relacao Arg1:T154 Arg2:T153	
+R39	Relacao Arg1:T155 Arg2:T153	
+T157	Pessoa 9837 9849	João Goulart
+R40	Relacao Arg1:T159 Arg2:T160	
+R41	Relacao Arg1:T157 Arg2:T159	
+R42	Relacao Arg1:T158 Arg2:T159	
+R43	Relacao Arg1:T156 Arg2:T159	
+R44	Relacao Arg1:T162 Arg2:T161	
+R45	Relacao Arg1:T162 Arg2:T163	
+R46	Relacao Arg1:T162 Arg2:T164	
+R47	Relacao Arg1:T166 Arg2:T167	
+R48	Relacao Arg1:T165 Arg2:T167	
+R49	Causou Arg1:T170 Arg2:T169	
+R50	Relacao Arg1:T172 Arg2:T173	
+R51	Relacao Arg1:T173 Arg2:T174	
+T177	Pessoa 11556 11575	Manuel Soriano Neto
+R52	Relacao Arg1:T178 Arg2:T177	
+R53	Relacao Arg1:T177 Arg2:T179	
+R54	Relacao Arg1:T177 Arg2:T180	
+T182	Pessoa 11686 11697	José Pessoa
+R55	Relacao Arg1:T177 Arg2:T181	
+R56	Relacao Arg1:T181 Arg2:T182	
+R57	Relacao Arg1:T186 Arg2:T187	
+R58	Relacao Arg1:T186 Arg2:T188	
+T196	Pessoa 13498 13511	Costa e Silva
+T197	Pessoa 13548 13582	Humberto de Alencar Castelo Branco
+T199	Pessoa 14066 14071	Kruel
+T202	Pessoa 14222 14242	Olympio Mourão Filho
+T203	Pessoa 14256 14268	João Goulart
+R59	Relacao Arg1:T205 Arg2:T206	
+R60	Causou Arg1:T204 Arg2:T205	
+T209	Pessoa 15244 15260	Francisco Julião
+R61	Relacao Arg1:T210 Arg2:T211	
+T212	Pessoa 15421 15436	Magalhães Pinto
+R62	Relacao Arg1:T212 Arg2:T213	
+T214	Pessoa 15453 15470	Adhemar de Barros
+T216	Pessoa 15485 15499	Carlos Lacerda
+R63	Relacao Arg1:T219 Arg2:T218	
+R64	Relacao Arg1:T218 Arg2:T216	
+R65	Relacao Arg1:T217 Arg2:T220	
+R66	Relacao Arg1:T217 Arg2:T205	
+T222	Pessoa 16220 16227	Goulart
+R67	Relacao Arg1:T229 Arg2:T223	
+R68	Relacao Arg1:T229 Arg2:T224	
+R69	Relacao Arg1:T229 Arg2:T225	
+R70	Relacao Arg1:T229 Arg2:T226	
+R71	Relacao Arg1:T229 Arg2:T227	
+R72	Relacao Arg1:T229 Arg2:T228	
+R73	Relacao Arg1:T214 Arg2:T215	
+T231	Pessoa 16330 16343	Samuel Wainer
+R74	Relacao Arg1:T230 Arg2:T231	
+T240	Pessoa 18374 18394	Olympio Mourão Filho
+T244	Pessoa 18495 18507	João Goulart
+T246	Pessoa 18638 18662	Argemiro de Assis Brasil
+R75	Relacao Arg1:T246 Arg2:T247	
+T250	Pessoa 18943 18955	João Goulart
+T251	Pessoa 18957 18962	Jango
+R76	Relacao Arg1:T250 Arg2:T251	
+T255	Pessoa 19231 19247	Ranieri Mazzilli
+R77	Relacao Arg1:T256 Arg2:T255	
+T261	Pessoa 19404 19416	João Goulart
+R78	Relacao Arg1:T250 Arg2:T252	
+R79	Relacao Arg1:T250 Arg2:T253	
+R80	Relacao Arg1:T262 Arg2:T263	
+R81	Relacao Arg1:T259 Arg2:T258	
+R82	Relacao Arg1:T259 Arg2:T260	
+R83	Relacao Arg1:T259 Arg2:T261	
+R84	Relacao Arg1:T264 Arg2:T265	
+T269	Pessoa 20588 20602	Lincoln Gordon
+T270	Pessoa 20624 20638	Vernon Walters
+T272	Pessoa 20845 20854	John Chew
+R85	Relacao Arg1:T273 Arg2:T274	
+R86	Relacao Arg1:T273 Arg2:T276	
+R87	Relacao Arg1:T273 Arg2:T278	
+R88	Relacao Arg1:T276 Arg2:T275	
+R89	Relacao Arg1:T278 Arg2:T277	
+R90	Relacao Arg1:T280 Arg2:T279	
+R91	Relacao Arg1:T273 Arg2:T280	
+R92	Relacao Arg1:T273 Arg2:T284	
+R93	Relacao Arg1:T284 Arg2:T285	
+R94	Relacao Arg1:T273 Arg2:T268	
+R95	Relacao Arg1:T285 Arg2:T286	
+R96	Relacao Arg1:T285 Arg2:T287	
+T288	Pessoa 21148 21160	João Goulart
+T290	Pessoa 21384 21396	João Goulart
+R97	Relacao Arg1:T292 Arg2:T293	
+T296	Pessoa 20075 20089	Carlos Lacerda
+R98	Relacao Arg1:T296 Arg2:T297	
+T298	Pessoa 20105 20120	Magalhães Pinto
+R99	Relacao Arg1:T298 Arg2:T299	
+T300	Pessoa 20141 20158	Adhemar de Barros
+R100	Relacao Arg1:T300 Arg2:T301	
+T304	Pessoa 20489 20501	João Goulart
+T305	Pessoa 21542 21563	Auro de Moura Andrade
+T308	Pessoa 21668 21683	Ranieri Mazzili
+R101	Relacao Arg1:T308 Arg2:T307	
+T311	Pessoa 22056 22063	Goulart
+R102	Sofreu Arg1:T311 Arg2:T313	
+R103	Relacao Arg1:T313 Arg2:T312	
+T317	Pessoa 22304 22318	Castelo Branco
+R104	Relacao Arg1:T317 Arg2:T318	
+T320	Pessoa 22403 22421	José Maria Alkimim
+R105	Relacao Arg1:T319 Arg2:T320	
+R106	Relacao Arg1:T317 Arg2:T320	
+T321	Pessoa 22557 22571	Castelo Branco
+R107	Relacao Arg1:T321 Arg2:T323	
+R108	Relacao Arg1:T323 Arg2:T322	
+T325	Pessoa 22670 22684	Castelo Branco
+R109	Relacao Arg1:T327 Arg2:T328	
+R110	Relacao Arg1:T329 Arg2:T326	
+R111	Relacao Arg1:T325 Arg2:T326	
+T330	Pessoa 23093 23107	Castelo Branco
+R112	Relacao Arg1:T330 Arg2:T331	
+R113	Relacao Arg1:T333 Arg2:T334	
+T336	Pessoa 23303 23317	Castelo Branco
+R114	Relacao Arg1:T336 Arg2:T335	
+T340	Pessoa 22501 22516	Magalhães Pinto
+R115	Relacao Arg1:T340 Arg2:T339	
+T347	Pessoa 20787 20792	Jango
+R116	Relacao Arg1:T8 Arg2:T349	
+R117	Causou Arg1:T22 Arg2:T351	
+R118	Relacao Arg1:T351 Arg2:T23	
+R119	Relacao Arg1:T41 Arg2:T352	
+R120	Relacao Arg1:T353 Arg2:T47	
+R121	Relacao Arg1:T48 Arg2:T353	
+R122	Relacao Arg1:T57 Arg2:T354	
+R123	Relacao Arg1:T58 Arg2:T354	
+R124	Relacao Arg1:T71 Arg2:T355	
+R125	Relacao Arg1:T72 Arg2:T355	
+R126	Causou Arg1:T81 Arg2:T356	
+R127	Sofreu Arg1:T356 Arg2:T357	
+R128	Relacao Arg1:T85 Arg2:T358	
+R129	Relacao Arg1:T123 Arg2:T361	
+R130	Relacao Arg1:T122 Arg2:T362	
+R131	Relacao Arg1:T113 Arg2:T363	
+R132	Relacao Arg1:T134 Arg2:T364	
+R133	Relacao Arg1:T135 Arg2:T365	
+R33	Relacao Arg1:T365 Arg2:T136	
+R134	Relacao Arg1:T148 Arg2:T366	
+R135	Relacao Arg1:T178 Arg2:T367	
+R136	Relacao Arg1:T182 Arg2:T368	
+R137	Relacao Arg1:T196 Arg2:T369	
+R138	Relacao Arg1:T197 Arg2:T370	
+R139	Relacao Arg1:T202 Arg2:T371	
+R140	Relacao Arg1:T209 Arg2:T374	
+R141	Relacao Arg1:T209 Arg2:T208	
+R142	Relacao Arg1:T208 Arg2:T375	
+R143	Relacao Arg1:T375 Arg2:T376	
+R144	Relacao Arg1:T212 Arg2:T377	
+R145	Relacao Arg1:T214 Arg2:T377	
+R146	Relacao Arg1:T216 Arg2:T377	
+R147	Relacao Arg1:T231 Arg2:T378	
+R148	Relacao Arg1:T240 Arg2:T381	
+R149	Relacao Arg1:T246 Arg2:T384	
+R150	Relacao Arg1:T244 Arg2:T385	
+R151	Relacao Arg1:T250 Arg2:T386	
+R152	Relacao Arg1:T250 Arg2:T386	
+R153	Relacao Arg1:T251 Arg2:T386	
+R154	Relacao Arg1:T255 Arg2:T389	
+R155	Relacao Arg1:T269 Arg2:T303	
+R156	Relacao Arg1:T269 Arg2:T390	
+R157	Relacao Arg1:T270 Arg2:T391	
+R158	Relacao Arg1:T272 Arg2:T392	
+R159	Relacao Arg1:T290 Arg2:T394	
+R160	Relacao Arg1:T305 Arg2:T393	
+R161	Relacao Arg1:T308 Arg2:T395	
+R162	Relacao Arg1:T317 Arg2:T396	
+R163	Relacao Arg1:T317 Arg2:T397	
+R164	Relacao Arg1:T320 Arg2:T398	
+R165	Relacao Arg1:T320 Arg2:T399	
+R166	Relacao Arg1:T340 Arg2:T400	
+R167	Relacao Arg1:T325 Arg2:T401	
