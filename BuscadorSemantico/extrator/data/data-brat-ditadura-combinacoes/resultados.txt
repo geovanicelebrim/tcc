@@ -1,0 +1,23 @@
+Evaluated 536 samples with 637 entities; found: 479 entities; correct: 392.
+       TOTAL: precision:   81,84%;  recall:   61,54%; F1:   70,25%.
+        Data: precision:   81,98%;  recall:   77,05%; F1:   79,44%. [target: 183; tp: 141; fp:  31]
+      Pessoa: precision:   85,78%;  recall:   60,34%; F1:   70,85%. [target: 290; tp: 175; fp:  29]
+       Local: precision:   73,79%;  recall:   46,34%; F1:   56,93%. [target: 164; tp:  76; fp:  27]
+
+=====================================================================================================
+
+Evaluated 531 samples with 1636 entities; found: 1184 entities; correct: 730.
+       TOTAL: precision:   61,66%;  recall:   44,62%; F1:   51,77%.
+        Data: precision:   76,60%;  recall:   78,69%; F1:   77,63%. [target: 183; tp: 144; fp:  44]
+      Pessoa: precision:   72,64%;  recall:   74,14%; F1:   73,38%. [target: 290; tp: 215; fp:  81]
+ Organizacao: precision:   59,36%;  recall:   55,08%; F1:   57,14%. [target: 305; tp: 168; fp: 115]
+       Local: precision:   65,32%;  recall:   49,39%; F1:   56,25%. [target: 164; tp:  81; fp:  43]
+       Papel: precision:   60,38%;  recall:   36,78%; F1:   45,71%. [target: 174; tp:  64; fp:  42]
+      Evento: precision:   50,62%;  recall:   26,62%; F1:   34,89%. [target: 154; tp:  41; fp:  40]
+       Grupo: precision:   24,59%;  recall:    9,62%; F1:   13,82%. [target: 156; tp:  15; fp:  46]
+    Artefato: precision:   28,57%;  recall:    2,78%; F1:    5,06%. [target:  72; tp:   2; fp:   5]
+Acontecimento: precision:    0,00%;  recall:    0,00%; F1:    0,00%. [target:  34; tp:   0; fp:   8]
+   Documento: precision:    0,00%;  recall:    0,00%; F1:    0,00%. [target:  42; tp:   0; fp:  14]
+       Fonte: precision:    0,00%;  recall:    0,00%; F1:    0,00%. [target:   2; tp:   0; fp:   0]
+ Pesquisador: precision:    0,00%;  recall:    0,00%; F1:    0,00%. [target:   3; tp:   0; fp:   2]
+  Quantidade: precision:    0,00%;  recall:    0,00%; F1:    0,00%. [target:  57; tp:   0; fp:  14]
