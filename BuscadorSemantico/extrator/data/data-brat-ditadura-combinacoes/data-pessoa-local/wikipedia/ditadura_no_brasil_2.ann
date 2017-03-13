@@ -1,0 +1,374 @@
+T1	Pessoa 45 52	Castelo
+T2	Pessoa 128 150	Artur da Costa e Silva
+T3	Pessoa 188 202	Daniel Krieger
+T4	Pessoa 250 264	Castelo Branco
+T6	Pessoa 560 580	Juscelino Kubitschek
+T7	Data 586 602	novembro de 1965
+T9	Local 701 707	Brasil
+T22	Local 1746 1752	Brasil
+T25	Data 2140 2144	1964
+T27	Local 2317 2323	Brasil
+T28	Data 2330 2341	17 de julho
+T29	Data 2462 2483	31 de janeiro de 1966
+T30	Data 2540 2544	1961
+T31	Data 2599 2618	15 de março de 1967
+T32	Data 2659 2679	3 de outubro de 1966
+T33	Pessoa 2793 2807	Carlos Lacerda
+T36	Data 2896 2917	8 de novembro de 1964
+T39	Data 3020 3035	outubro de 1965
+T40	Local 3122 3131	Guanabara
+T41	Local 3134 3146	Minas Gerais
+T43	Pessoa 3185 3209	Francisco Negrão de Lima
+T42	Pessoa 3212 3228	Israel Pinheiro,
+T46	Pessoa 3298 3312	Castelo Branco
+T47	Data 3324 3345	27 de outubro de 1965
+T52	Local 3559 3567	Brasília
+T54	Data 3593 3597	1964
+T55	Pessoa 3599 3614	John F. Kennedy
+T56	Pessoa 3652 3664	João Goulart
+T57	Local 3669 3683	Estados Unidos
+T58	Data 3687 3691	1962
+T59	Local 3785 3791	Brasil
+T60	Pessoa 3816 3823	Goulart
+R1	Relacao Arg1:T3 Arg2:T61	
+R2	Relacao Arg1:T2 Arg2:T62	
+R3	Relacao Arg1:T63 Arg2:T6	
+R4	Relacao Arg1:T64 Arg2:T19	
+R5	Relacao Arg1:T65 Arg2:T20	
+R6	Relacao Arg1:T66 Arg2:T18	
+R7	Relacao Arg1:T49 Arg2:T50	
+T51	Local 3529 3553	Esplanada dos Ministério
+R8	Relacao Arg1:T51 Arg2:T52	
+R9	Relacao Arg1:T53 Arg2:T54	
+R10	Causou Arg1:T49 Arg2:T68	
+R11	Sofreu Arg1:T51 Arg2:T68	
+R12	Relacao Arg1:T56 Arg2:T69	
+R13	Causou Arg1:T56 Arg2:T70	
+R14	Sofreu Arg1:T57 Arg2:T70	
+R15	Relacao Arg1:T70 Arg2:T58	
+T71	Pessoa 3826 3860	Humberto de Alencar Castelo Branco
+R16	Relacao Arg1:T71 Arg2:T72	
+R17	Relacao Arg1:T71 Arg2:T73	
+T75	Pessoa 4216 4238	Artur da Costa e Silva
+R18	Relacao Arg1:T75 Arg2:T74	
+T76	Data 4240 4244	1967
+T77	Data 4246 4250	1969
+R19	Relacao Arg1:T76 Arg2:T77	
+R20	Relacao Arg1:T75 Arg2:T76	
+T78	Data 4299 4303	1967
+T79	Data 4304 4308	1969
+R21	Relacao Arg1:T78 Arg2:T79	
+T84	Pessoa 4344 4357	Costa e Silva
+R22	Relacao Arg1:T84 Arg2:T83	
+R23	Relacao Arg1:T84 Arg2:T82	
+R24	Relacao Arg1:T84 Arg2:T85	
+R25	Relacao Arg1:T84 Arg2:T86	
+T87	Data 4450 4469	15 de março de 1967
+T89	Pessoa 4482 4501	Artur Costa e Silva
+R26	Relacao Arg1:T89 Arg2:T88	
+R27	Relacao Arg1:T90 Arg2:T87	
+R28	Sofreu Arg1:T89 Arg2:T90	
+R29	Relacao Arg1:T90 Arg2:T91	
+T93	Pessoa 4567 4579	Pedro Aleixo
+R30	Relacao Arg1:T93 Arg2:T92	
+R31	Relacao Arg1:T93 Arg2:T89	
+T96	Data 4670 4690	31 de agosto de 1969
+T97	Pessoa 4754 4774	Antônio Delfim Netto
+R32	Relacao Arg1:T97 Arg2:T98	
+T99	Pessoa 5749 5763	Carlos Lacerda
+T100	Pessoa 5832 5839	Lacerda
+T101	Pessoa 5857 5866	Juscelino
+T102	Pessoa 5869 5874	Jango
+R33	Relacao Arg1:T101 Arg2:T103	
+R34	Relacao Arg1:T102 Arg2:T103	
+T104	Local 6028 6034	Brasil
+R35	Relacao Arg1:T108 Arg2:T109	
+R36	Relacao Arg1:T107 Arg2:T109	
+R37	Relacao Arg1:T106 Arg2:T109	
+R38	Relacao Arg1:T112 Arg2:T110	
+R39	Relacao Arg1:T111 Arg2:T110	
+T113	Data 7107 7127	28 de agosto de 1969
+T114	Pessoa 7142 7155	Costa e Silva
+R40	Relacao Arg1:T114 Arg2:T115	
+R41	Relacao Arg1:T24 Arg2:T25	
+R42	Relacao Arg1:T116 Arg2:T113	
+R43	Sofreu Arg1:T114 Arg2:T116	
+T117	Data 7212 7232	31 de Agosto de 1969
+T119	Pessoa 7347 7359	Pedro Aleixo
+R44	Relacao Arg1:T119 Arg2:T118	
+T124	Pessoa 7591 7614	Aurélio de Lira Tavares
+T126	Pessoa 7630 7652	Márcio de Sousa e Melo
+T128	Pessoa 7665 7699	Augusto Hamann Rademaker Grünewald
+R45	Relacao Arg1:T124 Arg2:T123	
+R46	Relacao Arg1:T124 Arg2:T122	
+R47	Relacao Arg1:T126 Arg2:T125	
+R48	Relacao Arg1:T126 Arg2:T122	
+R49	Relacao Arg1:T128 Arg2:T127	
+R50	Relacao Arg1:T127 Arg2:T122	
+T129	Data 7709 7730	1 de Setembro de 1969
+R51	Relacao Arg1:T122 Arg2:T121	
+T130	Pessoa 8104 8126	Artur da Costa e Silva
+R52	Relacao Arg1:T130 Arg2:T131	
+T132	Data 8241 8260	28 de março de 1968
+T133	Local 8392 8406	Rio de Janeiro
+T136	Pessoa 8916 8940	Edson Luís de Lima Souto
+R53	Relacao Arg1:T136 Arg2:T137	
+T139	Pessoa 9021 9034	Alcindo Costa
+R54	Relacao Arg1:T138 Arg2:T139	
+R55	Relacao Arg1:T139 Arg2:T140	
+R56	Sofreu Arg1:T136 Arg2:T141	
+R57	Relacao Arg1:T141 Arg2:T142	
+R58	Sofreu Arg1:T141 Arg2:T143	
+R59	Relacao Arg1:T143 Arg2:T142	
+T144	Local 9089 9121	restaurante estudantil Calabouço
+T146	Pessoa 9159 9164	Édson
+R60	Causou Arg1:T145 Arg2:T147	
+R61	Sofreu Arg1:T144 Arg2:T147	
+R62	Causou Arg1:T145 Arg2:T148	
+R63	Sofreu Arg1:T146 Arg2:T148	
+R64	Sofreu Arg1:T155 Arg2:T158	
+R65	Sofreu Arg1:T156 Arg2:T158	
+R66	Sofreu Arg1:T157 Arg2:T158	
+R67	Relacao Arg1:T158 Arg2:T149	
+R68	Sofreu Arg1:T155 Arg2:T159	
+R69	Sofreu Arg1:T156 Arg2:T159	
+R70	Sofreu Arg1:T157 Arg2:T159	
+R71	Relacao Arg1:T159 Arg2:T150	
+R72	Relacao Arg1:T159 Arg2:T151	
+R73	Sofreu Arg1:T155 Arg2:T160	
+R74	Sofreu Arg1:T156 Arg2:T160	
+R75	Sofreu Arg1:T157 Arg2:T160	
+R76	Relacao Arg1:T160 Arg2:T152	
+R77	Relacao Arg1:T160 Arg2:T153	
+R78	Relacao Arg1:T170 Arg2:T172	
+R79	Relacao Arg1:T171 Arg2:T172	
+R80	Relacao Arg1:T170 Arg2:T161	
+R81	Relacao Arg1:T170 Arg2:T162	
+R82	Relacao Arg1:T170 Arg2:T163	
+R83	Relacao Arg1:T170 Arg2:T164	
+R84	Sofreu Arg1:T170 Arg2:T165	
+R85	Relacao Arg1:T170 Arg2:T166	
+R86	Relacao Arg1:T170 Arg2:T167	
+R87	Relacao Arg1:T170 Arg2:T168	
+R88	Relacao Arg1:T170 Arg2:T169	
+R89	Relacao Arg1:T176 Arg2:T175	
+R90	Relacao Arg1:T177 Arg2:T175	
+R91	Relacao Arg1:T171 Arg2:T173	
+R92	Relacao Arg1:T171 Arg2:T174	
+R93	Relacao Arg1:T171 Arg2:T175	
+R94	Relacao Arg1:T171 Arg2:T178	
+R95	Relacao Arg1:T179 Arg2:T180	
+R96	Sofreu Arg1:T181 Arg2:T180	
+R97	Relacao Arg1:T183 Arg2:T182	
+R98	Relacao Arg1:T184 Arg2:T183	
+R99	Relacao Arg1:T185 Arg2:T184	
+R100	Relacao Arg1:T186 Arg2:T184	
+R101	Sofreu Arg1:T183 Arg2:T180	
+R102	Relacao Arg1:T189 Arg2:T187	
+R103	Relacao Arg1:T189 Arg2:T188	
+T191	Data 10417 10436	29 de março de 1968
+T194	Local 10487 10501	Rio de Janeiro
+R104	Relacao Arg1:T192 Arg2:T193	
+T196	Local 10477 10483	centro
+R105	Relacao Arg1:T196 Arg2:T194	
+R106	Relacao Arg1:T195 Arg2:T193	
+R107	Relacao Arg1:T191 Arg2:T193	
+R108	Relacao Arg1:T196 Arg2:T193	
+T198	Data 10506 10511	junho
+R112	Relacao Arg1:T201 Arg2:T200	
+R113	Relacao Arg1:T202 Arg2:T201	
+R114	Relacao Arg1:T203 Arg2:T201	
+R115	Relacao Arg1:T204 Arg2:T201	
+R109	Relacao Arg1:T199 Arg2:T201	
+R110	Relacao Arg1:T197 Arg2:T201	
+R111	Relacao Arg1:T198 Arg2:T201	
+T208	Local 11117 11126	São Paulo
+R116	Relacao Arg1:T207 Arg2:T208	
+T209	Local 11226 11236	Cinelândia
+T210	Local 11281 11300	Largo da Candelária
+T211	Local 11387 11397	Uruguaiana
+T212	Local 11430 11454	Praça Quinze de Novembro
+T218	Pessoa 11863 11876	Costa e Silva
+R117	Relacao Arg1:T218 Arg2:T217	
+T219	Pessoa 11903 11916	Emílio Médici
+T220	Data 11918 11922	1969
+T221	Data 11923 11927	1974
+R118	Relacao Arg1:T220 Arg2:T221	
+R119	Relacao Arg1:T219 Arg2:T220	
+T222	Data 11936 11957	30 de Outubro de 1969
+T223	Pessoa 11969 11993	Emílio Garrastazu Médici
+R120	Relacao Arg1:T223 Arg2:T224	
+R121	Relacao Arg1:T223 Arg2:T225	
+R122	Relacao Arg1:T222 Arg2:T225	
+T229	Local 12499 12513	Estados Unidos
+T231	Pessoa 13286 13292	Médici
+R123	Relacao Arg1:T231 Arg2:T232	
+T234	Pessoa 13483 13489	Médici
+T235	Local 13580 13586	Brasil
+T237	Pessoa 13902 13913	Delfim Neto
+R124	Relacao Arg1:T237 Arg2:T236	
+T238	Local 14014 14020	Brasil
+T239	Data 14188 14192	1963
+T240	Data 14195 14199	1975
+R125	Relacao Arg1:T241 Arg2:T242	
+R126	Relacao Arg1:T239 Arg2:T240	
+R127	Relacao Arg1:T242 Arg2:T239	
+T245	Pessoa 14807 14818	Delfim Neto
+R128	Relacao Arg1:T245 Arg2:T244	
+T246	Pessoa 14983 14994	Delfim Neto
+T250	Data 15589 15593	1973
+T252	Pessoa 15642 15660	Kurt Rudolf Mirror
+R129	Relacao Arg1:T252 Arg2:T251	
+T253	Data 15760 15764	1963
+T254	Data 15765 15769	1973
+R130	Relacao Arg1:T253 Arg2:T254	
+R131	Relacao Arg1:T255 Arg2:T253	
+R132	Causou Arg1:T255 Arg2:T256	
+R133	Causou Arg1:T256 Arg2:T257	
+R134	Relacao Arg1:T257 Arg2:T258	
+T259	Pessoa 15924 15930	Médici
+T260	Pessoa 16020 16034	Filinto Müller
+R135	Relacao Arg1:T260 Arg2:T261	
+T264	Local 16312 16318	Brasil
+T265	Pessoa 16375 16389	Orlando Geisel
+R136	Relacao Arg1:T265 Arg2:T266	
+T268	Pessoa 16510 16516	Médici
+T269	Pessoa 16518 16532	Ernesto Geisel
+T270	Pessoa 16573 16579	Geisel
+T271	Data 16601 16605	1974
+T272	Data 16606 16610	1979
+R137	Relacao Arg1:T271 Arg2:T272	
+R138	Relacao Arg1:T270 Arg2:T271	
+T274	Local 17027 17040	Oriente Médio
+R139	Relacao Arg1:T273 Arg2:T274	
+T275	Data 17399 17403	1969
+T277	Local 17627 17641	Rio de Janeiro
+T278	Local 17647 17656	Guanabara
+R140	Relacao Arg1:T277 Arg2:T279	
+R141	Relacao Arg1:T278 Arg2:T279	
+R142	Relacao Arg1:T276 Arg2:T279	
+T280	Data 17671 17675	1975
+R143	Relacao Arg1:T280 Arg2:T279	
+R144	Relacao Arg1:T283 Arg2:T282	
+R145	Relacao Arg1:T284 Arg2:T282	
+T285	Pessoa 17757 17771	Ernesto Geisel
+T286	Local 17810 17828	Mato Grosso do Sul
+R146	Relacao Arg1:T286 Arg2:T287	
+R147	Relacao Arg1:T285 Arg2:T287	
+T288	Data 17836 17840	1977
+T289	Data 17843 17847	1979
+R148	Relacao Arg1:T288 Arg2:T289	
+R149	Relacao Arg1:T288 Arg2:T287	
+T290	Pessoa 17862 17874	Jimmy Carter
+T291	Local 17877 17888	Casa Branca
+T292	Data 17892 17896	1977
+R150	Relacao Arg1:T290 Arg2:T291	
+R151	Relacao Arg1:T291 Arg2:T292	
+T293	Pessoa 17984 17990	Carter
+R152	Relacao Arg1:T293 Arg2:T294	
+T295	Pessoa 18040 18052	John Kennedy
+T297	Data 18056 18060	1963
+R153	Relacao Arg1:T297 Arg2:T296	
+R154	Relacao Arg1:T295 Arg2:T296	
+T298	Local 18142 18156	América Latina
+T299	Pessoa 18177 18183	Geisel
+T300	Local 18187 18193	Brasil
+T301	Local 18254 18260	Angola
+T302	Local 18263 18273	Moçambique
+R155	Relacao Arg1:T301 Arg2:T303	
+R156	Relacao Arg1:T302 Arg2:T303	
+T304	Pessoa 18776 18782	Geisel
+R157	Causou Arg1:T305 Arg2:T306	
+R158	Relacao Arg1:T307 Arg2:T308	
+T309	Data 19242 19246	1975
+T310	Data 19249 19253	1982
+R159	Relacao Arg1:T309 Arg2:T310	
+R160	Relacao Arg1:T308 Arg2:T309	
+T312	Pessoa 19542 19554	Delfim Netto
+T313	Pessoa 19556 19580	Emílio Garrastazu Médici
+T314	Local 19621 19635	Estados Unidos
+T315	Pessoa 19636 19649	Richard Nixon
+T317	Data 19654 19670	dezembro de 1971
+R161	Relacao Arg1:T315 Arg2:T316	
+R162	Relacao Arg1:T315 Arg2:T314	
+R163	Relacao Arg1:T315 Arg2:T317	
+T319	Pessoa 19680 19694	Ernesto Geisel
+R164	Relacao Arg1:T319 Arg2:T318	
+T321	Pessoa 19860 19866	Geisel
+T322	Pessoa 20099 20109	Figueiredo
+T323	Data 20122 20126	1979
+T324	Data 20127 20131	1985
+R165	Relacao Arg1:T323 Arg2:T324	
+R166	Relacao Arg1:T322 Arg2:T323	
+T325	Pessoa 20133 20145	Sílvio Frota
+R167	Relacao Arg1:T325 Arg2:T326	
+R168	Sofreu Arg1:T326 Arg2:T329	
+R169	Relacao Arg1:T329 Arg2:T328	
+T330	Pessoa 20359 20365	Geisel
+T334	Data 20771 20775	1978
+T336	Data 21191 21203	23 de agosto
+T339	Pessoa 21227 21248	Euler Bentes Monteiro
+R170	Relacao Arg1:T339 Arg2:T338	
+T340	Pessoa 21261 21275	Paulo Brossard
+R171	Relacao Arg1:T340 Arg2:T341	
+R172	Relacao Arg1:T337 Arg2:T339	
+R173	Relacao Arg1:T337 Arg2:T340	
+R174	Relacao Arg1:T337 Arg2:T336	
+T342	Data 21320 21333	15 de outubro
+T344	Pessoa 21371 21406	João Batista de Oliveira Figueiredo
+R175	Relacao Arg1:T344 Arg2:T345	
+T347	Pessoa 21448 21454	Geisel
+R176	Relacao Arg1:T347 Arg2:T346	
+R177	Relacao Arg1:T344 Arg2:T348	
+R178	Causou Arg1:T343 Arg2:T349	
+R179	Relacao Arg1:T349 Arg2:T344	
+R180	Relacao Arg1:T349 Arg2:T346	
+T350	Pessoa 21510 21522	Euler Bentes
+R181	Relacao Arg1:T350 Arg2:T351	
+T352	Data 21527 21548	17 de outubro de 1978
+R182	Causou Arg1:T353 Arg2:T354	
+R183	Sofreu Arg1:T354 Arg2:T355	
+R184	Relacao Arg1:T352 Arg2:T354	
+T356	Data 21600 21604	1979
+R185	Relacao Arg1:T357 Arg2:T356	
+T359	Data 21884 21888	1982
+T360	Local 22044 22046	SP
+T361	Local 22048 22050	RJ
+T362	Local 22053 22055	MG
+T363	Pessoa 22109 22145	João Baptista de Oliveira Figueiredo
+T364	Local 22253 22259	Brasil
+T365	Pessoa 22316 22328	Delfim Netto
+T366	Pessoa 22336 22378	banqueiro ministro Mário Henrique Simonsen
+R186	Relacao Arg1:T368 Arg2:T367	
+R187	Causou Arg1:T365 Arg2:T369	
+R188	Causou Arg1:T366 Arg2:T369	
+R189	Relacao Arg1:T369 Arg2:T367	
+T371	Data 22482 22486	1983
+T372	Local 22520 22526	Brasil
+T373	Data 22631 22635	1983
+T374	Data 22638 22642	1984
+R190	Relacao Arg1:T373 Arg2:T374	
+R191	Relacao Arg1:T373 Arg2:T376	
+R192	Relacao Arg1:T375 Arg2:T376	
+R193	Relacao Arg1:T378 Arg2:T376	
+R194	Relacao Arg1:T377 Arg2:T376	
+T380	Local 22833 22839	Brasil
+T384	Pessoa 23142 23156	Tancredo Neves
+R195	Relacao Arg1:T384 Arg2:T385	
+R196	Causou Arg1:T387 Arg2:T386	
+R197	Sofreu Arg1:T386 Arg2:T384	
+T390	Data 23251 23255	1964
+R198	Relacao Arg1:T390 Arg2:T389	
+R199	Relacao Arg1:T389 Arg2:T391	
+R200	Causou Arg1:T391 Arg2:T392	
+R201	Causou Arg1:T391 Arg2:T393	
+T394	Data 23484 23501	8 de maio de 1985
+T395	Local 24029 24045	Distrito Federal
+R202	Relacao Arg1:T399 Arg2:T397	
+R203	Relacao Arg1:T400 Arg2:T398	
+T401	Data 24191 24202	28 de junho
+T402	Pessoa 24204 24210	Sarney
+T404	Data 24475 24497	15 de novembro de 1986
+T405	Data 24513 24535	1 de fevereiro de 1987
+T406	Data 24566 24586	5 de outubro de 1988
+T407	Data 24312 24326	22 de novembro
