@@ -1,0 +1,7 @@
+Evaluated 537 samples with 474 entities; found: 216 entities; correct: 119.
+       TOTAL: precision:   55,09%;  recall:   25,11%; F1:   34,49%.
+       Local: precision:   76,04%;  recall:   44,51%; F1:   56,15%. [target: 164; tp:  73; fp:  23]
+      Evento: precision:   55,56%;  recall:   22,73%; F1:   32,26%. [target: 154; tp:  35; fp:  28]
+       Grupo: precision:   19,30%;  recall:    7,05%; F1:   10,33%. [target: 156; tp:  11; fp:  46]
+
+Execution time: 142,482 seconds
