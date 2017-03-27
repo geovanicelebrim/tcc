@@ -53,4 +53,39 @@ public class Graph {
 	public ArrayList<Edge> getEdges() {
 		return this.edges;
 	}
+	
+	/* Tem que testar */
+	public String getJsonEdges() {
+		String json = "[{";
+		
+		for (int i = 0; i < this.getEdges().size(); i++) {
+			json += "from: " + this.getEdges().get(i).getFrom() + ",";
+			json += "to: " + this.getEdges().get(i).getTo();
+			
+			if( i + 1 != this.getEdges().size()) {
+				json += "}, {";
+			}
+		}
+		
+		json += "}]";
+		return json;
+	}
+	
+	/* Tem que testar */
+	public String getJsonNodes() {
+		String json = "[{";
+		
+		for (int i = 0; i < this.getVertices().size(); i++) {
+			json += "id: " + this.getVertices().get(i).getID() + ",";
+			json += "label: '" + this.getVertices().get(i).getSlice() + "',";
+			json += "group: '" + this.getVertices().get(i).getLabel() + "',";
+			
+			if ( i + 1 != this.getVertices().size()) {
+				json += "}, {";
+			}
+		}
+		
+		json += "}]";
+		return json;
+	}
 }
