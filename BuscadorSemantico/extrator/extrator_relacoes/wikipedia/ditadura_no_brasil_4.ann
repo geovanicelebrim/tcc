@@ -1,0 +1,822 @@
+T1	Grupo 120 141	militantes comunistas
+T2	Organizacao 177 185	Exército
+T3	Pessoa 343 354	Stuart Ange
+T4	Pessoa 488 493	Angel
+T5	Papel 333 342	estudante
+R1	Relacao Arg1:T5 Arg2:T3	
+T6	Data 533 537	1975
+T8	Organizacao 622 642	Ditadura de Pinochet
+T9	Organizacao 644 668	Regime militar paraguaio
+T10	Organizacao 670 693	Regime militar uruguaio
+T11	Data 710 715	1976,
+T12	Organizacao 716 740	Regime militar argentino
+T13	Quantidade 939 952	85 mil mortos
+T14	Evento 766 781	Operação Condor
+T15	Local 882 890	Cone Sul
+T16	Local 896 902	Europa
+R4	Relacao Arg1:T15 Arg2:T16	
+R5	Relacao Arg1:T14 Arg2:T13	
+T17	Quantidade 971 989	400 mil torturados
+T18	Quantidade 1006 1031	mil estrangeiros expulsos
+R6	Relacao Arg1:T14 Arg2:T18	
+R7	Relacao Arg1:T14 Arg2:T17	
+T19	Local 1035 1041	Brasil
+T20	Organizacao 1046 1071	regime militar brasileiro
+T21	Evento 1099 1114	Operação Condor
+R9	Relacao Arg1:T20 Arg2:T21	
+T22	Pessoa 1117 1136	Paulo Evaristo Arns
+T23	Pessoa 1139 1152	Hélder Câmara
+T24	Evento 1168 1209	Conferência Nacional dos Bispos do Brasil
+R11	Relacao Arg1:T23 Arg2:T24	
+R12	Relacao Arg1:T22 Arg2:T24	
+T25	Pessoa 1288 1302	Getúlio Vargas
+T26	Organizacao 1334 1348	regime militar
+T27	Organizacao 1352 1356	CNBB
+T28	Evento 1393 1398	golpe
+T29	Organizacao 1562 1596	Comissão Nacional da Verdade (CNV)
+T30	Data 1662 1684	18 de setembro de 1946
+T31	Data 1687 1707	5 de outubro de 1988
+T32	Local 1711 1717	Brasil
+R13	Relacao Arg1:T29 Arg2:T30	
+R14	Relacao Arg1:T30 Arg2:T31	
+R15	Relacao Arg1:T29 Arg2:T32	
+R16	Relacao Arg1:T27 Arg2:T28	
+T33	Papel 1761 1771	presidente
+T34	Pessoa 1772 1786	Dilma Rousseff
+T35	Data 1790 1812	18 de novembro de 2011
+T36	Data 1856 1875	16 de maio de 2012.
+R17	Relacao Arg1:T35 Arg2:T36	
+R18	Relacao Arg1:T33 Arg2:T34	
+R19	Relacao Arg1:T24 Arg2:T25	
+T37	Organizacao 1926 1940	regime militar
+T38	Evento 1954 1967	golpe de 1964
+T40	Quantidade 1980 2007	50 mil pessoas foram presas
+R21	Relacao Arg1:T37 Arg2:T40	
+R22	Relacao Arg1:T38 Arg2:T40	
+T41	Local 2011 2017	Brasil
+T42	Quantidade 2029 2060	30 formas diferentes de tortura
+T43	Grupo 2080 2089	militares
+T44	Evento 2113 2121	ditadura
+T45	Data 2126 2148	10 de dezembro de 2014
+T46	Organizacao 2151 2179	Comissão Nacional da Verdade
+T47	Pessoa 2211 2219	Rousseff
+R23	Relacao Arg1:T40 Arg2:T41	
+R24	Relacao Arg1:T37 Arg2:T42	
+R25	Relacao Arg1:T45 Arg2:T46	
+T48	Organizacao 2224 2243	Comissão de Anistia
+T49	Data 2251 2255	2001
+T50	Quantidade 2265 2285	70 mil requerimentos
+T51	Evento 2337 2351	governo milita
+T52	Quantidade 2380 2407	50 mil pessoas foram presas
+T53	Quantidade 2419 2436	20 mil torturadas
+T54	Quantidade 2447 2481	milhares foram exilados e cassados
+R26	Relacao Arg1:T50 Arg2:T52	
+R27	Relacao Arg1:T50 Arg2:T53	
+R29	Relacao Arg1:T51 Arg2:T50	
+R30	Relacao Arg1:T51 Arg2:T52	
+R31	Relacao Arg1:T51 Arg2:T53	
+T55	Data 2583 2601	9 de junho de 2013
+T56	Papel 2605 2615	presidente
+T57	Organizacao 2619 2647	Comissão Estadual da Verdade
+T58	Local 2651 2665	Rio de Janeiro
+T59	Organizacao 2671 2747	Comissão Nacional de Direitos Humanos da Ordem dos Advogados do Brasil (OAB)
+T60	Pessoa 2749 2761	Wadih Damous
+R33	Relacao Arg1:T56 Arg2:T60	
+R34	Relacao Arg1:T59 Arg2:T56	
+R35	Relacao Arg1:T57 Arg2:T59	
+T61	Organizacao 2772 2813	Agência Brasileira de Inteligência (Abin)
+T62	Papel 2831 2852	diretor geral adjunto
+T63	Pessoa 2854 2876	Ronaldo Martins Belham
+T64	Pessoa 2930 2958	José Antonio Nogueira Belham
+T65	Organizacao 2969 2977	DOI-Codi
+T66	Local 2981 2995	Rio de Janeiro
+T67	Data 3070 3074	1971
+T68	Local 3099 3114	Rio de Janeiro.
+T69	Papel 3117 3127	Presidenta
+T70	Pessoa 3128 3142	Dilma Rousseff
+T71	Organizacao 3181 3195	regime militar
+T72	Data 3197 3201	1964
+T73	Organizacao 3291 3312	Administração Federal
+T74	Papel 3336 3343	diretor
+T75	Organizacao 3347 3351	Abin
+R36	Relacao Arg1:T62 Arg2:T63	
+R37	Relacao Arg1:T61 Arg2:T63	
+T76	Papel 2960 2965	chefe
+R38	Relacao Arg1:T76 Arg2:T65	
+R39	Relacao Arg1:T71 Arg2:T72	
+R40	Relacao Arg1:T67 Arg2:T68	
+R41	Relacao Arg1:T73 Arg2:T70	
+T77	Organizacao 3353 3372	Quartel do 1o B.P.E
+T78	Organizacao 3382 3391	DOI- CODI
+T79	Local 3392 3406	Rio de Janeiro
+R42	Relacao Arg1:T77 Arg2:T78	
+R43	Relacao Arg1:T78 Arg2:T79	
+R44	Relacao Arg1:T77 Arg2:T79	
+R45	Relacao Arg1:T74 Arg2:T75	
+T80	Organizacao 3493 3527	Comissão de Mortos e Desaparecidos
+T81	Organizacao 3532 3550	Comissão de Anista
+T82	Quantidade 3552 3582	457 pessoas foram assassinadas
+T83	Quantidade 3646 3665	370 serão incluídos
+T84	Quantidade 3733 3745	1196 vítimas
+R46	Relacao Arg1:T80 Arg2:T81	
+T85	Evento 3605 3638	repressão política governamental,
+R47	Causou Arg1:T85 Arg2:T82	
+R48	Causou Arg1:T85 Arg2:T83	
+R49	Causou Arg1:T84 Arg2:T85	
+T86	Quantidade 3826 3837	457 vítimas
+T87	Organizacao 3857 3891	Comissão de Mortos e Desaparecidos
+T88	Organizacao 3899 3918	Comissão de Anistia
+T89	Quantidade 3931 3934	858
+T90	Evento 3973 3991	repressão política
+T91	Organizacao 4059 4111	Comissão do Exército Brasileiro em Washington (CEBW)
+R50	Relacao Arg1:T86 Arg2:T87	
+R51	Relacao Arg1:T87 Arg2:T88	
+R52	Causou Arg1:T90 Arg2:T89	
+R53	Causou Arg1:T90 Arg2:T86	
+T92	Evento 4205 4214	repressão
+T93	Evento 4265 4283	regime ditatorial,
+T94	Pessoa 4374 4381	Goulart
+T95	Organizacao 4481 4493	Junta Milita
+T96	Pessoa 4509 4523	Castelo Branco
+T97	Organizacao 4527 4557	Revista Civilização Brasileira
+T98	Data 4582 4595	março de 1965
+T99	Organizacao 4805 4841	Departamento de Estado e o Pentágono
+R54	Relacao Arg1:T93 Arg2:T94	
+R55	Relacao Arg1:T95 Arg2:T96	
+R56	Relacao Arg1:T97 Arg2:T98	
+T102	Evento 4906 4914	ditadura
+T103	Organizacao 4963 5010	Assessoria Especial de Relações Públicas (AERP)
+R57	Relacao Arg1:T102 Arg2:T103	
+T104	Organizacao 5168 5172	AERP
+T105	Data 5293 5315	22 de novembro de 1968
+T106	Organizacao 5330 5358	Conselho Superior de Censura
+T107	Data 5397 5401	1939
+T109	Data 5426 5448	21 de novembro de 1968
+R58	Relacao Arg1:T106 Arg2:T107	
+R60	Relacao Arg1:T104 Arg2:T103	
+T110	Grupo 5504 5522	agentes comunistas
+T111	Evento 5949 5955	regime
+T112	Organizacao 6215 6235	O Estado de S. Paulo
+T113	Pessoa 6305 6324	Luís Vaz de Camões,
+T114	Data 6362 6372	século XVI
+R61	Relacao Arg1:T112 Arg2:T113	
+R62	Relacao Arg1:T113 Arg2:T114	
+T115	Data 6381 6400	18 de julho de 1968
+T116	Organizacao 6416 6452	Comando de Caça aos Comunistas (CCC)
+T117	Local 6490 6509	Teatro Ruth Escobar
+T118	Local 6514 6524	São Paulo,
+R63	Relacao Arg1:T117 Arg2:T118	
+R64	Relacao Arg1:T115 Arg2:T116	
+R65	Relacao Arg1:T117 Arg2:T116	
+T120	Evento 6692 6700	ditadura
+T122	Pessoa 6794 6808	Caetano Veloso
+T123	Pessoa 6810 6823	Gilberto Gil,
+T124	Pessoa 6824 6838	Geraldo Vandré
+T125	Pessoa 6840 6853	Chico Buarque
+T126	Local 6887 6893	Brasil
+T127	Pessoa 6922 6934	Gilberto Gil
+T128	Pessoa 6937 6951	Caetano Veloso
+T129	Evento 6992 7000	ditadura
+T130	Local 7018 7032	Rio de Janeiro
+T131	Data 7040 7062	22 de dezembro de 1968
+R67	Relacao Arg1:T131 Arg2:T130	
+R68	Relacao Arg1:T122 Arg2:T123	
+R69	Relacao Arg1:T123 Arg2:T124	
+R70	Relacao Arg1:T124 Arg2:T125	
+T133	Organizacao 7270 7300	Estado Democrático Brasileiro"
+T134	Organizacao 7423 7443	O Estado de S. Paulo
+R74	Relacao Arg1:T127 Arg2:T128	
+T139	Organizacao 7540 7574	universidades brasileiras públicas
+T140	Grupo 7604 7615	professores
+T141	Grupo 7652 7658	alunos
+T142	Organizacao 7722 7768	Conselho Nacional de Telecomunicações - CONTEL
+T143	Organizacao 7785 7788	SNI
+T144	Organizacao 7796 7800	DOPS
+T145	Grupo 7969 7979	estudantes
+R79	Relacao Arg1:T139 Arg2:T140	
+R80	Relacao Arg1:T143 Arg2:T144	
+R81	Relacao Arg1:T142 Arg2:T143	
+R82	Relacao Arg1:T142 Arg2:T144	
+R83	Relacao Arg1:T140 Arg2:T141	
+T148	Grupo 8082 8091	comunismo
+T149	Grupo 8093 8103	socialismo
+T150	Data 8279 8291	30 de agosto
+T151	Organizacao 8295 8324	Universidade Federal de Minas
+T152	Organizacao 8341 8365	Universidade de Brasília
+T153	Organizacao 8391 8395	AI-5
+R87	Relacao Arg1:T150 Arg2:T151	
+T154	Grupo 8489 8500	jornalistas
+T155	Grupo 8503 8512	políticos
+T156	Evento 8565 8581	ditadura militar
+T158	Pessoa 8610 8630	Juscelino Kubitschek
+T160	Pessoa 8649 8663	Carlos Lacerda
+T161	Grupo 8673 8682	deputados
+T162	Organizacao 8707 8710	MDB
+T163	Organizacao 8722 8727	ARENA
+T164	Pessoa 8729 8736	Lacerda
+T165	Local 8762 8798	Regimento Marechal Caetano de Farias
+T166	Organizacao 8803 8818	Polícia Militar
+T167	Local 8822 8841	Estado da Guanabara
+T168	Data 8931 8935	2013
+T169	Organizacao 8940 8958	Organizações Globo
+T170	Organizacao 9047 9054	O Globo
+T171	Evento 9076 9092	ditadura militar
+T172	Evento 9122 9135	golpe militar
+T173	Data 9139 9143	1964
+R88	Relacao Arg1:T156 Arg2:T158	
+R89	Relacao Arg1:T156 Arg2:T160	
+R90	Relacao Arg1:T162 Arg2:T163	
+R91	Relacao Arg1:T165 Arg2:T167	
+R92	Relacao Arg1:T153 Arg2:T156	
+R93	Relacao Arg1:T156 Arg2:T161	
+R94	Relacao Arg1:T168 Arg2:T169	
+R95	Relacao Arg1:T170 Arg2:T171	
+R96	Relacao Arg1:T171 Arg2:T172	
+T174	Evento 9283 9296	golpe de 1964
+T175	Data 9537 9558	27 de Outubro de 1964
+T176	Organizacao 9562 9580	Congresso Nacional
+T177	Organizacao 9592 9627	União Nacional dos Estudantes (UNE)
+T178	Grupo 9649 9659	estudantes
+T179	Evento 9671 9694	aprovando a Lei Suplicy
+T180	Organizacao 9770 9797	escolas públicas e privadas
+T181	Local 9801 9807	Brasil
+T182	Organizacao 9847 9862	Governo Federal
+T183	Organizacao 9867 9893	governo dos Estados Unidos
+T184	Artefato 9914 9931	Acordo MEC-Usaid.
+T185	Local 9935 9938	EUA
+T186	Evento 9959 9967	ditadura
+T187	Local 9982 9989	Brasil,
+T188	Local 10051 10057	Brasil
+T189	Organizacao 10126 10143	Estado de Direito
+T190	Evento 10147 10155	ditadura
+T191	Grupo 10239 10250	comunistas"
+T192	Organizacao 10284 10287	UNE
+T193	Organizacao 10292 10295	UEE
+T194	Grupo 10300 10310	estudantes
+T195	Organizacao 10332 10341	militares
+T196	Grupo 10536 10546	estudantes
+T197	Grupo 10596 10606	estudantes
+R97	Relacao Arg1:T173 Arg2:T172	
+R98	Relacao Arg1:T176 Arg2:T177	
+R99	Relacao Arg1:T175 Arg2:T176	
+R101	Relacao Arg1:T192 Arg2:T193	
+R102	Relacao Arg1:T182 Arg2:T183	
+R103	Relacao Arg1:T186 Arg2:T187	
+R104	Relacao Arg1:T182 Arg2:T184	
+R105	Relacao Arg1:T183 Arg2:T184	
+R106	Relacao Arg1:T189 Arg2:T190	
+R107	Relacao Arg1:T195 Arg2:T190	
+R108	Relacao Arg1:T191 Arg2:T190	
+T198	Evento 10751 10768	ditadura militar.
+T199	Organizacao 10771 10774	SNI
+T200	Organizacao 10916 10925	Executivo
+T202	Organizacao 11015 11039	Universidade de Brasília
+T203	Data 11047 11068	11 de Outubro de 1965
+T204	Organizacao 11177 11180	UNB
+T205	Grupo 11210 11217	polícia
+T207	Organizacao 11262 11274	Universidade
+T208	Grupo 11349 11355	Alunos
+T206	Grupo 11219 11230	Professores
+T209	Papel 11480 11490	jornalista
+R109	Relacao Arg1:T196 Arg2:T198	
+R110	Relacao Arg1:T202 Arg2:T203	
+R111	Relacao Arg1:T200 Arg2:T199	
+R112	Relacao Arg1:T205 Arg2:T207	
+R113	Relacao Arg1:T206 Arg2:T207	
+T210	Pessoa 11491 11506	Vladimir Herzog
+T211	Organizacao 11516 11524	DOI-CODI
+T212	Local 11528 11537	São Paulo
+R114	Relacao Arg1:T209 Arg2:T210	
+R115	Relacao Arg1:T210 Arg2:T211	
+R116	Relacao Arg1:T212 Arg2:T211	
+T213	Grupo 11538 11551	Manifestantes
+T214	Local 11611 11619	Brasília
+R117	Relacao Arg1:T213 Arg2:T214	
+T215	Pessoa 11642 11657	Vladimir Herzog
+T216	Quantidade 11665 11678	8 mil pessoas
+T217	Local 11682 11693	Praça da Sé
+T218	Local 11698 11707	São Paulo
+T219	Data 11716 11737	31 de outubro de 1975
+R118	Relacao Arg1:T215 Arg2:T216	
+R119	Relacao Arg1:T216 Arg2:T217	
+R120	Relacao Arg1:T218 Arg2:T219	
+T220	Organizacao 11753 11804	União Estadual dos Estudantes de São Paulo (UEE-SP)
+T221	Data 11808 11812	1979
+R121	Relacao Arg1:T220 Arg2:T221	
+T222	Data 12071 12075	1968
+T223	Grupo 12157 12179	profissionais liberais
+T224	Grupo 12181 12190	artistas,
+T225	Grupo 12191 12201	religiosos
+T226	Grupo 12203 12212	operários
+T227	Grupo 12214 12228	donas-de-casa.
+T228	Evento 12107 12115	ditadura
+R122	Relacao Arg1:T222 Arg2:T228	
+R123	Relacao Arg1:T223 Arg2:T224	
+R124	Relacao Arg1:T224 Arg2:T225	
+R125	Relacao Arg1:T225 Arg2:T226	
+R126	Relacao Arg1:T226 Arg2:T227	
+T229	Organizacao 12364 12381	Bloco capitalista
+T230	Organizacao 12391 12406	Bloco comunista
+R127	Relacao Arg1:T217 Arg2:T218	
+R128	Relacao Arg1:T229 Arg2:T230	
+T231	Local 12448 12454	Brasil
+T232	Grupo 12516 12523	polícia
+T233	Organizacao 12559 12595	Comando de Caça aos Comunistas (CCC)
+R129	Relacao Arg1:T231 Arg2:T233	
+T234	Pessoa 12640 12657	Dom Hélder Câmara
+T235	Local 12662 12668	Recife
+T236	Local 12723 12756	restaurante estudantil Calabouço,
+T237	Local 12760 12774	Rio de Janeiro
+T238	Grupo 12807 12814	polícia
+T239	Papel 12838 12847	estudante
+T240	Pessoa 12848 12873	Edson Luís de Lima Souto.
+T241	Grupo 12887 12897	estudantes
+T242	Organizacao 12955 12970	Igreja Católica
+T243	Organizacao 12976 12991	sociedade civil
+R130	Relacao Arg1:T236 Arg2:T237	
+R131	Relacao Arg1:T238 Arg2:T239	
+R132	Relacao Arg1:T239 Arg2:T240	
+R133	Relacao Arg1:T242 Arg2:T243	
+T245	Data 13120 13128	Setembro
+T246	Organizacao 13132 13147	Polícia Militar
+T247	Organizacao 13157 13181	Universidade de Brasília
+T248	Organizacao 13213 13216	MDB
+T249	Pessoa 13218 13238	Márcio Moreira Alves
+T250	Local 13243 13257	Rio de Janeiro
+T251	Data 13339 13360	7 de setembro de 1968
+T252	Local 13445 13451	Ibiúna
+T253	Local 13453 13462	São Paulo
+T254	Data 13464 13486	12 de outubro de 1968,
+T255	Evento 13497 13517	30o Congresso da UNE
+T256	Grupo 13521 13528	polícia
+T257	Quantidade 13556 13571	1240 estudantes
+T258	Grupo 13698 13707	policiais
+T259	Organizacao 13867 13870	SNI
+T260	Organizacao 13949 13971	instituições públicas,
+T261	Grupo 14045 14055	repórteres
+T262	Grupo 14133 14142	policiais
+R135	Relacao Arg1:T245 Arg2:T246	
+R136	Sofreu Arg1:T246 Arg2:T247	
+R137	Relacao Arg1:T249 Arg2:T248	
+R138	Relacao Arg1:T250 Arg2:T245	
+R139	Relacao Arg1:T252 Arg2:T253	
+R140	Relacao Arg1:T253 Arg2:T254	
+R141	Relacao Arg1:T255 Arg2:T254	
+R142	Relacao Arg1:T256 Arg2:T257	
+R143	Relacao Arg1:T259 Arg2:T260	
+R144	Relacao Arg1:T260 Arg2:T261	
+T263	Data 14173 14196	30 de dezembro de 1968,
+T264	Pessoa 14296 14317	Márcio Moreira Alves.
+T265	Grupo 14224 14233	políticos
+T266	Quantidade 14244 14267	onze deputados federais
+T267	Papel 14286 14295	comunista
+T268	Pessoa 14328 14342	Carlos Lacerda
+T269	Data 14380 14384	1950
+T270	Papel 14448 14458	presidente
+T271	Pessoa 14459 14472	Costa e Silva
+T272	Organizacao 14518 14522	AI-5
+T273	Data 14831 14853	16 de janeiro, de 1969
+T274	Quantidade 14882 14906	quarenta e três cassados
+T275	Quantidade 14912 14936	trinta e cinco deputados
+T276	Quantidade 14938 14966	dois senadores e um ministro
+T279	Organizacao 14970 14973	STF
+R145	Relacao Arg1:T263 Arg2:T265	
+R147	Relacao Arg1:T267 Arg2:T264	
+R149	Relacao Arg1:T269 Arg2:T271	
+R150	Relacao Arg1:T271 Arg2:T272	
+R151	Relacao Arg1:T273 Arg2:T274	
+R154	Relacao Arg1:T276 Arg2:T279	
+T281	Pessoa 14975 14999	Peri Constant Bevilacqua
+T282	Organizacao 15247 15265	Congresso Nacional
+T283	Organizacao 15401 15418	Estado de Direito
+T284	Evento 15422 15430	ditadura
+T285	Grupo 15478 15488	comunistas
+R156	Relacao Arg1:T282 Arg2:T283	
+R157	Relacao Arg1:T284 Arg2:T285	
+T286	Data 25200 25221	4 de setembro de 1969
+T288	Organizacao 25253 25297	Movimento Revolucionário 8 de Outubro (MR-8)
+T289	Local 25335 25341	Brasil
+T290	Pessoa 25343 25364	Charles Burke Elbrick
+T291	Data 25369 25390	5 de Setembro de 1969
+T295	Data 25615 25636	7 de setembro de 1969
+T296	Quantidade 25676 25692	15 guerrilheiros
+T298	Local 25753 25759	México
+T299	Papel 25650 25670	Embaixador americano
+T300	Papel 25789 25799	embaixador
+T301	Pessoa 25807 25830	Ehrenfried von Holleben
+T302	Papel 25835 25845	embaixador
+T303	Pessoa 25852 25867	Giovanni Bucher
+R162	Relacao Arg1:T299 Arg2:T296	
+R163	Relacao Arg1:T295 Arg2:T299	
+R164	Relacao Arg1:T300 Arg2:T301	
+R165	Relacao Arg1:T301 Arg2:T303	
+R166	Relacao Arg1:T302 Arg2:T303	
+R167	Relacao Arg1:T288 Arg2:T290	
+T304	Quantidade 24561 24580	13 presos políticos
+T305	Papel 24595 24605	embaixador
+T306	Pessoa 24620 24641	Charles Burke Elbrick
+R169	Relacao Arg1:T304 Arg2:T305	
+R170	Relacao Arg1:T305 Arg2:T306	
+T308	Pessoa 24931 24945	Carlos Lamarca
+T309	Pessoa 24694 24721	Paulo Alberto Mendes Júnior
+T310	Grupo 24743 24756	guerrilheiros
+T311	Local 24782 24798	Vale da Ribeira,
+T312	Local 24799 24808	São Paulo
+T313	Pessoa 24860 24878	Yoshitane Fujimori
+T315	Pessoa 24947 24954	Alberto
+T316	Local 25077 25084	Lamarca
+T317	Local 25134 25148	Rio de Janeiro
+T318	Local 25123 25129	Galeão
+R171	Relacao Arg1:T309 Arg2:T310	
+R172	Relacao Arg1:T310 Arg2:T311	
+R173	Relacao Arg1:T311 Arg2:T312	
+R176	Relacao Arg1:T318 Arg2:T317	
+T319	Local 25185 25191	México
+R177	Relacao Arg1:T319 Arg2:T308	
+T320	Data 24303 24322	11 de março de 1970
+T321	Grupo 24324 24339	revolucionários
+T322	Papel 24367 24373	cônsul
+T323	Local 24385 24394	São Paulo
+T324	Pessoa 24396 24408	Nobuo Okushi
+T325	Data 24467 24485	8 de maio de 1970,
+T326	Papel 24488 24495	tenente
+T327	Organizacao 24499 24514	Polícia Militar
+T328	Local 24518 24531	Estado de São
+R178	Relacao Arg1:T320 Arg2:T321	
+R179	Relacao Arg1:T322 Arg2:T324	
+R180	Relacao Arg1:T323 Arg2:T320	
+R181	Relacao Arg1:T325 Arg2:T326	
+R182	Relacao Arg1:T325 Arg2:T328	
+T329	Grupo 15537 15550	congressistas
+T330	Pessoa 15758 15769	Mário Covas
+T331	Organizacao 15802 15811	Congresso
+T333	Evento 16065 16079	regime militar
+T334	Organizacao 15554 15561	governo
+T335	Organizacao 15696 15703	governo
+R183	Relacao Arg1:T335 Arg2:T330	
+T336	Organizacao 16003 16012	Congresso
+T337	Organizacao 16124 16142	governo ditatorial
+T338	Grupo 16154 16163	deputados
+T339	Data 16198 16202	1966
+T340	Evento 16206 16222	ditadura militar
+T341	Organizacao 16272 16290	Congresso Nacional
+R187	Relacao Arg1:T337 Arg2:T340	
+T342	Grupo 16239 16248	deputados
+R188	Relacao Arg1:T339 Arg2:T340	
+T343	Organizacao 16382 16386	AI-3
+R189	Relacao Arg1:T341 Arg2:T342	
+T345	Grupo 16479 16488	políticos
+T346	Evento 16730 16743	golpe de 1964
+T348	Organizacao 16830 16845	Banco do Brasil
+T349	Organizacao 16869 16872	BID
+T350	Pessoa 17006 17020	Castelo Branco
+T351	Organizacao 17031 17040	Congresso
+T353	Organizacao 17109 17132	Assembleia Constituinte
+T354	Data 17174 17195	24 de janeiro de 1967
+R193	Relacao Arg1:T348 Arg2:T349	
+R194	Relacao Arg1:T350 Arg2:T351	
+T357	Grupo 17284 17293	políticos
+T358	Grupo 17301 17310	militares
+T359	Evento 17314 17322	ditadura
+T360	Grupo 17372 17382	comunistas
+T361	Organizacao 17394 17404	sindicatos
+T362	Pessoa 17406 17420	Castelo Branco
+T364	Organizacao 17492 17502	sindicatos
+T365	Organizacao 17529 17536	governo
+T367	Organizacao 17591 17629	Conselho Nacional de Política Salarial
+T368	Pessoa 17633 17646	João Goulart.
+R201	Relacao Arg1:T367 Arg2:T368	
+T369	Papel 17659 17668	ministros
+T370	Pessoa 17669 17683	Roberto Campos
+T371	Pessoa 17686 17701	Octávio Bulhões
+T372	Quantidade 17782 17792	doze meses
+R203	Relacao Arg1:T369 Arg2:T370	
+R204	Relacao Arg1:T369 Arg2:T371	
+T373	Quantidade 17855 17864	dois anos
+T374	Quantidade 17896 17906	doze meses
+T375	Organizacao 17990 17997	governo
+R205	Relacao Arg1:T372 Arg2:T373	
+T376	Evento 18026 18034	ditadura
+T377	Evento 18041 18060	intervenção federal
+R206	Relacao Arg1:T376 Arg2:T377	
+T378	Quantidade 18073 18083	quinhentos
+T379	Organizacao 18084 18094	sindicatos
+T380	Grupo 18099 18109	diretorias
+T381	Grupo 18130 18143	interventores
+T382	Organizacao 18158 18165	governo
+T383	Organizacao 18230 18252	Ministério do Trabalho
+R207	Relacao Arg1:T383 Arg2:T382	
+R208	Relacao Arg1:T380 Arg2:T381	
+R209	Relacao Arg1:T379 Arg2:T382	
+T384	Data 18266 18271	julho
+T385	Evento 18292 18297	greve
+T386	Evento 18312 18328	ditadura militar
+T387	Local 18333 18339	Osasco
+T388	Pessoa 18354 18366	José Ibrahim
+T389	Papel 18415 18435	general-de- exército
+T390	Pessoa 18436 18460	Aurélio de Lira Tavares,
+T391	Papel 18461 18469	Ministro
+T392	Papel 18490 18509	general-de-exército
+T393	Pessoa 18510 18533	Emílio Garrastazu Médic
+T394	Organizacao 18545 18548	SNI
+T395	Papel 18536 18541	chefe
+R211	Relacao Arg1:T389 Arg2:T390	
+R212	Relacao Arg1:T385 Arg2:T386	
+R213	Relacao Arg1:T392 Arg2:T393	
+R214	Relacao Arg1:T395 Arg2:T394	
+T396	Grupo 18718 18732	trabalhadores,
+T398	Evento 18861 18869	ditadura
+T399	Evento 18954 18962	ditadura
+T400	Grupo 18917 18930	trabalhadores
+T401	Grupo 18975 18992	líderes sindicais
+R218	Relacao Arg1:T399 Arg2:T401	
+T403	Data 19270 19274	1973
+T404	Organizacao 19292 19305	Banco Mundial
+T405	Pessoa 19047 19053	Geisel
+T406	Grupo 19099 19107	oposição
+T407	Local 19143 19155	ABC Paulista
+T408	Evento 19180 19188	ditadura
+T409	Grupo 19193 19206	trabalhadores
+T411	Pessoa 19349 19356	Médici:
+T412	Organizacao 19371 19378	Fazenda
+T413	Quantidade 19427 19430	15%
+T414	Organizacao 19438 19451	Banco Mundial
+T415	Quantidade 19480 19483	25%
+T416	Data 19484 19490	(1973)
+T417	Grupo 19507 19529	movimentos de esquerda
+T418	Organizacao 19564 19571	governo
+T419	Evento 19588 19602	regime militar
+T420	Evento 19604 19626	movimentos de esquerda
+T421	Evento 19728 19757	regime autoritário ditatorial
+R221	Relacao Arg1:T407 Arg2:T408	
+R222	Relacao Arg1:T409 Arg2:T408	
+R224	Relacao Arg1:T412 Arg2:T413	
+R225	Relacao Arg1:T416 Arg2:T415	
+R226	Relacao Arg1:T415 Arg2:T413	
+R227	Relacao Arg1:T416 Arg2:T413	
+T422	Evento 19492 19503	Luta armada
+R231	Relacao Arg1:T422 Arg2:T417	
+R232	Relacao Arg1:T418 Arg2:T419	
+R233	Relacao Arg1:T419 Arg2:T420	
+R234	Relacao Arg1:T421 Arg2:T419	
+R235	Relacao Arg1:T420 Arg2:T421	
+T423	Evento 19837 19851	regime militar
+T424	Grupo 19813 19833	oposição esquerdista
+T425	Pessoa 19882 19899	Carlos Marighella
+T426	Evento 19965 19980	guerrilha rural
+T427	Evento 19988 20010	"guerrilha do Araguaia
+R236	Relacao Arg1:T424 Arg2:T423	
+R237	Relacao Arg1:T424 Arg2:T425	
+R238	Relacao Arg1:T425 Arg2:T426	
+R239	Relacao Arg1:T427 Arg2:T426	
+T431	Evento 20345 20361	guerrilha urbana
+T432	Evento 20398 20413	guerrilha rural
+T433	Grupo 20480 20494	forças armadas
+T434	Evento 20560 20575	guerrilha rural
+T435	Evento 20610 20620	guerrilhas
+T436	Organizacao 20636 20640	AI-5
+T437	Quantidade 20674 20707	dezenove brasileiros foram mortos
+T438	Grupo 20712 20725	guerrilheiros
+T439	Organizacao 20751 20756	AI-5.
+T440	Papel 20778 20785	soldado
+T442	Data 20813 20826	junho de 1968
+T443	Organizacao 20838 20841	VPR
+T444	Evento 20858 20894	Atentado do Aeroporto dos Guararapes
+T446	Grupo 20921 20933	Ação Popular
+T447	Data 20956 20961	1966.
+R242	Relacao Arg1:T431 Arg2:T432	
+R243	Relacao Arg1:T433 Arg2:T432	
+R244	Relacao Arg1:T434 Arg2:T433	
+R245	Relacao Arg1:T435 Arg2:T436	
+R246	Causou Arg1:T438 Arg2:T437	
+T441	Pessoa 20786 20803	Mário Kozel Filho
+R247	Relacao Arg1:T440 Arg2:T441	
+R249	Relacao Arg1:T442 Arg2:T441	
+R250	Relacao Arg1:T443 Arg2:T442	
+R251	Relacao Arg1:T444 Arg2:T443	
+R252	Relacao Arg1:T446 Arg2:T444	
+R253	Relacao Arg1:T447 Arg2:T446	
+T448	Organizacao 21015 21022	governo
+T449	Pessoa 21023 21029	Geisel
+T450	Evento 21084 21087	MDB
+T451	Evento 21056 21079	resistência democrática
+T452	Data 21119 21141	15 de novembro de 1974
+T455	Papel 21172 21179	senador
+T456	Evento 21195 21205	guerrilhas
+T457	Evento 21367 21377	guerrilha)
+T458	Evento 21404 21425	Guerrilha do Araguaia
+T459	Data 21442 21446	1973
+R255	Relacao Arg1:T458 Arg2:T459	
+R256	Relacao Arg1:T448 Arg2:T449	
+R257	Relacao Arg1:T451 Arg2:T452	
+R258	Relacao Arg1:T451 Arg2:T450	
+T460	Data 23533 23554	24 de janeiro de 1969
+T461	Organizacao 23591 23596	4o RI
+T462	Local 23601 23619	Quitaúna São Paulo
+T464	Grupo 23719 23732	guerrilheiros
+T465	Data 23741 23762	4 de setembro de 1969
+T466	Organizacao 23778 23809	Ação Libertadora Nacional (ALN)
+T467	Organizacao 23814 23858	Movimento Revolucionário 8 de Outubro (MR-8)
+T468	Papel 23873 23883	embaixador
+T469	Local 23888 23902	Estados Unidos
+T470	Grupo 23932 23948	presos políticos
+T471	Grupo 23951 23961	estudantes
+T472	Data 23997 24016	18 de julho de 1969
+T473	Grupo 24018 24031	guerrilheiros
+T475	Grupo 24097 24113	revolucionários,
+T476	Evento 24167 24175	ditadura
+T478	Pessoa 24240 24257	Adhemar de Barros
+R259	Relacao Arg1:T460 Arg2:T462	
+T479	Grupo 23764 23774	militantes
+R261	Relacao Arg1:T479 Arg2:T466	
+R262	Relacao Arg1:T466 Arg2:T467	
+R263	Relacao Arg1:T468 Arg2:T469	
+R266	Relacao Arg1:T470 Arg2:T471	
+R269	Relacao Arg1:T472 Arg2:T473	
+T480	Data 23006 23027	4 de novembro de 1969
+T481	Papel 23031 23039	deputado
+T482	Pessoa 23040 23057	Carlos Marighella
+T483	Papel 23059 23064	líder
+T484	Organizacao 23068 23102	Aliança Libertadora Nacional (ALN)
+T485	Data 22809 22829	25 de julho de 1966,
+T486	Papel 22860 22870	presidente
+T487	Pessoa 22871 22884	Costa e Silva
+T488	Evento 22757 22793	Atentado do Aeroporto dos Guararapes
+T490	Local 22798 22805	Recife,
+T491	Papel 22901 22911	jornalista
+T492	Pessoa 22912 22935	Edson Regis de Carvalho
+T493	Papel 22940 22949	almirante
+T494	Pessoa 22950 22972	Nelson Gomes Fernandes
+T495	Quantidade 22980 22997	20 feridos graves
+T496	Papel 22848 22857	candidato
+T497	Local 23126 23145	Alameda Casa Branca
+T498	Local 23150 23160	São Paulo.
+T499	Papel 23205 23213	delegado
+T500	Pessoa 23214 23236	Sérgio Paranhos Fleury
+T501	Grupo 23275 23287	torturadores
+T502	Papel 23312 23320	Delegado
+T503	Pessoa 23321 23327	Fleury
+T504	Pessoa 23369 23383	Carlos Lamarca
+T505	Papel 23420 23427	tenente
+T506	Organizacao 23431 23446	Polícia Militar
+T507	Local 23450 23469	Estado de São Paulo
+T508	Pessoa 23471 23492	Alberto Mendes Júnior
+R271	Relacao Arg1:T490 Arg2:T485	
+R272	Relacao Arg1:T488 Arg2:T487	
+R273	Relacao Arg1:T488 Arg2:T492	
+R276	Relacao Arg1:T482 Arg2:T484	
+R277	Relacao Arg1:T497 Arg2:T498	
+R278	Relacao Arg1:T480 Arg2:T498	
+R279	Relacao Arg1:T500 Arg2:T501	
+R280	Relacao Arg1:T503 Arg2:T504	
+R281	Relacao Arg1:T505 Arg2:T506	
+R282	Relacao Arg1:T508 Arg2:T504	
+T509	Papel 22430 22437	soldado
+T510	Pessoa 22438 22455	Mário Kozel Filho
+T511	Quantidade 22492 22503	1.150 reais
+T512	Pessoa 22505 22516	Kozel Filho
+T513	Grupo 22579 22591	guerrilheiro
+T514	Pessoa 22592 22606	Carlos Lamarca
+T515	Pessoa 22608 22625	Orlando Lovecchio
+T516	Grupo 22672 22685	guerrilheiros
+T517	Quantidade 22730 22735	R$571
+T518	Grupo 22377 22390	guerrilheiros
+R283	Relacao Arg1:T510 Arg2:T511	
+R284	Relacao Arg1:T512 Arg2:T514	
+R285	Relacao Arg1:T515 Arg2:T516	
+R286	Relacao Arg1:T517 Arg2:T515	
+R287	Relacao Arg1:T509 Arg2:T510	
+T519	Quantidade 22237 22240	119
+T520	Organizacao 21480 21485	IstoÉ
+T521	Data 21507 21511	2004
+T522	Papel 21516 21522	genera
+T523	Data 21552 21556	1973
+T524	Evento 21595 21605	guerrilhas
+T525	Grupo 21646 21652	presos
+T526	Grupo 21654 21660	mortos
+T527	Grupo 21663 21676	desaparecidos
+T528	Data 21778 21782	1990
+T530	Organizacao 21854 21894	Secretaria Especial dos Direitos Humanos
+T532	Pessoa 21906 21910	Lula
+T533	Quantidade 21912 21915	475
+T534	Quantidade 22019 22031	R$ 4 bilhões
+T535	Evento 22036 22058	processo indenizatório
+T536	Organizacao 22164 22170	Estado
+T537	Grupo 22266 22279	guerrilheiros
+T538	Papel 22327 22337	jornalista
+T539	Pessoa 22338 22354	Reinaldo Azevedo
+R288	Relacao Arg1:T520 Arg2:T522	
+R289	Relacao Arg1:T523 Arg2:T524	
+R290	Relacao Arg1:T525 Arg2:T526	
+R291	Relacao Arg1:T526 Arg2:T527	
+R292	Relacao Arg1:T525 Arg2:T527	
+T529	Fonte 21807 21836	Direito à memória e à verdade
+R296	Relacao Arg1:T534 Arg2:T533	
+R297	Relacao Arg1:T535 Arg2:T536	
+R298	Relacao Arg1:T519 Arg2:T537	
+R299	Relacao Arg1:T538 Arg2:T539	
+R300	Relacao Arg1:T519 Arg2:T535	
+R301	Relacao Arg1:T518 Arg2:T510	
+T541	Grupo 16323 16344	partido oposicionista
+T542	Fonte 56 59	UOL
+R8	Relacao Arg1:T5 Arg2:T4	
+T7	Organizacao 541 572	regime civil-militar brasileiro
+T543	Organizacao 1902 1905	CNV
+R2	Relacao Arg1:T29 Arg2:T34	
+R3	Relacao Arg1:T51 Arg2:T54	
+T544	Papel 2900 2907	general
+R10	Relacao Arg1:T544 Arg2:T64	
+R28	Relacao Arg1:T65 Arg2:T66	
+T545	Pessoa 3032 3044	Rubens Paiva
+T546	Data 3202 3206	1984
+R32	Relacao Arg1:T72 Arg2:T546	
+R302	Relacao Arg1:T71 Arg2:T546	
+T100	Evento 5403 5417	Lei da Censura
+R59	Relacao Arg1:T127 Arg2:T129	
+R66	Relacao Arg1:T128 Arg2:T129	
+R71	Relacao Arg1:T127 Arg2:T130	
+R73	Relacao Arg1:T127 Arg2:T131	
+R77	Relacao Arg1:T128 Arg2:T130	
+R78	Relacao Arg1:T128 Arg2:T131	
+T108	Evento 13058 13078	passeata dos cem mil
+T119	Evento 13080 13116	Ocupação da Universidade de Brasília
+T121	Papel 13201 13209	deputado
+R72	Sofreu Arg1:T121 Arg2:T249	
+T132	Evento 14145 14165	Perseguição política
+T135	Organizacao 15003 15019	Poder Judiciário
+T136	Organizacao 15052 15067	Poder Executivo
+T137	Data 15103 15124	16 de janeiro de 1969
+T138	Quantidade 15158 15170	42 deputados
+R20	Relacao Arg1:T358 Arg2:T359	
+R75	Relacao Arg1:T384 Arg2:T385	
+R76	Relacao Arg1:T385 Arg2:T387	
+R84	Relacao Arg1:T385 Arg2:T388	
+R85	Relacao Arg1:T391 Arg2:T390	
+T39	Organizacao 18473 18481	Exército
+R86	Relacao Arg1:T39 Arg2:T391	
+R100	Relacao Arg1:T389 Arg2:T39	
+R134	Relacao Arg1:T395 Arg2:T393	
+T101	Papel 19359 19367	Ministro
+R146	Relacao Arg1:T101 Arg2:T412	
+R148	Relacao Arg1:T413 Arg2:T414	
+R152	Relacao Arg1:T414 Arg2:T415	
+T146	Grupo 20935 20950	esquerda cristã
+T147	Data 21449 21453	1974
+R153	Relacao Arg1:T459 Arg2:T147	
+R155	Relacao Arg1:T458 Arg2:T147	
+R184	Relacao Arg1:T520 Arg2:T521	
+R185	Relacao Arg1:T521 Arg2:T522	
+R186	Relacao Arg1:T528 Arg2:T525	
+R190	Relacao Arg1:T528 Arg2:T526	
+R191	Relacao Arg1:T528 Arg2:T527	
+R192	Relacao Arg1:T529 Arg2:T530	
+R195	Relacao Arg1:T530 Arg2:T532	
+R196	Relacao Arg1:T513 Arg2:T514	
+R197	Relacao Arg1:T488 Arg2:T490	
+R198	Relacao Arg1:T488 Arg2:T485	
+R199	Relacao Arg1:T496 Arg2:T486	
+R200	Relacao Arg1:T496 Arg2:T487	
+R202	Relacao Arg1:T491 Arg2:T492	
+R210	Relacao Arg1:T493 Arg2:T494	
+R215	Relacao Arg1:T488 Arg2:T494	
+R216	Relacao Arg1:T488 Arg2:T495	
+R217	Relacao Arg1:T480 Arg2:T481	
+R219	Relacao Arg1:T480 Arg2:T482	
+R220	Relacao Arg1:T481 Arg2:T482	
+R223	Relacao Arg1:T483 Arg2:T482	
+R228	Relacao Arg1:T483 Arg2:T484	
+R229	Relacao Arg1:T482 Arg2:T497	
+R230	Relacao Arg1:T499 Arg2:T500	
+R240	Relacao Arg1:T502 Arg2:T503	
+R241	Relacao Arg1:T506 Arg2:T507	
+R248	Relacao Arg1:T507 Arg2:T508	
+R254	Relacao Arg1:T506 Arg2:T508	
+R270	Relacao Arg1:T460 Arg2:T461	
+R260	Relacao Arg1:T466 Arg2:T468	
+R268	Relacao Arg1:T466 Arg2:T469	
+R274	Relacao Arg1:T467 Arg2:T468	
+R275	Relacao Arg1:T467 Arg2:T469	
+R267	Relacao Arg1:T468 Arg2:T470	
+R293	Relacao Arg1:T468 Arg2:T471	
+R264	Relacao Arg1:T321 Arg2:T322	
+R265	Relacao Arg1:T322 Arg2:T323	
+R294	Relacao Arg1:T320 Arg2:T322	
+R295	Relacao Arg1:T320 Arg2:T324	
+R303	Relacao Arg1:T321 Arg2:T323	
+R304	Relacao Arg1:T321 Arg2:T324	
+T157	Grupo 24437 24453	presos políticos
+R305	Relacao Arg1:T324 Arg2:T157	
+R306	Relacao Arg1:T322 Arg2:T157	
+R307	Relacao Arg1:T326 Arg2:T327	
+R308	Relacao Arg1:T327 Arg2:T328	
+R309	Relacao Arg1:T304 Arg2:T306	
+R310	Relacao Arg1:T309 Arg2:T311	
+R311	Relacao Arg1:T309 Arg2:T312	
+R312	Relacao Arg1:T309 Arg2:T313	
+R174	Relacao Arg1:T313 Arg2:T308	
+R175	Relacao Arg1:T315 Arg2:T316	
+R158	Relacao Arg1:T286 Arg2:T288	
+R159	Relacao Arg1:T288 Arg2:T289	
+R313	Relacao Arg1:T289 Arg2:T290	
+R160	Relacao Arg1:T296 Arg2:T298	
+R161	Relacao Arg1:T299 Arg2:T298	
