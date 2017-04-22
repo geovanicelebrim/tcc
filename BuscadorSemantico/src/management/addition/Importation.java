@@ -21,12 +21,12 @@ public class Importation {
 
 	public static void importOf(String path) throws IOException, DatabaseConnectionException, Exception {
 		
-		ArrayList<String> filesToExtract =  getFilesToEntityExtract(path);
-		
-		if (filesToExtract.size() > 0) {
-			// TODO construir métodos responsáveis por realizar a extração automática
-			throw new Exception("A importação não será realizada pois foi adicionado arquivos para serem extraídos automaticamente. Esta funcionalidade ainda está em fase de construção.");
-		}
+//		ArrayList<String> filesToExtract =  getFilesToEntityExtract(path);
+//		
+//		if (filesToExtract.size() > 0) {
+//			// TODO construir métodos responsáveis por realizar a extração automática
+//			throw new Exception("A importação não será realizada pois foi adicionado arquivos para serem extraídos automaticamente. Esta funcionalidade ainda está em fase de construção.");
+//		}
 		// Obtém os arquivos .ann
 		File files[] = DAO.File.listFilesOfType(path + "ann/", ".ann");
 		int countFile = 1;
