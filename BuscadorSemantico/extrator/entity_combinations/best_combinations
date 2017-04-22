@@ -1,0 +1,8 @@
+['Data', 'Documento', 'Local', 'Papel', 'Quantidade']
+['Data', 'Documento', 'Evento', 'Grupo', 'Local', 'Organizacao', 'Papel', 'Pessoa', 'Quantidade']
+['Data', 'Documento', 'Grupo', 'Organizacao', 'Papel', 'Quantidade']
+['Data', 'Evento', 'Organizacao', 'Quantidade']
+['Data', 'Local']
+['Data', 'Grupo']
+['Documento', 'Evento', 'Grupo', 'Papel', 'Pessoa', 'Quantidade']
+['Documento', 'Grupo', 'Pessoa']
