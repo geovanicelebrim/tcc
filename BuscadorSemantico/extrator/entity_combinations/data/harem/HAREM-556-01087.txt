@@ -1,0 +1,20 @@
+              
+              
+ 
+              
+SISTEMA ADENIL-CICLÁSICO               
+Um dos mecanismos de transdução mais frequentemente utilizado pelas hormonas hidrófilas e pelos neurotransmissores, é o sistema adenil-ciclásico, assim designado pelo facto de recorrer a uma enzima, a adenil-ciclase.               
+Em termos gerais, pode-se decompor este mecanismo em 5 etapas:               
+Uma molécula mensageira entra em contacto com um receptor e a ele se fixa especificamente;               
+Nestas circunstâncias, a proteína receptora altera a sua conformação e adquire a propriedade de poder induzir a activação de várias ( n1 ) moléculas de adenil-ciclase (proteína intrínseca da membrana);               
+A adenil-ciclase produz um mensageiro intracelular: a adenosina monofosfato cíclica (AMP cíclico ou AMPc), a partir da adenosina trifosfato ou ATP.               
+Cada molécula de adenil-ciclase produz n2 AMPc.               
+Cada AMPc activa, por sua vez, uma outra enzimas, uma proteína quinase AMPc dependente, cuja missão consiste em fosforilar certas proteínas da célula, isto é, transferir para elas um fosfato do ATP;               
+Se a proteína fosforilada for uma enzimas, esta será activada e actuará de seguida sobre n3 outras moléculas X, transformando-as em outras tantas moléculas Y.               
+No limite, uma só molécula mensageira induziu , sem penetrar na célula, a produção de n1xn2xn3 moléculas Y.               
+Este mecanismo implicou a transdução do sinal externo num sinal interno (o AMPc) e a amplificação de sinal por uma cascata de activação enzimática.               
+A cascata acima descrita compreende apenas duas enzimas.               
+Em muitos casos concretos (ver glicogenólise), verifica-se a existência de um maior número de enzimas intermédios, o que se traduz naturalmente, por uma maior amplificação de sinal.               
+No homem, por cada descarga de adrenalina atinge uma concentração de 10-9 M e daí resulta um aumento da concentração da glucose no sangue de 5.10-3.               
+A amplificação de sinal hormonal pode ser estimada em 5.10-3/10-9 , isto é , em 5.106 vezes: 1 molécula de adrenalina desencadeia a libertação de 5 milhões de moléculas de glucose a partir do glicogénio armazenado no fígado.               
+              

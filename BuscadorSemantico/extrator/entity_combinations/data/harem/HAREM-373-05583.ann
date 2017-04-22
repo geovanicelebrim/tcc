@@ -1,0 +1,17 @@
+T1	PESSOA 0 9	Kusturica
+T2	OBRA 11 22	Underground
+T3	OBRA 58 69	Underground
+T4	PESSOA 75 89	Emir Kusturica
+T5	ACONTECIMENTO 101 119	Festival de Cannes
+T6	PESSOA 174 183	Kusturica
+T7	ACONTECIMENTO|LOCAL 266 272	Cannes
+T8	VALOR 339 349	20 minutos
+T9	VARIADO 386 409	Palma de Ouro de Cannes
+T10	OBRA 425 443	O Olhar de Ulisses
+T11	PESSOA 449 466	Theo Angelopoulos
+T12	VALOR 471 482	192 minutos
+T13	OBRA 487 498	Underground
+T14	VALOR 558 569	170 minutos
+T15	LOCAL 620 633	ex-Jugoslávia
+T16	TEMPO 659 666	Outubro
+T17	TEMPO 670 678	Novembro
