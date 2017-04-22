@@ -1,0 +1,8 @@
+Evaluated 532 samples with 709 entities; found: 364 entities; correct: 270.
+       TOTAL: precision:   74,18%;  recall:   38,08%; F1:   50,33%.
+        Data: precision:   83,80%;  recall:   81,52%; F1:   82,64%. [target: 184; tp: 150; fp:  29]
+ Organizacao: precision:   71,97%;  recall:   31,88%; F1:   44,19%. [target: 298; tp:  95; fp:  37]
+      Evento: precision:   59,38%;  recall:   12,03%; F1:   20,00%. [target: 158; tp:  19; fp:  13]
+  Quantidade: precision:   28,57%;  recall:    8,70%; F1:   13,33%. [target:  69; tp:   6; fp:  15]
+
+Execution time: 470,937 seconds

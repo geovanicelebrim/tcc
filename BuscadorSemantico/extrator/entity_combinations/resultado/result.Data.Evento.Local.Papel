@@ -1,8 +1,0 @@
-# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
-#
-# An error report file with more information is saved as:
-# /home/geovani/Área de Trabalho/teste de entidades tcc/hs_err_pid7199.log
-#
-# If you would like to submit a bug report, please visit:
-#   http://bugreport.java.com/bugreport/crash.jsp
-#

@@ -1,6 +1,0 @@
-Evaluated 536 samples with 473 entities; found: 373 entities; correct: 310.
-       TOTAL: precision:   83,11%;  recall:   65,54%; F1:   73,29%.
-        Data: precision:   82,18%;  recall:   78,14%; F1:   80,11%. [target: 183; tp: 143; fp:  31]
-      Pessoa: precision:   83,92%;  recall:   57,59%; F1:   68,30%. [target: 290; tp: 167; fp:  32]
-
-Execution time: 128,022 seconds
