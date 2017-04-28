@@ -195,46 +195,128 @@
 									
 									int begin = resultsPerPage * currentPage;
 									int end = (begin + resultsPerPage) > documentResults.size() ? documentResults.size() : (begin + resultsPerPage);
-
+									String lastDocument = "";
+									
 									for (int i = begin; i < end; i++) {
 										String url = "ResultsPage?" + "viewDoc=" + documentResults.get(i).getDocumentName() + "&beginSlice=" + documentResults.get(i).getBeginSlice() + "&endSlice=" + documentResults.get(i).getEndSlice();
-							%>
 										
-										<div class="panel panel-default list-group-item">
-											<div class="panel-body">
-												<div class="media">
-													<div class="media-left">
-														<a href="<% out.print(url); %>"> 
-															<img class="media-object img-rounded"
-																src="<% out.println("public/images/docs/" + documentResults.get(i).getDocumentName().replace(".txt", ".png"));%>" alt="..." width="90" height="120" >
-														</a>
-													</div>
-													<div class="media-body">
-														<h4 class="media-heading">
-															<a href="<%out.print(url);%>">
-																<%
-																	out.println(documentResults.get(i).getDocumentName().replace(".txt", ""));
-																%>
+										if (!lastDocument.equals(documentResults.get(i).getDocumentName())) {
+											lastDocument = documentResults.get(i).getDocumentName();
+							%>
+											<div class="panel panel-default list-group-item">
+												<div class="panel-body">
+													<div class="media">
+														<div class="media-left">
+															<a href="<% out.print(url); %>"> 
+																<img class="media-object img-rounded"
+																	src="<% out.println("public/images/docs/" + documentResults.get(i).getDocumentName().replace(".txt", ".png"));%>" alt="..." width="90" height="120" >
 															</a>
-														</h4>
-															
-														<label class="reference">
-															<%
-																out.print("(" + documentResults.get(i).getAuthor() + ", " + documentResults.get(i).getSource() + ")");
-															%>
-														</label>
-														<div id="div<%out.print(i);%>">
-															<%
-																out.println(documentResults.get(i).getSlice() + " [...]");
-																out.println("<br><br>");
-															%>
+														</div>
+														<div class="media-body">
+															<h4 class="media-heading">
+																<a href="<%out.print(url);%>">
+																	<%
+																		out.println(documentResults.get(i).getDocumentName().replace(".txt", ""));
+																	%>
+																</a>
+															</h4>
+																
+															<label class="reference">
+																<%
+																	out.print("(" + documentResults.get(i).getAuthor() + ", " + documentResults.get(i).getSource() + ")");
+																%>
+															</label>
+															<div id="div<%out.print(i);%>">
+																<%
+																	out.println(documentResults.get(i).getSlice() + " [...]");
+																	out.println("<br><br>");
+																%>
+															</div>
 														</div>
 													</div>
 												</div>
 											</div>
-										</div>
 										
 							<%
+										} else {
+										%>
+											<div class="panel panel-default list-group-item">
+												<div class="panel-group" id="accordion">
+													<div class="panel panel-default">
+														<div class="panel-heading">
+															<div class="media-left">
+																<a href="<% out.print(url); %>"> 
+																
+																	<img class="media-object img-rounded"
+																		src="<% out.println("public/images/docs/" + documentResults.get(i).getDocumentName().replace(".txt", ".png"));%>" alt="..." width="90" height="120" >
+																</a>
+															</div>
+															<div class="media-body">
+																<h4 class="media-heading">
+																	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" ">
+																		<%
+																			out.println(documentResults.get(i).getDocumentName().replace(".txt", ""));
+																		%>
+																	</a>
+																</h4>
+															
+																<label class="reference">
+																	<%
+																		out.print("(" + documentResults.get(i).getAuthor() + ", " + documentResults.get(i).getSource() + ")");
+																	%>
+																</label>
+					
+																<div id="div<%out.print(i);%>">
+																	<%
+																		out.println(documentResults.get(i).getSlice() + " [...]");
+																		out.println("<br><br>");
+																	%>
+																</div>
+															</div>
+														</div>
+														
+														<div id="collapseOne" class="panel-collapse collapse">
+															<div class="panel panel-default list-group-item">
+																<div class="panel-body">
+																	<div class="media">
+																		<div class="media-left">
+																			<a href="<% out.print(url); %>"> 
+																				<img class="media-object img-rounded"
+																					src="<% out.println("public/images/docs/" + documentResults.get(i).getDocumentName().replace(".txt", ".png"));%>" alt="..." width="90" height="120" >
+																			</a>
+																		</div>
+																		<div class="media-body">
+																			<h4 class="media-heading">
+																				<a href="<%out.print(url);%>">
+																				<%
+																					out.println(documentResults.get(i).getDocumentName().replace(".txt", ""));
+																				%>
+																				</a>
+																			</h4>
+																	
+																			<label class="reference">
+																			<%
+																				out.print("(" + documentResults.get(i).getAuthor() + ", " + documentResults.get(i).getSource() + ")");
+																			%>
+																			</label>
+				
+																			<div id="div<%out.print(i);%>">
+																			<%
+																				out.println(documentResults.get(i).getSlice() + " [...]");
+																				out.println("<br><br>");
+																			%>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+										              </div>
+										            </div>
+												</div>
+											</div>
+										
+										<%
+										}
 									}
 								}
 							%>
