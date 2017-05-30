@@ -61,6 +61,17 @@ def build_dictionary(fileName):
 
 	return dictionary
 
+def normalize(dictionary):
+	max_freq = 0
+	for ind in dictionary:
+		if dictionary[ind] > max_freq:
+			max_freq = dictionary[ind]
+
+	for ind in dictionary:
+		dictionary[ind] = dictionary[ind]/max_freq
+
+	return dictionary
+
 def consolidate_dictionary(list_disctionaries):
 
 	final_dictionary = {"":""}
@@ -74,16 +85,17 @@ def consolidate_dictionary(list_disctionaries):
 			except Exception:
 				final_dictionary[ind] = dic[ind]
 			pass
-	return final_dictionary
+
+	return normalize(final_dictionary)
 
 def computer_pertinence(text, dictionary):
-	pertinence = 0
+	pertinence = 1
 	for token in text.split(' '):
 		try:
-			pertinence += dictionary[token]
+			pertinence *= dictionary[token]
 			pass
 		except Exception:
-			pertinence = pertinence
+			pertinence *= 0.2
 		pass
 	return pertinence
 

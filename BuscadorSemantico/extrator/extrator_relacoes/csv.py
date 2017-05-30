@@ -107,7 +107,7 @@ def build_combinations(annFiles, txtFiles):
 
 	addAnothersColumns(annFiles, entities, relations)
 
-def consolidate():
+def consolidate(file_out=""):
 
 	entities_type = {"":""}
 	del entities_type[""]
@@ -135,29 +135,35 @@ def consolidate():
 		r = 0
 		if tuples[i][5]:
 			r = 1
-		consolidade_tuples.append(str(entities_type[e1_type]) + "," + str(entities_type[e2_type]) + "," + str(tuples[i][3]) + "," + str(tuples[i][4]) + "," + str(r))
+		# consolidade_tuples.append(str(entities_type[e1_type]) + "," + str(entities_type[e2_type]) + "," + "{:.20f}".format(tuples[i][3]) + "," + str(tuples[i][4]) + "," + str(r))
+		consolidade_tuples.append(str(e1_type) + "," + str(e2_type) + "," + "{:.20f}".format(tuples[i][3]) + "," + str(tuples[i][4]) + "," + str(r))
 
-	writeEntitiesType(entities_type)
-	writeTuples(consolidade_tuples)
+	writeEntitiesType(entities_type, file_out)
+	writeTuples(consolidade_tuples, file_out)
 
-def writeEntitiesType(entities_type):
-	file = open("entities_type.csv", "w")
+def writeEntitiesType(entities_type, file_out):
+	file = open("entities_type_" + file_out + ".csv", "w")
 	file.write("id,entity_type\n")
 	for e in entities_type:
 		file.write(str(entities_type[e]) + "," + e + "\n")
 	file.close()
 
-def writeTuples(consolidade_tuples):
-	file = open("consolidade_tuples.csv", "w")
+def writeTuples(consolidade_tuples, file_out):
+	file = open("consolidade_tuples_" + file_out + ".csv", "w")
 	for i in range(len(consolidade_tuples)):
 		file.write(consolidade_tuples[i] + "\n")
 	file.close()
 
 if __name__ == '__main__':
 
-	annFiles = ['./wikipedia/ditadura_no_brasil_1.ann']
-	txtFiles = ['./wikipedia/ditadura_no_brasil_1.txt']
+	annFiles = ['./wikipedia/ditadura_no_brasil_1.ann']#, './wikipedia/ditadura_no_brasil_2.ann', './wikipedia/ditadura_no_brasil_3.ann', './wikipedia/ditadura_no_brasil_4.ann']
+	txtFiles = ['./wikipedia/ditadura_no_brasil_1.txt']#, './wikipedia/ditadura_no_brasil_2.txt', './wikipedia/ditadura_no_brasil_3.txt', './wikipedia/ditadura_no_brasil_4.txt']
 
-	build_combinations(annFiles, txtFiles)
+	for i in range(len(annFiles)):
+		tuples.clear()
+		ann = [annFiles[i]]
+		txt = [txtFiles[i]]
 
-	consolidate()
+		build_combinations(ann, txt)
+
+		consolidate(str(i))
