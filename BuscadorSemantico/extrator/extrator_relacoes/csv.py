@@ -1,8 +1,8 @@
 import os
 from dictionary import getEntitiesAndRelations, build_dictionary, consolidate_dictionary, getSlice, computer_pertinence
 
-tuples = [[]]
-consolidade_tuples = ["entity1,entity2,pertinence,dot,relation"]
+tuples = list(list())
+consolidade_tuples = list()
 
 def getSentences(fileName):
 	file = open(fileName, "r", encoding="utf-8")
@@ -13,8 +13,7 @@ def getSentences(fileName):
 
 def getEntitiesOfSentencie(sentences, entities, indexOfSentencie=0):
 
-	sentence_entities = {"":""}
-	del sentence_entities[""]
+	sentence_entities = dict()
 
 	begin_limit = 0
 	end_limit = 0
@@ -33,17 +32,13 @@ def getEntitiesOfSentencie(sentences, entities, indexOfSentencie=0):
 
 def generateCombinations(entities_of_sentence, txtFile):
 
-	ent = []
+	ent = list()
 	for e in entities_of_sentence:
 		ent.append(e)
 
-	# print(ent)
 	for i in range(len(ent)):
 		for j in range(i + 1,len(ent)):
-			# print(ent[i], "\t", ent[j])
-
 			ls = [txtFile, ent[i], ent[j]]
-
 			tuples.append(ls)
 
 	return tuples
@@ -62,13 +57,13 @@ def existRelation(e1, e2, relations):
 
 def addAnothersColumns(annFiles, entities, relations):
 
-	dics = []
+	dics = list()
 	for i in range(len(annFiles)):
 		dics.append(build_dictionary(annFiles[i]))
 
 	dictionary = consolidate_dictionary(dics)
 
-	for i in range(1, len(tuples)):
+	for i in range(len(tuples)):
 
 		e1b = int(entities[tuples[i][1]].split('\t')[1].split(' ')[1])
 		e1e = int(entities[tuples[i][1]].split('\t')[1].split(' ')[2])
@@ -80,9 +75,10 @@ def addAnothersColumns(annFiles, entities, relations):
 			begin, end = e2e, e1b
 
 		text = getSlice(tuples[i][0], begin, end)
-		pert = computer_pertinence(text, dictionary)
+		pert, count = computer_pertinence(text, dictionary)
 		
 		tuples[i].append(pert)
+		tuples[i].append(count)
 
 		if ('.' or '?' or '!') in text:
 			tuples[i].append(1)
@@ -93,6 +89,7 @@ def addAnothersColumns(annFiles, entities, relations):
 		rel = existRelation(tuples[i][1], tuples[i][2], relations)
 
 		tuples[i].append(rel)
+
 
 def build_combinations(annFiles, txtFiles):
 
@@ -109,55 +106,44 @@ def build_combinations(annFiles, txtFiles):
 
 def consolidate(file_out=""):
 
-	entities_type = {"":""}
-	del entities_type[""]
-
-	for i in range(1, len(tuples)):
+	for i in range(len(tuples)):
 		entities, relations = getEntitiesAndRelations(tuples[i][0].replace(".txt", ".ann"))
 
 		e1_type = entities[tuples[i][1]].split('\t')[1].split(' ')[0]
 		e2_type = entities[tuples[i][2]].split('\t')[1].split(' ')[0]
 
-		try:
-			entities_type[e1_type]
-			pass
-		except Exception:
-			entities_type[e1_type] = len(entities_type) + 1
-		pass
-
-		try:
-			entities_type[e2_type]
-			pass
-		except Exception:
-			entities_type[e2_type] = len(entities_type) + 1
-		pass
-
 		r = 0
-		if tuples[i][5]:
+		if tuples[i][6]:
 			r = 1
-		# consolidade_tuples.append(str(entities_type[e1_type]) + "," + str(entities_type[e2_type]) + "," + "{:.20f}".format(tuples[i][3]) + "," + str(tuples[i][4]) + "," + str(r))
-		consolidade_tuples.append(str(e1_type) + "," + str(e2_type) + "," + "{:.20f}".format(tuples[i][3]) + "," + str(tuples[i][4]) + "," + str(r))
-
-	writeEntitiesType(entities_type, file_out)
-	writeTuples(consolidade_tuples, file_out)
-
-def writeEntitiesType(entities_type, file_out):
-	file = open("entities_type_" + file_out + ".csv", "w")
-	file.write("id,entity_type\n")
-	for e in entities_type:
-		file.write(str(entities_type[e]) + "," + e + "\n")
-	file.close()
+		consolidade_tuples.append((str(e1_type), str(e2_type), "{:.20f}".format(tuples[i][3]), str(tuples[i][4]), str(tuples[i][5]), str(r)))
 
 def writeTuples(consolidade_tuples, file_out):
+	entities_type = dict()
 	file = open("consolidade_tuples_" + file_out + ".csv", "w")
 	for i in range(len(consolidade_tuples)):
-		file.write(consolidade_tuples[i] + "\n")
+		try:
+			entities_type[consolidade_tuples[i][0]]
+			pass
+		except Exception:
+			entities_type[consolidade_tuples[i][0]] = len(entities_type) + 1
+		pass
+
+		try:
+			entities_type[consolidade_tuples[i][1]]
+			pass
+		except Exception:
+			entities_type[consolidade_tuples[i][1]] = len(entities_type) + 1
+		pass
+
+		file.write(str(entities_type[consolidade_tuples[i][0]]) + "," + str(entities_type[consolidade_tuples[i][1]]) + "," +
+				str(consolidade_tuples[i][2]) + "," + str(consolidade_tuples[i][3]) + "," + str(consolidade_tuples[i][4]) + 
+				"," + str(consolidade_tuples[i][5]) + "\n")
 	file.close()
 
 if __name__ == '__main__':
 
-	annFiles = ['./wikipedia/ditadura_no_brasil_1.ann']#, './wikipedia/ditadura_no_brasil_2.ann', './wikipedia/ditadura_no_brasil_3.ann', './wikipedia/ditadura_no_brasil_4.ann']
-	txtFiles = ['./wikipedia/ditadura_no_brasil_1.txt']#, './wikipedia/ditadura_no_brasil_2.txt', './wikipedia/ditadura_no_brasil_3.txt', './wikipedia/ditadura_no_brasil_4.txt']
+	annFiles = ['./wikipedia/ditadura_no_brasil_1.ann', './wikipedia/ditadura_no_brasil_2.ann', './wikipedia/ditadura_no_brasil_3.ann', './wikipedia/ditadura_no_brasil_4.ann']
+	txtFiles = ['./wikipedia/ditadura_no_brasil_1.txt', './wikipedia/ditadura_no_brasil_2.txt', './wikipedia/ditadura_no_brasil_3.txt', './wikipedia/ditadura_no_brasil_4.txt']
 
 	for i in range(len(annFiles)):
 		tuples.clear()
@@ -167,3 +153,5 @@ if __name__ == '__main__':
 		build_combinations(ann, txt)
 
 		consolidate(str(i))
+		
+	writeTuples(consolidade_tuples, "final")
