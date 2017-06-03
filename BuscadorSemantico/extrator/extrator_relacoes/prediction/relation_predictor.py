@@ -19,7 +19,7 @@ def read_csv(path):
 
 	return (data_train, relation_train, data_test, relation_test)
 
-def split(data, size=.6):
+def split(data, size=.5):
 	np.random.shuffle(data)
 	train = data[:int(len(data)*size)]
 	test = data[len(train):]
@@ -40,7 +40,7 @@ def calc_errors(predicted, rigth):
 			win += 1
 		else:
 			errors += 1
-	print("Precisão: ", win/(win+errors))
+	# print("Precisão: ", win/(win+errors))
 	print("Classificados corretamente: ", win)
 	print("Classificados erroneamente: ", errors)
 
@@ -62,6 +62,19 @@ def confusion_matrix(predicted, rigth):
 	print("false\t", fn, "\t\t", fp)
 	print("true\t", tn, "\t\t", tp)
 
+	print("\n")
+	print("Precision (Rel): ", (tp/(tp+tn)))
+	print("Precision (NRel): ", (fn/(fn+fp)))
+	print("Precision (Total): ", ((tp+fn)/(tp+tn+fn+fp)))
+	print("-----------------------------------------------")
+	print("Recall (Rel): ", (tp/(tp+fp)))
+	print("Recall (NRel): ", (fn/(fn+tn)))
+	print("Recall (Total): ", ((tp+fn)/(tp+fp+fn+tn)))
+	print("-----------------------------------------------")
+	print("F1 (Rel): ", (2*(tp/(tp+tn))*(tp/(tp+fp)))/((tp/(tp+tn))+(tp/(tp+fp))))
+	print("F1 (NRel): ", (2*(fn/(fn+fp))*(fn/(fn+tn)))/((fn/(fn+fp))+(fn/(fn+tn))))
+	print("F1 (Total): ", (2*((tp+fn)/(tp+tn+fn+fp))*((tp+fn)/(tp+fp+fn+tn)))/(((tp+fn)/(tp+tn+fn+fp))+((tp+fn)/(tp+fp+fn+tn))))
+
 def main(model):
 	if model == "bayes":
 		print("Realizando predição utilizando o Naive Bayes")
@@ -77,7 +90,7 @@ def main(model):
 		print("Realizando predição utilizando o SVM")
 		data_train, relation_train, data_test, relation_test = read_csv("./out.csv")
 
-		clf = svm.SVC(gamma=0.001, C=100.)
+		clf = svm.SVC(gamma=0.001, C=10., class_weight='balanced')
 		clf.fit(data_train[:-1], relation_train[:-1])
 
 		predicted = clf.predict(data_test[:-1])
@@ -90,4 +103,4 @@ def main(model):
 		exit(1)
 
 if __name__ == '__main__':
-	main("bayes")
+	main("svm")
