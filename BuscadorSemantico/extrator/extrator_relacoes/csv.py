@@ -121,9 +121,9 @@ def consolidate(file_out=""):
 			r = 1
 		consolidade_tuples.append((str(e1_type), str(e2_type), "{:.20f}".format(tuples[i][3]), str(tuples[i][4]), str(tuples[i][5]), str(tuples[i][6]), str(tuples[i][7]), str(r)))
 
-def writeTuples(consolidade_tuples, file_out):
+def writeTuples(consolidade_tuples, file_out="./prediction/consolidade_tuples_final.csv"):
 	entities_type = dict()
-	file = open("consolidade_tuples_" + file_out + ".csv", "w")
+	file = open(file_out, "w")
 	for i in range(len(consolidade_tuples)):
 		try:
 			entities_type[consolidade_tuples[i][0]]
@@ -158,4 +158,4 @@ if __name__ == '__main__':
 
 		consolidate(str(i))
 
-	writeTuples(consolidade_tuples, "final")
+	writeTuples(consolidade_tuples)

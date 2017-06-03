@@ -10,6 +10,8 @@ def read_csv(path):
 	wines = np.array(wines[:], dtype=np.float)
 	# wines[:, 3] /= np.amax(wines[:, 3])
 
+	wines = balanced_data(wines)
+
 	train, test = split(wines)
 
 	data_train = train[:, : -1]
@@ -19,6 +21,27 @@ def read_csv(path):
 	relation_test = test[:, -1]
 
 	return (data_train, relation_train, data_test, relation_test)
+
+def balanced_data(data):
+	size = 0
+	for x in range(len(data)):
+		if data[x, -1] == 1.0:
+			size += 1
+	
+	new_data = list(list())
+	l1 = 0
+	i = 0
+	c = 0
+	while i < len(data):
+		if data[i,-1] == 1.0:
+			new_data.append(data[i])
+
+		if data[i,-1] == 0.0 and l1 < size:
+			new_data.append(data[i])
+			l1 += 1
+		i += 1
+
+	return np.array(new_data[:])
 
 def split(data, size=.5):
 	np.random.shuffle(data)
