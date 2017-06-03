@@ -8,14 +8,15 @@ def read_csv(path):
 		wines = list(csv.reader(f, delimiter=","))
 	
 	wines = np.array(wines[:], dtype=np.float)
+	# wines[:, 3] /= np.amax(wines[:, 3])
 
 	train, test = split(wines)
 
-	data_train = train[:, :4]
-	relation_train = train[:, 4]
+	data_train = train[:, : -1]
+	relation_train = train[:, -1]
 
-	data_test = test[:, :4]
-	relation_test = test[:, 4]
+	data_test = test[:, : -1]
+	relation_test = test[:, -1]
 
 	return (data_train, relation_train, data_test, relation_test)
 
@@ -78,7 +79,7 @@ def confusion_matrix(predicted, rigth):
 def main(model):
 	if model == "bayes":
 		print("Realizando predição utilizando o Naive Bayes")
-		data_train, relation_train, data_test, relation_test = read_csv("./out.csv")
+		data_train, relation_train, data_test, relation_test = read_csv("./consolidade_tuples_final.csv")
 
 		model = build_model(data_train, relation_train)
 		predicted = model.predict(data_test)
@@ -88,7 +89,7 @@ def main(model):
 
 	elif model == "svm":
 		print("Realizando predição utilizando o SVM")
-		data_train, relation_train, data_test, relation_test = read_csv("./out.csv")
+		data_train, relation_train, data_test, relation_test = read_csv("./consolidade_tuples_final.csv")
 
 		clf = svm.SVC(gamma=0.001, C=10., class_weight='balanced')
 		clf.fit(data_train[:-1], relation_train[:-1])
