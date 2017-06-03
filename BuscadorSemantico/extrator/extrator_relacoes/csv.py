@@ -1,5 +1,5 @@
 import os
-from dictionary import getEntitiesAndRelations, build_dictionary, consolidate_dictionary, getSlice, computer_pertinence
+from dictionary import getEntitiesAndRelations, build_dictionary, consolidate_dictionary, getSlice, computer_pertinence, computer_pertinence_bi_gram
 
 tuples = list(list())
 consolidade_tuples = list()
@@ -80,11 +80,15 @@ def addAnothersColumns(annFiles, entities, relations):
 		tuples[i].append(pert)
 		tuples[i].append(count)
 
+		bi_gram_pert, bi_gram_count = computer_pertinence_bi_gram(text, dictionary)
+
+		tuples[i].append(bi_gram_pert)
+		tuples[i].append(bi_gram_count)
+
 		if ('.' or '?' or '!') in text:
 			tuples[i].append(1)
 		else:
 			tuples[i].append(0)
-
 
 		rel = existRelation(tuples[i][1], tuples[i][2], relations)
 
@@ -113,9 +117,9 @@ def consolidate(file_out=""):
 		e2_type = entities[tuples[i][2]].split('\t')[1].split(' ')[0]
 
 		r = 0
-		if tuples[i][6]:
+		if tuples[i][8]:
 			r = 1
-		consolidade_tuples.append((str(e1_type), str(e2_type), "{:.20f}".format(tuples[i][3]), str(tuples[i][4]), str(tuples[i][5]), str(r)))
+		consolidade_tuples.append((str(e1_type), str(e2_type), "{:.20f}".format(tuples[i][3]), str(tuples[i][4]), str(tuples[i][5]), str(tuples[i][6]), str(tuples[i][7]), str(r)))
 
 def writeTuples(consolidade_tuples, file_out):
 	entities_type = dict()
@@ -134,10 +138,10 @@ def writeTuples(consolidade_tuples, file_out):
 		except Exception:
 			entities_type[consolidade_tuples[i][1]] = len(entities_type) + 1
 		pass
-
 		file.write(str(entities_type[consolidade_tuples[i][0]]) + "," + str(entities_type[consolidade_tuples[i][1]]) + "," +
-				str(consolidade_tuples[i][2]) + "," + str(consolidade_tuples[i][3]) + "," + str(consolidade_tuples[i][4]) + 
-				"," + str(consolidade_tuples[i][5]) + "\n")
+				str(consolidade_tuples[i][2]) + "," + str(consolidade_tuples[i][3]) + "," + 
+				str(consolidade_tuples[i][4]) + "," + str(consolidade_tuples[i][5]) + "," + 
+				str(consolidade_tuples[i][6]) + "," + str(consolidade_tuples[i][7]) + "\n")
 	file.close()
 
 if __name__ == '__main__':
@@ -153,5 +157,5 @@ if __name__ == '__main__':
 		build_combinations(ann, txt)
 
 		consolidate(str(i))
-		
+
 	writeTuples(consolidade_tuples, "final")

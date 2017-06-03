@@ -91,7 +91,9 @@ def main(model):
 		print("Realizando predição utilizando o SVM")
 		data_train, relation_train, data_test, relation_test = read_csv("./consolidade_tuples_final.csv")
 
-		clf = svm.SVC(gamma=0.001, C=10., class_weight='balanced')
+		# clf = svm.SVC(kernel='linear', C=C).fit(data_train[:-1], relation_train[:-1])
+		# clf = svm.LinearSVC(C=C).fit(data_train[:-1], relation_train[:-1])
+		clf = svm.SVC(gamma=0.001, C=10., class_weight={0:20, 1:10})
 		clf.fit(data_train[:-1], relation_train[:-1])
 
 		predicted = clf.predict(data_test[:-1])

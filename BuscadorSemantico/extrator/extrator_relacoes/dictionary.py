@@ -48,15 +48,24 @@ def build_dictionary(fileName):
 		else:
 			text = getSlice(fileName.replace(".ann", ".txt"), end_e2, begin_e1)
 
-		for word in text.split(' '):
+		tokens = text.split(' ')
+		for w in range(len(tokens)):
 			try:
-				dictionary[word] += 1
+				dictionary[tokens[w]] += 1
 				pass
 			except Exception:
-				dictionary[word] = 1
+				dictionary[tokens[w]] = 1
 				pass
-			
 			pass
+
+			if w < len(tokens) - 2:
+				try:
+					dictionary[tokens[w] + ' ' + tokens[w + 1]] += 1
+					pass
+				except Exception:
+					dictionary[tokens[w] + ' ' + tokens[w + 1]] = 1
+					pass
+				pass
 
 	return dictionary
 
@@ -73,8 +82,7 @@ def normalize(dictionary):
 
 def consolidate_dictionary(list_disctionaries):
 
-	final_dictionary = {"":""}
-	del final_dictionary[""]
+	final_dictionary = dict()
 	
 	for dic in list_disctionaries:
 		for ind in dic:
@@ -98,4 +106,18 @@ def computer_pertinence(text, dictionary):
 			pertinence *= 0.2
 		pass
 		count += 1
+	return (pertinence, count)
+
+def computer_pertinence_bi_gram(text, dictionary):
+	pertinence = 1
+	count = 0
+	tokens = text.split(' ')
+	for t in range(len(tokens) - 2):
+		try:
+			pertinence *= dictionary[tokens[t] + ' ' + tokens[t + 1]]
+			count += 1
+		except Exception:
+			pertinence *= 0.2
+		pass
+		
 	return (pertinence, count)
