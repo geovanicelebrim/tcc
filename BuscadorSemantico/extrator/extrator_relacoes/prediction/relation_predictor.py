@@ -2,6 +2,7 @@ import csv
 import numpy as np
 from sklearn.naive_bayes import GaussianNB
 from sklearn import svm
+from sklearn.externals import joblib
 
 def read_csv(path):
 	with open(path, 'r') as f:
@@ -21,6 +22,24 @@ def read_csv(path):
 	relation_test = test[:, -1]
 
 	return (data_train, relation_train, data_test, relation_test)
+
+def load_csv_for_predict(path, result=True):
+	with open(path, 'r') as f:
+		wines = list(csv.reader(f, delimiter=","))
+	
+	wines = np.array(wines[:], dtype=np.float)
+	
+	if result and len(wines[0]) > 9:
+		return (wines[:, 0:9], wines[:, 9:])
+
+	return wines[:, 0:9]
+
+def write_prediction(path, data, predicted):
+	file = open(path, "a")
+	for l in range(len(predicted)):
+		if predicted[l] == 1.0:
+			file.write("R" + str(l) + "\tRelacao Arg1:T" + str(int(data[l,0])) + " Arg2:T" + str(int(data[l,1])) + "\n")
+	file.close()
 
 def balanced_data(data):
 	size = 0
@@ -43,7 +62,7 @@ def balanced_data(data):
 
 	return np.array(new_data[:])
 
-def split(data, size=.5):
+def split(data, size=.8):
 	np.random.shuffle(data)
 	train = data[:int(len(data)*size)]
 	test = data[len(train):]
@@ -99,34 +118,75 @@ def confusion_matrix(predicted, rigth):
 	print("F1 (NRel): ", (2*(fn/(fn+fp))*(fn/(fn+tn)))/((fn/(fn+fp))+(fn/(fn+tn))))
 	print("F1 (Total): ", (2*((tp+fn)/(tp+tn+fn+fp))*((tp+fn)/(tp+fp+fn+tn)))/(((tp+fn)/(tp+tn+fn+fp))+((tp+fn)/(tp+fp+fn+tn))))
 
-def main(model):
-	if model == "bayes":
-		print("Realizando predição utilizando o Naive Bayes")
-		data_train, relation_train, data_test, relation_test = read_csv("./consolidade_tuples_final.csv")
+def save_model(clf, path="model.pkl"):
+	joblib.dump(clf, path)
 
-		model = build_model(data_train, relation_train)
-		predicted = model.predict(data_test)
+def load_model(path="model.plk"):
+	return joblib.load(path) 
 
-		calc_errors(predicted, relation_test)
-		confusion_matrix(predicted, relation_test)
+def main(build=None, model="svm", csv_file="./consolidade_tuples_final.csv"):
+	if build:
+		if model == "bayes":
+			print("Realizando predição utilizando o Naive Bayes")
+			data_train, relation_train, data_test, relation_test = read_csv(csv_file)
 
-	elif model == "svm":
-		print("Realizando predição utilizando o SVM")
-		data_train, relation_train, data_test, relation_test = read_csv("./consolidade_tuples_final.csv")
+			model = build_model(data_train[:, 2:], relation_train)
+			predicted = model.predict(data_test[:, 2:])
 
-		# clf = svm.SVC(kernel='linear', C=C).fit(data_train[:-1], relation_train[:-1])
-		# clf = svm.LinearSVC(C=C).fit(data_train[:-1], relation_train[:-1])
-		clf = svm.SVC(gamma=0.001, C=10., class_weight={0:20, 1:10})
-		clf.fit(data_train[:-1], relation_train[:-1])
+			save_model(model, "./models/bayes/bayes_model.plk")
 
-		predicted = clf.predict(data_test[:-1])
+			calc_errors(predicted, relation_test)
+			confusion_matrix(predicted, relation_test)
 
-		calc_errors(predicted, relation_test)
-		confusion_matrix(predicted, relation_test)
+		elif model == "svm":
+			print("Realizando predição utilizando o SVM")
+			data_train, relation_train, data_test, relation_test = read_csv(csv_file)
 
+			# clf = svm.SVC(kernel='linear', C=C).fit(data_train[:-1], relation_train[:-1])
+			# clf = svm.LinearSVC(C=C).fit(data_train[:-1], relation_train[:-1])
+			clf = svm.SVC(gamma=0.001, C=10., class_weight={0:20, 1:10})
+
+			clf.fit(data_train[:-1, 2:], relation_train[:-1])
+
+			save_model(clf, "./models/svm/svm_model.plk")
+
+			predicted = clf.predict(data_test[:-1, 2:])
+
+			calc_errors(predicted, relation_test)
+			confusion_matrix(predicted, relation_test)
+
+		else:
+			print("Os modelos disponíveis são: bayes e svm")
+			exit(1)
 	else:
-		print("Os modelos disponíveis são: bayes e svm")
-		exit(1)
+		if model == "bayes":
+			print("Realizando predição utilizando o Naive Bayes")
+			data, rel = load_csv_for_predict(csv_file, result=True)
+
+			model = load_model("./models/bayes/bayes_model.plk")
+			predicted = model.predict(data[:, 2:])
+
+			write_prediction("ditadura_no_brasil_1_bayes.ann", data, predicted)
+
+			calc_errors(predicted, rel)
+			confusion_matrix(predicted, rel)
+
+		elif model == "svm":
+			print("Realizando predição utilizando o SVM")
+			data, rel = load_csv_for_predict(csv_file, result=True)
+
+			clf = load_model("./models/svm/svm_model.plk")
+
+			predicted = clf.predict(data[:-1, 2:])
+
+			write_prediction("ditadura_no_brasil_1_svm.ann", data, predicted)
+			
+			calc_errors(predicted, rel)
+			confusion_matrix(predicted, rel)
+
+		else:
+			print("Os modelos disponíveis são: bayes e svm")
+			exit(1)
 
 if __name__ == '__main__':
-	main("svm")
+	main(build=None, model="bayes", csv_file="./ditadura_no_brasil_1.csv")

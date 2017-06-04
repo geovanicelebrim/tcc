@@ -113,41 +113,45 @@ def consolidate(file_out=""):
 	for i in range(len(tuples)):
 		entities, relations = getEntitiesAndRelations(tuples[i][0].replace(".txt", ".ann"))
 
+		id_1 = entities[tuples[i][1]].split('\t')[0].replace("T", "")
+		id_2 = entities[tuples[i][2]].split('\t')[0].replace("T", "")
 		e1_type = entities[tuples[i][1]].split('\t')[1].split(' ')[0]
 		e2_type = entities[tuples[i][2]].split('\t')[1].split(' ')[0]
 
 		r = 0
 		if tuples[i][8]:
 			r = 1
-		consolidade_tuples.append((str(e1_type), str(e2_type), "{:.20f}".format(tuples[i][3]), str(tuples[i][4]), str(tuples[i][5]), str(tuples[i][6]), str(tuples[i][7]), str(r)))
+		consolidade_tuples.append((id_1, id_2, str(e1_type), str(e2_type), "{:.20f}".format(tuples[i][3]), 
+									str(tuples[i][4]), str(tuples[i][5]), str(tuples[i][6]), str(tuples[i][7]), str(r)))
 
 def writeTuples(consolidade_tuples, file_out="./prediction/consolidade_tuples_final.csv"):
 	entities_type = dict()
 	file = open(file_out, "w")
 	for i in range(len(consolidade_tuples)):
 		try:
-			entities_type[consolidade_tuples[i][0]]
+			entities_type[consolidade_tuples[i][2]]
 			pass
 		except Exception:
-			entities_type[consolidade_tuples[i][0]] = len(entities_type) + 1
+			entities_type[consolidade_tuples[i][2]] = len(entities_type) + 1
 		pass
 
 		try:
-			entities_type[consolidade_tuples[i][1]]
+			entities_type[consolidade_tuples[i][3]]
 			pass
 		except Exception:
-			entities_type[consolidade_tuples[i][1]] = len(entities_type) + 1
+			entities_type[consolidade_tuples[i][3]] = len(entities_type) + 1
 		pass
-		file.write(str(entities_type[consolidade_tuples[i][0]]) + "," + str(entities_type[consolidade_tuples[i][1]]) + "," +
-				str(consolidade_tuples[i][2]) + "," + str(consolidade_tuples[i][3]) + "," + 
+		file.write(str(consolidade_tuples[i][0]) + "," + str(consolidade_tuples[i][1]) + "," + 
+				str(entities_type[consolidade_tuples[i][2]]) + "," + str(entities_type[consolidade_tuples[i][3]]) + "," +
 				str(consolidade_tuples[i][4]) + "," + str(consolidade_tuples[i][5]) + "," + 
-				str(consolidade_tuples[i][6]) + "," + str(consolidade_tuples[i][7]) + "\n")
+				str(consolidade_tuples[i][6]) + "," + str(consolidade_tuples[i][7]) + "," + 
+				str(consolidade_tuples[i][8]) + "," + str(consolidade_tuples[i][9]) + "\n")
 	file.close()
 
 if __name__ == '__main__':
 
-	annFiles = ['./wikipedia/ditadura_no_brasil_1.ann', './wikipedia/ditadura_no_brasil_2.ann', './wikipedia/ditadura_no_brasil_3.ann', './wikipedia/ditadura_no_brasil_4.ann']
-	txtFiles = ['./wikipedia/ditadura_no_brasil_1.txt', './wikipedia/ditadura_no_brasil_2.txt', './wikipedia/ditadura_no_brasil_3.txt', './wikipedia/ditadura_no_brasil_4.txt']
+	annFiles = ['./wikipedia/ditadura_no_brasil_1.ann']#, './wikipedia/ditadura_no_brasil_2.ann', './wikipedia/ditadura_no_brasil_3.ann', './wikipedia/ditadura_no_brasil_4.ann']
+	txtFiles = ['./wikipedia/ditadura_no_brasil_1.txt']#, './wikipedia/ditadura_no_brasil_2.txt', './wikipedia/ditadura_no_brasil_3.txt', './wikipedia/ditadura_no_brasil_4.txt']
 
 	for i in range(len(annFiles)):
 		tuples.clear()
@@ -158,4 +162,4 @@ if __name__ == '__main__':
 
 		consolidate(str(i))
 
-	writeTuples(consolidade_tuples)
+	writeTuples(consolidade_tuples, "./prediction/ditadura_no_brasil_1.csv")
