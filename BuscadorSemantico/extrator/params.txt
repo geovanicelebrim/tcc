@@ -1,0 +1,8 @@
+Algorithm=MAXENT_QN
+Iterations=125
+Cutoff=0
+Threads=4
+L1Cost=0.25
+L2Cost=0.25
+NumOfUpdates=15
+MaxFctEval=20000
