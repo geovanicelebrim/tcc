@@ -1,0 +1,24 @@
+ 
+  
+A relação de Einstein mostra que o tempo necessário para a difusão aumenta com o quadrado da distância a percorrer.  
+Por exemplo , a glicose demora 3,5 segundos a atingir 90% do equilíbrio de difusão num local que dista 1 µm da fonte de glicose (como ocorre no sangue) mas levaria 11 anos a atingir a mesma concentração num ponto a 10 cm da fonte.  
+A difusão é um meio de transporte rápido e eficaz para curtas distâncias mas muito ineficaz para distâncias com mais de alguns microns.  
+Devido à lentidão da difusão para distâncias macroscópicas, os organismos multicelulares desenvolveram sistemas circulatórios (ex: sangue, transporte axonal) que asseguram um movimento rápido de partículas para longas distâncias.  
+A difusão proporciona o movimento de partículas entre células e sangue.  
+A Lei de Fick para a difusão defme quantitativamente as relações entre estes três factores.  
+Postula que a quantidade de uma  substância difundida por unidade de tempo num dado momento, isto é, o fluxo de difusão (J) é proporcional ao  coeficiente de difusão (D, cm2/s), à área disponível de troca (A) e ao gradiente de concentração (AC) e inversamente proporcional à distância a que ocorre a difusão (1): Figura 3 - Difusão.  
+As moléculas do soluto difundem-se (A) até atingirem um estado de equilíbrio (B).  
+Os mesmos princípios aplicam-se ao movimento de  substâncias  através das membranas plasmáticas com uma diferença: a substituição, na Lei de Fick, do  coeficiente de difusão pelo Coeficiente de Permeabilidade  membranar (P, cm2/s) , uma vez que a espessura da membrana celular pode ser considerada uma constante: J = P*A*C Para a maioria dos solutos, os  coeficientes de permeabilidade  são cerca de um milhão de vezes inferiores aos  coeficientes de difusão.  
+Uma vez que a permeabilidade é uma propriedade da membrana, diferentes tipos de células têm diferentes constantes de permeabilidade para a mesma substância.  
+O principal factor limitante da difusão através de uma membrana celular é a lipossolubilidade  da  substância  a transportar.  
+Moléculas apolares como o oxigénio, dióxido de carbono, ácidos gordos e hormonas esteróides difundem rapidamente pela porção lipídica da membrana.  
+Moléculas polares de pequenas dimensões e sem carga, como a ureia e o glicerol, atravessam a bicamada lipídica rapidamente. 
+A relação entre o  gradiente de concentração  e o potencial de equilíbrio para um ião X (Ex) é dado pela Equação de Nernst: OndeR é a constante dos gases perfeitos ( [ 8,314 ] K-1 mol-l ) T é temperatura absoluta (310K no corpo humano ) F é a constante de Faraday (carga por mole = 9,65x104 A.s.mol-l) Z é o número de cargas do ião ln -logaritmo natural [X] a concentração molal do ião no exterior (e) e no interior (i) da célula.  
+À temperatura ambiente, substituindo os valores das constantes e convertendo o logaritmo natural para um logaritmo de base 10, obtemos : Ex = ( 60 z ) log ( [ X]e [ X]i )(mV 
+Se, por exemplo, o ião for o potássio temos: Ek = (60/1) log (5/150) = -90 mV.
+A equação de Nernst pode, também, ser utilizada para prever a direcção do fluxo de iões:  
+a) Se, para um dado ião, a diferença de potencial medida na membrana for igual à calculada pela equação de Nernst, então esse ião está em equilíbrio electroquímico e não há fluxo  
+b) Se, para um dado ião, o potencial eléctrico medido tem o mesmo sinal do calculado pela equação de Nernst mas é numericamente superior , a  força eléctrica  é superior à  força da concentração; o fluxo do ião é determinado pela  força eléctrica   
+c) Se, para um dado ião, o potencial eléctrico medido tem o mesmo sinal do calculado pela equação de Nernst mas é numericamente inferior , a  força da concentração  é superior à  força eléctrica, o fluxo do ião é determinado pelo  gradiente de concentração   
+d) Se, para um dado ião, o potencial eléctrico medido tem um sinal oposto ao que seria previsível pela equação de Nernst, as  forças eléctrica  e de concentração actuam no mesmo sentido e a direcção do fluxo iónico é determinado por ambas as forças.  
+ 

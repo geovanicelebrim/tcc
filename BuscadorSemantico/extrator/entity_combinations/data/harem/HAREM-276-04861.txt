@@ -1,0 +1,16 @@
+ORGANIZAÇÃO ESTRUTURAL DA MEMBRANA 
+A membrana celular é uma camada com apenas 7,5 a 10 nm de espessura, constituída por lípidos intercalados com proteínas que define os limites de cada célula. 
+Funciona como uma barreira de permeabilidade que permite à célula manter um meio químico apropriado para os seus processos metabólicos, regular o volume citoplasmático e transferir informação sob a forma de sinais químicos e eléctricos. 
+As membranas que revestem os vários organelos (núcleo, mitocôndria, retículo endoplasmático, lisossomas e aparelho de Golgi) permitem a compartimentalização funcional da célula, com possibilidade de limitar processos bioquímicas a certos locais. 
+Apesar das particularidades individuais, todas as membranas biológicas são formadas por uma dupla camada fosfolípidica e por proteínas unidas por ligações covalentes e que se comportam segundo o Modelo Mosaico Fluído. 
+A maioria dos lípidos e das proteínas movem-se livremente no plano da membrana. 
+Em alguns casos , há restrição deste movimento de forma a permitir à célula a realização de algumas funções em partes selectivas da sua membrana. 
+É o caso da sequestração de receptores de acetilcolina ao nível da placa motora das células musculares esqueléticas. 
+Os principais lípidos presentes na membrana celular são os fosfolípidos, o colesterol e os glicolípidos. 
+A sua distribuição pelas duas camadas é assimétrica, o que pode reflectir as diferentes funções das duas superfícies da membrana. 
+Os fosfolípidos são moléculas antipáticas e dispõem-se em bicamada com a porção hidrófoba não polar ( caudas de ácidos gordos) dirigida para o centro da membrana e com a porção hidrofílica polar (cabeça com terminal fosfato) direccionada para o exterior ou interior da célula. 
+Os fosfolípidos mais abundantes são os fosfolípidos ligados à colina (fosfatidilcolina e esfingomielina) e os aminofosfolípidos (fosfatidilserina e fosfatidiletanolamina). 
+O fosfatidilglicerol, o fosfatidilinositol e a cardiolipina são também importantes mas estão presentes em menores quantidades.
+As Dimensões da via de difusão incluem a área de secção e a distância. 
+Quanto maior a área de secção e menor a distância a percorrer, maior o fluxo. 
+No pulmão e no intestino, onde a difusão é importante para a troca de  substâncias entre os meios interno e externo, a área de difusão é grande e a distância a percorrer pequena. 

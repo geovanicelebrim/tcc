@@ -1,0 +1,10 @@
+Evaluated 536 samples with 949 entities; found: 402 entities; correct: 276.
+       TOTAL: precision:   68,66%;  recall:   29,08%; F1:   40,86%.
+      Pessoa: precision:   85,56%;  recall:   54,05%; F1:   66,25%. [target: 296; tp: 160; fp:  27]
+       Papel: precision:   75,58%;  recall:   36,93%; F1:   49,62%. [target: 176; tp:  65; fp:  21]
+   Documento: precision:   72,00%;  recall:   20,00%; F1:   31,30%. [target:  90; tp:  18; fp:   7]
+      Evento: precision:   44,23%;  recall:   14,56%; F1:   21,90%. [target: 158; tp:  23; fp:  29]
+       Grupo: precision:   22,58%;  recall:    4,38%; F1:    7,33%. [target: 160; tp:   7; fp:  24]
+  Quantidade: precision:   14,29%;  recall:    4,35%; F1:    6,67%. [target:  69; tp:   3; fp:  18]
+
+Execution time: 567,417 seconds

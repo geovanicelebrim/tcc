@@ -1,0 +1,10 @@
+Collecting events... Done indexing.
+Incorporating indexed data for training...  
+done.
+	Number of Event Tokens: 17000
+	    Number of Outcomes: 13
+	  Number of Predicates: 3116
+Computing model parameters...
+Performing 125 iterations.
+  1:  . (15761/17000) 0.9271176470588235
+  2:  
