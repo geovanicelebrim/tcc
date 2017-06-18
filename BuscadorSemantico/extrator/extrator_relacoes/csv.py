@@ -1,8 +1,11 @@
 import os
+import ast
+import sys
 from dictionary import getEntitiesAndRelations, build_dictionary, consolidate_dictionary, getSlice, computer_pertinence, computer_pertinence_bi_gram
 
 tuples = list(list())
 consolidade_tuples = list()
+dictionary = dict()
 
 def getSentences(fileName):
 	file = open(fileName, "r", encoding="utf-8")
@@ -55,13 +58,16 @@ def existRelation(e1, e2, relations):
 
 	return False
 
-def addAnothersColumns(annFiles, entities, relations):
+def addAnothersColumns(annFiles, entities, relations, read_dictionary = True):
 
 	dics = list()
 	for i in range(len(annFiles)):
 		dics.append(build_dictionary(annFiles[i]))
 
-	dictionary = consolidate_dictionary(dics)
+	if read_dictionary:
+		dictionary.update(load_dictionary())
+	else:
+		dictionary.update(consolidate_dictionary(dics))
 
 	for i in range(len(tuples)):
 
@@ -108,7 +114,15 @@ def build_combinations(annFiles, txtFiles):
 
 	addAnothersColumns(annFiles, entities, relations)
 
-def consolidate(file_out=""):
+def load_dictionary(path="dictionary.txt"):
+	file = open(path, "r")
+	content = file.readline()
+	file.close()
+
+	return ast.literal_eval(content)
+
+
+def consolidate(write_dictionary = None):
 
 	for i in range(len(tuples)):
 		entities, relations = getEntitiesAndRelations(tuples[i][0].replace(".txt", ".ann"))
@@ -123,6 +137,10 @@ def consolidate(file_out=""):
 			r = 1
 		consolidade_tuples.append((id_1, id_2, str(e1_type), str(e2_type), "{:.20f}".format(tuples[i][3]), 
 									str(tuples[i][4]), str(tuples[i][5]), str(tuples[i][6]), str(tuples[i][7]), str(r)))
+	if write_dictionary:
+		file = open("dictionary.txt", "w")
+		file.write(str(dictionary))
+		file.close()
 
 def writeTuples(consolidade_tuples, file_out="./prediction/consolidade_tuples_final.csv"):
 	entities_type = dict()
@@ -149,17 +167,17 @@ def writeTuples(consolidade_tuples, file_out="./prediction/consolidade_tuples_fi
 	file.close()
 
 if __name__ == '__main__':
+	if len(sys.argv) < 4:
+		print("ERRO: A entrada deve ser composta pelos parâmetros: ann_file, txt_file, out_file\n")
+		print("\t ann_file: É o caminho do arquivo de saída do openNLP com as entidades anotadas.")
+		print("\t txt_file: É o caminho do arquivo de texto que gerou a anotação do arquivo ann.")
+		print("\t out_file: É o caminho do arquivo de saída no formato csv com as features extraídas.")
+		print("\t\t   Este arquivo, juntamente com o arquivo ann deverão ser passados para o extrator de relações.\n")
+		exit(1)
 
-	annFiles = ['./wikipedia/ditadura_no_brasil_1.ann']#, './wikipedia/ditadura_no_brasil_2.ann', './wikipedia/ditadura_no_brasil_3.ann', './wikipedia/ditadura_no_brasil_4.ann']
-	txtFiles = ['./wikipedia/ditadura_no_brasil_1.txt']#, './wikipedia/ditadura_no_brasil_2.txt', './wikipedia/ditadura_no_brasil_3.txt', './wikipedia/ditadura_no_brasil_4.txt']
 
-	for i in range(len(annFiles)):
-		tuples.clear()
-		ann = [annFiles[i]]
-		txt = [txtFiles[i]]
+	build_combinations([sys.argv[1]], [sys.argv[2]])
 
-		build_combinations(ann, txt)
+	consolidate(write_dictionary=None)
 
-		consolidate(str(i))
-
-	writeTuples(consolidade_tuples, "./prediction/ditadura_no_brasil_1.csv")
+	writeTuples(consolidade_tuples, sys.argv[3])
