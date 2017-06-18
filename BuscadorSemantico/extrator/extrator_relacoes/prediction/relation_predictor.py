@@ -1,4 +1,5 @@
 import csv
+import sys
 import numpy as np
 from sklearn.naive_bayes import GaussianNB
 from sklearn import svm
@@ -62,7 +63,7 @@ def balanced_data(data):
 
 	return np.array(new_data[:])
 
-def split(data, size=.8):
+def split(data, size=.3):
 	np.random.shuffle(data)
 	train = data[:int(len(data)*size)]
 	test = data[len(train):]
@@ -124,7 +125,7 @@ def save_model(clf, path="model.pkl"):
 def load_model(path="model.plk"):
 	return joblib.load(path) 
 
-def main(build=None, model="svm", csv_file="./consolidade_tuples_final.csv"):
+def main(build=None, model="svm", csv_file="./consolidade_tuples_final.csv", out_file="saida.ann"):
 	if build:
 		if model == "bayes":
 			print("Realizando predição utilizando o Naive Bayes")
@@ -161,32 +162,42 @@ def main(build=None, model="svm", csv_file="./consolidade_tuples_final.csv"):
 	else:
 		if model == "bayes":
 			print("Realizando predição utilizando o Naive Bayes")
-			data, rel = load_csv_for_predict(csv_file, result=True)
+			# data, rel = load_csv_for_predict(csv_file, result=True)
+			data = load_csv_for_predict(csv_file, result=None)
 
 			model = load_model("./models/bayes/bayes_model.plk")
 			predicted = model.predict(data[:, 2:])
 
-			write_prediction("ditadura_no_brasil_1_bayes.ann", data, predicted)
+			write_prediction(out_file, data, predicted)
 
-			calc_errors(predicted, rel)
-			confusion_matrix(predicted, rel)
+			# calc_errors(predicted, rel)
+			# confusion_matrix(predicted, rel)
 
 		elif model == "svm":
 			print("Realizando predição utilizando o SVM")
-			data, rel = load_csv_for_predict(csv_file, result=True)
+			# data, rel = load_csv_for_predict(csv_file, result=True)
+			data = load_csv_for_predict(csv_file, result=None)
 
 			clf = load_model("./models/svm/svm_model.plk")
 
 			predicted = clf.predict(data[:-1, 2:])
 
-			write_prediction("ditadura_no_brasil_1_svm.ann", data, predicted)
+			write_prediction(out_file, data, predicted)
 			
-			calc_errors(predicted, rel)
-			confusion_matrix(predicted, rel)
+			# calc_errors(predicted, rel)
+			# confusion_matrix(predicted, rel)
 
 		else:
 			print("Os modelos disponíveis são: bayes e svm")
 			exit(1)
 
 if __name__ == '__main__':
-	main(build=None, model="bayes", csv_file="./ditadura_no_brasil_1.csv")
+	if len(sys.argv) < 4:
+		print("ERRO: A entrada deve ser composta pelos parâmetros: model, csv_file, out_file\n")
+		print("\t model:\t   Assume os valores 'bayes' e 'svm'")
+		print("\t csv_file: É o caminho do arquivo de entrada para ser realizada a predição")
+		print("\t out_file: É o caminho do arquivo de saída com as relações anotadas.")
+		print("\t\t   Este arquivo deve ser o arquivo com as entidades anotadas de saida do openNLP.\n")
+		exit(1)
+
+	main(build=None, model=sys.argv[1], csv_file=sys.argv[2], out_file=sys.argv[3])
