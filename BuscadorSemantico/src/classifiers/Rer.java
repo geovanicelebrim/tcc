@@ -9,20 +9,16 @@ import java.io.InputStreamReader;
 public class Rer {
 	
 	public static void extractRelations (String txtFile, String annFile) {
-		extractFeatures (txtFile, annFile);
-	}
-	
-	public static void extractFeatures (String txtFile, String annFile) {
+		String csvFile = extractFeatures (txtFile, annFile);
 		
 		ProcessBuilder builder = null;
 		Process process = null;
 		
 		builder = new ProcessBuilder(
-					"python3.5", "csv.py", 
-					annFile, txtFile, txtFile + ".temp.csv");
+					"python3.5", "relation_predictor.py", 
+					"svm", csvFile, annFile);
 		
-		//Diretorio com o script ner.py
-		builder.directory(new File("/home/geovani/git/tcc/BuscadorSemantico/extrator/extrator_relacoes/"));
+		builder.directory(new File("/home/geovani/git/tcc/BuscadorSemantico/extrator/extrator_relacoes/prediction/"));
 		
 		builder.redirectErrorStream(true);
 			
@@ -42,5 +38,39 @@ public class Rer {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private static String extractFeatures (String txtFile, String annFile) {
+		
+		ProcessBuilder builder = null;
+		Process process = null;
+		String fileOut = txtFile + ".temp.csv";
+		
+		builder = new ProcessBuilder(
+					"python3.5", "csv.py", 
+					annFile, txtFile, fileOut);
+		
+		//Diretorio com o script ner.py
+		builder.directory(new File("/home/geovani/git/tcc/BuscadorSemantico/extrator/extrator_relacoes/"));
+		
+		builder.redirectErrorStream(true);
+			
+		try {
+				
+			process = builder.start();
+				
+			InputStream stdout = process.getInputStream ();
+
+			BufferedReader reader = new BufferedReader (new InputStreamReader(stdout));
+
+			String line;
+				
+			while ((line = reader.readLine ()) != null)
+		   		System.out.println ("Fer: " + line);
+				
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return fileOut;
 	}
 }
