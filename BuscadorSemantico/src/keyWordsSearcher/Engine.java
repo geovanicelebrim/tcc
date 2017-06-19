@@ -130,7 +130,7 @@ public class Engine {
 		return new SimpleResults(title, r.getDocumentName(), slice, author, source, r.getScore());
 	}
 
-	private static String searchTitle(String documentName) throws DatabaseConnectionException {
+	public static String searchTitle(String documentName) throws DatabaseConnectionException {
 		Neo4j neo4j = new Neo4j();
 		String cypherQuery = "match (d:Arquivo) where d.nome = \"" + documentName.replace(".txt", "")
 				+ "\" return d.titulo as titulo";

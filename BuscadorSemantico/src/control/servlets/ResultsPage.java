@@ -21,6 +21,7 @@ import entity.results.SimpleResults;
 import exception.DatabaseConnectionException;
 import exception.ErrorFileException;
 import exception.InvalidQueryException;
+import keyWordsSearcher.Engine;
 
 /**
  * Controlador Servlet responsável pela página de resultados.
@@ -69,8 +70,12 @@ public class ResultsPage extends HttpServlet {
 			}
 	
 			//TODO acrescentar título e autor para a função de citar
-			//TODO remover o "replace" do nome futuramente 
-			request.setAttribute("title", viewDoc.split(".txt")[0].replace("-", " ").replaceAll("[0-9]*", ""));
+			try {
+				request.setAttribute("title", Engine.searchTitle(viewDoc.split(".txt")[0]));
+			} catch (DatabaseConnectionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			request.setAttribute("text", text);
 			
 			if(beginSlice != null && endSlice != null) {
