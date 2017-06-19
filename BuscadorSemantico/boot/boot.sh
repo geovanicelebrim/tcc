@@ -22,11 +22,13 @@ ann="$path/repository/ann"
 data="$path/repository/data"
 dictionary="$path/repository/dictionary"
 meta="$path/repository/meta"
+images="$path/repository/images"
 
 mkdir -p $ann
 mkdir -p $data
 mkdir -p $dictionary
 mkdir -p $meta
+mkdir -p $images
 #############################################
 
 #############################################
