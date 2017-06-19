@@ -185,7 +185,7 @@
 													<div class="media-left">
 														<a href="<% out.print("ResultsPage?" + "viewDoc=" + simpleResults.get(i).getDocumentName()); %>"> 
 														<img class="media-object img-rounded"
-															src="<% out.println("public/images/docs/" + simpleResults.get(i).getDocumentName().replace(".txt", ".png"));%>" alt="..." width="90" height="120" >
+															src="<% out.println("/images/" + simpleResults.get(i).getDocumentName().replace(".txt", ".jpg"));%>" alt="..." width="90" height="120" >
 														</a>
 													</div>
 													<div class="media-body">

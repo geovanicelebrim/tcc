@@ -207,7 +207,7 @@
 													<div class="media-left">
 														<a href="<% out.print(url); %>"> 
 															<img class="media-object img-rounded"
-																src="<% out.println("public/images/docs/" + documentResults.get(i).getDocumentName().replace(".txt", ".png"));%>" alt="..." width="90" height="120" >
+																src="<% out.println("/images/" + documentResults.get(i).getDocumentName().replace(".txt", ".jpg"));%>" alt="..." width="90" height="120" >
 														</a>
 													</div>
 													<div class="media-body">

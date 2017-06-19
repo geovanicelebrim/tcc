@@ -69,7 +69,7 @@ public class ManagementAddNewFilePage extends HttpServlet {
 			String option = request.getParameter("selectBoxExtraction");
 			
 			final String pathTextFile = Paths.REPOSITORY.toString() + "data";
-			final String pathImageFile = request.getServletContext().getRealPath("/public/images/docs");
+			final String pathImageFile = Paths.REPOSITORY + "images/";
 			
 			final Part textFilePart = request.getPart("textFile");
 			final Part imageFilePart = request.getPart("imageFile");
