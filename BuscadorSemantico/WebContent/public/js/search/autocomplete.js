@@ -1,7 +1,6 @@
 $(function() {
-	var availableTags = [ "Pessoa", "Evento", "Local", "Data", "AutorReporter",
-			"Pesquisador", "Organizacao", "Fonte", "TempoFonte", "URLFonte",
-			"Artefato", "Quantidade", "Grupo" ];
+	var availableTags = [ "Pessoa", "Evento", "Local", "Data", "Documento",
+			"Organizacao", "Quantidade", "Grupo", "Papel" ];
 
 	function split(val) {
 		return val.split(/--/);
