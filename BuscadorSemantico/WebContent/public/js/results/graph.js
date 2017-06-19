@@ -19,7 +19,7 @@ function drawGraph(edges, nodesIO) {
 					face: 'Ionicons',
 					code: '\uf47c',
 					size: 50,
-					color: '#57169a'
+					color: '#0000cc'
 				}
 			},
 			Pessoa: {
@@ -31,13 +31,22 @@ function drawGraph(edges, nodesIO) {
 					color: '#57169a'
 				}
 			},
+			Papel: {
+				shape: 'icon',
+				icon: {
+					face: 'Ionicons',
+					code: '\uf11f',
+					size: 50,
+					color: '#00cc99'
+				}
+			},
 			Organizacao: {
 				shape: 'icon',
 				icon: {
 					face: 'Ionicons',
 					code: '\uf276',
 					size: 50,
-					color: '#57169a'
+					color: '#006600'
 				}
 			},// ----------
 			Data: {
@@ -46,25 +55,16 @@ function drawGraph(edges, nodesIO) {
 					face: 'Ionicons',
 					code: '\uf2d1',
 					size: 50,
-					color: '#57169a'
-				}
-			},
-			Duvida: {
-				shape: 'icon',
-				icon: {
-					face: 'Ionicons',
-					code: '\uf445',
-					size: 50,
-					color: '#57169a'
+					color: '#003366'
 				}
 			},
 			Local: {
 				shape: 'icon',
 				icon: {
 					face: 'Ionicons',
-					code: '\uf455',
+					code: '\uf3a3',
 					size: 50,
-					color: '#57169a'
+					color: '#e60000'
 				}
 			},
 			Documento: {
@@ -76,31 +76,13 @@ function drawGraph(edges, nodesIO) {
 					color: '#f0a30a'
 				}
 			},
-			URLFonte: {
+			Arquivo: {
 				shape: 'icon',
 				icon: {
 					face: 'Ionicons',
-					code: '\uf347',
+					code: '\uf102',
 					size: 50,
-					color: '#57169a'
-				}
-			},
-			TempoFonte: {
-				shape: 'icon',
-				icon: {
-					face: 'Ionicons',
-					code: '\uf220',
-					size: 50,
-					color: '#57169a'
-				}
-			},
-			Fonte: {
-				shape: 'icon',
-				icon: {
-					face: 'Ionicons',
-					code: '\uf12e',
-					size: 50,
-					color: '#57169a'
+					color: '#fffff'
 				}
 			},
 			Evento: {
@@ -109,7 +91,7 @@ function drawGraph(edges, nodesIO) {
 					face: 'Ionicons',
 					code: '\uf11a',
 					size: 50,
-					color: '#57169a'
+					color: '#ff6600'
 				}
 			},
 			Quantidade: {
@@ -117,33 +99,6 @@ function drawGraph(edges, nodesIO) {
 				icon: {
 					face: 'Ionicons',
 					code: '\uf262',
-					size: 50,
-					color: '#57169a'
-				}
-			},
-			Artefato: {
-				shape: 'icon',
-				icon: {
-					face: 'Ionicons',
-					code: '\uf2ad',
-					size: 50,
-					color: '#57169a'
-				}
-			},
-			AutorReporter: {
-				shape: 'icon',
-				icon: {
-					face: 'Ionicons',
-					code: '\uf417',
-					size: 50,
-					color: '#57169a'
-				}
-			},
-			Pesquisador: {
-				shape: 'icon',
-				icon: {
-					face: 'Ionicons',
-					code: '\uf21f',
 					size: 50,
 					color: '#57169a'
 				}
