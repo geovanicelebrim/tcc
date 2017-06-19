@@ -73,17 +73,19 @@ public class ManagementAddNewFilePage extends HttpServlet {
 			
 			final Part textFilePart = request.getPart("textFile");
 			final Part imageFilePart = request.getPart("imageFile");
+			String name = ManagementAddNewFile.generateName(request);
 			
 			if (option.equals("withFile")) {
 				
 				final String pathAnnFile = Paths.REPOSITORY.toString() + "ann";
 				final Part annFilePart = request.getPart("annFile");
-
+				
 				try {
-					ManagementAddNewFile.addFile(pathTextFile, textFilePart, "txt");
-					ManagementAddNewFile.addFile(pathAnnFile, annFilePart, "ann");
-					ManagementAddNewFile.addFile(pathImageFile, imageFilePart, ".");
-					ManagementAddNewFile.createMetaFile(textFilePart, title, author, year, source);
+					
+					ManagementAddNewFile.addFile(name + "txt", pathTextFile, textFilePart, "txt");
+					ManagementAddNewFile.addFile(name + "ann", pathAnnFile, annFilePart, "ann");
+					ManagementAddNewFile.addFile(name + "jpg", pathImageFile, imageFilePart, "jpg");
+					ManagementAddNewFile.createMetaFile(name + "meta", textFilePart, title, author, year, source);
 					
 					@SuppressWarnings("unchecked")
 					ArrayList<String> files = (ArrayList<String>) request.getSession().getAttribute("files");
@@ -113,11 +115,11 @@ public class ManagementAddNewFilePage extends HttpServlet {
 				}
 			} else if (option.equals("automatic")) {
 				try {
-					String txtFile = ManagementAddNewFile.addFile(pathTextFile, textFilePart, "txt");
+					String txtFile = ManagementAddNewFile.addFile(name + "txt", pathTextFile, textFilePart, "txt");
 					Ner.extractEntities(txtFile, txtFile.replace("data", "ann").replace("txt", "ann"));
 					Rer.extractRelations(txtFile, txtFile.replace("data", "ann").replace("txt", "ann"));
-					ManagementAddNewFile.addFile(pathImageFile, imageFilePart, ".");
-					ManagementAddNewFile.createMetaFile(textFilePart, title, author, year, source);
+					ManagementAddNewFile.addFile(name + "jpg", pathImageFile, imageFilePart, "jpg");
+					ManagementAddNewFile.createMetaFile(name + "meta", textFilePart, title, author, year, source);
 					
 					@SuppressWarnings("unchecked")
 					ArrayList<String> files = (ArrayList<String>) request.getSession().getAttribute("files");

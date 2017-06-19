@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 
 import org.apache.lucene.index.IndexWriterConfig.OpenMode;
@@ -40,9 +41,8 @@ public class ManagementAddNewFile {
 		Importation.importOf(Paths.REPOSITORY.toString());
 	}
 
-	public static String addFile(final String path, final Part filePart, final String type) throws Exception {
+	public static String addFile(final String fileName, final String path, final Part filePart, final String type) throws Exception {
 
-		final String fileName = getFileName(filePart);
 		OutputStream out = null;
 		InputStream filecontent = null;
 		
@@ -73,9 +73,7 @@ public class ManagementAddNewFile {
 		return path + "/" + fileName;
 	}
 
-	public static void createMetaFile(Part textFilePart, String title, String author, String year, String source) throws Exception {
-		String fileName = getFileName(textFilePart).replace(".txt", ".meta");
-		
+	public static void createMetaFile(final String fileName, Part textFilePart, String title, String author, String year, String source) throws Exception {
 		String text = "Name\t" + fileName.replace(".meta", "") + "\nTitle\t" + title + "\nAuthor\t" + author + 
 				"\nYear\t" + year + "\nSource\t" + source + 
 				"\nPath\t" + Paths.PATH_DATA.toString() +
@@ -119,12 +117,14 @@ public class ManagementAddNewFile {
 		
 	}
 	
-	private static String getFileName(final Part part) {
-		for (String content : part.getHeader("content-disposition").split(";")) {
-			if (content.trim().startsWith("filename")) {
-				return content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
-			}
-		}
-		return null;
+	public static String generateName(HttpServletRequest request) {
+		java.util.Date currentTime = new java.util.Date();
+		
+		return request.getSession().getId() + "-" + 
+				(new java.sql.Timestamp(
+						currentTime.getTime()).toString().
+						replaceAll(" ", "-").
+						replaceAll(":", "-").
+						replaceAll("\\.", "-")) + ".";
 	}
 }
