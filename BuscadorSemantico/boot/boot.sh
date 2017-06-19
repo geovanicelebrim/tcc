@@ -33,7 +33,7 @@ mkdir -p $images
 
 #############################################
 cp "$DIR/stopWordsPt.txt" $dictionary
-cp "$DIR/rest_query_template.py" $path
+cp "$DIR/rest_query.py" $path
 #############################################
 
 #############################################
