@@ -10,15 +10,16 @@ package entity.results;
  */
 public class CypherResults {
 
-	private String label, slice, citations, relations, document;
+	private String label, slice, citations, relations, document, title;
 
-	public CypherResults(String label, String slice, String citations, String relations,
+	public CypherResults(String title, String label, String slice, String citations, String relations,
 			String document) {
 		this.label = label;
 		this.slice = slice;
 		this.citations = citations;
 		this.relations = relations;
 		this.document = document;
+		this.title = title;
 	}
 
 	/**
@@ -64,5 +65,9 @@ public class CypherResults {
 	 */
 	public String getDocument() {
 		return this.document;
+	}
+	
+	public String getTitle() {
+		return this.title;
 	}
 }

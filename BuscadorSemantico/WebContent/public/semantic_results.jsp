@@ -380,7 +380,7 @@
 											out.println("<td class=\"text-center\" > " + cypherResults.get(i).getSlice() + " </td>");
 							    			out.println("<td class=\"text-center\" > " + cypherResults.get(i).getCitations() + " </td>");
 							    			out.println("<td class=\"text-center\" > " + cypherResults.get(i).getRelations() + " </td>");
-							    			out.println("<td class=\"text-center\" > " + cypherResults.get(i).getDocument() + " </td>");
+							    			out.println("<td class=\"text-center\" > " + cypherResults.get(i).getTitle() + " </td>");
 							    			out.println("</tr>");
 										}
 							    	}

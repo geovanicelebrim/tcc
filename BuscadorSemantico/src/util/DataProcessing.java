@@ -149,7 +149,7 @@ public class DataProcessing {
 		while (result.hasNext()) {
 			
 			Record record = result.next();
-			String document = "", label = "", slice = "", citations = "", relations = "";
+			String document = "", label = "", slice = "", citations = "", relations = "", title = "";
 			
 			for (int i = 0; i < querySlice.size(); i++) {
 				
@@ -158,8 +158,9 @@ public class DataProcessing {
 				citations = record.get(queryCitations.get(i)).toString();
 				relations = record.get(queryRelations.get(i)).toString();
 				document = record.get(queryDocument).asString();
+				title = record.get("titulo").asString();
 				
-				cypherResult = new CypherResults(label, slice, citations, relations, document);
+				cypherResult = new CypherResults(title, label, slice, citations, relations, document);
 				mapResult.put(slice+document, cypherResult);
 			}
 		}
