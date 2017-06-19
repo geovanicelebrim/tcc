@@ -40,7 +40,7 @@ public class ManagementAddNewFile {
 		Importation.importOf(Paths.REPOSITORY.toString());
 	}
 
-	public static void addFile(final String path, final Part filePart, final String type) throws Exception {
+	public static String addFile(final String path, final Part filePart, final String type) throws Exception {
 
 		final String fileName = getFileName(filePart);
 		OutputStream out = null;
@@ -70,6 +70,7 @@ public class ManagementAddNewFile {
 				filecontent.close();
 			}
 		}
+		return path + "/" + fileName;
 	}
 
 	public static void createMetaFile(Part textFilePart, String title, String author, String year, String source) throws Exception {

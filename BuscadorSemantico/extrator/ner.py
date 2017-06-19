@@ -24,7 +24,7 @@ def processOriginalText(fileName):
 	output.close()
 
 
-def parseToAnn(nerText, fileName):
+def parseToAnn(nerText, fileName, fileOut):
 
 	nerText = regex1.sub(r'\n\n', nerText)
 
@@ -36,7 +36,7 @@ def parseToAnn(nerText, fileName):
 	begin = 0
 	end = 1
 
-	output = open(fileName.replace(".txt", ".ann"), "w", encoding="utf-8")
+	output = open(fileOut, "w", encoding="utf-8")
 
 	for text in pureText:
 		if count < size:
@@ -53,7 +53,7 @@ def parseToAnn(nerText, fileName):
 			
 	output.close()
 
-def ner(fileName):
+def ner(fileName, fileOut):
 
 	nerCommandLine = opennlpExecutablePath + ' TokenNameFinder '
 	nerCommandLine += modelPath + ' < '
@@ -69,7 +69,7 @@ def ner(fileName):
 	#nerOutput.write(nerProcessOutput)
 	#nerOutput.close()
 
-	parseToAnn(nerProcessOutput, fileName)
+	parseToAnn(nerProcessOutput, fileName, fileOut)
 
 parser = argparse.ArgumentParser(description='Named Entity Extractor')
 
@@ -77,6 +77,7 @@ parser.add_argument('-nlp', '--opennlp', help='path to the opennlp lib', require
 parser.add_argument('-m', '--model', help='path to the tokenNameFinder model', required=True)
 parser.add_argument('-f', '--file', help='path to a single file', required=False)
 parser.add_argument('-d', '--dir', help='path to a dir', required=False)
+parser.add_argument('-o', '--out', help='path to save ann file', required=True)
 
 args = vars(parser.parse_args())
 
@@ -100,6 +101,8 @@ else:
 
 filePath = args['file']
 dirPath = args['dir']
+fileOut = args['out']
+
 files = list()
 
 if dirPath is not None and os.path.isdir(dirPath):
@@ -115,12 +118,12 @@ if dirPath is not None and os.path.isdir(dirPath):
 	else:
 		for fileName in files:
 			processOriginalText(fileName)
-			ner(fileName)
+			ner(fileName, fileOut)
 
 elif filePath is not None and os.path.isfile(filePath) and filePath.endswith('.txt'):
 	filePath = os.path.abspath(filePath)
 	processOriginalText(filePath)
-	ner(filePath)
+	ner(filePath, fileOut)
 
 else:
 	print('error: either dir/file param not given or the text file provided in the -f/--file param is not valid!')

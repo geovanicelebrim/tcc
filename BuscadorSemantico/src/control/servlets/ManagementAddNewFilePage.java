@@ -15,6 +15,7 @@ import javax.servlet.http.Part;
 import org.apache.lucene.index.IndexWriterConfig.OpenMode;
 
 import DAO.Paths;
+import classifiers.Ner;
 import control.ManagementAddNewFile;
 import entity.User;
 
@@ -111,7 +112,9 @@ public class ManagementAddNewFilePage extends HttpServlet {
 				}
 			} else if (option.equals("automatic")) {
 				try {
-					ManagementAddNewFile.addFile(pathTextFile, textFilePart, "txt");
+					System.out.println("Método automático");
+					String fileName = ManagementAddNewFile.addFile(pathTextFile, textFilePart, "txt");
+					Ner.extractEntities(fileName, fileName.replace("data", "ann").replace("txt", "ann"));
 					ManagementAddNewFile.addFile(pathImageFile, imageFilePart, ".");
 					ManagementAddNewFile.createMetaFile(textFilePart, title, author, year, source);
 					
