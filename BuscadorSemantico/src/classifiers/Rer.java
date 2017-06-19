@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import util.Sys;
+
 public class Rer {
 	
 	public static void extractRelations (String txtFile, String annFile) {
@@ -36,6 +38,13 @@ public class Rer {
 		   		System.out.println ("Rer: " + line);
 				
 		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			Sys.command("rm " + csvFile);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
