@@ -117,8 +117,8 @@ public class Importation {
 					}
 				}
 
-				query = "match (e1) where not (e1)-[]-(:Documento) and e1.trecho = \"" + slice_entity1
-						+ "\" match (e2) where not (e2)-[]-(:Documento) and e2.trecho = \"" + slice_entity2
+				query = "match (e1) where not (e1)-[]-(:Arquivo) and e1.trecho = \"" + slice_entity1
+						+ "\" match (e2) where not (e2)-[]-(:Arquivo) and e2.trecho = \"" + slice_entity2
 						+ "\" create (e1)-[:" + relations.get(i).getTypeRelation() + "{id:\"" + relations.get(i).getID()
 						+ "\", nota:\"\"}]->(e2)";
 				relation_querys.put(query, query);
@@ -164,17 +164,17 @@ public class Importation {
 				}
 			}
 
-			// Cria a entidade documento
+			// Cria a entidade Arquivo
 			ArrayList<String> document_querys = new ArrayList<String>();
-			String query = "create(:Documento {tipo:\"Documento\", nome:\"" + metadataLines.get(0).split("\t")[1]
+			String query = "create(:Arquivo {tipo:\"Arquivo\", nome:\"" + metadataLines.get(0).split("\t")[1]
 					+ "\", titulo:\"" + metadataLines.get(1).split("\t")[1] + "\", autor:\""
 					+ metadataLines.get(2).split("\t")[1] + "\", ano:\"" + metadataLines.get(3).split("\t")[1]
 					+ "\", fonte:\"" + metadataLines.get(4).split("\t")[1] + "\", caminho:\""
 					+ metadataLines.get(5).split("\t")[1] + "\", dataModificacao:\""
 					+ metadataLines.get(6).split("\t")[1] + "\"})";
 			document_querys.add(query);
-			query = "match (d:Documento) where d.nome = \"" + metadataLines.get(0).split("\t")[1]
-					+ "\" match (n) where not (n)-[]-(:Documento) and not Labels(n) = \"Documento\" create (n)-[:Relacao]->(d)";
+			query = "match (d:Arquivo) where d.nome = \"" + metadataLines.get(0).split("\t")[1]
+					+ "\" match (n) where not (n)-[]-(:Arquivo) and not Labels(n) = \"Arquivo\" create (n)-[:Relacao]->(d)";
 			document_querys.add(query);
 
 			// Serializa os dados no banco

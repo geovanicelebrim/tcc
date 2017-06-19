@@ -35,6 +35,10 @@ public class Syntactic {
 		String in = query.replaceAll("( )+", " ").replaceAll("- -", "--")
 				.replaceAll(" -- ", "--").replaceAll("'", "\"");
 		String tokens[] = in.split("--");
+		
+		if (query.matches("\".*\"[^-]{0,2}")) {
+			throw new InvalidQueryException(query);
+		}
 
 		for (int i = 0; i < tokens.length; i++) {
 
@@ -76,7 +80,7 @@ public class Syntactic {
 		String tokens[] = in.split("--");
 
 		int count = 0;
-		String queryOut = "match (doc:Documento)-[relDoc]-";
+		String queryOut = "match (doc:Arquivo)-[relDoc]-";
 		String where = " where ";
 		String returnable = " return doc.caminho as caminho, doc.nome as nome, relDoc, ";
 		

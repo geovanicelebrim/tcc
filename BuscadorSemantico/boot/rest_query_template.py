@@ -27,7 +27,7 @@ for r in results.graph:
 			idNodes[n["id"]]
 			pass
 		except Exception, e:
-			if n["labels"][0] != "Documento":
+			if n["labels"][0] != "Arquivo":
 				node = "label: " + n["labels"][0] + ", id: " + n["id"] + ", trecho: " + n["properties"]["trecho"]
 				nodes.append(node)
 				idNodes[n["id"]] = n["id"]

@@ -24,7 +24,7 @@ public class DocumentsMetaData {
 	public static DocumentResult searchAuthorAndSource(String documentPath) throws DatabaseConnectionException {
 
 		Neo4j neo4j = new Neo4j();
-		String cypherQuery = "match (d:Documento) where d.caminho = \""
+		String cypherQuery = "match (d:Arquivo) where d.caminho = \""
 				+ documentPath + "\" return d.autor as autor, d.fonte as fonte";
 
 		StatementResult returned = neo4j.getSession().run(cypherQuery);

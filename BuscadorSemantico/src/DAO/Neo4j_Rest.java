@@ -30,13 +30,13 @@ public class Neo4j_Rest {
 		String retorned = null;
 		
 		try {
-//			File.writeFile( Paths.REST.toString() + "rest_query.py",
-//					template.replace("#user", "\"" + user + "\"")
-//							.replace("#password", "\"" + password + "\"")
-//							.replace("#query",
-//									"\"" + query.replace("\"", "\\\"") + "\""));
-//			retorned = Sys.command("python " + Paths.REST.toString() + "rest_query.py");
-			retorned = Sys.command("python " + Paths.REST.toString() + "test.py " + user + " " + password + " " + query);
+			File.writeFile( Paths.REST.toString() + "rest_query.py",
+					template.replace("#user", "\"" + user + "\"")
+							.replace("#password", "\"" + password + "\"")
+							.replace("#query",
+									"\"" + query.replace("\"", "\\\"") + "\""));
+			retorned = Sys.command("python " + Paths.REST.toString() + "rest_query.py");
+//			retorned = Sys.command("python " + Paths.REST.toString() + "test.py " + user + " " + password + " " + query);
 //			Sys.command("rm " + Paths.REST.toString() + "rest_query.py");
 		} catch (IOException e) {
 //			System.out.println(e);
