@@ -84,7 +84,7 @@ public class Syntactic {
 		int count = 0;
 		String queryOut = "match (doc:Arquivo)-[relDoc]-";
 		String where = " where ";
-		String returnable = " return doc.caminho as caminho, doc.nome as nome, relDoc, ";
+		String returnable = " return doc.caminho as caminho, doc.nome as nome, doc.titulo as titulo, relDoc, ";
 		
 		int nPositions = tokens.length;
 		int nPositionsUsed = 0;

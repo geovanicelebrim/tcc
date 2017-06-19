@@ -214,7 +214,7 @@
 														<h4 class="media-heading">
 															<a href="<%out.print(url);%>">
 																<%
-																	out.println(documentResults.get(i).getDocumentName().replace(".txt", ""));
+																	out.println(documentResults.get(i).getTitle());
 																%>
 															</a>
 														</h4>

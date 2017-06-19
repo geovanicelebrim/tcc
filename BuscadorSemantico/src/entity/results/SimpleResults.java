@@ -15,10 +15,10 @@ public class SimpleResults {
 	private String source;
 	private Float score;
 
-	public SimpleResults(String pathDocument, String slice, String author,
+	public SimpleResults(String title, String pathDocument, String slice, String author,
 			String source, Float score) {
 		this.pathDocument = pathDocument;
-		this.title = pathDocument.replaceAll(".txt", "");
+		this.title = title;
 		this.slice = slice;
 		this.author = author;
 		this.source = source;

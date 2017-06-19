@@ -11,6 +11,7 @@ import entity.Position;
  * 
  */
 public class DocumentResult {
+	private String title;
 	private String documentName;
 	private Position position;
 	private Integer beginSlice;
@@ -21,8 +22,9 @@ public class DocumentResult {
 	
 	private ArrayList<DocumentResult> children;
 
-	public DocumentResult(String documentName, Position position, String slice, Integer beginSlice, Integer endSlice,
+	public DocumentResult(String title, String documentName, Position position, String slice, Integer beginSlice, Integer endSlice,
 			String author, String source) {
+		this.title = title;
 		this.documentName = documentName;
 		this.position = position;
 		this.slice = slice;
@@ -105,7 +107,11 @@ public class DocumentResult {
 	public ArrayList<DocumentResult> getChildren() {
 		return this.children;
 	}
-
+	
+	public String getTitle() {
+		return this.title;
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		DocumentResult document = (DocumentResult) obj;

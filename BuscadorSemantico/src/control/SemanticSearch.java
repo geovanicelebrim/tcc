@@ -117,6 +117,7 @@ public class SemanticSearch {
 
 			String documentPath = record.get("caminho").asString();
 			String documentName = record.get("nome").asString() + ".txt";
+			String title = record.get("titulo").asString();
 			for (int i = 0; i < crusadersData.size(); i++) {
 
 				String text = File.readFile(documentPath + "/" + documentName);
@@ -125,8 +126,8 @@ public class SemanticSearch {
 				begin = DocumentsMetaData.approachingInitialIndex(text,
 						crusadersData.get(i).getBegin());
 				end = (begin + 250) >= text.length() ? DocumentsMetaData.endIndex(text, text.length() - 1) : DocumentsMetaData.endIndex(text, begin + 250);
-
-				DocumentResult documentResult = new DocumentResult(
+				
+				DocumentResult documentResult = new DocumentResult( title,
 						documentName, crusadersData.get(i), text.substring(
 								begin, end), begin, end, DocumentsMetaData
 								.searchAuthorAndSource(documentPath)
