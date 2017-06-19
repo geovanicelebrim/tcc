@@ -197,6 +197,7 @@
 									int end = (begin + resultsPerPage) > documentResults.size() ? documentResults.size() : (begin + resultsPerPage);
 									
 									for (int i = begin; i < end; i++) {
+										
 										String url = "ResultsPage?" + "viewDoc=" + documentResults.get(i).getDocumentName() + "&beginSlice=" + documentResults.get(i).getBeginSlice() + "&endSlice=" + documentResults.get(i).getEndSlice();
 
 							%>
@@ -229,6 +230,39 @@
 																out.println("<br><br>");
 															%>
 														</div>
+														<%
+															if (documentResults.get(i).getChildren().size() > 0) {
+														%>
+																<div class="panel-group" id="accordion">
+																		
+																	<div class="panel">
+																		<div class="panel-heading">
+																			<h4 class="panel-title">
+																				<a data-toggle="collapse" data-parent="#accordion" href="#collapse<% out.print(i); %>" style="font-size: 10pt;"><span id="info_1" class="glyphicon glyphicon-plus">
+																				</span>&nbsp; Mais resultados...</a>
+																			</h4>
+																		</div>
+																		<div id="collapse<% out.print(i); %>" class="panel-collapse collapse">
+																			<div class="panel-body">
+																				<%
+																					for (int j = 0; j < documentResults.get(i).getChildren().size(); j++) {
+																						String urlChildren = "ResultsPage?" + "viewDoc=" + 
+																												documentResults.get(i).getChildren().get(j).getDocumentName() + 
+																												"&beginSlice=" + documentResults.get(i).getChildren().get(j).getBeginSlice() + 
+																												"&endSlice=" + documentResults.get(i).getChildren().get(j).getEndSlice();
+																				%>
+																						<a href="<% out.print(urlChildren); %>"><% out.print(documentResults.get(i).getChildren().get(j).getSlice()); %></a>
+																						<hr>
+																				<%
+																					}
+																				%>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+														<%
+															}
+														%>
 													</div>
 												</div>
 											</div>

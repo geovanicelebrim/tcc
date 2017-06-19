@@ -133,8 +133,14 @@ public class SemanticSearch {
 								.getAuthor(), DocumentsMetaData
 								.searchAuthorAndSource(documentPath)
 								.getSource());
-
-				documentResults.add(documentResult);
+				
+				if (documentResults.contains(documentResult)) {
+					int index = documentResults.indexOf(documentResult);
+					
+					documentResults.get(index).addChildren(documentResult);
+				} else {
+					documentResults.add(documentResult);
+				}
 			}
 
 			position1.clear();

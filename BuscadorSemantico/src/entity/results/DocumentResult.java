@@ -1,5 +1,7 @@
 package entity.results;
 
+import java.util.ArrayList;
+
 import entity.Position;
 
 /**
@@ -16,6 +18,8 @@ public class DocumentResult {
 	private String slice;
 	private String author;
 	private String source;
+	
+	private ArrayList<DocumentResult> children;
 
 	public DocumentResult(String documentName, Position position, String slice, Integer beginSlice, Integer endSlice,
 			String author, String source) {
@@ -26,16 +30,19 @@ public class DocumentResult {
 		this.endSlice = endSlice;
 		this.author = author;
 		this.source = source;
+		this.children = new ArrayList<>();
 	}
 
 	public DocumentResult(String documentName, Position position) {
 		this.documentName = documentName;
 		this.position = position;
+		this.children = new ArrayList<>();
 	}
 
 	public DocumentResult(String author, String source) {
 		this.author = author;
 		this.source = source;
+		this.children = new ArrayList<>();
 	}
 
 	/**
@@ -90,7 +97,25 @@ public class DocumentResult {
 	public Integer getEndSlice() {
 		return this.endSlice;
 	}
+	
+	public void addChildren(DocumentResult document) {
+		this.children.add(document);
+	}
+	
+	public ArrayList<DocumentResult> getChildren() {
+		return this.children;
+	}
 
+	@Override
+	public boolean equals(Object obj) {
+		DocumentResult document = (DocumentResult) obj;
+		
+		if (document.getDocumentName().equals(this.documentName)) {
+			return true;
+		}
+		return false;
+	}
+	
 	@Override
 	public String toString() {
 		return "Nome: " + this.documentName + "\nPosicao: "
