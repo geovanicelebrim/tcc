@@ -125,7 +125,7 @@ def load_dictionary(path="dictionary.txt"):
 def consolidate(write_dictionary = None):
 
 	for i in range(len(tuples)):
-		entities, relations = getEntitiesAndRelations(tuples[i][0].replace(".txt", ".ann"))
+		entities, relations = getEntitiesAndRelations(tuples[i][0].replace(".txt", ".ann").replace("data", "ann"))
 
 		id_1 = entities[tuples[i][1]].split('\t')[0].replace("T", "")
 		id_2 = entities[tuples[i][2]].split('\t')[0].replace("T", "")
