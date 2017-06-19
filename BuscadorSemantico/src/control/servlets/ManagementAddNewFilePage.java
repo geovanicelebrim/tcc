@@ -16,6 +16,7 @@ import org.apache.lucene.index.IndexWriterConfig.OpenMode;
 
 import DAO.Paths;
 import classifiers.Ner;
+import classifiers.Rer;
 import control.ManagementAddNewFile;
 import entity.User;
 
@@ -112,9 +113,9 @@ public class ManagementAddNewFilePage extends HttpServlet {
 				}
 			} else if (option.equals("automatic")) {
 				try {
-					System.out.println("Método automático");
-					String fileName = ManagementAddNewFile.addFile(pathTextFile, textFilePart, "txt");
-					Ner.extractEntities(fileName, fileName.replace("data", "ann").replace("txt", "ann"));
+					String txtFile = ManagementAddNewFile.addFile(pathTextFile, textFilePart, "txt");
+					Ner.extractEntities(txtFile, txtFile.replace("data", "ann").replace("txt", "ann"));
+					Rer.extractRelations(txtFile, txtFile.replace("data", "ann").replace("txt", "ann"));
 					ManagementAddNewFile.addFile(pathImageFile, imageFilePart, ".");
 					ManagementAddNewFile.createMetaFile(textFilePart, title, author, year, source);
 					
