@@ -35,16 +35,18 @@ public class Syntactic {
 		String in = query.replaceAll("( )+", " ").replaceAll("- -", "--")
 				.replaceAll(" -- ", "--").replaceAll("'", "\"");
 		String tokens[] = in.split("--");
-		
-		if (query.matches("\".*\"[^-]{0,2}")) {
-			throw new InvalidQueryException(query);
-		}
 
 		for (int i = 0; i < tokens.length; i++) {
 
 			if (tokens[i].matches("( )*[A-z]+( )*:( )*\".*\"( )*")) {
+				if (tokens[i].matches("( )*[A-z]+( )*:( )*\".*\"( )*.+")) {
+					throw new InvalidQueryException(tokens[i]);
+				}
 				// System.out.println("Ok (Entidade:Where)");
 			} else if (tokens[i].matches("( )*\".*\"( )*")) {
+				if (tokens[i].matches("( )*\".*\"( )*.+")) {
+					throw new InvalidQueryException(tokens[i]);
+				}
 				// System.out.println("Ok (Where)");
 			} else if (tokens[i].matches("( )*[A-z]+( )*")) {
 				// System.out.println("Ok (Entidade)");
