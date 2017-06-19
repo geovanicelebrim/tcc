@@ -2,12 +2,15 @@
 # -*- coding: utf-8 -*-
 
 #https://neo4j-rest-client.readthedocs.io/en/latest/queries.html
-
+import sys
 from neo4jrestclient.client import GraphDatabase
 
-user = #user
-password = #password
-query = #query
+user = sys.argv[1]
+password = sys.argv[2]
+query = ""
+
+for i in range(3,len(sys.argv)):
+	query += sys.argv[i] + " "
 
 url = "http://localhost:7474/db/data/"
 
