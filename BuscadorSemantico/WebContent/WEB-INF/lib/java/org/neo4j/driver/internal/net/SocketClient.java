@@ -264,7 +264,6 @@ public class SocketClient
 
     private static class ChannelFactory
     {
-        @SuppressWarnings("resource")
 		public static ByteChannel create( BoltServerAddress address, SecurityPlan securityPlan, Logger logger )
                 throws IOException, GeneralSecurityException
         {

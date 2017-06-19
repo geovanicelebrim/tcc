@@ -228,7 +228,7 @@
 											<div style="width: 10em;">
 												<textarea id="textboxManagement" hidden="true"><% out.print(csv); %></textarea> 
 												<button class="btn btn-default" style="width: 100%;" id="createManagement">Generate file</button> 
-												<a class="btn btn-info" download="logManagement.csv" id="downloadlinkManagement" style="display: none">Download</a>
+												<a class="btn btn-info" id="downloadlinkManagement" style="display: none">Download</a>
 											</div>
 											
 											<script type="text/javascript">											
@@ -329,7 +329,7 @@
 											<div style="width: 10em;">
 												<textarea id="textboxSystem" hidden="true"><% out.print(csv); %></textarea> 
 												<button class="btn btn-default" style="width: 100%;" id="createSystem">Generate file</button> 
-												<a class="btn btn-info" download="logSystem.csv" id="downloadlinkSystem" style="display: none">Download</a>
+												<a class="btn btn-info" id="downloadlinkSystem" style="display: none">Download</a>
 											</div>
 											
 											<script type="text/javascript">

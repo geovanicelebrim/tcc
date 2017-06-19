@@ -21,12 +21,6 @@ public class Importation {
 
 	public static void importOf(String path) throws IOException, DatabaseConnectionException, Exception {
 		
-//		ArrayList<String> filesToExtract =  getFilesToEntityExtract(path);
-//		
-//		if (filesToExtract.size() > 0) {
-//			// TODO construir métodos responsáveis por realizar a extração automática
-//			throw new Exception("A importação não será realizada pois foi adicionado arquivos para serem extraídos automaticamente. Esta funcionalidade ainda está em fase de construção.");
-//		}
 		// Obtém os arquivos .ann
 		File files[] = DAO.File.listFilesOfType(path + "ann/", ".ann");
 		int countFile = 1;
@@ -219,28 +213,6 @@ public class Importation {
 			countFile++;
 		}
 
-	}
-
-	private static ArrayList<String> getFilesToEntityExtract(String path) {
-		File metaFiles[] = DAO.File.listFilesOfType(path + "meta/", ".meta");
-		File annotationFiles[] = DAO.File.listFilesOfType(path + "ann/", ".ann");
-		ArrayList<String> filesToExtract = new ArrayList<>();
-		
-		if (metaFiles.length > 0) {
-			for (int i = 0; i < metaFiles.length; i++) {
-				if (annotationFiles.length > 0) {
-					for (int j = 0; j < annotationFiles.length; j++) {
-						if (!metaFiles[i].getName().replaceAll(".meta", "").equals(annotationFiles[j].getName().replaceAll(".ann", ""))) {
-							filesToExtract.add(metaFiles[i].getName().replaceAll(".meta", ".txt"));
-						}
-					}
-				} else {
-					filesToExtract.add(metaFiles[i].getName().replaceAll(".meta", ".txt"));
-				}
-			}
-		}
-		
-		return filesToExtract;
 	}
 	
 	private static void moveImportedFile(String path, String fileName) throws IOException {
